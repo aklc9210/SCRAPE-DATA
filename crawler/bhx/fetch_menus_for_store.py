@@ -1,6 +1,6 @@
 from curl_cffi.requests import Session
 import asyncio
-from token_interceptor import get_headers
+from crawler.bhx.token_interceptor import get_headers
 
 session = Session(impersonate="chrome110")
 MENU_API_URL = "https://apibhx.tgdd.vn/Menu/GetMenuV2"

@@ -1,12 +1,14 @@
 import pandas as pd
 import asyncio
 from curl_cffi.requests import Session
-from token_interceptor import BHXTokenInterceptor, get_headers
-from fetch_store_by_province import fetch_stores_async
-from fetch_full_location import FULL_API_URL
-from fetch_menus_for_store import fetch_menu_for_store
+from crawler.bhx.token_interceptor import BHXTokenInterceptor, get_headers
+from crawler.bhx.fetch_store_by_province import fetch_stores_async
+from crawler.bhx.fetch_full_location import FULL_API_URL
+from crawler.bhx.fetch_menus_for_store import fetch_menu_for_store
+from db import MongoDB
 
 session = Session(impersonate="chrome110")
+db = MongoDB.get_db()
 
 # Valid categories
 valid_titles = set([
@@ -230,8 +232,8 @@ class BHXDataFetcher:
             provinces = loc_data.get("provinces", [])
             print(f"Found {len(provinces)} provinces.")
             
-            # Export provinces.csv while we have the data (change to mongodb later)
-            self.export_provinces_csv(loc_data)
+            # Upsert chain to db
+            self.upsert_db(provinces)
             
         except Exception as e:
             print(f"Error fetching provinces: {e}")
@@ -261,8 +263,29 @@ class BHXDataFetcher:
                 )
                 
                 for s in stores:
+                    ward_id = s.get('wardId', 0)
+                    district_id = s.get('districtId', 0)
+                    store_id = s.get('storeId', 0)
+
+                    print("store_id:", store_id, "ward_id:", ward_id, "district_id:", district_id, "province_id:", prov_id)
+
                     s["province_id"] = prov_id
                     s["province_name"] = prov_name
+
+                    # fetch products for each store
+                    # links = db.category.find({"links": {"$exists": True}})
+                    # for category in links:
+                    #     products = self.fetch_product_info(
+                    #         province_id=prov_id,
+                    #         ward_id=ward_id,
+                    #         district_id=district_id,
+                    #         store_id=store_id,
+                    #         category_url=category
+                    #     )
+
+                    # print(f"  • Store {store_id} ({s.get('storeName', 'Unknown')}) has {len(products)} products.")
+                
+                # Upsert store data
                     
                 all_records.extend(stores)
                 print(f"✓ Found {len(stores)} stores in {prov_name}")
@@ -270,44 +293,32 @@ class BHXDataFetcher:
             except Exception as e:
                 print(f"✗ Error fetching stores for {prov_name}: {e}")
                 continue
-                
-            # fetch data menus with each store
-            for s in stores:
-                ward_id = s.get('wardId', 0)
-                store_id = s.get('storeId')
+            
+        # fetch menu -> get categories
+        menus = await fetch_menu_for_store(3, 2087, 4946, self.token, self.deviceid)
+        for menu in menus:
+            print(f"Danh mục cha: {menu['name']}")
+            
+            for child in menu.get("childrens", []):
+                category = categories_mapping.get(child['name'])
 
-                s['province_id'] = prov_id
-                s['province_name'] = prov_name
-                s['ward_id'] = ward_id
-                s['store_id'] = store_id
+                if child['name'].lower() in valid_titles:
+                    catergories.append({
+                        "name": category,
+                        "link": child['url']
+                    })
+                    print(f"Category: {category} - {child['name']}")
+                else:
+                    print(f"{child['name']} (ID: {child['id']}) - bỏ qua")
 
-                # fetch menu -> get categories
-                menus = await fetch_menu_for_store(prov_id, ward_id, store_id, self.token, self.deviceid)
-                for menu in menus:
-                    print(f"Danh mục cha: {menu['name']}")
-                    
-                    for child in menu.get("childrens", []):
-                        category = categories_mapping.get(child['name'])
-
-                        if child['name'] in valid_titles:
-                            catergories.append({
-                                "name": category,
-                                "link": child['url']
-                            })
-                            print(f"Category: {category} - {child['name']}")
-                        else:
-                            print(f"{child['name']} (ID: {child['id']}) - bỏ qua")
-
-                print(f"  • Menu fetched for store {store_id}")
-
-            all_records.extend(stores)
+        print(f"  • Menu fetched for store {store_id}")
 
         print(f"\n=== Fetching completed! Total stores: {len(all_records)} ===")
         return all_records, catergories
     
-    # fetch product info -> after save chain, store and category to mongodb
-    def fetch_product_info(self, province_id, ward_id, district_id, store_id, isMobile=True, page_size=50):
-        headers = get_headers(self.token, self.deviceid, isMobile)
+    # fetch product info -> later
+    def fetch_product_info(self, province_id, ward_id, district_id, store_id, category_url, isMobile=True, page_size=10):
+        headers = get_headers(self.token, self.deviceid)
         url = f"https://apibhx.tgdd.vn/Category/V2/GetCate?provinceId={province_id}&wardId={ward_id}&districtId={district_id}&storeId={store_id}&categoryUrl={category_url}&isMobile={isMobile}&isV2=true&pageSize={page_size}"
           
         try:
@@ -315,73 +326,80 @@ class BHXDataFetcher:
             if resp.status_code != 200:
                 raise Exception(f"Failed to fetch products: {resp.status_code}")
             
-            return resp.json().get("data", {}).get("products", [])
+            products = resp.json().get("data", {}).get("products", [])
+            total = resp.json().get("data", {}).get("total", 0)
+
+            list_unit = []
+            for product in products:
+                list_unit.append(product['unit'].lower())
+
+            print(f"Units: {set(list_unit)}")
+            
         
         except Exception as e:
             print(f"Error fetching products: {e}")
             return []
     
-    # export to csv -> change to mongodb later
-    def export_provinces_csv(self, loc_data):
-        """Export provinces, districts, wards to CSV files"""
+    # upsert chain to mongodb
+    def upsert_db(self, loc_data):
         try:
-            # Export provinces
-            provinces = loc_data.get("provinces", [])
+            chain_db = db.chain
+            provinces = loc_data
             if provinces:
-                df_provinces = pd.DataFrame(provinces)
-                df_provinces.to_csv("provinces.csv", index=False, encoding="utf-8-sig")
-                print(f"✓ Exported {len(provinces)} provinces to provinces.csv")
+                for prov in provinces:
+                    prov_id = prov.get("id")
+                    prov_name = prov.get("name", "")
+                    prov_district = prov.get("districts", [])
+                    
+                    chain_db.update_one(
+                        {"_id": prov_id},
+                        {"$set": {"name": prov_name, "district": prov_district}},
+                        upsert=True
+                    )
+                    print(f"✓ Upserted province: {prov_name} (ID: {prov_id})")
             
-            # Export districts
-            districts = loc_data.get("districts", [])
-            if districts:
-                df_districts = pd.DataFrame(districts)
-                df_districts.to_csv("districts.csv", index=False, encoding="utf-8-sig")
-                print(f"✓ Exported {len(districts)} districts to districts.csv")
-            
-            # Export wards
-            wards = loc_data.get("wards", [])
-            if wards:
-                df_wards = pd.DataFrame(wards)
-                df_wards.to_csv("wards.csv", index=False, encoding="utf-8-sig")
-                print(f"✓ Exported {len(wards)} wards to wards.csv")
-                
         except Exception as e:
-            print(f"Error exporting location data: {e}")
+            print(f"Error upserting data: {e}")
+
     
-    # save chain, store and category to csv
-    def save_to_csv(self, stores_data, filename="all_bhx_stores.csv"):
-        """Save stores data to CSV with proper column mapping"""
+    # upsert store to mongodb
+    def upsert_store_db(self, stores_data, filename="all_bhx_stores.csv"):
         if not stores_data:
             print("No data to save.")
             return None
             
-        print(f"Saving {len(stores_data)} stores to {filename}...")
-        
-        df = pd.json_normalize(stores_data)
-        
-        # rename fields
-        column_mapping = {
-            "storeId": "store_id",
-            "lat": "latitude", 
-            "lng": "longitude",
-            "storeLocation": "store_location",
-            "provinceId": "province_id_original",
-            "districtId": "district_id",
-            "wardId": "ward_id", 
-            "isStoreVirtual": "is_store_virtual",
-            "openHour": "open_hour",
-            "phone": "phone_number",
-            "status": "store_status"
-        }
-        
-        df.rename(columns=column_mapping, inplace=True)
-        
-        # Save to CSV
-        df.to_csv(filename, index=False, encoding="utf-8-sig")
-        print(f"✓ Data saved to {filename}")
-        
-        return df
+        print(f"Saving {len(stores_data)} stores to db...")
+
+        store_db = db.store
+        for store in stores_data:
+            store_id = store.get("storeId")
+            if not store_id:
+                continue
+            
+            # Prepare data for upsert
+            store_data = {
+                "store_id": store_id,
+                "store_name": store.get("storeName", ""),
+                "latitude": store.get("lat", 0.0),
+                "longitude": store.get("lng", 0.0),
+                "store_location": store.get("storeLocation", ""),
+                "province_id": store.get("provinceId", 0),
+                "district_id": store.get("districtId", 0),
+                "ward_id": store.get("wardId", 0),
+                "is_store_virtual": store.get("isStoreVirtual", False),
+                "open_hour": store.get("openHour", ""),
+                "phone_number": store.get("phone", ""),
+                "store_status": store.get("status", "")
+            }
+            
+            # Upsert to MongoDB
+            store_db.update_one(
+                {"store_id": store_id},
+                {"$set": store_data},
+                upsert=True
+            )
+
+        print(f"✓ Upserted {len(stores_data)} stores to MongoDB.")
     
     async def close(self):
         """Clean up resources"""
@@ -395,7 +413,7 @@ async def main():
         stores_data, categories = await fetcher.fetch_all_stores()
         
         if stores_data:
-            df = fetcher.save_to_csv(stores_data)
+            df = fetcher.upsert_store_db(stores_data)
             
             print(f"\n=== STORE SUMMARY ===")
             print(f"Total stores: {len(stores_data)}")
@@ -415,20 +433,27 @@ async def main():
         else:
             print("Failed to fetch stores data.")
 
+        # upsert categories to db
         if categories:
-            df = fetcher.save_to_csv(categories, filename="categories.csv")
-            print(f"\n=== CATEGORIES SUMMARY ===")
-            print(f"Total categories: {len(categories)}")
+            category_db = db.category
 
-            # Show top categories
-            category_counts = {}
-            for category in categories:
-                cat_name = category.get('name', 'Unknown')
-                category_counts[cat_name] = category_counts.get(cat_name, 0) + 1
-            sorted_categories = sorted(category_counts.items(), key=lambda x: x[1], reverse=True)
-            print("\nTop 10 categories by count:")
-            for cat, count in sorted_categories[:10]:
-                print(f"  {cat}: {count} items")
+            grouped = {}
+            for cat in categories:
+                name = cat.get('name')
+                link = cat.get('link')
+                if name and link:
+                    grouped.setdefault(name, []).append(link)
+
+            for name, links in grouped.items():
+                unique_links = list(dict.fromkeys(links))
+                category_db.update_one(
+                    {"name": name},
+                    {
+                        "$set": {"links": unique_links},
+                    },
+                    upsert=True
+                )
+            print(f"✓ Upserted {len(grouped)} distinct categories to MongoDB.")
             
     except Exception as e:
         print(f"Error in main: {e}")
