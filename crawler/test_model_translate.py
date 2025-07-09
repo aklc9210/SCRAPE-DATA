@@ -16,6 +16,10 @@ texts = [
     "en: We're on a journey to advance ..."
 ]
 
+texts = [
+    model_vi2en = AutoModelForSeq2SeqLM.from_pretrained("vinai/vinai-translate-vi2en-v2")
+]
+
 # tokenize và chuyển cả batch lên cùng device
 batch = tokenizer(texts, return_tensors="pt", padding=True).to(device)
 
