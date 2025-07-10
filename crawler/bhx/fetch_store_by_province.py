@@ -39,6 +39,9 @@ async def fetch_stores_async(province_id: int, token: str, deviceid: str,
             if not batch:
                 print(f"No more stores found on page {page_index}")
                 break
+
+            # for store in stores:
+
                 
             stores.extend(batch)
             print(f"Fetched {len(batch)} stores on page {page_index} for province {province_id}")

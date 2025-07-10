@@ -6,7 +6,7 @@ session = Session(impersonate="chrome110")
 MENU_API_URL = "https://apibhx.tgdd.vn/Menu/GetMenuV2"
 
 # Fetch menu and transform to categories
-async def fetch_menu_for_store(province_id, ward_id, store_id, token: str, deviceid: str, int=50):
+async def fetch_menu_for_store(province_id, ward_id, store_id, token: str, deviceid: str, int=10):
     header = get_headers(token, deviceid)
     menus = []
     page_index = 0
