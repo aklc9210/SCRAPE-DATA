@@ -408,6 +408,21 @@ class BHXDataFetcher:
         self.token = None
         self.deviceid = None
         self.interceptor = None
+
+        # --- Upsert các chuỗi cửa hàng vào db.chain ngay khi khởi tạo ---
+        chain_coll = db.chain
+        chains = [
+            {"code": "BHX",   "name": "Bách Hóa Xanh"},
+            {"code": "WM",    "name": "Winmart"}
+        ]
+        for chain in chains:
+            chain_coll.update_one(
+                {"code": chain["code"]},
+                {"$set": chain},
+                upsert=True
+            )
+            print(f"✓ Upserted chain: {chain['name']}") 
+        # -------------------------------------------------------------
     
     async def init_token(self):
         print("Initializing token interception...")
@@ -479,9 +494,16 @@ class BHXDataFetcher:
             
             loc_data = resp.json().get("data", {})
             provinces = loc_data.get("provinces", [])
+
+            # just get data in TPHCM
+            for province in provinces:
+                if province.get('name', "").strip() == "TP. Hồ Chí Minh":
+                    provinces = [province]
+                    break
+
             print(f"Found {len(provinces)} provinces.")
             
-            # Upsert chain to db
+            # Upsert province to db
             self.upsert_db(provinces)
             
         except Exception as e:
@@ -634,10 +656,10 @@ class BHXDataFetcher:
             print(f"Error fetching products: {e}")
             return []
     
-    # upsert chain to mongodb
+    # upsert province to mongodb
     def upsert_db(self, loc_data):
         try:
-            chain_db = db.chain
+            prov_db = db.province
             provinces = loc_data
             if provinces:
                 for prov in provinces:
@@ -645,7 +667,7 @@ class BHXDataFetcher:
                     prov_name = prov.get("name", "")
                     prov_district = prov.get("districts", [])
                     
-                    chain_db.update_one(
+                    prov_db.update_one(
                         {"_id": prov_id},
                         {"$set": {"name": prov_name, "district": prov_district}},
                         upsert=True

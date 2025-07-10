@@ -1,6 +1,12 @@
 from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
 
-uri = "mongodb+srv://n21dccn078:ABC12345678@storerecommender.w9auorn.mongodb.net/store_recommender?retryWrites=true&w=majority"
+load_dotenv()
+
+uri = os.getenv("MONGO_URI")
+if not uri:
+    raise RuntimeError("Missing MONGO_URI in environment")
 
 class MongoDB:
     _client = None
