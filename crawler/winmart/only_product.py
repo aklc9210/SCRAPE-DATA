@@ -31,8 +31,8 @@ class ProductOnlyFetcher:
             'normalized_name', 'description', 'brand_name', 'category_name', 
             'mapped_category', 'price', 'original_price', 'sale_price', 
             'has_discount', 'discount_percent', 'uom', 'uom_name', 
-            'quantity_per_unit', 'net_unit_value', 'sku', 'media_url',
-            'promotion', 'token_ngrams', 'url', 'date_begin', 'date_end'
+            'quantity_per_unit', 'net_unit_value', 'sku',
+            'token_ngrams', 'url', 'date_begin', 'date_end'
         ]
         
         product_count = 0
@@ -120,10 +120,8 @@ class ProductOnlyFetcher:
                 "quantity_per_unit": float(net_value) if net_value else 1.0,
                 "net_unit_value": normalized_net_value,
                 "sku": product.get("sku", ""),
-                "media_url": product.get("media_url", ""),
-                "promotion": "",  # WinMart doesn't have promotion text in current structure
+                "url": product.get("media_url", ""),
                 "token_ngrams": token_ngrams,
-                "url": "",  # WinMart doesn't have product URLs in current structure
                 "date_begin": "",
                 "date_end": "",
             }
@@ -144,8 +142,8 @@ class ProductOnlyFetcher:
             'normalized_name', 'description', 'brand_name', 'category_name', 
             'mapped_category', 'price', 'original_price', 'sale_price', 
             'has_discount', 'discount_percent', 'uom', 'uom_name', 
-            'quantity_per_unit', 'net_unit_value', 'sku', 'media_url',
-            'promotion', 'token_ngrams', 'url', 'date_begin', 'date_end'
+            'quantity_per_unit', 'net_unit_value', 'sku', 
+            'token_ngrams', 'url', 'date_begin', 'date_end'
         ]
         
         product_count = 0
