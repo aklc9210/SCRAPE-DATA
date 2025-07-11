@@ -1,81 +1,76 @@
+#!/usr/bin/env python3
+# test_all_categories.py
 
-# import time
-# import asyncio
-# from crawler.bhx.fetch_data import BHXDataFetcher, upsert_products_bulk
-# from db import MongoDB
+import asyncio
+from crawler.bhx.fetch_data import BHXDataFetcher, db
+from crawler.bhx.fetch_store_by_province import fetch_stores_async
 
-# # --- Thêm hàm đo hiệu năng crawl products cho category "Vegetables" tại TPHCM ---
-# async def test_product():
-#     """
-#     Measure the time to fetch all products in the 'Vegetables' category
-#     across all Bach Hoa Xanh stores in Ho Chi Minh City (province_id=3).
-#     """
-#     db = MongoDB.get_db()
-#     cat_doc = db.category.find_one({"name": "Vegetables"})
-#     links = cat_doc.get("links", []) if cat_doc else []
-#     if not links:
-#         print("No 'Vegetables' category found in DB.")
-#         return
+async def main():
+    # 1) Khởi tạo fetcher và intercept token
+    fetcher = BHXDataFetcher()
+    await fetcher.init_token()
 
-#     fetcher = BHXDataFetcher()
-#     await fetcher.init_token()         
+    # 2) Lấy danh sách stores ở TP. HCM (province_id = 3)
+    province_id = 3
+    district_id = 2087
+    ward_id = 27127
+    stores = await fetch_stores_async(
+        province_id=province_id,
+        token=fetcher.token,
+        deviceid=fetcher.deviceid,
+        district_id=district_id,
+        ward_id=ward_id,
+        page_size=100
+    )
 
-#     # Lấy stores ở TPHCM (province_id=3)
-#     stores = db.store.find({ "province_id": 3 })
+    if not stores:
+        print("❌ Không tìm thấy cửa hàng nào ở TP.HCM")
+        await fetcher.close()
+        return
 
-#     print("Store in TPHCM", stores)
+    # 3) Chọn cửa hàng đầu tiên để test
+    store = stores[0]
+    store_id   = store["storeId"]
+    ward_id    = store["wardId"]
+    district_id = store["districtId"]
+    print(f"🔎 Test crawl cửa hàng: {store.get('storeLocation')} (ID: {store_id})\n")
 
-#     start = time.perf_counter()
-#     total = 0
-#     all_products = []
-#     for s in stores:
-#         print("Store: ", s['store_location'])
-#         pid = 3
-#         wid = s.get("ward_id", 0)
-#         did = s.get("district_id", 0)
-#         sid = s["store_id"]
-#         for url in links:
-#             prods = await fetcher.fetch_product_info(
-#                 province_id=pid,
-#                 ward_id=wid,
-#                 district_id=did,
-#                 store_id=sid,
-#                 category_url=url,
-#                 isMobile=True,
-#                 page_size=10
-#             )
-#             all_products.extend(prods)
-#             total = len(prods)  
-#         await upsert_products_bulk(all_products, "Vegetables")
+    # 4) Đọc tất cả category từ MongoDB
+    categories = list(db.categories.find({}))
+    if not categories:
+        print("❌ Chưa có category nào trong DB.")
+        await fetcher.close()
+        return
 
-#     elapsed = time.perf_counter() - start
-#     print(f"Fetched {total} products for 'Vegetables' in HCMC "
-#         f"across stores in {elapsed:.2f}s.")
+    total_products = 0
 
-#     await fetcher.close()
-# # --- Kết thúc hàm test_product ---
+    # 5) Loop qua từng category
+    for cat_doc in categories:
+        cat_name = cat_doc["name"]
+        links    = cat_doc.get("links", [])
+        if not links:
+            continue
 
-# if __name__ == "__main__":
-    
-#     asyncio.run(test_product()) 
+        print(f"=== Category: {cat_name} ({len(links)} link) ===")
+        for url in links:
+            print(f" → Crawling: https://www.bachhoaxanh.com/{url}")
+            products = await fetcher.fetch_product_info(
+                province_id=province_id,
+                ward_id=ward_id,
+                district_id=district_id,
+                store_id=store_id,
+                category_url=url,
+                isMobile=True,
+                page_size=10
+            )
+            count = len(products)
+            total_products += count
+            print(f"   ✓ Lấy được {count} sản phẩm từ link này.\n")
 
+    print(f"🌟 Tổng cộng đã crawl {total_products} products cho cửa hàng {store_id}.\n")
 
-from db import MongoDB
- 
-db = MongoDB.get_db()
+    # 6) Đóng fetcher
+    await fetcher.close()
 
-def reset_category_collections():
-    """
-    Xóa (drop) hết tất cả các collection tương ứng với
-    các category đã lưu trong collection `category`.
-    """
-    for cat_doc in db.category.find({}, {"name": 1}):
-        # chuyển tên category thành tên collection (ví dụ: "Fresh Meat" -> "fresh_meat")
-        coll_name = cat_doc["name"].lower().replace(" ", "_")
-        if coll_name in db.list_collection_names():
-            print(f"Dropping collection: {coll_name}")
-            db.drop_collection(coll_name)
-
-if __name__ == '__main__':
-    reset_category_collections()
-
+if __name__ == "__main__":
+    asyncio.run(main())

@@ -500,35 +500,42 @@ async def fetch_category_products(url: str,
 
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=True)
-        page = await browser.new_page()
-        page.on("response", on_response)
 
-        await page.goto(url, wait_until="networkidle")
+        try:
+            page = await browser.new_page()
+            page.on("response", on_response)
+            try: 
 
-        # cuộn tuần tự cho tới khi không còn AjaxProduct mới
-        while total is None or len(products) < total:
-            # cuộn step lần, mỗi lần ½ viewport
-            await page.evaluate(f"""
-                () => {{
-                    const dist = window.innerHeight / 2;
-                    for (let i=0; i<{step}; i++) {{
-                        window.scrollBy(0, dist);
-                    }}
-                }}
-            """)
-
-            try:
-                # chỉ thoát khi KHÔNG có thêm AjaxProduct mới trong 'timeout' giây
-                await page.wait_for_event(
-                    "response", 
-                    predicate=lambda r: "/Category/V2/AjaxProduct" in r.url and r.status == 200,
-                    timeout=timeout * 1000
-                )
-
+                await page.goto(url,
+                                wait_until="domcontentloaded",
+                                timeout=60_000)
             except PlaywrightTimeout:
-                break
+                print(f"⚠️ Timeout khi goto {url}, tiếp tục cuộn…")
 
-        await browser.close()
+            # cuộn tuần tự cho tới khi không còn AjaxProduct mới
+            while total is None or len(products) < total:
+                # cuộn step lần, mỗi lần ½ viewport
+                await page.evaluate(f"""
+                    () => {{
+                        const dist = window.innerHeight / 2;
+                        for (let i=0; i<{step}; i++) {{
+                            window.scrollBy(0, dist);
+                        }}
+                    }}
+                """)
+
+                try:
+                    # chỉ thoát khi KHÔNG có thêm AjaxProduct mới trong 'timeout' giây
+                    await page.wait_for_event(
+                        "response", 
+                        predicate=lambda r: "/Category/V2/AjaxProduct" in r.url and r.status == 200,
+                        timeout=timeout * 1000
+                    )
+
+                except PlaywrightTimeout:
+                    break
+        finally:
+            await browser.close()
         return products
 
 
