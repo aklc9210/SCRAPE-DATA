@@ -1,206 +1,179 @@
-import pandas as pd
 import asyncio
+from typing import List
 from curl_cffi.requests import Session
-from token_interceptor import BHXTokenInterceptor, get_headers
-from fetch_store_by_province import fetch_stores_async
-from fetch_full_location import FULL_API_URL
-from fetch_menus_for_store import fetch_menu_for_store
+from crawler.bhx.token_interceptor import BHXTokenInterceptor, get_headers
+from crawler.bhx.fetch_store_by_province import fetch_stores_async
+from crawler.bhx.fetch_full_location import FULL_API_URL
+from crawler.bhx.fetch_menus_for_store import fetch_menu_for_store
+from db import MongoDB
+from process_data import (
+    VALID_TITLES, CATEGORIES_MAPPING, 
+    process_product_data, upsert_products_bulk,
+    parse_store_line, reset_category_collections
+)
+from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout
 
 session = Session(impersonate="chrome110")
+db = MongoDB.get_db()
 
-# Valid categories
-valid_titles = set([
-        # Thịt, cá, trứng
-        "Thịt heo", "Thịt bò", "Thịt gà, vịt, chim", "Thịt sơ chế", "Trứng gà, vịt, cút",
-        "Cá, hải sản, khô", "Cá hộp", "Lạp xưởng", "Xúc xích", "Heo, bò, pate hộp",
-        "Chả giò, chả ram", "Chả lụa, thịt nguội", "Xúc xích, lạp xưởng tươi",
-        "Cá viên, bò viên", "Thịt, cá đông lạnh",
+async def fetch_category_products(url: str, step: int = 3, timeout: float = 8.0):  
+    """
+    Thu thập sản phẩm BHX bằng cách intercept AjaxProduct API
+    Dựa trên phân tích thực tế: API POST https://apibhx.tgdd.vn/Category/AjaxProduct
+    """
+    products, seen = [], set()
+    total = None
+    consecutive_failures = 0
+    
+    print(f"🚀 Bắt đầu crawl: {url}")
 
-        # Rau, củ, quả, nấm
-        "Trái cây", "Rau lá", "Củ, quả", "Nấm các loại", "Rau, củ làm sẵn",
-        "Rau củ đông lạnh",
+    async def on_response(resp):
+        nonlocal total, consecutive_failures
+        
+        if "AjaxProduct" in resp.url and resp.status == 200:
+            try:
+                js = await resp.json()
+                data = js.get("data", {})
+                
+                if "total" in data:
+                    total = data["total"]
+                    print(f"📊 Tổng sản phẩm có sẵn: {total}")
+                
+                batch = data.get("products", [])
+                new_count = 0
+                
+                for p in batch:
+                    pid = p.get("id")
+                    if pid and pid not in seen:
+                        seen.add(pid)
+                        products.append(p)
+                        new_count += 1
+                
+                if new_count > 0:
+                    print(f"✅ +{new_count} sản phẩm mới (tổng: {len(products)}/{total or '?'})")
+                    consecutive_failures = 0
+                else:
+                    print(f"⚠️ Không có sản phẩm mới từ API response")
+                    consecutive_failures += 1
+                    
+            except Exception as e:
+                print(f"❌ Lỗi parse JSON từ AjaxProduct: {e}")
+                consecutive_failures += 1
 
-        # Đồ ăn chay
-        "Đồ chay ăn liền", "Đậu hũ, đồ chay khác", "Đậu hũ, tàu hũ",
+    async with async_playwright() as pw:
+        browser = await pw.chromium.launch(
+            headless=True,
+            args=['--no-sandbox', '--disable-dev-shm-usage']
+        )
+        
+        context = await browser.new_context(
+            user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        )
+        
+        page = await context.new_page()
+        page.on("response", on_response)
 
-        # Ngũ cốc, tinh bột
-        "Ngũ cốc", "Ngũ cốc, yến mạch", "Gạo các loại", "Bột các loại",
-        "Đậu, nấm, đồ khô",
+        # Load trang ban đầu
+        print("🔄 Đang load trang...")
+        try:
+            await page.goto(url, wait_until="domcontentloaded", timeout=20000)
+            print("✅ Trang đã load thành công")
+            await asyncio.sleep(3)
+            
+        except Exception as e:
+            print(f"❌ Load trang thất bại: {e}")
+            await browser.close()
+            return []
+        
+        # Scroll strategy: batch scroll để trigger API calls
+        scroll_count = 0
+        max_scrolls = 50
+        
+        print("🔄 Bắt đầu scroll theo pattern 2-3 scroll/API call...")
+        
+        while scroll_count < max_scrolls:
+            # Scroll 2-3 lần liên tiếp để trigger API
+            batch_scrolls = min(3, max_scrolls - scroll_count)
+            
+            print(f"🔄 Batch scroll #{scroll_count//3 + 1} (scrolls {scroll_count+1}-{scroll_count+batch_scrolls})")
+            
+            for i in range(batch_scrolls):
+                scroll_count += 1
+                
+                await page.evaluate("""
+                    () => {
+                        const scrollDistance = window.innerHeight * 0.8;
+                        window.scrollBy(0, scrollDistance);
+                    }
+                """)
+                
+                # Delay ngắn giữa các scroll trong batch
+                await asyncio.sleep(0.8)
+            
+            # Sau khi scroll batch, chờ API response với timeout dài hơn
+            print(f"📡 Chờ AjaxProduct response sau batch scroll...")
+            
+            try:
+                await asyncio.wait_for(
+                    page.wait_for_event(
+                        "response", 
+                        predicate=lambda r: "AjaxProduct" in r.url and r.status == 200
+                    ),
+                    timeout=12.0
+                )
+                print(f"✅ Nhận được AjaxProduct response")
+                consecutive_failures = 0
+                
+            except asyncio.TimeoutError:
+                print(f"⏰ Timeout sau batch scroll - có thể đã hết sản phẩm")
+                consecutive_failures += 1
+            
+            # Kiểm tra điều kiện dừng
+            if total and len(products) >= total:
+                print(f"🎉 Đã crawl đủ {total} sản phẩm!")
+                break
+                
+            if consecutive_failures >= 2:
+                print(f"⚠️ Dừng sau {consecutive_failures} batch không có response")
+                break
+            
+            # Delay giữa các batch để không spam
+            await asyncio.sleep(1.5)
 
-        # Mì, bún, phở, cháo
-        "Mì ăn liền", "Phở, bún ăn liền", "Hủ tiếu, miến", "Miến, hủ tiếu, phở khô",
-        "Mì Ý, mì trứng", "Cháo gói, cháo tươi", "Bún các loại", "Nui các loại",
-        "Bánh tráng các loại", "Bánh phồng, bánh đa", "Bánh gạo Hàn Quốc",
+        await browser.close()
+        
+        print(f"✅ Hoàn thành! Thu thập được {len(products)} sản phẩm")
+        print(f"📊 Chi tiết: {scroll_count} lần scroll, {consecutive_failures} lần thất bại cuối")
+        
+        return products
 
-        # Gia vị, phụ gia, dầu
-        "Nước mắm", "Nước tương", "Tương, chao các loại", "Tương ớt - đen, mayonnaise",
-        "Dầu ăn", "Dầu hào, giấm, bơ", "Gia vị nêm sẵn", "Muối",
-        "Hạt nêm, bột ngọt, bột canh", "Tiêu, sa tế, ớt bột", "Bột nghệ, tỏi, hồi, quế,...",
-        "Nước chấm, mắm", "Mật ong, bột nghệ",
-
-        # Sữa & các sản phẩm từ sữa
-        "Sữa tươi", "Sữa đặc", "Sữa pha sẵn", "Sữa hạt, sữa đậu", "Sữa ca cao, lúa mạch",
-        "Sữa trái cây, trà sữa", "Sữa chua ăn", "Sữa chua uống liền", "Bơ sữa, phô mai",
-
-        # Đồ uống
-        "Bia, nước có cồn", "Rượu", "Nước trà", "Nước ngọt", "Nước ép trái cây",
-        "Nước yến", "Nước tăng lực, bù khoáng", "Nước suối", "Cà phê hoà tan",
-        "Cà phê pha phin", "Cà phê lon", "Trà khô, túi lọc",
-
-        # Bánh kẹo, snack
-        "Bánh tươi, Sandwich", "Bánh bông lan", "Bánh quy", "Bánh snack, rong biển",
-        "Bánh Chocopie", "Bánh gạo", "Bánh quế", "Bánh que", "Bánh xốp",
-        "Kẹo cứng", "Kẹo dẻo, kẹo marshmallow", "Kẹo singum", "Socola",
-        "Trái cây sấy", "Hạt khô", "Rong biển các loại", "Rau câu, thạch dừa",
-        "Mứt trái cây", "Cơm cháy, bánh tráng",
-
-        # Món ăn chế biến sẵn, đông lạnh
-        "Làm sẵn, ăn liền", "Sơ chế, tẩm ướp", "Nước lẩu, viên thả lẩu",
-        "Kim chi, đồ chua", "Mandu, há cảo, sủi cảo", "Bánh bao, bánh mì, pizza",
-        "Kem cây, kem hộp", "Bánh flan, thạch, chè", "Trái cây hộp, siro",
-
-        "Cá mắm, dưa mắm", "Đường", "Nước cốt dừa lon", "Sữa chua uống", "Khô chế biến sẵn"
-    ])
-
-# Standard categories
-categories_mapping = {
-        # Thịt, cá, trứng
-        "Thịt heo": "Fresh Meat",
-        "Thịt bò": "Fresh Meat",
-        "Thịt gà, vịt, chim": "Fresh Meat",
-        "Thịt sơ chế": "Fresh Meat",
-        "Trứng gà, vịt, cút": "Fresh Meat",
-        "Cá, hải sản, khô": "Seafood & Fish Balls",
-        "Cá hộp": "Instant Foods",
-        "Lạp xưởng": "Cold Cuts: Sausages & Ham",
-        "Xúc xích": "Cold Cuts: Sausages & Ham",
-        "Heo, bò, pate hộp": "Instant Foods",
-        "Chả giò, chả ram": "Instant Foods",
-        "Chả lụa, thịt nguội": "Cold Cuts: Sausages & Ham",
-        "Xúc xích, lạp xưởng tươi": "Cold Cuts: Sausages & Ham",
-        "Cá viên, bò viên": "Instant Foods",
-        "Thịt, cá đông lạnh": "Instant Foods",
-
-        # Rau, củ, quả, nấm
-        "Trái cây": "Fresh Fruits",
-        "Rau lá": "Vegetables",
-        "Củ, quả": "Vegetables",
-        "Nấm các loại": "Vegetables",
-        "Rau, củ làm sẵn": "Vegetables",
-        "Rau củ đông lạnh": "Vegetables",
-
-        # Đồ ăn chay
-        "Đồ chay ăn liền": "Instant Foods",
-        "Đậu hũ, đồ chay khác": "Instant Foods",
-        "Đậu hũ, tàu hũ": "Instant Foods",
-
-        # Ngũ cốc, tinh bột
-        "Ngũ cốc": "Cereals & Grains",
-        "Ngũ cốc, yến mạch": "Cereals & Grains",
-        "Gạo các loại": "Grains & Staples",
-        "Bột các loại": "Grains & Staples",
-        "Đậu, nấm, đồ khô": "Grains & Staples",
-
-        # Mì, bún, phở, cháo
-        "Mì ăn liền": "Instant Foods",
-        "Phở, bún ăn liền": "Instant Foods",
-        "Hủ tiếu, miến": "Instant Foods",
-        "Miến, hủ tiếu, phở khô": "Instant Foods",
-        "Mì Ý, mì trứng": "Instant Foods",
-        "Cháo gói, cháo tươi": "Instant Foods",
-        "Bún các loại": "Instant Foods",
-        "Nui các loại": "Instant Foods",
-        "Bánh tráng các loại": "Instant Foods",
-        "Bánh phồng, bánh đa": "Instant Foods",
-        "Bánh gạo Hàn Quốc": "Cakes",
-
-        # Gia vị, phụ gia, dầu
-        "Nước mắm": "Seasonings",
-        "Nước tương": "Seasonings",
-        "Tương, chao các loại": "Seasonings",
-        "Tương ớt - đen, mayonnaise": "Seasonings",
-        "Dầu ăn": "Seasonings",
-        "Dầu hào, giấm, bơ": "Seasonings",
-        "Gia vị nêm sẵn": "Seasonings",
-        "Muối": "Seasonings",
-        "Hạt nêm, bột ngọt, bột canh": "Seasonings",
-        "Tiêu, sa tế, ớt bột": "Seasonings",
-        "Bột nghệ, tỏi, hồi, quế,...": "Seasonings",
-        "Nước chấm, mắm": "Seasonings",
-        "Mật ong, bột nghệ": "Seasonings",
-
-        # Sữa & các sản phẩm từ sữa
-        "Sữa tươi": "Milk",
-        "Sữa đặc": "Milk",
-        "Sữa pha sẵn": "Milk",
-        "Sữa hạt, sữa đậu": "Milk",
-        "Sữa ca cao, lúa mạch": "Milk",
-        "Sữa trái cây, trà sữa": "Milk",
-        "Sữa chua ăn": "Yogurt",
-        "Sữa chua uống liền": "Yogurt",
-        "Bơ sữa, phô mai": "Milk",
-
-        # Đồ uống
-        "Bia, nước có cồn": "Alcoholic Beverages",
-        "Rượu": "Alcoholic Beverages",
-        "Nước trà": "Beverages",
-        "Nước ngọt": "Beverages",
-        "Nước ép trái cây": "Beverages",
-        "Nước yến": "Beverages",
-        "Nước tăng lực, bù khoáng": "Beverages",
-        "Nước suối": "Beverages",
-        "Cà phê hoà tan": "Beverages",
-        "Cà phê pha phin": "Beverages",
-        "Cà phê lon": "Beverages",
-        "Trà khô, túi lọc": "Beverages",
-
-        # Bánh kẹo, snack
-        "Bánh tươi, Sandwich": "Cakes",
-        "Bánh bông lan": "Cakes",
-        "Bánh quy": "Cakes",
-        "Bánh snack, rong biển": "Snacks",
-        "Bánh Chocopie": "Cakes",
-        "Bánh gạo": "Cakes",
-        "Bánh quế": "Cakes",
-        "Bánh que": "Cakes",
-        "Bánh xốp": "Cakes",
-        "Kẹo cứng": "Candies",
-        "Kẹo dẻo, kẹo marshmallow": "Candies",
-        "Kẹo singum": "Candies",
-        "Socola": "Candies",
-        "Trái cây sấy": "Dried Fruits",
-        "Hạt khô": "Dried Fruits",
-        "Rong biển các loại": "Snacks",
-        "Rau câu, thạch dừa": "Fruit Jam",
-        "Mứt trái cây": "Fruit Jam",
-        "Cơm cháy, bánh tráng": "Snacks",
-
-        # Món ăn chế biến sẵn, đông lạnh
-        "Làm sẵn, ăn liền": "Instant Foods",
-        "Sơ chế, tẩm ướp": "Instant Foods",
-        "Nước lẩu, viên thả lẩu": "Instant Foods",
-        "Kim chi, đồ chua": "Instant Foods",
-        "Mandu, há cảo, sủi cảo": "Instant Foods",
-        "Bánh bao, bánh mì, pizza": "Instant Foods",
-        "Kem cây, kem hộp": "Ice Cream & Cheese",
-        "Bánh flan, thạch, chè": "Cakes",
-        "Trái cây hộp, siro": "Fruit Jam",
-
-        # Khác
-        "Cá mắm, dưa mắm": "Seasonings",
-        "Đường": "Seasonings",
-        "Nước cốt dừa lon": "Seasonings",
-        "Sữa chua uống": "Yogurt",
-        "Khô chế biến sẵn": "Instant Foods"
-    }
 
 class BHXDataFetcher:
     def __init__(self):
         self.token = None
         self.deviceid = None
         self.interceptor = None
+        
+        # Upsert chains to database
+        self._init_chains()
+    
+    def _init_chains(self):
+        """Initialize chain data in database"""
+        chain_coll = db.chains
+        chains = [
+            {"code": "BHX", "name": "Bách Hóa Xanh"},
+            {"code": "WM", "name": "Winmart"}
+        ]
+        for chain in chains:
+            chain_coll.update_one(
+                {"code": chain["code"]},
+                {"$set": chain},
+                upsert=True
+            )
+            print(f"✓ Upserted chain: {chain['name']}")
     
     async def init_token(self):
+        """Initialize BHX token for API calls"""
         print("Initializing token interception...")
         self.interceptor = BHXTokenInterceptor()
         self.token, self.deviceid = await self.interceptor.init_and_get_token()
@@ -211,14 +184,49 @@ class BHXDataFetcher:
         print(f"Token intercepted successfully!")
         return True
     
-    async def fetch_all_stores(self):
-        print('=== Starting BHX Stores Data Fetching ===')
+    async def _fetch_and_upsert_categories(self):
+        """Fetch menu categories and upsert to database"""
+        categories = []
+        menus = await fetch_menu_for_store(3, 2087, 4946, self.token, self.deviceid)
         
-        # Initialize token
-        await self.init_token() 
+        for menu in menus:
+            print(f"Danh mục cha: {menu['name']}")
+            
+            for child in menu.get("childrens", []):
+                category = CATEGORIES_MAPPING.get(child['name'])
+
+                if child['name'] in VALID_TITLES:
+                    categories.append({
+                        "name": category,
+                        "link": child['url']
+                    })
+                    print(f"Category: {category} - {child['name']}")
+                else:
+                    print(f"{child['name']} (ID: {child['id']}) - bỏ qua")
         
-        # Get full location data
-        print('Fetching provinces data...')
+        # Upsert categories to database
+        if categories:
+            category_db = db.categories
+            grouped = {}
+            for cat in categories:
+                name = cat.get('name')
+                link = cat.get('link')
+                if name and link:
+                    grouped.setdefault(name, []).append(link)
+
+            for name, links in grouped.items():
+                unique_links = list(dict.fromkeys(links))
+                category_db.update_one(
+                    {"name": name},
+                    {"$set": {"links": unique_links}},
+                    upsert=True
+                )
+            print(f"✓ Upserted {len(grouped)} distinct categories to MongoDB.")
+        
+        return categories
+    
+    async def _fetch_and_upsert_provinces(self):
+        """Fetch province data and upsert to database"""
         headers = get_headers(self.token, self.deviceid)
         
         try:
@@ -228,29 +236,155 @@ class BHXDataFetcher:
             
             loc_data = resp.json().get("data", {})
             provinces = loc_data.get("provinces", [])
+
+            # Filter for TPHCM only
+            for province in provinces:
+                if province.get('name', "").strip() == "TP. Hồ Chí Minh":
+                    provinces = [province]
+                    break
+
             print(f"Found {len(provinces)} provinces.")
             
-            # Export provinces.csv while we have the data (change to mongodb later)
-            self.export_provinces_csv(loc_data)
+            # Upsert provinces to database
+            self._upsert_provinces_to_db(provinces)
+            return provinces
             
         except Exception as e:
             print(f"Error fetching provinces: {e}")
-            return None
+            return []
+    
+    def _upsert_provinces_to_db(self, provinces):
+        """Upsert province data to database"""
+        try:
+            prov_db = db.provinces
+            for prov in provinces:
+                prov_id = prov.get("id")
+                prov_name = prov.get("name", "")
+                prov_district = prov.get("districts", [])
+                
+                prov_db.update_one(
+                    {"_id": prov_id},
+                    {"$set": {"name": prov_name, "district": prov_district}},
+                    upsert=True
+                )
+                print(f"✓ Upserted province: {prov_name} (ID: {prov_id})")
+        except Exception as e:
+            print(f"Error upserting provinces: {e}")
+    
+    def _upsert_stores_to_db(self, stores_data):
+        """Upsert store data to database"""
+        if not stores_data:
+            print("No store data to save.")
+            return
+            
+        print(f"Saving {len(stores_data)} stores to db...")
+        store_db = db.stores
+        
+        for store in stores_data:
+            store_id = store.get("storeId")
+            if not store_id:
+                continue
 
+            store_title = parse_store_line(store.get("storeLocation", ""))
+            
+            store_data = {
+                "store_id": store_id,
+                "store_name": store_title['store_name'],
+                "latitude": store.get("lat", 0.0),
+                "longitude": store.get("lng", 0.0),
+                "store_location": store_title['store_location'],
+                "province_id": store.get("provinceId", 0),
+                "province": store.get("province", ""),
+                "district_id": store.get("districtId", 0),
+                "district": store.get("district", ""),
+                "ward_id": store.get("wardId", 0),
+                "ward": store.get("ward", ""),
+                "is_store_virtual": store.get("isStoreVirtual", False),
+                "open_hour": store.get("openHour", ""),
+                "phone_number": store.get("phone", ""),
+                "store_status": store.get("status", ""),
+                "chain": "BHX"
+            }
+            
+            store_db.update_one(
+                {"store_id": store_id},
+                {"$set": store_data},
+                upsert=True
+            )
+
+        print(f"✓ Upserted {len(stores_data)} stores to MongoDB.")
+    
+    async def fetch_product_info(self, store_id: int, category_url: str):
+        """Fetch products for a specific store and category"""
+        full_url = f"https://www.bachhoaxanh.com/{category_url}"
+        print(f"→ Scrolling to load all products from {full_url}")
+        
+        # Get raw products from website
+        raw_products = await fetch_category_products(full_url, step=2, timeout=4.0)
+        print(f"✓ Gathered {len(raw_products)} products after scrolling.")
+        
+        try:
+            # Get category info from database
+            cat = db.categories.find_one({"links": category_url})
+            if not cat:
+                print(f"Category not found for URL: {category_url}")
+                return []
+            
+            # Process each product
+            product_records = []
+            for product in raw_products:
+                try:
+                    product_data = process_product_data(
+                        product=product,
+                        category_name=cat["name"],
+                        store_id=store_id
+                    )
+                    product_records.append(product_data)
+                except ValueError as e:
+                    print(f"Error processing product: {e}")
+                    continue
+
+            return product_records
+        
+        except Exception as e:
+            print(f"Error fetching products: {e}")
+            return []
+    
+    async def fetch_all_stores(self):
+        """Main method to fetch all stores and their products"""
+        print('=== Starting BHX Stores Data Fetching ===')
+        
+        # Initialize token
+        await self.init_token()
+        
+        # Fetch and setup categories
+        await self._fetch_and_upsert_categories()
+        
+        # Fetch and setup provinces
+        provinces = await self._fetch_and_upsert_provinces()
         if not provinces:
             print("No provinces found. Something went wrong.")
-            return None
+            return []
 
-        all_records = []
-        catergories = []
+        # Create mapping dictionaries
+        district_map = {}
+        ward_map = {}
+        for prov in provinces:
+            for dist in prov.get("districts", []):
+                district_map[dist["id"]] = dist["name"]
+                for ward in dist.get("wards", []):
+                    ward_map[ward["id"]] = ward["name"]
         
-        # fetch each province stores
+        all_records = []
+        
+        # Process each province
         for i, prov in enumerate(provinces, 1):
             prov_id = prov.get("id")
             prov_name = prov.get("name", "")
             print(f"\n[{i}/{len(provinces)}] Fetching stores for {prov_name} (ID: {prov_id})...")
             
             try:
+                # Fetch stores in province
                 stores = await fetch_stores_async(
                     province_id=prov_id,
                     token=self.token,
@@ -259,185 +393,91 @@ class BHXDataFetcher:
                     ward_id=0,
                     page_size=100
                 )
-                
-                for s in stores:
-                    s["province_id"] = prov_id
-                    s["province_name"] = prov_name
+
+                # Add location info to all stores
+                for store in stores:
+                    ward_id = store.get("wardId", 0)
+                    district_id = store.get("districtId", 0)
                     
+                    # Add location info to store
+                    store["province_id"] = prov_id
+                    store["province"] = prov_name
+                    store["district_id"] = district_id
+                    store["district"] = district_map.get(district_id, "")
+                    store["ward_id"] = ward_id
+                    store["ward"] = ward_map.get(ward_id, "")
+                
+                # ✅ SAVE STORES TO DATABASE
+                self._upsert_stores_to_db(stores)
+                print(f"✓ Saved {len(stores)} stores to database for {prov_name}")
+
+                # Process products for each store
+                for store in stores:
+                    store_id = store.get('storeId')
+                    
+                    # Fetch products for each category
+                    all_products = []
+                    for cat_doc in db.categories.find({}):
+                        for category_url in cat_doc.get("links", []):
+                            products = await self.fetch_product_info(store_id, category_url)
+                            all_products.extend(products)
+                        
+                        # Bulk upsert products for this category
+                        if all_products:
+                            await upsert_products_bulk(all_products, cat_doc['name'], db)
+                            all_products.clear()
+                
                 all_records.extend(stores)
                 print(f"✓ Found {len(stores)} stores in {prov_name}")
                 
             except Exception as e:
                 print(f"✗ Error fetching stores for {prov_name}: {e}")
                 continue
-                
-            # fetch data menus with each store
-            for s in stores:
-                ward_id = s.get('wardId', 0)
-                store_id = s.get('storeId')
-
-                s['province_id'] = prov_id
-                s['province_name'] = prov_name
-                s['ward_id'] = ward_id
-                s['store_id'] = store_id
-
-                # fetch menu -> get categories
-                menus = await fetch_menu_for_store(prov_id, ward_id, store_id, self.token, self.deviceid)
-                for menu in menus:
-                    print(f"Danh mục cha: {menu['name']}")
-                    
-                    for child in menu.get("childrens", []):
-                        category = categories_mapping.get(child['name'])
-
-                        if child['name'] in valid_titles:
-                            catergories.append({
-                                "name": category,
-                                "link": child['url']
-                            })
-                            print(f"Category: {category} - {child['name']}")
-                        else:
-                            print(f"{child['name']} (ID: {child['id']}) - bỏ qua")
-
-                print(f"  • Menu fetched for store {store_id}")
-
-            all_records.extend(stores)
 
         print(f"\n=== Fetching completed! Total stores: {len(all_records)} ===")
-        return all_records, catergories
-    
-    # fetch product info -> after save chain, store and category to mongodb
-    def fetch_product_info(self, province_id, ward_id, district_id, store_id, isMobile=True, page_size=50):
-        headers = get_headers(self.token, self.deviceid, isMobile)
-        url = f"https://apibhx.tgdd.vn/Category/V2/GetCate?provinceId={province_id}&wardId={ward_id}&districtId={district_id}&storeId={store_id}&categoryUrl={category_url}&isMobile={isMobile}&isV2=true&pageSize={page_size}"
-          
-        try:
-            resp = session.get(url, headers=headers, timeout=15)
-            if resp.status_code != 200:
-                raise Exception(f"Failed to fetch products: {resp.status_code}")
-            
-            return resp.json().get("data", {}).get("products", [])
-        
-        except Exception as e:
-            print(f"Error fetching products: {e}")
-            return []
-    
-    # export to csv -> change to mongodb later
-    def export_provinces_csv(self, loc_data):
-        """Export provinces, districts, wards to CSV files"""
-        try:
-            # Export provinces
-            provinces = loc_data.get("provinces", [])
-            if provinces:
-                df_provinces = pd.DataFrame(provinces)
-                df_provinces.to_csv("provinces.csv", index=False, encoding="utf-8-sig")
-                print(f"✓ Exported {len(provinces)} provinces to provinces.csv")
-            
-            # Export districts
-            districts = loc_data.get("districts", [])
-            if districts:
-                df_districts = pd.DataFrame(districts)
-                df_districts.to_csv("districts.csv", index=False, encoding="utf-8-sig")
-                print(f"✓ Exported {len(districts)} districts to districts.csv")
-            
-            # Export wards
-            wards = loc_data.get("wards", [])
-            if wards:
-                df_wards = pd.DataFrame(wards)
-                df_wards.to_csv("wards.csv", index=False, encoding="utf-8-sig")
-                print(f"✓ Exported {len(wards)} wards to wards.csv")
-                
-        except Exception as e:
-            print(f"Error exporting location data: {e}")
-    
-    # save chain, store and category to csv
-    def save_to_csv(self, stores_data, filename="all_bhx_stores.csv"):
-        """Save stores data to CSV with proper column mapping"""
-        if not stores_data:
-            print("No data to save.")
-            return None
-            
-        print(f"Saving {len(stores_data)} stores to {filename}...")
-        
-        df = pd.json_normalize(stores_data)
-        
-        # rename fields
-        column_mapping = {
-            "storeId": "store_id",
-            "lat": "latitude", 
-            "lng": "longitude",
-            "storeLocation": "store_location",
-            "provinceId": "province_id_original",
-            "districtId": "district_id",
-            "wardId": "ward_id", 
-            "isStoreVirtual": "is_store_virtual",
-            "openHour": "open_hour",
-            "phone": "phone_number",
-            "status": "store_status"
-        }
-        
-        df.rename(columns=column_mapping, inplace=True)
-        
-        # Save to CSV
-        df.to_csv(filename, index=False, encoding="utf-8-sig")
-        print(f"✓ Data saved to {filename}")
-        
-        return df
+        return all_records
     
     async def close(self):
         """Clean up resources"""
         if self.interceptor:
             await self.interceptor.close()
 
+
 async def main():
+    """Main entry point"""
     fetcher = BHXDataFetcher()
     
     try:
-        stores_data, categories = await fetcher.fetch_all_stores()
+        stores_data = await fetcher.fetch_all_stores()
         
         if stores_data:
-            df = fetcher.save_to_csv(stores_data)
-            
             print(f"\n=== STORE SUMMARY ===")
             print(f"Total stores: {len(stores_data)}")
             
             # Show stores count by province
             province_counts = {}
             for store in stores_data:
-                prov = store.get('province_name', 'Unknown')
+                prov = store.get('province', 'Unknown')
                 province_counts[prov] = province_counts.get(prov, 0) + 1
             
             print(f"Provinces covered: {len(province_counts)}")
-            print("\nTop 10 provinces by store count:")
+            print("\nStores by province:")
             sorted_provinces = sorted(province_counts.items(), key=lambda x: x[1], reverse=True)
-            for prov, count in sorted_provinces[:10]:
+            for prov, count in sorted_provinces:
                 print(f"  {prov}: {count} stores")
                 
         else:
             print("Failed to fetch stores data.")
-
-        if categories:
-            df = fetcher.save_to_csv(categories, filename="categories.csv")
-            print(f"\n=== CATEGORIES SUMMARY ===")
-            print(f"Total categories: {len(categories)}")
-
-            # Show top categories
-            category_counts = {}
-            for category in categories:
-                cat_name = category.get('name', 'Unknown')
-                category_counts[cat_name] = category_counts.get(cat_name, 0) + 1
-            sorted_categories = sorted(category_counts.items(), key=lambda x: x[1], reverse=True)
-            print("\nTop 10 categories by count:")
-            for cat, count in sorted_categories[:10]:
-                print(f"  {cat}: {count} items")
             
     except Exception as e:
         print(f"Error in main: {e}")
     finally:
         await fetcher.close()
 
+
 def run_sync():
-    """Synchronous entry point"""
     asyncio.run(main())
+
 
 if __name__ == "__main__":
     run_sync()

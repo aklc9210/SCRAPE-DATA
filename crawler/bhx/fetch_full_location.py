@@ -2,28 +2,11 @@ import requests
 import pandas as pd
 import asyncio
 from curl_cffi.requests import Session
-from token_interceptor import BHXTokenInterceptor
-from token_interceptor import get_headers
+from crawler.bhx.token_interceptor import BHXTokenInterceptor
+from crawler.bhx.token_interceptor import get_headers
 
 session = Session(impersonate="chrome110")
 FULL_API_URL = "https://apibhx.tgdd.vn/Location/V2/GetFull"
-
-# def get_headers(token, deviceid):
-#     """Generate headers with intercepted token and deviceid"""
-#     return {
-#         "Accept": "application/json, text/plain, */*",
-#         "Authorization": token,
-#         "xapikey": "bhx-api-core-2022",
-#         "platform": "webnew",
-#         "reversehost": "http://bhxapi.live",
-#         "origin": "https://www.bachhoaxanh.com",
-#         "referer": "https://www.bachhoaxanh.com/he-thong-cua-hang",
-#         "referer-url": "https://www.bachhoaxanh.com/he-thong-cua-hang",
-#         "content-type": "application/json",
-#         "deviceid": deviceid,
-#         "customer-id": "",
-#         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
-#     }
 
 async def fetch_full_location_data():
     """
@@ -61,5 +44,4 @@ async def fetch_full_location_data():
 
 # Synchronous wrapper for compatibility
 def fetch_full_location_data_sync():
-    """Synchronous wrapper for the async function"""
     return asyncio.run(fetch_full_location_data())

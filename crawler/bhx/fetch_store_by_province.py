@@ -3,8 +3,9 @@ import pandas as pd
 import time
 import asyncio
 from curl_cffi.requests import Session
-from token_interceptor import BHXTokenInterceptor
-from token_interceptor import get_headers
+from crawler.bhx.token_interceptor import BHXTokenInterceptor
+from crawler.bhx.token_interceptor import get_headers
+
 
 session_store = Session(impersonate="chrome110")
 API_URL = "https://apibhx.tgdd.vn/Location/V2/GetStoresByLocation"
@@ -39,6 +40,9 @@ async def fetch_stores_async(province_id: int, token: str, deviceid: str,
             if not batch:
                 print(f"No more stores found on page {page_index}")
                 break
+
+            # for store in stores:
+
                 
             stores.extend(batch)
             print(f"Fetched {len(batch)} stores on page {page_index} for province {province_id}")
