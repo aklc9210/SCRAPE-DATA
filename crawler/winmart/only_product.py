@@ -240,7 +240,7 @@ class ProductOnlyFetcher:
 
 async def main():
     fetcher = ProductOnlyFetcher()
-    await fetcher.fetch_products_only(store_ids=['1683'])
+    await fetcher.fetch_products_only(store_ids=["5547", "3112", "6422"])
     
 if __name__ == "__main__":
     asyncio.run(main())
