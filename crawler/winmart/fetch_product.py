@@ -1,7 +1,7 @@
 import requests
 import asyncio
 from typing import List, Dict, Optional
-from fetch_category import WinMartCategoryFetcher
+from crawler.winmart.fetch_category import WinMartCategoryFetcher
 
 class WinMartProductFetcher:
     

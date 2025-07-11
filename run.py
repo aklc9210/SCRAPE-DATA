@@ -1,4 +1,7 @@
-from crawler.bhx.fetch_data import run_sync
+# from crawler.bhx.fetch_data import run_sync
+
+from crawler.winmart.only_product import main
+import asyncio
 
 if __name__ == "__main__":
-    run_sync()
+    asyncio.run(main())
