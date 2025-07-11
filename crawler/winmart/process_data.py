@@ -200,10 +200,8 @@ class DataProcessor:
             "date_begin": price_info["date_begin"],
             "date_end": price_info["date_end"],
             "sku": product.get("sku", ""),
-            "media_url": product.get("avatar", ""),
-            "promotion": product.get("promotionText", ""),
+            "url": product.get("avatar", ""),
             "token_ngrams": token_ngrams,
-            "url": product.get("url", ""),
         }
         
         return processed

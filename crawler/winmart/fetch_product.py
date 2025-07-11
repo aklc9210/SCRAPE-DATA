@@ -35,7 +35,6 @@ class WinMartProductFetcher:
 
     
     async def _fetch_products_by_category(self, store_id: str, category: Dict) -> List[Dict]:
-        """Fetch products for a specific category and store"""
         url = f"{self.api_base}/item/category"
         
         params = {
@@ -61,7 +60,6 @@ class WinMartProductFetcher:
             raise Exception(f"Parse failed: {e}")
     
     def _parse_products(self, data: Dict, category: Dict, store_id: str) -> List[Dict]:
-        """Parse products from API response"""
         products = []
         
         # Extract items from the nested data structure
@@ -124,7 +122,6 @@ class WinMartProductFetcher:
         }
 
 async def fetch_products_for_store(store_id: str) -> List[Dict]:
-    # """Async convenience function to fetch all products for a store"""
     fetcher = WinMartProductFetcher()
     return await fetcher.fetch_products_by_store(store_id)
 

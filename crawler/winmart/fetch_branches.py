@@ -1,9 +1,7 @@
 import requests
 from typing import List, Dict, Optional
 
-class WinMartBranchFetcher:
-    """Fetches WinMart store/branch data from API"""
-    
+class WinMartBranchFetcher:    
     def __init__(self):
         self.api_base = "https://api-crownx.winmart.vn/mt/api/web/v1"
         self.headers = {
@@ -21,14 +19,13 @@ class WinMartBranchFetcher:
             try:
                 stores = self._fetch_stores_by_province(province_code)
                 all_stores.extend(stores)
-                print(f"✅ {province_code}: {len(stores)} stores found")
+                print(f" {province_code}: {len(stores)} stores found")
             except Exception as e:
-                print(f"❌ {province_code}: {e}")
+                print(f" {province_code}: {e}")
         
         return all_stores
     
     def _fetch_stores_by_province(self, province_code: str) -> List[Dict]:
-        """Fetch stores for a specific province"""
         url = f"{self.api_base}/store-by-province"
         params = {'PageNumber': 1, 'PageSize': 1000, 'ProvinceCode': province_code}
         
@@ -47,7 +44,6 @@ class WinMartBranchFetcher:
             raise Exception(f"Failed to parse response: {e}")
     
     def _parse_api_response(self, data: Dict) -> List[Dict]:
-        """Parse API response and extract store data"""
         stores = []
         
         province_name = data.get('provinceName', '')
@@ -67,7 +63,6 @@ class WinMartBranchFetcher:
         return stores
     
     def _normalize_store_data(self, store: Dict, province_name: str) -> Optional[Dict]:
-        """Normalize store data to standard format"""
         store_code = store.get('storeCode')
         store_name = store.get('storeName')
         
