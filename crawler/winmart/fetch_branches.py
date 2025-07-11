@@ -74,7 +74,7 @@ class WinMartBranchFetcher:
         if not store_code or not store_name:
             return None
         
-        # Determine chain type based on chainId
+        # Determine chain type based on chainId -> chain (code, name) note
         chain_id = store.get('chainId', '')
         if chain_id == 'VMT':
             chain = 'winmart'  # WinMart (large supermarkets)

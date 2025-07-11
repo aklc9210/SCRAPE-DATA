@@ -60,17 +60,22 @@
 #     asyncio.run(test_product()) 
 
 
+from db import MongoDB
+ 
+db = MongoDB.get_db()
 
-from pymongo.mongo_client import MongoClient
+def reset_category_collections():
+    """
+    Xóa (drop) hết tất cả các collection tương ứng với
+    các category đã lưu trong collection `category`.
+    """
+    for cat_doc in db.category.find({}, {"name": 1}):
+        # chuyển tên category thành tên collection (ví dụ: "Fresh Meat" -> "fresh_meat")
+        coll_name = cat_doc["name"].lower().replace(" ", "_")
+        if coll_name in db.list_collection_names():
+            print(f"Dropping collection: {coll_name}")
+            db.drop_collection(coll_name)
 
-uri = "mongodb+srv://n21dccn078:ABC12345678@storerecommender.w9auorn.mongodb.net/?retryWrites=true&w=majority&appName=StoreRecommender"
+if __name__ == '__main__':
+    reset_category_collections()
 
-# Create a new client and connect to the server
-client = MongoClient(uri)
-
-# Send a ping to confirm a successful connection
-try:
-    client.admin.command('ping')
-    print("Pinged your deployment. You successfully connected to MongoDB!")
-except Exception as e:
-    print(e)

@@ -201,11 +201,74 @@ categories_mapping = {
         "Khô chế biến sẵn": "Instant Foods"
     }
 
+# from playwright.async_api import async_playwright
+import asyncio
+
+def gather_products_by_api(category_url: str, wait_for: float = 1.0) -> list:
+    """
+    Mở trang category_url, lắng nghe tất cả response JSON của GetCate và AjaxProduct,
+    auto-scroll để kích hoạt tải thêm sản phẩm, và trả về list đầy đủ products.
+    """
+    all_products = []
+
+    def handle_response(response):
+        url = response.url
+        if ("/Category/V2/GetCate" in url or "/Category/V2/AjaxProduct" in url) and response.status == 200:
+            try:
+                data = response.json()
+                batch = data.get("data", {}).get("products", [])
+                for item in batch:
+                    all_products.append(item)
+            except Exception as e:
+                print(f"⚠️ Lỗi parse JSON từ {url}: {e}")
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        page.on("response", handle_response)
+
+        # 1) Mở trang và chờ GetCate
+        page.goto(category_url, wait_until="networkidle")
+        time.sleep(wait_for)
+
+        # 2) Auto-scroll kích hoạt AjaxProduct
+        prev = 0
+        while True:
+            page.evaluate("window.scrollBy(0, document.body.scrollHeight)")
+            time.sleep(wait_for)
+            if len(all_products) == prev:
+                break
+            prev = len(all_products)
+
+        browser.close()
+
+    return all_products
+
+
+
 tokenizer_vi2en = AutoTokenizer.from_pretrained(
-    "VietAI/envit5-translation",
-    use_fast=False
+    "vinai/vinai-translate-vi2en-v2",
+    use_fast=False,
+    src_lang="vi_VN",
+    tgt_lang="en_XX"
 )
-model_vi2en = AutoModelForSeq2SeqLM.from_pretrained("VietAI/envit5-translation")
+model_vi2en = AutoModelForSeq2SeqLM.from_pretrained("vinai/vinai-translate-vi2en-v2")
+
+# reset db
+def reset_category_collections():
+    """
+    Xóa (drop) hết tất cả các collection tương ứng với
+    các category đã lưu trong collection `category`.
+    """
+    try:
+        for cat_doc in db.categorys.find({}, {"name": 1}):
+            # chuyển tên category thành tên collection (ví dụ: "Fresh Meat" -> "fresh_meat")
+            coll_name = cat_doc["name"].lower().replace(" ", "_")
+            if coll_name in db.list_collection_names():
+                print(f"Dropping collection: {coll_name}")
+                db.drop_collection(coll_name)
+    except Exception as e:
+        return
 
 # transform to store_name and store_location
 def parse_store_line(s: str):
@@ -234,14 +297,18 @@ def parse_store_line(s: str):
         "store_location": location
     }
 
+import re
+
+import re
+
 def translate_vi2en(vi_text: str) -> str:
-    prompt = "translate Vietnamese to English: " + vi_text
-    inputs = tokenizer_vi2en(prompt, return_tensors="pt")
+    inputs = tokenizer_vi2en(vi_text, return_tensors="pt")
+    decoder_start_token_id = tokenizer_vi2en.lang_code_to_id["en_XX"]
     outputs = model_vi2en.generate(
         **inputs,
+        decoder_start_token_id=decoder_start_token_id,
         num_beams=5,
-        early_stopping=True,
-        max_length=512
+        early_stopping=True
     )
     return tokenizer_vi2en.decode(outputs[0], skip_special_tokens=True)
 
@@ -402,6 +469,68 @@ async def upsert_products_bulk(product_list: List[dict], category_title: str):
     print(f"✓ Bulk upserted {len(ops)} products into `{coll_name}` "
           f"(upserted: {result.upserted_count}, modified: {result.modified_count})")
 
+import asyncio
+from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout
+
+async def fetch_category_products(url: str,
+                                  step: int = 2,          # số bước cuộn mỗi vòng (½ màn hình * step)
+                                  timeout: float = 4.0):  # chờ tối đa cho 1 response Ajax
+    """
+    Thu thập toàn bộ sản phẩm BHX bằng cách:
+      • Intercept GetCate + AjaxProduct
+      • Cuộn từng đoạn nhỏ, chờ đúng response AjaxProduct
+    """
+    products, seen = [], set()
+    total = None
+
+    async def on_response(resp):
+        nonlocal total
+        if ("/Category/V2/GetCate" in resp.url or "/Category/V2/AjaxProduct" in resp.url) \
+           and resp.status == 200:
+            try:
+                js = await resp.json()
+                total = js.get("data", {}).get("total", 0)
+                for p in js.get("data", {}).get("products", []):
+                    pid = p.get("id")
+                    if pid and pid not in seen:
+                        seen.add(pid)
+                        products.append(p)
+            except:   # non-JSON or parse fail
+                pass
+
+    async with async_playwright() as pw:
+        browser = await pw.chromium.launch(headless=True)
+        page = await browser.new_page()
+        page.on("response", on_response)
+
+        await page.goto(url, wait_until="networkidle")
+
+        # cuộn tuần tự cho tới khi không còn AjaxProduct mới
+        while total is None or len(products) < total:
+            # cuộn step lần, mỗi lần ½ viewport
+            await page.evaluate(f"""
+                () => {{
+                    const dist = window.innerHeight / 2;
+                    for (let i=0; i<{step}; i++) {{
+                        window.scrollBy(0, dist);
+                    }}
+                }}
+            """)
+
+            try:
+                # chỉ thoát khi KHÔNG có thêm AjaxProduct mới trong 'timeout' giây
+                await page.wait_for_event(
+                    "response", 
+                    predicate=lambda r: "/Category/V2/AjaxProduct" in r.url and r.status == 200,
+                    timeout=timeout * 1000
+                )
+
+            except PlaywrightTimeout:
+                break
+
+        await browser.close()
+        return products
+
 
 class BHXDataFetcher:
     def __init__(self):
@@ -410,7 +539,7 @@ class BHXDataFetcher:
         self.interceptor = None
 
         # --- Upsert các chuỗi cửa hàng vào db.chain ngay khi khởi tạo ---
-        chain_coll = db.chain
+        chain_coll = db.chains
         chains = [
             {"code": "BHX",   "name": "Bách Hóa Xanh"},
             {"code": "WM",    "name": "Winmart"}
@@ -465,7 +594,7 @@ class BHXDataFetcher:
         
         # Upsert categories to db
         if categories:
-            category_db = db.category
+            category_db = db.categories
 
             grouped = {}
             for cat in categories:
@@ -541,6 +670,13 @@ class BHXDataFetcher:
                     ward_id=0,
                     page_size=100
                 )
+
+                # self.upsert_store_db(stores)
+                # print(f"✓ Saved {len(stores)} stores to DB for {prov_name}")
+
+                # → 2. Đọc lại stores từ DB để crawl product
+                stored_stores = list(db.stores.find({"province_id": prov_id}))
+                all_products = []
                 
                 all_products = []
                 for s in stores:
@@ -555,20 +691,8 @@ class BHXDataFetcher:
                     s["district"]       = district_map.get(district_id, "")
                     s["ward_id"]        = ward_id
                     s["ward"]           = ward_map.get(ward_id, "")
-
-                    # coll = db.category
-                    # for cat_doc in coll.find({}):
-                    #     for category_url in cat_doc.get("links", []):
-                    #         products = await self.fetch_product_info(
-                    #             province_id=prov_id,
-                    #             ward_id=ward_id,
-                    #             district_id=district_id,
-                    #             store_id=store_id,
-                    #             category_url=category_url
-                    #         )
-                            # print(f"Fetched {len(products)} products for category {category_url} in store {store_id}")
                     
-                    coll = db.category
+                    coll = db.categories
                     for cat_doc in coll.find({}):
                         for category_url in cat_doc.get("links", []):
                             prods = await self.fetch_product_info(
@@ -578,11 +702,12 @@ class BHXDataFetcher:
                                 store_id=store_id,
                                 category_url=category_url,
                                 isMobile=True,
-                                page_size=10
+                                page_size=10,
                             )
                             all_products.extend(prods)
                             total = len(prods)  
                         await upsert_products_bulk(all_products, cat_doc['name'])
+                        all_products.clear()
                 
                 # Upsert store data
                 all_records.extend(stores)
@@ -596,7 +721,7 @@ class BHXDataFetcher:
         print(f"\n=== Fetching completed! Total stores: {len(all_records)} ===")
         return all_records
     
-    # fetch product info -> later
+    # fetch product info
     async def fetch_product_info(self, province_id, ward_id, district_id, store_id, category_url, isMobile=True, page_size=10):
         headers = get_headers(self.token, self.deviceid)
 
@@ -606,17 +731,13 @@ class BHXDataFetcher:
             "origin": "https://www.bachhoaxanh.com",
         })
 
-        url = f"https://apibhx.tgdd.vn/Category/V2/GetCate?provinceId={province_id}&wardId={ward_id}&districtId={district_id}&storeId={store_id}&categoryUrl={category_url}&isMobile={isMobile}&isV2=true&pageSize={page_size}"
+        full_url = f"https://www.bachhoaxanh.com/{category_url}"
+        print(f"→ Scrolling to load all products from {full_url} …")
+        products = await fetch_category_products(full_url, step=2, timeout=4.0)
+        print(f"✓ Gathered {len(products)} products after scrolling.")
           
         try:
-            resp = session.get(url, headers=headers, timeout=15)
-            if resp.status_code != 200:
-                raise Exception(f"Failed to fetch products: {resp.status_code}")
-            
-            products = resp.json().get("data", {}).get("products", [])
-            total = resp.json().get("data", {}).get("total", 0)
-
-            cat = db.category.find_one({"links": category_url})
+            cat = db.categories.find_one({"links": category_url})
             
             product_records = []
             for product in products:
@@ -648,7 +769,6 @@ class BHXDataFetcher:
             
                 # print(f"Product data: {product_data}")
                 product_records.append(product_data)
-            print(f"Get successfully {total} products for {cat['name']}")
 
             return product_records
         
@@ -659,7 +779,7 @@ class BHXDataFetcher:
     # upsert province to mongodb
     def upsert_db(self, loc_data):
         try:
-            prov_db = db.province
+            prov_db = db.provinces
             provinces = loc_data
             if provinces:
                 for prov in provinces:
@@ -686,7 +806,7 @@ class BHXDataFetcher:
             
         print(f"Saving {len(stores_data)} stores to db...")
 
-        store_db = db.store
+        store_db = db.stores
         for store in stores_data:
             store_id = store.get("storeId")
             if not store_id:
@@ -710,7 +830,8 @@ class BHXDataFetcher:
                 "is_store_virtual": store.get("isStoreVirtual", False),
                 "open_hour": store.get("openHour", ""),
                 "phone_number": store.get("phone", ""),
-                "store_status": store.get("status", "")
+                "store_status": store.get("status", ""),
+                "chain": "BHX"
             }
             
             # Upsert to MongoDB
@@ -734,7 +855,6 @@ async def main():
         stores_data = await fetcher.fetch_all_stores()
         
         if stores_data:
-            df = fetcher.upsert_store_db(stores_data)
             print(f"\n=== STORE SUMMARY ===")
             print(f"Total stores: {len(stores_data)}")
             
@@ -760,6 +880,7 @@ async def main():
 
 def run_sync():
     """Synchronous entry point"""
+    # reset_category_collections()
     asyncio.run(main())
 
 if __name__ == "__main__":

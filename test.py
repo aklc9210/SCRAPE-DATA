@@ -40,7 +40,7 @@
 #     print(name)
 
 import asyncio
-from crawler.bhx.test import test_product
+from crawler.bhx.test import reset_category_collections
 if __name__ == "__main__":
-    asyncio.run(test_product()) 
+    asyncio.run(reset_category_collections()) 
     
