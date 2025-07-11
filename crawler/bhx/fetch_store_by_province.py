@@ -6,6 +6,7 @@ from curl_cffi.requests import Session
 from crawler.bhx.token_interceptor import BHXTokenInterceptor
 from crawler.bhx.token_interceptor import get_headers
 
+
 session_store = Session(impersonate="chrome110")
 API_URL = "https://apibhx.tgdd.vn/Location/V2/GetStoresByLocation"
 
