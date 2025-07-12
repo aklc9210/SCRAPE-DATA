@@ -9,35 +9,34 @@ from db import MongoDB
 from crawler.bhx.process_data import (
     VALID_TITLES, CATEGORIES_MAPPING, 
     process_product_data, upsert_products_bulk,
-    parse_store_line, reset_category_collections
+    parse_store_line
 )
-from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout
 
 session = Session(impersonate="chrome110")
 db = MongoDB.get_db()
 
+import asyncio
+from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout
+
 async def fetch_category_products(url: str, step: int = 3, timeout: float = 8.0):  
-    """
-    Thu thập sản phẩm BHX bằng cách intercept AjaxProduct API
-    Dựa trên phân tích thực tế: API POST https://apibhx.tgdd.vn/Category/AjaxProduct
-    """
+    """Thu thập sản phẩm BHX được tối ưu"""
     products, seen = [], set()
-    total = None
-    consecutive_failures = 0
+    total, no_new_count = None, 0
     
     print(f"🚀 Bắt đầu crawl: {url}")
 
     async def on_response(resp):
-        nonlocal total, consecutive_failures
+        nonlocal total, no_new_count
         
-        if "AjaxProduct" in resp.url and resp.status == 200:
+        if ('GetCate' in resp.url or "AjaxProduct" in resp.url) and resp.status == 200:
+            print(f"📡 API called: {resp.url}")  
+
             try:
                 js = await resp.json()
                 data = js.get("data", {})
                 
                 if "total" in data:
                     total = data["total"]
-                    print(f"📊 Tổng sản phẩm có sẵn: {total}")
                 
                 batch = data.get("products", [])
                 new_count = 0
@@ -50,101 +49,63 @@ async def fetch_category_products(url: str, step: int = 3, timeout: float = 8.0)
                         new_count += 1
                 
                 if new_count > 0:
-                    print(f"✅ +{new_count} sản phẩm mới (tổng: {len(products)}/{total or '?'})")
-                    consecutive_failures = 0
+                    print(f"✅ +{new_count} sản phẩm (tổng: {len(products)}/{total or '?'})")
+                    no_new_count = 0
                 else:
-                    print(f"⚠️ Không có sản phẩm mới từ API response")
-                    consecutive_failures += 1
+                    no_new_count += 1
                     
             except Exception as e:
-                print(f"❌ Lỗi parse JSON từ AjaxProduct: {e}")
-                consecutive_failures += 1
+                print(f"❌ Lỗi parse: {e}")
+                no_new_count += 1
 
     async with async_playwright() as pw:
-        browser = await pw.chromium.launch(
-            headless=True,
-            args=['--no-sandbox', '--disable-dev-shm-usage']
-        )
-        
-        context = await browser.new_context(
-            user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        )
-        
+        browser = await pw.chromium.launch(headless=True)
+        context = await browser.new_context()
         page = await context.new_page()
         page.on("response", on_response)
 
-        # Load trang ban đầu
-        print("🔄 Đang load trang...")
         try:
-            await page.goto(url, wait_until="domcontentloaded", timeout=10000)
-            print("✅ Trang đã load thành công")
-            await asyncio.sleep(3)
+            await page.goto(url, wait_until="domcontentloaded", timeout=6000)
+            await asyncio.sleep(1.5)
             
         except Exception as e:
             print(f"❌ Load trang thất bại: {e}")
             await browser.close()
             return []
         
-        # Scroll strategy: batch scroll để trigger API calls
         scroll_count = 0
         max_scrolls = 50
         
-        print("🔄 Bắt đầu scroll theo pattern 2-3 scroll/API call...")
-        
         while scroll_count < max_scrolls:
-            # Scroll 2-3 lần liên tiếp để trigger API
-            batch_scrolls = min(3, max_scrolls - scroll_count)
-            
-            print(f"🔄 Batch scroll #{scroll_count//3 + 1} (scrolls {scroll_count+1}-{scroll_count+batch_scrolls})")
-            
-            for i in range(batch_scrolls):
+            # Scroll 2-3 lần
+            for i in range(2):
                 scroll_count += 1
-                
-                await page.evaluate("""
-                    () => {
-                        const scrollDistance = window.innerHeight * 0.8;
-                        window.scrollBy(0, scrollDistance);
-                    }
-                """)
-                
-                # Delay ngắn giữa các scroll trong batch
-                await asyncio.sleep(0.8)
+                await page.evaluate("window.scrollBy(0, window.innerHeight * 0.7)")
+                await asyncio.sleep(0.4)
             
-            # Sau khi scroll batch, chờ API response với timeout dài hơn
-            print(f"📡 Chờ AjaxProduct response sau batch scroll...")
-            
+            # Chờ API response
             try:
                 await asyncio.wait_for(
-                    page.wait_for_event(
-                        "response", 
-                        predicate=lambda r: "AjaxProduct" in r.url and r.status == 200
-                    ),
-                    timeout=12.0
+                    page.wait_for_event("response", 
+                        predicate=lambda r: "AjaxProduct" in r.url and r.status == 200),
+                    timeout=3.0
                 )
-                print(f"✅ Nhận được AjaxProduct response")
-                consecutive_failures = 0
-                
             except asyncio.TimeoutError:
-                print(f"⏰ Timeout sau batch scroll - có thể đã hết sản phẩm")
-                consecutive_failures += 1
+                no_new_count += 1
             
-            # Kiểm tra điều kiện dừng
+            # Điều kiện dừng
             if total and len(products) >= total:
                 print(f"🎉 Đã crawl đủ {total} sản phẩm!")
                 break
                 
-            if consecutive_failures >= 2:
-                print(f"⚠️ Dừng sau {consecutive_failures} batch không có response")
+            if no_new_count >= 3:
+                print(f"⚠️ Dừng sau {no_new_count} lần không có sản phẩm mới")
                 break
             
-            # Delay giữa các batch để không spam
-            await asyncio.sleep(1.5)
+            await asyncio.sleep(0.6)
 
         await browser.close()
-        
-        print(f"✅ Hoàn thành! Thu thập được {len(products)} sản phẩm")
-        print(f"📊 Chi tiết: {scroll_count} lần scroll, {consecutive_failures} lần thất bại cuối")
-        
+        print(f"✅ Hoàn thành! {len(products)} sản phẩm")
         return products
 
 
@@ -393,8 +354,8 @@ class BHXDataFetcher:
                     ward_id=0,
                     page_size=100
                 )
-
-                stores = stores[10:20] if len(stores) > 20 else stores
+                # get 10 first stores
+                stores = stores[:10] if len(stores) > 10 else stores
 
                 # Add location info to all stores
                 for store in stores:

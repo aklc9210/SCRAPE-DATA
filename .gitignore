@@ -37,3 +37,5 @@ coverage.xml
 
 # Environment variables file
 .env
+env
+
