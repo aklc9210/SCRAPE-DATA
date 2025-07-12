@@ -6,7 +6,7 @@ from crawler.bhx.fetch_store_by_province import fetch_stores_async
 from crawler.bhx.fetch_full_location import FULL_API_URL
 from crawler.bhx.fetch_menus_for_store import fetch_menu_for_store
 from db import MongoDB
-from process_data import (
+from crawler.bhx.process_data import (
     VALID_TITLES, CATEGORIES_MAPPING, 
     process_product_data, upsert_products_bulk,
     parse_store_line, reset_category_collections
@@ -76,7 +76,7 @@ async def fetch_category_products(url: str, step: int = 3, timeout: float = 8.0)
         # Load trang ban đầu
         print("🔄 Đang load trang...")
         try:
-            await page.goto(url, wait_until="domcontentloaded", timeout=20000)
+            await page.goto(url, wait_until="domcontentloaded", timeout=10000)
             print("✅ Trang đã load thành công")
             await asyncio.sleep(3)
             
@@ -393,6 +393,8 @@ class BHXDataFetcher:
                     ward_id=0,
                     page_size=100
                 )
+
+                stores = stores[10:20] if len(stores) > 20 else stores
 
                 # Add location info to all stores
                 for store in stores:
