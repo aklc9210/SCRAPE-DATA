@@ -1,13 +1,16 @@
 import re
 import unicodedata
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Set
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import torch
+from deep_translator import GoogleTranslator
+import time
+import random
 
 class DataProcessor:
-    """Process and normalize product data"""
+    """Process and normalize product data with duplicate checking"""
     
-    def __init__(self):
+    def __init__(self, db=None):
         # Initialize translation model
         torch.set_num_threads(15)
         self.tokenizer_vi2en = AutoTokenizer.from_pretrained(
@@ -18,6 +21,7 @@ class DataProcessor:
             legacy=False  # Use new tokenizer behavior
         )
         self.model_vi2en = AutoModelForSeq2SeqLM.from_pretrained("vinai/vinai-translate-vi2en-v2")
+        self.db = db
     
     def translate_vi2en(self, vi_text: str) -> str:
         """Translate Vietnamese text to English"""
@@ -36,6 +40,118 @@ class DataProcessor:
             return self.tokenizer_vi2en.decode(outputs[0], skip_special_tokens=True)
         except Exception:
             return ""
+
+    # def __init__(self):
+    #     # Initialize Google Translator
+    #     self.translator = GoogleTranslator(source='vi', target='en')
+        
+    # def translate_vi2en(self, vi_text: str) -> str:
+    #     """Translate Vietnamese text to English using Google Translate"""
+    #     if not vi_text or not vi_text.strip():
+    #         return ""
+        
+    #     try:
+    #         # Add small delay to avoid rate limiting
+    #         # time.sleep(random.uniform(0.1, 0.3))
+            
+    #         # Translate text
+    #         result = self.translator.translate(vi_text)
+    #         return result if result else ""
+            
+    #     except Exception as e:
+    #         print(f"Translation error: {e}")
+    #         return ""
+    
+    def get_existing_product_ids(self, category_title: str, store_id: str) -> Set[str]:
+        """Get set of existing product IDs for a category and store"""
+        if not self.db:
+            return set()
+            
+        try:
+            coll_name = category_title.replace(" ", "_").lower()
+            collection = self.db[coll_name]
+            
+            # Get all existing product_ids for this store
+            existing_docs = collection.find(
+                {"store_id": store_id}, 
+                {"product_id": 1, "_id": 0}
+            )
+            
+            existing_ids = {doc["product_id"] for doc in existing_docs if doc.get("product_id")}
+            print(f"Found {len(existing_ids)} existing products in {coll_name} for store {store_id}")
+            return existing_ids
+            
+        except Exception as e:
+            print(f"Error getting existing product IDs: {e}")
+            return set()
+    
+    def get_existing_skus(self, category_title: str, store_id: str) -> Set[str]:
+        """Get set of existing SKUs for a category and store (alternative to product_id)"""
+        if not self.db:
+            return set()
+            
+        try:
+            coll_name = category_title.replace(" ", "_").lower()
+            collection = self.db[coll_name]
+            
+            # Get all existing SKUs for this store
+            existing_docs = collection.find(
+                {"store_id": store_id}, 
+                {"sku": 1, "_id": 0}
+            )
+            
+            existing_skus = {doc["sku"] for doc in existing_docs if doc.get("sku")}
+            print(f"Found {len(existing_skus)} existing SKUs in {coll_name} for store {store_id}")
+            return existing_skus
+            
+        except Exception as e:
+            print(f"Error getting existing SKUs: {e}")
+            return set()
+    
+    def filter_new_products(self, products: List[dict], category_title: str, store_id: str, 
+                           use_sku: bool = False) -> List[dict]:
+        """Filter out products that already exist in database"""
+        if not self.db or not products:
+            return products
+        
+        if use_sku:
+            existing_identifiers = self.get_existing_skus(category_title, store_id)
+            id_field = "sku"
+        else:
+            existing_identifiers = self.get_existing_product_ids(category_title, store_id)
+            id_field = "id"
+        
+        # Filter products
+        new_products = []
+        for product in products:
+            product_identifier = product.get(id_field, "")
+            if product_identifier and product_identifier not in existing_identifiers:
+                new_products.append(product)
+        
+        print(f"Filtered {len(products)} products -> {len(new_products)} new products to process")
+        return new_products
+    
+    def should_skip_product(self, product: dict, category_title: str, store_id: str, 
+                           use_sku: bool = False) -> bool:
+        """Check if a single product should be skipped (already exists)"""
+        if not self.db:
+            return False
+            
+        try:
+            coll_name = category_title.replace(" ", "_").lower()
+            collection = self.db[coll_name]
+            
+            if use_sku:
+                query = {"store_id": store_id, "sku": product.get("sku", "")}
+            else:
+                query = {"store_id": store_id, "product_id": product.get("id", "")}
+            
+            existing = collection.find_one(query, {"_id": 1})
+            return existing is not None
+            
+        except Exception as e:
+            print(f"Error checking product existence: {e}")
+            return False
     
     def extract_net_value_and_unit_from_name(self, name: str, fallback_unit: str) -> Tuple[float, str]:
         """Extract numeric value and unit from product name"""
@@ -167,8 +283,15 @@ class DataProcessor:
         ascii_str = "".join([c for c in nfkd if not unicodedata.combining(c)])
         return re.sub(r"[^\w\s-]", "", ascii_str).lower().strip()
     
-    def process_product(self, product: dict, category_title: str, store_id: str) -> dict:
+    def process_product(self, product: dict, category_title: str, store_id: str, 
+                       skip_existing: bool = True, use_sku: bool = False) -> dict:
         """Process a single product with all transformations"""
+        
+        # Check if product already exists and should be skipped
+        if skip_existing and self.should_skip_product(product, category_title, store_id, use_sku):
+            print(f"Skipping existing product: {product.get('name', 'Unknown')}")
+            return None
+        
         # Translate name
         english_name = self.translate_vi2en(product.get("name", ""))
         if not english_name:
@@ -206,59 +329,87 @@ class DataProcessor:
         
         return processed
     
-    def process_products_batch(self, products: List[dict], category_title: str, store_id: str) -> List[dict]:
-        """Process multiple products at once"""
+    def process_products_batch(self, products: List[dict], category_title: str, store_id: str,
+                              skip_existing: bool = True, use_sku: bool = False) -> List[dict]:
+        """Process multiple products at once with duplicate checking"""
+        
+        # Filter out existing products first for better performance
+        if skip_existing:
+            products = self.filter_new_products(products, category_title, store_id, use_sku)
+            if not products:
+                print("No new products to process after filtering")
+                return []
+        
         processed_products = []
         
         for product in products:
             try:
-                processed = self.process_product(product, category_title, store_id)
+                # Since we already filtered, we can skip the individual check
+                processed = self.process_product(
+                    product, category_title, store_id, 
+                    skip_existing=False, use_sku=use_sku
+                )
                 if processed:
                     processed_products.append(processed)
-            except Exception:
+            except Exception as e:
+                print(f"Error processing product {product.get('name', 'Unknown')}: {e}")
                 continue
         
+        print(f"Successfully processed {len(processed_products)} products")
         return processed_products
+    
+    def get_collection_stats(self, category_title: str) -> Dict[str, int]:
+        """Get statistics for a category collection"""
+        if not self.db:
+            return {}
+            
+        try:
+            coll_name = category_title.replace(" ", "_").lower()
+            collection = self.db[coll_name]
+            
+            total_count = collection.count_documents({})
+            store_counts = {}
+            
+            # Get count by store
+            pipeline = [
+                {"$group": {"_id": "$store_id", "count": {"$sum": 1}}},
+                {"$sort": {"count": -1}}
+            ]
+            
+            for doc in collection.aggregate(pipeline):
+                store_counts[doc["_id"]] = doc["count"]
+            
+            return {
+                "total_products": total_count,
+                "stores": store_counts
+            }
+            
+        except Exception as e:
+            print(f"Error getting collection stats: {e}")
+            return {}
 
 # Convenience functions
-def create_processor() -> DataProcessor:
+def create_processor(db=None) -> DataProcessor:
     """Create a data processor instance"""
-    return DataProcessor()
+    return DataProcessor(db=db)
 
-def process_single_product(product: dict, category: str, store_id: str) -> dict:
+def process_single_product(product: dict, category: str, store_id: str, 
+                          db=None, skip_existing: bool = True) -> dict:
     """Process a single product (convenience function)"""
-    processor = create_processor()
-    return processor.process_product(product, category, store_id)
+    processor = DataProcessor(db=db)
+    return processor.process_product(product, category, store_id, skip_existing)
+
+def process_products_batch(products: List[dict], category: str, store_id: str, 
+                          db=None, skip_existing: bool = True) -> List[dict]:
+    """Process multiple products (convenience function)"""
+    processor = DataProcessor(db=db)
+    return processor.process_products_batch(products, category, store_id, skip_existing)
 
 def translate_text(text: str) -> str:
     """Translate Vietnamese text to English (convenience function)"""
-    processor = create_processor()
+    processor = DataProcessor()
     return processor.translate_vi2en(text)
 
 if __name__ == "__main__":
     # Test the processor
     processor = DataProcessor()
-    
-    # Test translation
-    test_text = "Bánh mì sandwich thịt nguội"
-    english = processor.translate_vi2en(test_text)
-    print(f"Vietnamese: {test_text}")
-    print(f"English: {english}")
-    
-    # Test product processing
-    sample_product = {
-        "id": "12345",
-        "name": "Sữa tươi TH True Milk 1 lít",
-        "unit": "hộp",
-        "productPrices": [{
-            "price": 25000,
-            "sysPrice": 27000,
-            "netUnitValue": 1000,
-            "discountPercent": 7.4
-        }]
-    }
-    
-    processed = processor.process_product(sample_product, "Milk", "1683")
-    print(f"\nProcessed product:")
-    for key, value in processed.items():
-        print(f"  {key}: {value}")

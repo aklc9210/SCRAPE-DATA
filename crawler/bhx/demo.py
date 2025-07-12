@@ -13,6 +13,7 @@ from crawler.bhx.process_data import (
     parse_store_line
 )
 from pymongo import UpdateOne
+from tqdm import tqdm
 
 session = Session(impersonate="chrome110")
 db = MongoDB.get_db()
@@ -34,13 +35,14 @@ class BHXDataFetcher:
             {"code": "BHX", "name": "Bách Hóa Xanh"},
             {"code": "WM", "name": "Winmart"}
         ]
-        for chain in chains:
-            chain_coll.update_one(
-                {"code": chain["code"]},
-                {"$set": chain},
-                upsert=True
-            )
-            print(f"✓ Upserted chain: {chain['name']}")
+        with tqdm(chains, desc="Initializing chains") as pbar:
+            for chain in pbar:
+                chain_coll.update_one(
+                    {"code": chain["code"]},
+                    {"$set": chain},
+                    upsert=True
+                )
+                pbar.set_postfix_str(f"Upserted: {chain['name']}")
     
     async def init_token(self):
         """Initialize BHX token for API calls"""
@@ -65,55 +67,54 @@ class BHXDataFetcher:
         page_size = 20
         page = 1
         
-        print(f"🔥 Direct API call for store {store_id}, category {category_url}")
-        
-        while True:
-            # Build API URL với storeId cụ thể
-            api_url = (
-                f"https://apibhx.tgdd.vn/Category/V2/GetCate?"
-                f"provinceId={province_id}&wardId={ward_id}&districtId={district_id}"
-                f"&storeId={store_id}&categoryUrl={category_url}"
-                f"&isMobile=true&isV2=true&pageSize={page_size}&page={page}"
-            )
-            
-            # Headers với token
-            headers = get_headers(self.token, self.deviceid)
-            headers.update({
-                "referer": f"https://www.bachhoaxanh.com/{category_url}",
-                "accept": "application/json, text/plain, */*"
-            })
-            
-            try:
-                async with self.session.get(api_url, headers=headers, timeout=10) as response:
-                    if response.status != 200:
-                        print(f"❌ API error {response.status} for store {store_id}")
-                        break
-                    
-                    data = await response.json()
-                    products_data = data.get("data", {})
-                    products_batch = products_data.get("products", [])
-                    total = products_data.get("total", 0)
-                    
-                    if not products_batch:
-                        print(f"✅ No more products for store {store_id} (page {page})")
-                        break
-                    
-                    all_products.extend(products_batch)
-                    print(f"📦 Store {store_id}: +{len(products_batch)} products (total: {len(all_products)}/{total})")
-                    
-                    # Check if we got all products
-                    if len(all_products) >= total:
-                        print(f"🎉 Got all {total} products for store {store_id}")
-                        break
-                    
-                    # Next page
-                    page += 1
-                    await asyncio.sleep(0.5)  # Rate limiting
-                    
-            except Exception as e:
-                print(f"❌ Error fetching store {store_id}, page {page}: {e}")
-                break
-        
+        with tqdm(desc=f"Store {store_id} API", unit="page") as pbar:
+            while True:
+                # Build API URL với storeId cụ thể
+                api_url = (
+                    f"https://apibhx.tgdd.vn/Category/V2/GetCate?"
+                    f"provinceId={province_id}&wardId={ward_id}&districtId={district_id}"
+                    f"&storeId={store_id}&categoryUrl={category_url}"
+                    f"&isMobile=true&isV2=true&pageSize={page_size}&page={page}"
+                )
+                
+                # Headers với token
+                headers = get_headers(self.token, self.deviceid)
+                headers.update({
+                    "referer": f"https://www.bachhoaxanh.com/{category_url}",
+                    "accept": "application/json, text/plain, */*"
+                })
+                
+                try:
+                    async with self.session.get(api_url, headers=headers, timeout=10) as response:
+                        if response.status != 200:
+                            pbar.write(f"❌ API error {response.status} for store {store_id}")
+                            break
+                        
+                        data = await response.json()
+                        products_data = data.get("data", {})
+                        products_batch = products_data.get("products", [])
+                        total = products_data.get("total", 0)
+                        
+                        if not products_batch:
+                            pbar.write(f"✅ No more products for store {store_id} (page {page})")
+                            break
+                        
+                        all_products.extend(products_batch)
+                        pbar.set_postfix_str(f"Products: {len(all_products)}/{total}")
+                        
+                        # Check if we got all products
+                        if len(all_products) >= total:
+                            pbar.write(f"🎉 Got all {total} products for store {store_id}")
+                            break
+                        
+                        # Next page
+                        page += 1
+                        pbar.update(1)
+                        await asyncio.sleep(0.5)  # Rate limiting
+                        
+                except Exception as e:
+                    pbar.write(f"❌ Error fetching store {store_id}, page {page}: {e}")
+                    break
         return all_products
 
     async def _fetch_and_upsert_categories(self):
@@ -122,19 +123,14 @@ class BHXDataFetcher:
         menus = await fetch_menu_for_store(3, 2087, 4946, self.token, self.deviceid)
         
         for menu in menus:
-            print(f"Danh mục cha: {menu['name']}")
             
             for child in menu.get("childrens", []):
                 category = CATEGORIES_MAPPING.get(child['name'])
 
-                if child['name'] in VALID_TITLES:
-                    categories.append({
-                        "name": category,
-                        "link": child['url']
-                    })
-                    print(f"Category: {category} - {child['name']}")
-                else:
-                    print(f"{child['name']} (ID: {child['id']}) - bỏ qua")
+                categories.append({
+                    "name": category,
+                    "link": child['url']
+                })
         
         # Upsert categories to database
         if categories:
@@ -206,45 +202,46 @@ class BHXDataFetcher:
     def _upsert_stores_to_db(self, stores_data):
         """Upsert store data to database"""
         if not stores_data:
-            print("No store data to save.")
+            tqdm.write("No store data to save.")
             return
             
-        print(f"Saving {len(stores_data)} stores to db...")
         store_db = db.stores
         
-        for store in stores_data:
-            store_id = store.get("storeId")
-            if not store_id:
-                continue
+        with tqdm(stores_data, desc="Upserting stores") as pbar:
+            for store in pbar:
+                store_id = store.get("storeId")
+                if not store_id:
+                    continue
 
-            store_title = parse_store_line(store.get("storeLocation", ""))
-            
-            store_data = {
-                "store_id": store_id,
-                "store_name": store_title['store_name'],
-                "latitude": store.get("lat", 0.0),
-                "longitude": store.get("lng", 0.0),
-                "store_location": store_title['store_location'],
-                "province_id": store.get("provinceId", 0),
-                "province": store.get("province", ""),
-                "district_id": store.get("districtId", 0),
-                "district": store.get("district", ""),
-                "ward_id": store.get("wardId", 0),
-                "ward": store.get("ward", ""),
-                "is_store_virtual": store.get("isStoreVirtual", False),
-                "open_hour": store.get("openHour", ""),
-                "phone_number": store.get("phone", ""),
-                "store_status": store.get("status", ""),
-                "chain": "BHX"
-            }
-            
-            store_db.update_one(
-                {"store_id": store_id},
-                {"$set": store_data},
-                upsert=True
-            )
+                store_title = parse_store_line(store.get("storeLocation", ""))
+                
+                store_data = {
+                    "store_id": store_id,
+                    "store_name": store_title['store_name'],
+                    "latitude": store.get("lat", 0.0),
+                    "longitude": store.get("lng", 0.0),
+                    "store_location": store_title['store_location'],
+                    "province_id": store.get("provinceId", 0),
+                    "province": store.get("province", ""),
+                    "district_id": store.get("districtId", 0),
+                    "district": store.get("district", ""),
+                    "ward_id": store.get("wardId", 0),
+                    "ward": store.get("ward", ""),
+                    "is_store_virtual": store.get("isStoreVirtual", False),
+                    "open_hour": store.get("openHour", ""),
+                    "phone_number": store.get("phone", ""),
+                    "store_status": store.get("status", ""),
+                    "chain": "BHX"
+                }
+                
+                store_db.update_one(
+                    {"store_id": store_id},
+                    {"$set": store_data},
+                    upsert=True
+                )
+                pbar.set_postfix_str(f"Store: {store_id}")
 
-        print(f"✓ Upserted {len(stores_data)} stores to MongoDB.")
+        tqdm.write(f"✓ Upserted {len(stores_data)} stores to MongoDB.")
     
     async def upsert_products_bulk_local(self, product_list: List[dict], category_title: str):
         """🔥 BULK UPSERT products to MongoDB by category"""

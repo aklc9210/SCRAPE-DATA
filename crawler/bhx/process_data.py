@@ -3,6 +3,8 @@ from typing import List, Dict
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from datetime import datetime
 from pymongo import UpdateOne
+from tqdm import tqdm
+
 
 # ===== TRANSLATION SETUP =====
 tokenizer_vi2en = AutoTokenizer.from_pretrained(
@@ -380,12 +382,8 @@ def process_product_data(product: dict, category_name: str, store_id: int) -> di
     existing = db[coll_name].find_one({"sku": sku, "store_id": store_id})
     
     if existing:
-        print(f"⏭️ SKU {sku} already exists for store {store_id} - skipping processing")
         return None  # Skip toàn bộ processing
-    
-    # Chỉ process khi chưa tồn tại
-    print(f"🔄 Processing new product: SKU {sku} for store {store_id}")
-    
+        
     # Translate name (chỉ khi cần thiết)
     english_name = translate_vi2en(product.get("name", ""))
     if not english_name:
@@ -426,7 +424,6 @@ async def upsert_product(product_data: dict, category_title: str, db):
 
     sku = product_data.get("sku")
     if not sku:
-        print("No SKU found for product, skipping upsert.")
         return
 
     product_db.update_one(
