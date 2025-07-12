@@ -65,8 +65,9 @@ async def fetch_category_products(url: str, step: int = 3, timeout: float = 8.0)
         page.on("response", on_response)
 
         try:
-            await page.goto(url, wait_until="domcontentloaded", timeout=6000)
-            await asyncio.sleep(1.5)
+            await page.goto(url, wait_until="domcontentloaded", timeout=20000)
+            print("✅ Trang đã load thành công")
+            await asyncio.sleep(3)
             
         except Exception as e:
             print(f"❌ Load trang thất bại: {e}")
@@ -354,8 +355,6 @@ class BHXDataFetcher:
                     ward_id=0,
                     page_size=100
                 )
-                # get 10 first stores
-                stores = stores[:10] if len(stores) > 10 else stores
 
                 # Add location info to all stores
                 for store in stores:
