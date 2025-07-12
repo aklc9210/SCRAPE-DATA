@@ -367,8 +367,26 @@ def extract_best_price(product: dict) -> dict:
 
 # ===== PRODUCT DATA PROCESSING =====
 def process_product_data(product: dict, category_name: str, store_id: int) -> dict:
-    """Process raw product data into standardized format"""
-    # Translate name
+    """Process raw product data - SKIP if already exists in DB"""
+    from db import MongoDB
+    db = MongoDB.get_db()
+    
+    sku = product.get("id")
+    if not sku:
+        raise ValueError("Product missing SKU")
+    
+    # Check if product already exists for this store
+    coll_name = category_name.replace(" ", "_").replace("&", "and").replace(":", "").lower()
+    existing = db[coll_name].find_one({"sku": sku, "store_id": store_id})
+    
+    if existing:
+        print(f"⏭️ SKU {sku} already exists for store {store_id} - skipping processing")
+        return None  # Skip toàn bộ processing
+    
+    # Chỉ process khi chưa tồn tại
+    print(f"🔄 Processing new product: SKU {sku} for store {store_id}")
+    
+    # Translate name (chỉ khi cần thiết)
     english_name = translate_vi2en(product.get("name", ""))
     if not english_name:
         raise ValueError(f"Failed to translate name: {product.get('name', '')}")
@@ -381,7 +399,7 @@ def process_product_data(product: dict, category_name: str, store_id: int) -> di
     
     # Build standardized product data
     return {
-        "sku": product["id"],
+        "sku": sku,
         "name": product["name"],
         "name_en": english_name,
         "unit": price_info["unit"].lower(),
