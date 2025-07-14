@@ -3,6 +3,8 @@ from typing import List, Dict
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from datetime import datetime
 from pymongo import UpdateOne
+from tqdm import tqdm
+
 
 # ===== TRANSLATION SETUP =====
 tokenizer_vi2en = AutoTokenizer.from_pretrained(
@@ -367,8 +369,22 @@ def extract_best_price(product: dict) -> dict:
 
 # ===== PRODUCT DATA PROCESSING =====
 def process_product_data(product: dict, category_name: str, store_id: int) -> dict:
-    """Process raw product data into standardized format"""
-    # Translate name
+    """Process raw product data - SKIP if already exists in DB"""
+    from db import MongoDB
+    db = MongoDB.get_db()
+    
+    sku = product.get("id")
+    if not sku:
+        raise ValueError("Product missing SKU")
+    
+    # Check if product already exists for this store
+    coll_name = category_name.replace(" ", "_").lower()
+    existing = db[coll_name].find_one({"sku": sku, "store_id": store_id})
+    
+    if existing:
+        return None  # Skip toàn bộ processing
+        
+    # Translate name (chỉ khi cần thiết)
     english_name = translate_vi2en(product.get("name", ""))
     if not english_name:
         raise ValueError(f"Failed to translate name: {product.get('name', '')}")
@@ -381,7 +397,7 @@ def process_product_data(product: dict, category_name: str, store_id: int) -> di
     
     # Build standardized product data
     return {
-        "sku": product["id"],
+        "sku": sku,
         "name": product["name"],
         "name_en": english_name,
         "unit": price_info["unit"].lower(),
@@ -408,7 +424,6 @@ async def upsert_product(product_data: dict, category_title: str, db):
 
     sku = product_data.get("sku")
     if not sku:
-        print("No SKU found for product, skipping upsert.")
         return
 
     product_db.update_one(
