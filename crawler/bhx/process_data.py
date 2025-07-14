@@ -377,12 +377,11 @@ def process_product_data(product: dict, category_name: str, store_id: int) -> di
     if not sku:
         raise ValueError("Product missing SKU")
     
-    # Check if product already exists for this store
-    coll_name = category_name.replace(" ", "_").replace("&", "and").replace(":", "").lower()
+    coll_name = category_name.replace(" ", "_").lower()
     existing = db[coll_name].find_one({"sku": sku, "store_id": store_id})
     
     if existing:
-        return None  # Skip toàn bộ processing
+        return None 
         
     # Translate name (chỉ khi cần thiết)
     english_name = translate_vi2en(product.get("name", ""))
