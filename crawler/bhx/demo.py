@@ -303,7 +303,7 @@ class BHXDataFetcher:
             )
             
             # Limit for testing
-            stores = stores[20:25] if len(stores) > 5 else stores
+            stores = stores[34:38] if len(stores) > 5 else stores
             print(f"📍 Processing {len(stores)} stores in {prov_name}")
             
             # Save stores to DB
