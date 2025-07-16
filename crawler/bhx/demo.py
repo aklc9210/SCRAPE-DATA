@@ -245,7 +245,7 @@ class BHXDataFetcher:
     
     async def upsert_products_bulk_local(self, product_list: List[dict], category_title: str):
         """🔥 BULK UPSERT products to MongoDB by category"""
-        coll_name = category_title.replace(" ", "_").replace("&", "and").replace(":", "").lower()
+        coll_name = category_title.replace(" ", "_").lower()
         collection = db[coll_name]
         operations = []
         
@@ -303,7 +303,7 @@ class BHXDataFetcher:
             )
             
             # Limit for testing
-            stores = stores[34:38] if len(stores) > 5 else stores
+            stores = stores[100:102] if len(stores) > 5 else stores
             print(f"📍 Processing {len(stores)} stores in {prov_name}")
             
             # Save stores to DB
