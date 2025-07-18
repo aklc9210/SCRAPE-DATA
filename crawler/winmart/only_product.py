@@ -1,6 +1,7 @@
 import asyncio
 from datetime import datetime
 from pathlib import Path
+import time
 from crawler.winmart.fetch_product import WinMartProductFetcher
 from crawler.winmart.process_data import DataProcessor
 from db import MongoDB
@@ -215,7 +216,9 @@ class ProductOnlyFetcher:
         return total_saved
     
     def _process_winmart_product(self, product: dict, store_id: str) -> dict:
+        
         try:
+            start_time = time.time()
             english_name = self.processor.translate_vi2en(product.get("name", ""))
             if not english_name:
                 return None
@@ -242,7 +245,7 @@ class ProductOnlyFetcher:
             if not mapped_category:
                 return None
             
-            return {
+            result =  {
                 "sku": product.get("product_id", "") or product.get("sku", ""),
                 "name": product.get("name", ""),
                 "name_en": english_name,
@@ -268,7 +271,9 @@ class ProductOnlyFetcher:
                 "original_category": original_category,
                 "has_discount": has_discount
             }
-            
+            end_time = time.time()
+            print(f"⏱️ Thời gian xử lý sản phẩm '{product.get('name', '')}': {end_time - start_time:.3f} giây")
+            return result
         except Exception as e:
             if "translation" in str(e).lower() and hash(product.get('name', '')) % 20 == 0:
                 print(f" Error processing product {product.get('name', 'unknown')}: {e}")

@@ -1,11 +1,13 @@
 import requests
 import asyncio
+import aiohttp
 from typing import List, Dict, Optional
 from crawler.winmart.fetch_category import WinMartCategoryFetcher
 
 class WinMartProductFetcher:
     
     def __init__(self):
+        self.session = aiohttp.ClientSession()
         self.api_base = "https://api-crownx.winmart.vn/it/api/web/v3"
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
@@ -39,10 +41,10 @@ class WinMartProductFetcher:
         
         params = {
             'pageNumber': 1,
-            'pageSize': 100,  # Adjust based on API limits
+            'pageSize': 100,  
             'slug': category['slug'],
             'storeCode': store_id,
-            'storeGroupCode': '1998'  # This might be constant or need dynamic lookup
+            'storeGroupCode': '1998' 
         }
         
         try:
