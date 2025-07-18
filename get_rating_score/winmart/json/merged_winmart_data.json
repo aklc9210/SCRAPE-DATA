@@ -1,0 +1,1940 @@
+[
+  {
+    "_id": {
+      "$oid": "686f6001453f64991df3f60b"
+    },
+    "store_id": "1683",
+    "chain": "winmart",
+    "address": "Tầng trệt Cao ốc Silland, số nhà 7J, đường số 9A, Khu dân cư Trung Sơn, ấp 4B, xã Bình Hưng, huyện Bình Chánh, TP. Hồ Chí Minh Việt Nam",
+    "district": "H. Bình Chánh",
+    "lat": 10.730816,
+    "lng": 106.68872,
+    "name": "WM HCM Trung Sơn",
+    "phone": "+84 559 701 683",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "X. Bình Hưng",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrlAi_GWAnimuaBDICxlCF-cXSjWIuvVcbfHo6R_BrECVM6Q6MPa25E3ggEogV8v3jGyOV1SQFpIUDe45EQWYKbaw3aY8Aq4XGS0zpIbGgggMKDC68sVq2YXvZrYo686DOxMXrjCg=w408-h541-k-no",
+    "totalScore": 3.4,
+    "reviewsCount": 32,
+    "url": "https://www.google.com/maps/search/?api=1&query=WinMart%20Trung%20S%C6%A1n&query_place_id=ChIJWZx_2d8vdTERVSufNdONGTA"
+  },
+  {
+    "_id": {
+      "$oid": "686f6001453f64991df3f60c"
+    },
+    "store_id": "5547",
+    "chain": "winmart+",
+    "address": "Lô D.1.10, Tầng 1, Khối tháp D, Khu G, Khu Nhà ở, Phước Kiển (Khu G và Khu E), Ấp 5, Phước Kiển, H. Nhà Bè, TP. Hồ Chí Minh Việt Nam",
+    "district": "H. Nhà Bè",
+    "lat": 10.722758,
+    "lng": 106.7034,
+    "name": "WIN HCM D.1.10, Tầng 1 Sunrise Rive",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "X. Phước Kiển",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=jGRn0bOt6chZC7ljLmA2pQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=98.65696&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20D.1.10%2C%20T%E1%BA%A7ng%201%20Sunrise%20Riverside&query_place_id=ChIJs8LDjbkvdTERif05NX4DDK0"
+  },
+  {
+    "_id": {
+      "$oid": "686f6002453f64991df3f60d"
+    },
+    "store_id": "3112",
+    "chain": "winmart+",
+    "address": "Căn shop TM 03, Tầng trệt block 1 (Khu 1), phân khu 15A1,Đường Nguyễn Hữu Thọ, xã Phước Kiển, H. Nhà Bè, TP. Hồ Chí Minh Việt Nam",
+    "district": "H. Nhà Bè",
+    "lat": 10.710469,
+    "lng": 106.708664,
+    "name": "WIN HCM Dragon Hill Residence &",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "X. Phước Kiển",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=mChTYb5K9pu5E7ceDmtqMA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=63.95204&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Dragon%20Hill%20Residence%20%26%20Suites&query_place_id=ChIJY3L2n2MvdTERWByFdyhqKEM"
+  },
+  {
+    "_id": {
+      "$oid": "686f6002453f64991df3f60e"
+    },
+    "store_id": "6422",
+    "chain": "winmart+",
+    "address": "I.1.05 và I.1.06 tòa nhà Sunrise Riverside tầng 1, tháp I, Ấp  5, X. Phước Kiển, H. Nhà Bè TP. Hồ Chí Minh Việt Nam",
+    "district": "H. Nhà Bè",
+    "lat": 10.722574,
+    "lng": 106.70508,
+    "name": "WIN HCM I.1.05-06 CC Sunrise",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "X. Phước Kiển",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=m-weBL7s7WG60_1fLK5rUg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=92.70011&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20002%20T%E1%BA%A7ng%20tr%E1%BB%87t%20CC%20Sunrise&query_place_id=ChIJXWI9i88vdTERgJGNVaKmWLU"
+  },
+  {
+    "_id": {
+      "$oid": "686f6002453f64991df3f60f"
+    },
+    "store_id": "3533",
+    "chain": "winmart+",
+    "address": "C01.02 tầng 1 khối đế số 156A Nguyễn Hữu Thọ, xã Phước Kiển, Huyện Nhà Bè, TP. Hồ Chí Minh Việt Nam",
+    "district": "H. Nhà Bè",
+    "lat": 10.717148,
+    "lng": 106.701965,
+    "name": "WM+ HCM 156A Nguyễn Hữu Thọ",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "X. Phước Kiển",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npo_5M7JNI3ij_o6X0nYmBCrfNY-HJag7tpQUnm48TR4vlBzJAbZlf8Al9teCvFWTD4BDtEFRgsLRR_ZEkHEcXkz6goqkgyxlz7HwsYRn5-n6xjOP4YYVJrPuEfgqLUW5BB9TXFCg=w408-h544-k-no",
+    "totalScore": 5,
+    "reviewsCount": 2,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20156A%20Nguy%E1%BB%85n%20H%E1%BB%AFu%20Th%E1%BB%8D&query_place_id=ChIJ8aqO_7cvdTERwUUYoD2x0mg"
+  },
+  {
+    "_id": {
+      "$oid": "686f6002453f64991df3f610"
+    },
+    "store_id": "6242",
+    "chain": "winmart+",
+    "address": "Shop 58 - 60 - 62, Block B3 - Chung cư The Park Residence, 12 Nguyễn Hữu Thọ, P. Phước Kiển, H. Nhà Bè TP. Hồ Chí Minh Việt Nam",
+    "district": "H. Nhà Bè",
+    "lat": 10.712496,
+    "lng": 106.707146,
+    "name": "WIN HCM Shop 58-60-62, B3-CC The",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "X. Phước Kiểng",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=LVPFvY20oWRASSWA4eNkDw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=44.10529&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 3,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Shop%2058-60-62%2C%20B3-Chung%20c%C6%B0%20The%20Park&query_place_id=ChIJvw_r2K8vdTERKcUX1ujmFoc"
+  },
+  {
+    "_id": {
+      "$oid": "686f6003453f64991df3f611"
+    },
+    "store_id": "1545",
+    "chain": "winmart",
+    "address": "Vincom Center Đồng Khởi, 72, Lê Thánh Tôn, Quận 1, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 1",
+    "lat": 10.777792,
+    "lng": 106.702126,
+    "name": "WM VCC HCM Đồng Khởi",
+    "phone": null,
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Bến Nghé",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noZZThRPa819nlosuhdK2PmJ2yHUUclZ3z3RFucChIn9Fk6cD1KvohzVmMpoOHp8PLNvzPZYsTiVbIkEPBtDOWNXMeELN2hbjMx42tjjshjLWMi-FQouSYo-ftGFMFHAb5ut-NL5w=w408-h306-k-no",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=Winmart%20CC%20Nguy%E1%BB%85n%20Kim&query_place_id=ChIJhcwrcAAvdTERRJZMnW9B4EM"
+  },
+  {
+    "_id": {
+      "$oid": "686f6003453f64991df3f612"
+    },
+    "chain": "winmart+",
+    "store_id": "4935",
+    "address": "339DE Nguyễn Cảnh Chân, Phường Cầu Kho, Quận 1, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 1",
+    "lat": 10.757115,
+    "lng": 106.68942,
+    "name": "WIN HCM 339DE Nguyễn Cảnh Chân",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Cầu Kho",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOtyTTJLoxjubKnfhYqROkimarpDaCP_HIJ14oa=w426-h240-k-no",
+    "totalScore": 3,
+    "reviewsCount": 2,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Chung%20c%C6%B0%20237%20Nguy%E1%BB%85n%20V%C4%83n%20H%C6%B0%E1%BB%9Fng&query_place_id=ChIJo5FubQAndTER8HON66k0pTE"
+  },
+  {
+    "_id": {
+      "$oid": "686f6003453f64991df3f613"
+    },
+    "store_id": "2023",
+    "chain": "winmart+",
+    "address": "331C Trần Hưng Đạo, Phường Cô Giang, Quận 1, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 1",
+    "lat": 10.761685,
+    "lng": 106.69003,
+    "name": "WIN HCM 331C Trần Hưng Đạo",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Cô Giang",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=GqDvbzZaTcA2vUp_l2IPnA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=147.47305&pitch=0&thumbfov=100",
+    "totalScore": 1,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20372A%20N%C6%A1%20Trang%20Long&query_place_id=ChIJz9DLEHkpdTERxJz9ZFtmoQY"
+  },
+  {
+    "_id": {
+      "$oid": "686f6003453f64991df3f614"
+    },
+    "store_id": "4200",
+    "chain": "winmart+",
+    "address": "37 Hồ Hảo Hớn, P. Cô Giang, Q1, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 1",
+    "lat": 10.761091,
+    "lng": 106.689926,
+    "name": "WM+ HCM 37 Hồ Hảo Hớn",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Cô Giang",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=GqDvbzZaTcA2vUp_l2IPnA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=147.47305&pitch=0&thumbfov=100",
+    "totalScore": 1,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20372A%20N%C6%A1%20Trang%20Long&query_place_id=ChIJz9DLEHkpdTERxJz9ZFtmoQY"
+  },
+  {
+    "_id": {
+      "$oid": "686f6004453f64991df3f615"
+    },
+    "chain": "winmart+",
+    "store_id": "4915",
+    "address": "0.01. Tầng trệt tháp 4, Sun Avenue 28 Mai Chí Thọ, Phường An Phú, Quận 2, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.785154,
+    "lng": 106.74528,
+    "name": "WIN HCM 001 SAV4, CC Avenue",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. An Phú",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noYeOFN5CaRGCmDNlxNBre8PABhKfBiLctaJzIPpEWbp7csWGdHNn8ZjhIEYnvcXj-ht6e3n4i3W6LPHUXlyBbwPLazeO0TwW63rhbjicL2L9AxdNZeEthfGPd12fyZ1CYXqdrh=w408-h306-k-no",
+    "totalScore": 5,
+    "reviewsCount": 7,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20001%20th%C3%A1p%204%20Chung%20c%C6%B0%20Avenue&query_place_id=ChIJk-CxmuwldTERVL5sbuvlSIo"
+  },
+  {
+    "_id": {
+      "$oid": "686f6004453f64991df3f616"
+    },
+    "store_id": "4881",
+    "chain": "winmart+",
+    "address": "BTM1-3 BlockB tầng 1 (trệt), khu phố 3 Centana, 36 mai Chí Thọ, Phường An Phú, Quận 2, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.790749,
+    "lng": 106.75198,
+    "name": "WIN HCM BTM1-3 Trệt Chung cư Centan",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. An Phú",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNNDXSaSlORMhr76nklKinwDTzAOnAraEjL3aJ9=w426-h240-k-no",
+    "totalScore": 1.6,
+    "reviewsCount": 8,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Chung%20c%C6%B0%20Centana&query_place_id=ChIJC_wuVAAndTERullSJ8e4MKc"
+  },
+  {
+    "_id": {
+      "$oid": "686f6004453f64991df3f617"
+    },
+    "store_id": "4940",
+    "chain": "winmart+",
+    "address": "Tầng Trệt Cao ốc An Cư, số 8, đường Thái Thuận, P An Phú, Quận 2, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.798172,
+    "lng": 106.739204,
+    "name": "WIN HCM CC An Cư",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. An Phú",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=OUqVBTheE0vu_Ly4ZWtZFA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=179.70357&pitch=0&thumbfov=100",
+    "totalScore": 2.5,
+    "reviewsCount": 4,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20Happy%20City&query_place_id=ChIJ44rN9G0vdTERJ0Lx9cygF3U"
+  },
+  {
+    "_id": {
+      "$oid": "686f6004453f64991df3f618"
+    },
+    "store_id": "2965",
+    "chain": "winmart+",
+    "address": "67 Mai Chí Thọ, Phường An Phú, Quận 2, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.797936,
+    "lng": 106.751656,
+    "name": "WM+ HCM Cao ốc Lexington",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. An Phú",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=dZrnJ26MaXsNaM89rqgk_w&cb_client=search.gws-prod.gps&w=408&h=240&yaw=274.60788&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 5,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20Morning%20Star&query_place_id=ChIJaZ9-2TApdTERYTO6kgzeTcQ"
+  },
+  {
+    "_id": {
+      "$oid": "686f6004453f64991df3f619"
+    },
+    "store_id": "4239",
+    "chain": "winmart+",
+    "address": "Chung Cư Lexington, P. An Phú, Quận 2, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.799091,
+    "lng": 106.75187,
+    "name": "WM+ HCM CC Lexington",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. An Phú",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=dZrnJ26MaXsNaM89rqgk_w&cb_client=search.gws-prod.gps&w=408&h=240&yaw=274.60788&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 5,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20Morning%20Star&query_place_id=ChIJaZ9-2TApdTERYTO6kgzeTcQ"
+  },
+  {
+    "_id": {
+      "$oid": "686f6005453f64991df3f61a"
+    },
+    "store_id": "6135",
+    "chain": "winmart+",
+    "address": "Số 01.05, Lô B, căn hộ B.01.05, Chung cư Bộ Công an, Số 83 đường số 3, P. Bình An, TP. Thủ Đức, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.794817,
+    "lng": 106.73661,
+    "name": "WM+ HCM CC Bộ Công An, B01.05",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Bình An",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=PNGTsBvC6nx_P2fhJ9nBoQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=339.1852&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20The%20Manor%202&query_place_id=ChIJbbXgLxopdTERXXZ61gMq5kg"
+  },
+  {
+    "_id": {
+      "$oid": "686f6005453f64991df3f61b"
+    },
+    "chain": "winmart+",
+    "store_id": "5591",
+    "address": "VE-S06, Tầng Trệt Khu Thương Mại Tòa nhà Venice, KDC New City, 17 Mai Chí Thọ, Phường Bình Khánh, Quận 2, Tp. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.781474,
+    "lng": 106.735466,
+    "name": "WIN HCM VE-S06, KDC New City",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Bình Khánh",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOomCGzKloQCEVuWtBALQhzJpyVk0WQ3srhA_Ap=w426-h240-k-no",
+    "totalScore": 5,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Khu%20d%C3%A2n%20c%C6%B0%20New%20City&query_place_id=ChIJteNe_4QldTERunWbpNhto84"
+  },
+  {
+    "_id": {
+      "$oid": "686f6005453f64991df3f61c"
+    },
+    "store_id": "6992",
+    "chain": "winmart+",
+    "address": "Lô thương mại SH21 thuộc chung cư cao cấp Homyland Riverside, số 14 đường số 1, P. Bình Trưng Đông, TP. Thủ Đức TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.789678,
+    "lng": 106.76841,
+    "name": "WIN HCM SH21, CC Homyland Riverside",
+    "phone": null,
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Bình Trưng Đông",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrdMbExzeu_eXiLlSRrhpVcYPlKVWUFmLF0d7c4GXbfSpF7eah57cD7h9H_moovn_RnepkxZWn3YqvW0J2Faju_ktIgwwDggs3MXBmlI0hqq_AtMn5mRbCBM5ULLL5x70VI2qEnZg=w408-h306-k-no",
+    "totalScore": 1,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=Winmart%20Homyland%20Riverside&query_place_id=ChIJVYcJBgIndTERsblmGYFKwOs"
+  },
+  {
+    "_id": {
+      "$oid": "686f6005453f64991df3f61d"
+    },
+    "store_id": "3157",
+    "chain": "winmart+",
+    "address": "537 Nguyễn Duy Trinh, Phường Bình Trưng Đông, Quận 2, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.7899,
+    "lng": 106.771,
+    "name": "WM+ HCM 537 Nguyễn Duy Trinh",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Bình Trưng Đông",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOsfR3HVLg2qlqNaG8kY_HGxXYPEq10-H2vpub-=w426-h240-k-no",
+    "totalScore": 5,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20537%20Nguy%E1%BB%85n%20Duy%20Trinh&query_place_id=ChIJqcPX50ondTERzkQCfRXe-hQ"
+  },
+  {
+    "_id": {
+      "$oid": "686f6006453f64991df3f61e"
+    },
+    "store_id": "5387",
+    "chain": "winmart+",
+    "address": "51A Nguyễn Tuyển, KP5, Phường Bình Trưng Tây, Quận 2, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.7845,
+    "lng": 106.765,
+    "name": "WIN HCM 51A Nguyễn Tuyển",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Bình Trưng Tây",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPxyY9QnQL6xWDbewETpUBDgtLhJ9tAODiUdGmd=w426-h240-k-no",
+    "totalScore": 5,
+    "reviewsCount": 2,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2051A%20Nguy%E1%BB%85n%20Tuy%E1%BB%83n&query_place_id=ChIJU8W3ONMldTERK7H4VOlM3-k"
+  },
+  {
+    "_id": {
+      "$oid": "686f6006453f64991df3f620"
+    },
+    "chain": "winmart+",
+    "store_id": "6036",
+    "address": "232 Lê Văn Thịnh, KP. 1, P. Cát Lái, TP. Thủ Đức, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.777393,
+    "lng": 106.76739,
+    "name": "WIN HCM 232 Lê Văn Thịnh",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Cát Lái",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPntUpn3FyDET_cKCgkb4xgMi1-c-pG_IUD3srP=w426-h240-k-no",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20232%20L%C3%AA%20V%C4%83n%20Th%E1%BB%8Bnh&query_place_id=ChIJWULO0QsldTERF9NhxXaCnpw"
+  },
+  {
+    "_id": {
+      "$oid": "686f6007453f64991df3f622"
+    },
+    "store_id": "6709",
+    "chain": "winmart+",
+    "address": "34 Tạ Hiện, P. Thạnh Mỹ Lợi, TP. Thủ Đức (Q. 2 cũ), TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.776623,
+    "lng": 106.75167,
+    "name": "WIN HCM 34 Tạ Hiện",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Thạnh Mỹ Lợi",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNe3EGFzD49ulPpOtXFrFJOkoQhj-rPhYbIT602=w426-h240-k-no",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2034%20T%E1%BA%A1%20Hi%E1%BB%87n&query_place_id=ChIJ_1y7lQEldTEROPgL3TjdMEM"
+  },
+  {
+    "_id": {
+      "$oid": "686f6007453f64991df3f623"
+    },
+    "store_id": "2AP6",
+    "chain": "winmart+",
+    "address": "A-0.07, Tầng Trệt tại Chung cư Thủ Thiêm Dragon, số 55 đường Quách Giai, P. Thạnh Mỹ Lợi, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.762424,
+    "lng": 106.75885,
+    "name": "WIN HCM A-0.07, CC Thủ Thiêm Dragon",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Thạnh Mỹ Lợi",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqzPvI-NEe4dyXUVw64BwM9rzgILb-dLO0A7R4oGm5SOwAtmUnOfwKSe7_7YW9t_A3ytcB53vMU0dzTNgUtP0-JMwGgzQIt2LWx1faIdBKIqJcpvsDbsN3AeY4srkToQFLV1W3Q=w408-h306-k-no",
+    "totalScore": 4.9,
+    "reviewsCount": 9,
+    "url": "https://www.google.com/maps/search/?api=1&query=WinMart%2B%20HCM%20B0.07%20CC%20CITISOHO&query_place_id=ChIJJ4Hujp4ldTERku9cbcUI_po"
+  },
+  {
+    "_id": {
+      "$oid": "686f6007453f64991df3f624"
+    },
+    "store_id": "4366",
+    "chain": "winmart+",
+    "address": "237 Nguyễn Văn Hưởng, P. Thảo Điền, Quận 2, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.8098,
+    "lng": 106.732,
+    "name": "WIN HCM CC 237 Nguyễn Văn Hưởng",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Thảo Điền",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOtyTTJLoxjubKnfhYqROkimarpDaCP_HIJ14oa=w426-h240-k-no",
+    "totalScore": 3,
+    "reviewsCount": 2,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Chung%20c%C6%B0%20237%20Nguy%E1%BB%85n%20V%C4%83n%20H%C6%B0%E1%BB%9Fng&query_place_id=ChIJo5FubQAndTER8HON66k0pTE"
+  },
+  {
+    "_id": {
+      "$oid": "686f6007453f64991df3f625"
+    },
+    "store_id": "4235",
+    "chain": "winmart+",
+    "address": "Tầng 1 Lô A CC XI Riverview 190 Nguyễn Văn Hưởng, P. Thảo Điền, Quận 2, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.81699,
+    "lng": 106.730286,
+    "name": "WIN HCM Tầng 1 Lô A, CC XI Rivervie",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Thảo Điền",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npiLA_F-GzJP4s4yJoPdh-S7O_r1HB8_bzfqeW0MH5hEhvwXtaPNtD0-XyTNM8wjFNkNWcA87_zd0drkyaiJcRixIPOxRQvjNfL5b55a2A52eRZgOYVBPRHno8sOMr0WU9kCsEddw=w408-h544-k-no",
+    "totalScore": 3.7,
+    "reviewsCount": 3,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Chung%20c%C6%B0%20XI%20Riverview&query_place_id=ChIJaTr2k-EndTER6xWkOD92siE"
+  },
+  {
+    "_id": {
+      "$oid": "686f6007453f64991df3f626"
+    },
+    "store_id": "2026",
+    "chain": "winmart+",
+    "address": "Căn hộ B01-08, tầng trệt Khu căn hộ, Hoàng Anh River view, 37 Nguyễn, Văn Hưởng, P. Thảo Điền, Q. 2, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 2",
+    "lat": 10.8046,
+    "lng": 106.727,
+    "name": "WM+ HCM Hoàng Anh River View",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Thảo Điền",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNpHQCOCfaD7-QcE_0p6-8sVLTBNNhdRZ8f2apL=w426-h240-k-no",
+    "totalScore": 5,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Khu%20c%C4%83n%20h%E1%BB%99%20Ho%C3%A0ng%20Anh%20River%20View&query_place_id=ChIJJesXdHkndTERRI_HYa6xuJ0"
+  },
+  {
+    "_id": {
+      "$oid": "686f6008453f64991df3f628"
+    },
+    "chain": "winmart+",
+    "store_id": "3758",
+    "address": "82 Lý Phục Man, Phường Bình Thuận, Quận 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.7432,
+    "lng": 106.726,
+    "name": "WIN HCM 82 Lý Phục Man",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Bình Thuận",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqZcbLwaCDTaKtSDDTYUf5WoBxcFDEvQ2MVrnKP2n1klsPyAae8nH0xzTGsD-0xmZG2o94hswo3DA67VH0z48lF5l_ZqK-K9GWlj9QxmVwg-jBlCVOBZEj531i2Paxh8Vq-PR6NF8XYECak=w408-h306-k-no",
+    "totalScore": 4,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20The%20Manor&query_place_id=ChIJn-zFdmIpdTERry7Ai-_DeGc"
+  },
+  {
+    "_id": {
+      "$oid": "686f6008453f64991df3f629"
+    },
+    "chain": "winmart+",
+    "store_id": "3016",
+    "address": "EB4-01-02A tầng trệt Block B4,khu tái, định cư Phú Mỹ(The Era Town), P. Phú Mỹ, Quận 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.699907,
+    "lng": 106.731094,
+    "name": "WIN HCM The Era Town",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Mỹ",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=rcflYVJnlNbIATGmmD-5iw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=282.74225&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20The%20Era%20Town&query_place_id=ChIJ_TRWsU87dTERhYywzcN6sss"
+  },
+  {
+    "_id": {
+      "$oid": "686f6008453f64991df3f62a"
+    },
+    "store_id": "6060",
+    "chain": "winmart+",
+    "address": "54 Lô L, Đường số 7, KDC Phú Mỹ, P. Phú Mỹ, Q. 7, (Thửa 930, TBĐ 2) TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.713941,
+    "lng": 106.73272,
+    "name": "WM+ HCM 54 Lô L, Đường số 7",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Mỹ",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOkB_2jlYKS8QaYPwx9-rwzd54ejQNpPOpqKkEf=w426-h240-k-no",
+    "totalScore": 1,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2025%20%C4%91%C6%B0%E1%BB%9Dng%20s%E1%BB%91%2017&query_place_id=ChIJDcVOjUondTERcBBj9-tNMEA"
+  },
+  {
+    "_id": {
+      "$oid": "686f6009453f64991df3f62b"
+    },
+    "store_id": "6463",
+    "chain": "winmart+",
+    "address": "Tầng trệt lô E mã E1-09 Tòa nhà Belleza, Phạm Hữu Lầu, P. Phú Mỹ, Q. 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.706771,
+    "lng": 106.726425,
+    "name": "WM+ HCM E1-09, CC Belleza",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Mỹ",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=8TqEmfksqEu7vTt8ECxWAg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=182.42805&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20E1-09%2C%20Chung%20c%C6%B0%20Belleza&query_place_id=ChIJcz7pnEIldTERGbRLT0LmrzA"
+  },
+  {
+    "_id": {
+      "$oid": "686f6009453f64991df3f62c"
+    },
+    "chain": "winmart+",
+    "store_id": "2A12",
+    "address": "EA4-01-06, Tầng trệt, Block A4, dự án Khu tái định cư Phú Mỹ-The Era Town, Đ.15B, P. Phú Mỹ, Q. 7 TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.700734,
+    "lng": 106.73334,
+    "name": "WM+ HCM EA4-01-06, CC Era Town",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Mỹ",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=rcflYVJnlNbIATGmmD-5iw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=282.74225&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20The%20Era%20Town&query_place_id=ChIJ_TRWsU87dTERhYywzcN6sss"
+  },
+  {
+    "_id": {
+      "$oid": "686f6009453f64991df3f62d"
+    },
+    "store_id": "4100",
+    "chain": "winmart+",
+    "address": "1-3 N1, KDC Phường Phú Thuận (La casa), Phường Phú Thuận, Quận 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.715358,
+    "lng": 106.74268,
+    "name": "WIN HCM 1-3 N1, KDC P.Phú Thuận",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Thuận",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=Ou_XllT7wxVEPaLNuip7bg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=57.283188&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 3,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Th%E1%BB%ADa%20526%2C%20P.%20Ph%C3%BA%20Thu%E1%BA%ADn&query_place_id=ChIJF314aAUldTER2emL_FVaRA8"
+  },
+  {
+    "_id": {
+      "$oid": "686f6009453f64991df3f62e"
+    },
+    "chain": "winmart+",
+    "store_id": "4250",
+    "address": "84 Gò Ô Môi, KP2, Phường Phú Thuận, Q7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.729464,
+    "lng": 106.73509,
+    "name": "WIN HCM 84 Gò Ô Môi",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Thuận",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqvulkpsVvNTIkgBEPnpDG__T1-bF8R8WSp2PQrqA8lwgr3QUxqmOoskPTGowC0NWZj0hOmcZxnoNZvDfOVMkvVhRpOEPw5qqbHK44jsEwhNKJE7_HuJwKIQCtk0wQRlZKBauPXzIbaJZc=w408-h544-k-no",
+    "totalScore": 2.3,
+    "reviewsCount": 3,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2084%20G%C3%B2%20%C3%94%20M%C3%B4i&query_place_id=ChIJOfNPqbwldTER2TLPY8-Pdwc"
+  },
+  {
+    "_id": {
+      "$oid": "686f600a453f64991df3f62f"
+    },
+    "chain": "winmart+",
+    "store_id": "3078",
+    "address": "B3&B4&B5 tầng 1, Block 1B khu phức hợp, La Casa, số 89 Hoàng Quốc Việt, Quận 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.715793,
+    "lng": 106.740685,
+    "name": "WIN HCM 89 Hoàng Quốc Việt",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Thuận",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=FGikTbZWE0U9mTylI254dQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=181.36563&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2089%20Ho%C3%A0ng%20Qu%E1%BB%91c%20Vi%E1%BB%87t&query_place_id=ChIJ8_pwhu4ldTERmOXPN_-rV64"
+  },
+  {
+    "_id": {
+      "$oid": "686f600a453f64991df3f631"
+    },
+    "store_id": "4383",
+    "chain": "winmart+",
+    "address": "Lô N1, Tháp M2 - Tháp Nam, KDC, P.Bắc Rạch Bà Bướm (Jamona, City), Đào Trí, P.Phú Thuận, Q.7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.735872,
+    "lng": 106.7389,
+    "name": "WIN HCM CC Jamona 1 - N1",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Thuận",
+    "imageUrl": null,
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20Jamona%201%20-%20N1&query_place_id=ChIJXWAnoSsldTERg-IZ826t-Bs"
+  },
+  {
+    "_id": {
+      "$oid": "686f600a453f64991df3f632"
+    },
+    "chain": "winmart+",
+    "store_id": "4384",
+    "address": "Lô B2, tháp M1, Tháp Bắc, Tòa nhà, Jamona City, Đường Đào Trí, P.Phú Thuận, Q.7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.736806,
+    "lng": 106.73867,
+    "name": "WIN HCM CC Jamona 2 - B2",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Thuận",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=nLc2pGFZN43lE-aUc0R0rw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=140.0251&pitch=0&thumbfov=100",
+    "totalScore": 1,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20Jamona%202%20-%20B2&query_place_id=ChIJcyX7ci0ldTERDZiBx1nREoo"
+  },
+  {
+    "_id": {
+      "$oid": "686f600a453f64991df3f633"
+    },
+    "chain": "winmart+",
+    "store_id": "4132",
+    "address": "C2 Cao Thị Chính, Phường Phú Thuận, quận 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.7319,
+    "lng": 106.735,
+    "name": "WM+ HCM Thửa 526, P. Phú Thuận",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Thuận",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=Ou_XllT7wxVEPaLNuip7bg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=57.283188&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 3,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Th%E1%BB%ADa%20526%2C%20P.%20Ph%C3%BA%20Thu%E1%BA%ADn&query_place_id=ChIJF314aAUldTER2emL_FVaRA8"
+  },
+  {
+    "_id": {
+      "$oid": "686f600b453f64991df3f634"
+    },
+    "chain": "winmart+",
+    "store_id": "4281",
+    "address": "002 Tầng trệt Block V4, Sunrise City- South, 23 Nguyễn Hữu Thọ, P. Tân Hưng, Q. 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.7396,
+    "lng": 106.7,
+    "name": "WIN HCM 002 Tầng trệt CC Sunrise",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Hưng",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=m-weBL7s7WG60_1fLK5rUg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=92.70011&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20002%20T%E1%BA%A7ng%20tr%E1%BB%87t%20CC%20Sunrise&query_place_id=ChIJXWI9i88vdTERgJGNVaKmWLU"
+  },
+  {
+    "_id": {
+      "$oid": "686f600b453f64991df3f635"
+    },
+    "store_id": "2929",
+    "chain": "winmart+",
+    "address": "A01-08, tầng 1, block A, Khu căn hộ, Hoàng Anh Thanh Bình, đường số 17, P. Tân Hưng, Q. 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.745399,
+    "lng": 106.6987,
+    "name": "WIN HCM A01-08 Hoàng Anh Thanh Bình",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Hưng",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=_mLPLVRISG1W6ObPsa6lFA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=65.04803&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20A01-08%20Ho%C3%A0ng%20Anh%20Thanh%20B%C3%ACnh&query_place_id=ChIJszljRWsvdTERLl-kOB9KNVY"
+  },
+  {
+    "_id": {
+      "$oid": "686f600b453f64991df3f636"
+    },
+    "chain": "winmart+",
+    "store_id": "2043",
+    "address": "A1.01 CC Hoàng Anh 2 - 783 Trần Xuâ, n Soạn, Phường Tân Hưng, Quận 7, Quận 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.751242,
+    "lng": 106.699394,
+    "name": "WM+ HCM Hoàng Anh 2",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Hưng",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=kLmSRA4UnIBecDVgTxWv-A&cb_client=search.gws-prod.gps&w=408&h=240&yaw=47.202477&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Ho%C3%A0ng%20Anh%202&query_place_id=ChIJYeogowIvdTER02WHYNWj1Sc"
+  },
+  {
+    "_id": {
+      "$oid": "686f600b453f64991df3f637"
+    },
+    "store_id": "4330",
+    "chain": "winmart+",
+    "address": "SCB 01-21 tại dự án Sunrise Cityview số 33, Nguyễn Hữu Thọ, p Tân Hưng, q 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.745488,
+    "lng": 106.70082,
+    "name": "WM+ HCM SCB-01-21 Sunrise City view",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Hưng",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=NEOuWs7klBVay7b80aQA7A&cb_client=search.gws-prod.gps&w=408&h=240&yaw=339.16675&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20SCB-01-21%20Sunrise%20City%20view&query_place_id=ChIJsVnW-RYvdTERpOeO5rhMTZc"
+  },
+  {
+    "_id": {
+      "$oid": "686f600c453f64991df3f638"
+    },
+    "store_id": "3135",
+    "chain": "winmart+",
+    "address": "35/12 Bế Văn Cấm, P. Tân Kiểng, Quận 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.750188,
+    "lng": 106.71119,
+    "name": "WM+ HCM M-One Nam Sài Gòn",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Kiểng",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=VMSIXdueIddLRDyGlDcO5Q&cb_client=search.gws-prod.gps&w=408&h=240&yaw=147.96877&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20M-One%20Nam%20S%C3%A0i%20G%C3%B2n&query_place_id=ChIJnwdevnIvdTERUy1IsbcaUOY"
+  },
+  {
+    "_id": {
+      "$oid": "686f600c453f64991df3f639"
+    },
+    "store_id": "1681",
+    "chain": "winmart",
+    "address": "36/25 Phạm Văn Nghị, Sky Garden 3, P. Tân Phong, Q. 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.732091,
+    "lng": 106.70594,
+    "name": "WM HCM Hưng Gia",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Phong",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqYT9mbXKOdvA0tcKtgBw1gYz9MQmFrK9WwPlkXpPxC3ElFbH5zknFjiWxx8lySLE_8JUlVdnUioavsGGmSLiwGXMpH9i_gN9fS54GMgPuSJ37Hp7c47Wm3y3KUhzZZha1zSj6eAw=w408-h544-k-no",
+    "totalScore": 1,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WinMart%2B%2073%20Ph%E1%BA%A1m%20%C4%90%C4%83ng%20Gi%E1%BA%A3ng&query_place_id=ChIJ45oFobcrdTERqNBMBtq4EOc"
+  },
+  {
+    "_id": {
+      "$oid": "686f600c453f64991df3f63a"
+    },
+    "store_id": "5786",
+    "chain": "winmart+",
+    "address": "1016/28 (Khu Sky Garden 2-R1-2), Khu phố 3, P. Tân Phong, Q.7 TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.7308855,
+    "lng": 106.70594,
+    "name": "WM+ HCM 1016/28- Khu Sky Garden 2-R",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Phong",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqzSbrnniPcqAAFKb7cQrkPbGigFCXHg7Xirxqbe79I6RcSLLTaDGczy4ODmZkXpxpy3D-Tkx7yBZdTgpjxqh-gs5sWAbDSeJ2pGF8qpAZNoihOs53RVhm8-K5PC-pCfpk5BEiL00VWE_oa=w408-h544-k-no",
+    "totalScore": 5,
+    "reviewsCount": 4,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%201016%2F28%20Khu%20Sky%20Garden%202-R1-2&query_place_id=ChIJ2Q4vyuwvdTERh1KCFvBM3JU"
+  },
+  {
+    "_id": {
+      "$oid": "686f600c453f64991df3f63b"
+    },
+    "chain": "winmart+",
+    "store_id": "6350",
+    "address": "22 - G4 Đường 53, P. Tân Phong, Q. P.Tân Phong, Q.7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.737396,
+    "lng": 106.70811,
+    "name": "WM+ HCM 22 – G4 Đường 53",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Phong",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPyhCLoCuWnhrFrRywQzuLGtcE9jm9MAEz1AVok=w426-h240-k-no",
+    "totalScore": 5,
+    "reviewsCount": 3,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WinMart%2B%2022%20%C4%90%C6%B0%E1%BB%9Dng%20s%E1%BB%91%203&query_place_id=ChIJqx7Ra3gpdTERE2BhA1extsQ"
+  },
+  {
+    "_id": {
+      "$oid": "686f600d453f64991df3f63c"
+    },
+    "chain": "winmart+",
+    "store_id": "3894",
+    "address": "876 Huỳnh Tấn Phát, Phường Tân Phú, Quận 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.728398,
+    "lng": 106.73264,
+    "name": "WIN HCM 876 Huỳnh Tấn Phát",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Phú",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=ajTsNrtHQy6b26aEs85fCA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=249.64705&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20876%20Hu%E1%BB%B3nh%20T%E1%BA%A5n%20Ph%C3%A1t&query_place_id=ChIJlTZu9H8ldTER544LyA6gbNA"
+  },
+  {
+    "_id": {
+      "$oid": "686f600d453f64991df3f63d"
+    },
+    "chain": "winmart+",
+    "store_id": "3084",
+    "address": "K0.04 Lô K, tầng 1, Chung cư K, KDC City Land, 99 Nguyễn Thị Thập, P. Tân Phú, Quận 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.73539,
+    "lng": 106.726685,
+    "name": "WIN HCM 99 Nguyễn Thị Thập",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Phú",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=bjvd9y0w_eBXLDr_YiUN4A&cb_client=search.gws-prod.gps&w=408&h=240&yaw=62.939236&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 2,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2099%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Th%E1%BA%ADp&query_place_id=ChIJg9fljxEldTERIsPYMzAphT4"
+  },
+  {
+    "_id": {
+      "$oid": "686f600d453f64991df3f63e"
+    },
+    "chain": "winmart+",
+    "store_id": "2AHZ",
+    "address": "Cửa hàng số 34, Tầng 1 (tầng trệt), Q. 7 TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.723373,
+    "lng": 106.727486,
+    "name": "WIN HCM CH số 34, tầng 1-CC Midtown",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Phú",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=IrCsZY0AnjRQeiG16qFxjg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=241.86867&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 5,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WinMart%2B%20C0.01%2C%20Chung%20c%C6%B0%20Midtown&query_place_id=ChIJYxPGeokldTERQJVOmo8DinU"
+  },
+  {
+    "_id": {
+      "$oid": "686f600e453f64991df3f63f"
+    },
+    "store_id": "2503",
+    "chain": "winmart+",
+    "address": "Khu Phố Cảnh Viên, P. Tân Phú, Quận 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.722384,
+    "lng": 106.729645,
+    "name": "WIN HCM Khu Phố Cảnh Viên",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Phú",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=fkphBtSXlO88_4AW857yxA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=232.164&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Khu%20Ph%E1%BB%91%20C%E1%BA%A3nh%20Vi%C3%AAn&query_place_id=ChIJAcWdaIoldTERb-vquh7yuhQ"
+  },
+  {
+    "_id": {
+      "$oid": "686f600e453f64991df3f640"
+    },
+    "chain": "winmart+",
+    "store_id": "2AF4",
+    "address": "136 Lâm Văn Bền, P. Tân Quy, Q. 7 TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.743425,
+    "lng": 106.71576,
+    "name": "WIN HCM 136 Lâm Văn Bền",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Quy",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=lJnwF3qNLAh692Jjai2Hpw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=271.70837&pitch=0&thumbfov=100",
+    "totalScore": 1,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20136%20L%C3%A2m%20V%C4%83n%20B%E1%BB%81n&query_place_id=ChIJ50vAeA8vdTERxe4i45du-LI"
+  },
+  {
+    "_id": {
+      "$oid": "686f600e453f64991df3f641"
+    },
+    "store_id": "1597",
+    "chain": "winmart",
+    "address": "VC+ KĐT Nam Long Số 71,Trần Trọng, Cung, P. Tân Thuận Đông, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.745507,
+    "lng": 106.73004,
+    "name": "WM VC+ HCM Nam Long",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Thuận Đông",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noddwNmcq6jlb-MPgsoHY3F6XR6BzQG1PAWKZuK9NsihrxxyTLimhCAl_oa-3Sxi3A7DX_9lxsWDC2LjI4feryUbk6Z5LwgryK9Zqam_5RDqHkIvwRD4raGFIye2q-YBNiVaw66=w408-h306-k-no",
+    "totalScore": 4.1,
+    "reviewsCount": 206,
+    "url": "https://www.google.com/maps/search/?api=1&query=WinMart%20Vincom%20Nam%20Long&query_place_id=ChIJ4U3AxSQldTERdqTSTgHZdyc"
+  },
+  {
+    "_id": {
+      "$oid": "686f600e453f64991df3f642"
+    },
+    "chain": "winmart+",
+    "store_id": "2ABG",
+    "address": "1.11, Tầng 1, Khu phức hợp TMDV và Nhà ở, số 16/9 Bùi Văn Ba, P. Tân Thuận Đông Q. 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.750268,
+    "lng": 106.73543,
+    "name": "WIN HCM 1.11, 16/9 Bùi Văn Ba",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Thuận Đông",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=bdZdKAf3F8jClsktcykuuQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=173.19011&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%201.11%2C%2016%2F9%20B%C3%B9i%20V%C4%83n%20Ba&query_place_id=ChIJiQfbeCsldTERt7mfmECLRA8"
+  },
+  {
+    "_id": {
+      "$oid": "686f600f453f64991df3f643"
+    },
+    "chain": "winmart+",
+    "store_id": "4382",
+    "address": "167 Trần Trọng Cung, P. Tân Thuận, Đông, Q7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.74369,
+    "lng": 106.73626,
+    "name": "WIN HCM CC Ehome Trần Trọng Cung",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Thuận Đông",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=VksytdO9x2BxOpWDk4RzkA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=152.12321&pitch=0&thumbfov=100",
+    "totalScore": 1,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20Ehome%20Tr%E1%BA%A7n%20Tr%E1%BB%8Dng%20Cung&query_place_id=ChIJMWG_r8IldTERhw_8yHt-Fwk"
+  },
+  {
+    "_id": {
+      "$oid": "686f600f453f64991df3f644"
+    },
+    "chain": "winmart+",
+    "store_id": "5822",
+    "address": "Tòa HR1, Eco Green Sài Gòn, Đường Nguyễn Văn Linh, P. Bình Thuận và P. Tân Thuận Tây, Q 7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.748992,
+    "lng": 106.723114,
+    "name": "WIN HCM HR1SH1 Chung cư Eco Green",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Thuận Tây",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=S4fLY0vIUV3_ic5yMUcY4w&cb_client=search.gws-prod.gps&w=408&h=240&yaw=112.738625&pitch=0&thumbfov=100",
+    "totalScore": 3.7,
+    "reviewsCount": 3,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20HR1SH1%20Chung%20c%C6%B0%20Eco%20Green&query_place_id=ChIJkQ2GgIovdTERfwizHaT5lu8"
+  },
+  {
+    "_id": {
+      "$oid": "686f600f453f64991df3f645"
+    },
+    "store_id": "6518",
+    "chain": "winmart+",
+    "address": "HR2SH21 -HR2SH22, CC Eco Green, Đ. Nguyễn Văn Linh, P. Tân Thuận Tây, Q.7, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 7",
+    "lat": 10.748146,
+    "lng": 106.72325,
+    "name": "WIN HCM HR2SH21-22, CC Eco Green",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Thuận Tây",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=S4fLY0vIUV3_ic5yMUcY4w&cb_client=search.gws-prod.gps&w=408&h=240&yaw=112.738625&pitch=0&thumbfov=100",
+    "totalScore": 3.7,
+    "reviewsCount": 3,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20HR1SH1%20Chung%20c%C6%B0%20Eco%20Green&query_place_id=ChIJkQ2GgIovdTERfwizHaT5lu8"
+  },
+  {
+    "_id": {
+      "$oid": "686f600f453f64991df3f646"
+    },
+    "store_id": "1567",
+    "chain": "winmart",
+    "address": "50 Lê Văn Việt P. Hiệp Phú Q. 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.845468,
+    "lng": 106.7787,
+    "name": "WM VCP HCM Lê Văn Việt",
+    "phone": "+84 559 701 567",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Hiệp Phú",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nquuT9dEdOYPkFhu-l8HbLY-ALvaTBtNSXB7xyDGPjyL54CQ_9jTZiltQ9LLW7gJg4fCtLyqb_dT-It39bfcNoOxtCnHMq8nkR2SERx26hrQnZQfRp0lJKa115Epk6CTHzRk4d_=w408-h544-k-no",
+    "totalScore": 4.2,
+    "reviewsCount": 893,
+    "url": "https://www.google.com/maps/search/?api=1&query=WinMart%20L%C3%AA%20V%C4%83n%20Vi%E1%BB%87t&query_place_id=ChIJ85rSz44ndTERXi0t00vdDDc"
+  },
+  {
+    "_id": {
+      "$oid": "686f6010453f64991df3f648"
+    },
+    "chain": "winmart+",
+    "store_id": "6875",
+    "address": "01.04 Tòa S7.02, Vinhomes Grand Park, 88 Phước Thiện, P. Long Bình, TP. Thủ Đức TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.844066,
+    "lng": 106.83673,
+    "name": "WIN HCM S7.02-01.04 Vinhomes Grand",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Long Bình",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPktawjsFG2MU0Uowf7jkQqMWVSJYPtWa66veI8=w426-h240-k-no",
+    "totalScore": 3.2,
+    "reviewsCount": 9,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WinMart%2B%20S7.01%20Vinhomes%20Grand%20Park&query_place_id=ChIJZ9swQQAhdTERsY2muMaXW0c"
+  },
+  {
+    "_id": {
+      "$oid": "686f6010453f64991df3f649"
+    },
+    "chain": "winmart+",
+    "store_id": "6886",
+    "address": "01.04 Tòa S10.03, Vinhomes Grand Park, 88 Phước Thiện, P. Long Bình, TP. Thủ Đức TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.846861,
+    "lng": 106.83907,
+    "name": "WM+ HCM S10.03-01.04 Vinhomes Grand",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Long Bình",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npIrKmIq_Wakd_xWVAuD9H0VF31HqrCl7CvMkWTLJ2PbcCixSfCUfeAXysvKJBre_cyZjuSwBVbj5E6x6WwYFidGJ0Vc_awtLfJhN7FxWrW-J_4BQ7MM_xnSKBcMmY3mptScFucuA=w408-h725-k-no",
+    "totalScore": 5,
+    "reviewsCount": 6,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20S10.03%20Vinhomes%20Grand%20Park&query_place_id=ChIJwdtEMUYhdTERscALK0qSwVo"
+  },
+  {
+    "_id": {
+      "$oid": "686f6010453f64991df3f64a"
+    },
+    "store_id": "6606",
+    "chain": "winmart+",
+    "address": "01.05 Tòa S6.05, Vinhomes Grand Park, 88 Phước Thiện, P. Long Thạnh Mỹ và P. Long Bình, TP. Thủ Đức TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.843947,
+    "lng": 106.83928,
+    "name": "WM+ HCM S6.05-01.05 Vinhomes Grand",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Long Bình",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4no8p2ljc9E4oQ5KYOj-DbaQFh6KOwv5L1_d5yl4TX8CbiFX9TNvDPKWMng-rFw6pAshtckzXRquIFfS48BYav2c9XOMPoUE-7jMTYAFlLG7vp19pTAFMoAXmLAJaWv4MX3mjAsn=w408-h544-k-no",
+    "totalScore": 4.9,
+    "reviewsCount": 9,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WinMart%2B%20S5.01%20Vinhomes%20Grand%20Park&query_place_id=ChIJHQ_6msghdTER3WVoWOIPzGE"
+  },
+  {
+    "_id": {
+      "$oid": "686f6010453f64991df3f64b"
+    },
+    "chain": "winmart+",
+    "store_id": "2A10",
+    "address": "01.17 Tòa S7.01, Vinhomes Grand Park, 88 Phước Thiện, P. Long Bình, TP. Thủ Đức (Q. 9 cũ) TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.843019,
+    "lng": 106.83744,
+    "name": "WM+ HCM S7.01-01.17 Vinhomes Grand",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Long Bình",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPktawjsFG2MU0Uowf7jkQqMWVSJYPtWa66veI8=w426-h240-k-no",
+    "totalScore": 3.2,
+    "reviewsCount": 9,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WinMart%2B%20S7.01%20Vinhomes%20Grand%20Park&query_place_id=ChIJZ9swQQAhdTERsY2muMaXW0c"
+  },
+  {
+    "_id": {
+      "$oid": "686f6011453f64991df3f64c"
+    },
+    "store_id": "6461",
+    "chain": "winmart+",
+    "address": "01.17 tòa S9.01 Vinhomes Grand Park, 88 Đ. Phước Thiện, KP. Phước Thiện, P. Long Bình, TP. Thủ Đức, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.845001,
+    "lng": 106.836685,
+    "name": "WM+ HCM S9.01-01.17 Vinhomes Grand",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Long Bình",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4no8p2ljc9E4oQ5KYOj-DbaQFh6KOwv5L1_d5yl4TX8CbiFX9TNvDPKWMng-rFw6pAshtckzXRquIFfS48BYav2c9XOMPoUE-7jMTYAFlLG7vp19pTAFMoAXmLAJaWv4MX3mjAsn=w408-h544-k-no",
+    "totalScore": 4.9,
+    "reviewsCount": 9,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WinMart%2B%20S5.01%20Vinhomes%20Grand%20Park&query_place_id=ChIJHQ_6msghdTER3WVoWOIPzGE"
+  },
+  {
+    "_id": {
+      "$oid": "686f6011453f64991df3f64d"
+    },
+    "chain": "winmart+",
+    "store_id": "4091",
+    "address": "217A Long Phước, Ấp Long Thuận, Phường Long Phước, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.8121,
+    "lng": 106.86,
+    "name": "WM+ HCM 217A Long Phước",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Long Phước",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMFxrpLs930ml1yDUTb9QYQRrqW3wQ4OJkmk2B1=w426-h240-k-no",
+    "totalScore": 5,
+    "reviewsCount": 3,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20217A%20Long%20Ph%C6%B0%E1%BB%9Bc&query_place_id=ChIJHVniTpEhdTERu3iuE6OhuXk"
+  },
+  {
+    "_id": {
+      "$oid": "686f6011453f64991df3f64e"
+    },
+    "store_id": "6001",
+    "chain": "winmart+",
+    "address": "Tòa S1.06 Khu A– DA Khu Phước Thiện, 512 Nguyễn Xiển, KP. Long Hòa, P. Long Thạnh Mỹ, TP. Thủ Đức TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.838342,
+    "lng": 106.83129,
+    "name": "WM+ HCM 1.04-S1.06 Vinhomes Grand P",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Long Thạnh Mỹ",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npIrKmIq_Wakd_xWVAuD9H0VF31HqrCl7CvMkWTLJ2PbcCixSfCUfeAXysvKJBre_cyZjuSwBVbj5E6x6WwYFidGJ0Vc_awtLfJhN7FxWrW-J_4BQ7MM_xnSKBcMmY3mptScFucuA=w408-h725-k-no",
+    "totalScore": 5,
+    "reviewsCount": 6,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20S10.03%20Vinhomes%20Grand%20Park&query_place_id=ChIJwdtEMUYhdTERscALK0qSwVo"
+  },
+  {
+    "_id": {
+      "$oid": "686f6011453f64991df3f64f"
+    },
+    "chain": "winmart+",
+    "store_id": "6705",
+    "address": "Shop 01.17, CC S3.05 Khu A, 512 Nguyễn Xiển, P. Long Thạnh Mỹ, TP. Thủ Đức TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.838447,
+    "lng": 106.83447,
+    "name": "WM+ HCM S3.05-01.17 Vinhomes Grand",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Long Thạnh Mỹ",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4no8p2ljc9E4oQ5KYOj-DbaQFh6KOwv5L1_d5yl4TX8CbiFX9TNvDPKWMng-rFw6pAshtckzXRquIFfS48BYav2c9XOMPoUE-7jMTYAFlLG7vp19pTAFMoAXmLAJaWv4MX3mjAsn=w408-h544-k-no",
+    "totalScore": 4.9,
+    "reviewsCount": 9,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WinMart%2B%20S5.01%20Vinhomes%20Grand%20Park&query_place_id=ChIJHQ_6msghdTER3WVoWOIPzGE"
+  },
+  {
+    "_id": {
+      "$oid": "686f6012453f64991df3f650"
+    },
+    "store_id": "4405",
+    "chain": "winmart+",
+    "address": "81B Lã Xuân Oai, Phường Long Trường, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.824745,
+    "lng": 106.807594,
+    "name": "WM+ HCM 81B Lã Xuân Oai",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Long Trường",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNS4PA43Qocn_12ajJX9ZXo1u6VOlbwwcxb8CLl=w426-h240-k-no",
+    "totalScore": 5,
+    "reviewsCount": 4,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2081B%20L%C3%A3%20Xu%C3%A2n%20Oai&query_place_id=ChIJ9W09oaondTERxFsBrFuM9bI"
+  },
+  {
+    "_id": {
+      "$oid": "686f6012453f64991df3f652"
+    },
+    "store_id": "4320",
+    "chain": "winmart+",
+    "address": "85-87 đường số 6, KDC Phường Phú Hữu, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.804,
+    "lng": 106.791,
+    "name": "WIN HCM 85-87 đường số 6",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Hữu",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipM5neMHtawLrbmSew4ocJ0XHCIe2m86UPDa_SCs=w426-h240-k-no",
+    "totalScore": 4.4,
+    "reviewsCount": 7,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2085-87%20%C4%91%C6%B0%E1%BB%9Dng%20s%E1%BB%91%206&query_place_id=ChIJmc1h8cwndTERSmejpvKz5LM"
+  },
+  {
+    "_id": {
+      "$oid": "686f6012453f64991df3f653"
+    },
+    "chain": "winmart+",
+    "store_id": "3386",
+    "address": "909 Nguyễn Duy Trinh, Phường Phú Hữu, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.791461,
+    "lng": 106.79938,
+    "name": "WIN HCM 909 Nguyễn Duy Trinh",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Hữu",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMyFrbF5ABKRf9Tsiwua7j-hdxZT8a4VOEloOJj=w426-h240-k-no",
+    "totalScore": 5,
+    "reviewsCount": 7,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20909%20Nguy%E1%BB%85n%20Duy%20Trinh&query_place_id=ChIJdSL9f8gndTERTYcFQmIxc3g"
+  },
+  {
+    "_id": {
+      "$oid": "686f6012453f64991df3f654"
+    },
+    "store_id": "4937",
+    "chain": "winmart+",
+    "address": "A01 –TMDV01-02 cao ốc Jamila, 60 đường 697, KP2, Phường Phú Hữu, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.795585,
+    "lng": 106.784645,
+    "name": "WIN HCM Jamila Khang Điền",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Hữu",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=GqDvbzZaTcA2vUp_l2IPnA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=147.47305&pitch=0&thumbfov=100",
+    "totalScore": 1,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20372A%20N%C6%A1%20Trang%20Long&query_place_id=ChIJz9DLEHkpdTERxJz9ZFtmoQY"
+  },
+  {
+    "_id": {
+      "$oid": "686f6013453f64991df3f655"
+    },
+    "store_id": "5334",
+    "chain": "winmart+",
+    "address": "1042 Nguyễn Duy Trinh, Phường Long Trường, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.799388,
+    "lng": 106.80924,
+    "name": "WM+ HCM 1042 Nguyễn Duy Trinh",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Hữu",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrBaNkAx5tTFIDJbFy56oAzE11J6LzfQ2bRZbLz4K3je0zHLqOPBJxaLtU-9uc0g8rmSKiIqY88pAGH12QTxP_m3lkHdvEgdxlaVMyl-Riv1zpDz4duj6Law7WFO29IzbrpeuY=w408-h306-k-no",
+    "totalScore": 5,
+    "reviewsCount": 5,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%201042%20Nguy%E1%BB%85n%20Duy%20Trinh&query_place_id=ChIJKRa0HqkndTERWhC0iqLAAt8"
+  },
+  {
+    "_id": {
+      "$oid": "686f6013453f64991df3f656"
+    },
+    "store_id": "5557",
+    "chain": "winmart+",
+    "address": "A.0.03A và A.0.05, Tầng G, Tháp A, Chung cư Bảo Minh Ezland, (HAUSNEO), Số 2 Đường 11, Khu phố 2, Phường Phú Hữu, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.8009,
+    "lng": 106.789,
+    "name": "WM+ HCM CC Bảo Minh Ezland (HAUSNEO",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phú Hữu",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=VksytdO9x2BxOpWDk4RzkA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=152.12321&pitch=0&thumbfov=100",
+    "totalScore": 1,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20Ehome%20Tr%E1%BA%A7n%20Tr%E1%BB%8Dng%20Cung&query_place_id=ChIJMWG_r8IldTERhw_8yHt-Fwk"
+  },
+  {
+    "_id": {
+      "$oid": "686f6013453f64991df3f657"
+    },
+    "store_id": "6831",
+    "chain": "winmart+",
+    "address": "174 Dương Đình Hội, P. Phước Long B, TP. Thủ Đức (Q. 9 cũ) TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.825144,
+    "lng": 106.78029,
+    "name": "WIN HCM 174 Dương Đình Hội",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phước Long B",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNugoCBHDh9uriwbRzyCzD0XTDSpAs8GnyWSujd=w426-h240-k-no",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2077A%20D%C6%B0%C6%A1ng%20%C4%90%C3%ACnh%20H%E1%BB%99i&query_place_id=ChIJdWEXmecndTERxLCBUPT_1-4"
+  },
+  {
+    "_id": {
+      "$oid": "686f6013453f64991df3f658"
+    },
+    "chain": "winmart+",
+    "store_id": "3740",
+    "address": "355A Đường Đỗ Xuân Hợp, KP5, Phường Phước Long B, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.8214,
+    "lng": 106.772,
+    "name": "WIN HCM 355A Đỗ Xuân Hợp",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phước Long B",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=K2gjbzK81a58d1IUfDbYCQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=352.91553&pitch=0&thumbfov=100",
+    "totalScore": 2.1,
+    "reviewsCount": 7,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WinMart%2B%2031%2F55%20Ung%20V%C4%83n%20Khi%C3%AAm&query_place_id=ChIJAb_w6TQpdTERhhhfZZdCTv0"
+  },
+  {
+    "_id": {
+      "$oid": "686f6014453f64991df3f659"
+    },
+    "chain": "winmart+",
+    "store_id": "3242",
+    "address": "Nhà số 4 đường D7 (khu nhà ở Nam Long MR), khu phố 6, Phường Phước Long B, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.811106,
+    "lng": 106.78566,
+    "name": "WIN HCM 4 đường D7",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phước Long B",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=NKqelDhHkDggbcqmjvxbDQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=334.23444&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WinMart%2B%20S%E1%BB%91%2013%20%C4%90%C6%B0%E1%BB%9Dng%2078&query_place_id=ChIJl4RESxzVdDERSzq3e-r_M1I"
+  },
+  {
+    "_id": {
+      "$oid": "686f6014453f64991df3f65a"
+    },
+    "chain": "winmart+",
+    "store_id": "3456",
+    "address": "77 A Dương Đình Hội, Phước Long B, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.819,
+    "lng": 106.777,
+    "name": "WIN HCM 77A Dương Đình Hội",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phước Long B",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNugoCBHDh9uriwbRzyCzD0XTDSpAs8GnyWSujd=w426-h240-k-no",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2077A%20D%C6%B0%C6%A1ng%20%C4%90%C3%ACnh%20H%E1%BB%99i&query_place_id=ChIJdWEXmecndTERxLCBUPT_1-4"
+  },
+  {
+    "_id": {
+      "$oid": "686f6014453f64991df3f65c"
+    },
+    "store_id": "5354",
+    "chain": "winmart+",
+    "address": "Tầng 1 chung cư Flora Anh Đào, 619 Đỗ Xuân Hợp, Phường Phước Long B, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.806901,
+    "lng": 106.77762,
+    "name": "WIN HCM Flora Anh Đào",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phước Long B",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=kLmSRA4UnIBecDVgTxWv-A&cb_client=search.gws-prod.gps&w=408&h=240&yaw=47.202477&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Ho%C3%A0ng%20Anh%202&query_place_id=ChIJYeogowIvdTER02WHYNWj1Sc"
+  },
+  {
+    "_id": {
+      "$oid": "686f6015453f64991df3f65d"
+    },
+    "chain": "winmart+",
+    "store_id": "5637",
+    "address": "TM 03, Tầng 1, Khối D (Khối thương mại dịch vụ) thuộc Khu chung cư Gia Hòa tọa lạc tại 523A Đỗ Xuân Hợp, KP6, Phước Long B TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.814534,
+    "lng": 106.778275,
+    "name": "WIN HCM TM 03 Tầng 1, Khối D, CC",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Phước Long B",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=m-weBL7s7WG60_1fLK5rUg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=92.70011&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20002%20T%E1%BA%A7ng%20tr%E1%BB%87t%20CC%20Sunrise&query_place_id=ChIJXWI9i88vdTERgJGNVaKmWLU"
+  },
+  {
+    "_id": {
+      "$oid": "686f6015453f64991df3f65e"
+    },
+    "chain": "winmart+",
+    "store_id": "6859",
+    "address": "03.04 CC TopazHome 2, đường 154, P. Tân Phú, TP. Thủ Đức (Q. 9 cũ) TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.86484,
+    "lng": 106.810555,
+    "name": "WIN HCM  03-04, CC TopazHome 2",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Phú",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPD75_VYXxE1gJM1qumwgjs16Gaza70CveQFiKW=w426-h240-k-no",
+    "totalScore": 5,
+    "reviewsCount": 4,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2003-04%2C%20Chung%20c%C6%B0%20TopazHome%202&query_place_id=ChIJyTBGl84ndTERbhlmjTaiDuo"
+  },
+  {
+    "_id": {
+      "$oid": "686f6015453f64991df3f65f"
+    },
+    "store_id": "5238",
+    "chain": "winmart+",
+    "address": "81 Cầu Xây, Phường Tân Phú, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.8545265,
+    "lng": 106.80936,
+    "name": "WM+ HCM 81 Cầu Xây",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tân Phú",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOS5Zf8h04dj9CCqW3Q1ncPk12JXA27MTC87pcu=w426-h240-k-no",
+    "totalScore": 5,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2081%20C%E1%BA%A7u%20X%C3%A2y&query_place_id=ChIJ8-m8qeEndTER4ckZZq0O9xc"
+  },
+  {
+    "_id": {
+      "$oid": "686f6015453f64991df3f660"
+    },
+    "store_id": "3831",
+    "chain": "winmart+",
+    "address": "37 Đường 385, Phường Tăng Nhơn Phú A, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.847615,
+    "lng": 106.79077,
+    "name": "WIN HCM 37 Đường 385 - Tăng Nhơn",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tăng Nhơn Phú A",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=GqDvbzZaTcA2vUp_l2IPnA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=147.47305&pitch=0&thumbfov=100",
+    "totalScore": 1,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20372A%20N%C6%A1%20Trang%20Long&query_place_id=ChIJz9DLEHkpdTERxJz9ZFtmoQY"
+  },
+  {
+    "_id": {
+      "$oid": "686f6016453f64991df3f661"
+    },
+    "store_id": "3594",
+    "chain": "winmart+",
+    "address": "206 Đình Phong Phú, KP3, Phường Tăng Nhơn Phú B, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.8339,
+    "lng": 106.783,
+    "name": "WIN HCM 206 Đình Phong Phú",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Tăng Nhơn Phú B",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=GqDvbzZaTcA2vUp_l2IPnA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=147.47305&pitch=0&thumbfov=100",
+    "totalScore": 1,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20372A%20N%C6%A1%20Trang%20Long&query_place_id=ChIJz9DLEHkpdTERxJz9ZFtmoQY"
+  },
+  {
+    "_id": {
+      "$oid": "686f6016453f64991df3f662"
+    },
+    "chain": "winmart+",
+    "store_id": "3971",
+    "address": "1443 Nguyễn Duy Trinh, Phường Trường Thạnh, Quận 9, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. 9",
+    "lat": 10.8061,
+    "lng": 106.821,
+    "name": "WM+ HCM 1443 Nguyễn Duy Trinh",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Trường Thạnh",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrNYLqbtdCKr2yJgMuQHHKvdKowkD_dQSolN1mDgkFVSc1R3ug0CUlajzVeXymdjUIAHub2qUEyVHtVChCcIauOJ-mpuGgAfPAF31V7mHUU8BTvNsKhhZlTRcrY593xyBGOItEW0A=w426-h240-k-no",
+    "totalScore": 5,
+    "reviewsCount": 4,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%201443%20Nguy%E1%BB%85n%20Duy%20Trinh&query_place_id=ChIJg9TLNWohdTERfaFu48iqHc4"
+  },
+  {
+    "_id": {
+      "$oid": "686f6016453f64991df3f663"
+    },
+    "chain": "winmart+",
+    "store_id": "4395",
+    "address": "59 Ngô Tất Tố, P. 21, Quận Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.7942,
+    "lng": 106.712,
+    "name": "WM+ HCM CC City Garden",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 21",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nog_Zy4dF9WVlfzQ0ozx6kmQQqjAWGycUaPxwvBdkTnldWW8YpFnNQo5AgMt3T7TiRZgrVYILfC4CAO0Yi5fZKnxehE0KLmFbpQ3-KSZhimkq1V6lRIv5V6XwQbq8_uU9WBvebZ=w408-h544-k-no",
+    "totalScore": 5,
+    "reviewsCount": 7,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20City%20Garden&query_place_id=ChIJV5-p2GYpdTERyl3-u8Nt2A8"
+  },
+  {
+    "_id": {
+      "$oid": "686f6016453f64991df3f664"
+    },
+    "chain": "winmart",
+    "store_id": "1630",
+    "address": "Tòa nhà 81 tầng,Khu Central Park, KĐT Central Park, P22, Quận Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.794308,
+    "lng": 106.72054,
+    "name": "WM VCC HCM Landmark 81",
+    "phone": "+84 559 701 630",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 22",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npLbOusbX5pYmEQzIMejX9UHPA2_chrQF3I1rEcPKJhLzw8SKAOfpCWjpwGPCUkKxNOGzp-gid3hyUqsS6FlmlSHYcgTZHw4ocS2nYJotzX958y-QauLfmrbynSAHVctrvlDSuJEA=w408-h306-k-no",
+    "totalScore": 4.1,
+    "reviewsCount": 203,
+    "url": "https://www.google.com/maps/search/?api=1&query=Winmart%20Vincom%20Landmark%2081&query_place_id=ChIJjb0mXv8pdTERtsWAkQ9c-fM"
+  },
+  {
+    "_id": {
+      "$oid": "686f6016453f64991df3f665"
+    },
+    "store_id": "3388",
+    "chain": "winmart+",
+    "address": "602/52 Điện Biên Phủ, Phường 22, Quận Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.798038,
+    "lng": 106.717766,
+    "name": "WIN HCM 602/52 Điện Biên Phủ",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 22",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noBzuhGDTSRTKeNvD4Xw1Lfedtcssq8d6Gdk77bAVEdz0fm6lJ22_SuRi8sq3m8qlEu5djovIuM6w7_rsaQ4wuN_cZJP7LELzGg320Lnzt2-HV1cYTX8uYvhkAkx_hCogd--7-o=w408-h544-k-no",
+    "totalScore": 4.3,
+    "reviewsCount": 6,
+    "url": "https://www.google.com/maps/search/?api=1&query=WINLIVE%20244%20%C4%90I%E1%BB%86N%20BI%C3%8AN%20PH%E1%BB%A6&query_place_id=ChIJi1vPUQApdTERgtHpcRtlQF4"
+  },
+  {
+    "_id": {
+      "$oid": "686f6017453f64991df3f666"
+    },
+    "chain": "winmart+",
+    "store_id": "6295",
+    "address": "Shophouse 18-19, Tòa nhà White House thuộc Dự án Sunwah Pearl, 90 Nguyễn Hữu Cảnh, P. 22, Q. Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.789187,
+    "lng": 106.718155,
+    "name": "WIN HCM CC Sunwah Pearl",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 22",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=nx_vjPYCPz1rF0edxig1kQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=313.14743&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20Riva%20Park&query_place_id=ChIJ832v6a0vdTERI_ImK-C9DWI"
+  },
+  {
+    "_id": {
+      "$oid": "686f6017453f64991df3f667"
+    },
+    "chain": "winmart+",
+    "store_id": "4397",
+    "address": "G10 & G11 Tầng Trệt, The Manor Officetel, Số 91 Nguyễn Hữu Cảnh, Phường 22, Quận Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.7929,
+    "lng": 106.718,
+    "name": "WIN HCM CC The Manor 2",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 22",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=PNGTsBvC6nx_P2fhJ9nBoQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=339.1852&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20The%20Manor%202&query_place_id=ChIJbbXgLxopdTERXXZ61gMq5kg"
+  },
+  {
+    "_id": {
+      "$oid": "686f6017453f64991df3f668"
+    },
+    "chain": "winmart+",
+    "store_id": "3305",
+    "address": "P7-SH-01, tòa nhà P7, dư án Vinhomes Central Park 722, đường Điện Biên Phủ, Phường 22, Quận Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.7918,
+    "lng": 106.722,
+    "name": "WIN HCM Vinhomes Central Park P7",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 22",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noRSCnhHyWLu_k6uGB2CXc_tBAtSqlZOEysgAt2xvPtRw_9b9WSWexLnJU3uAIOyiyZDrHXEsx24UGDnrNjoEF27Ez-v4VrMTcP6FE1GyDymhTLLSpVDyNVciS4z6Py0tsB5IYL=w408-h544-k-no",
+    "totalScore": 4.2,
+    "reviewsCount": 16,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20Vinhomes%20Central%20Park%20P7&query_place_id=ChIJGSIBSjgpdTERco-af_yM7aE"
+  },
+  {
+    "_id": {
+      "$oid": "686f6017453f64991df3f669"
+    },
+    "store_id": "4396",
+    "chain": "winmart+",
+    "address": "91 Nguyễn Hữu Cảnh, P. 22, Quận Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.794,
+    "lng": 106.718,
+    "name": "WM+ HCM CC The Manor",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 22",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqZcbLwaCDTaKtSDDTYUf5WoBxcFDEvQ2MVrnKP2n1klsPyAae8nH0xzTGsD-0xmZG2o94hswo3DA67VH0z48lF5l_ZqK-K9GWlj9QxmVwg-jBlCVOBZEj531i2Paxh8Vq-PR6NF8XYECak=w408-h306-k-no",
+    "totalScore": 4,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20The%20Manor&query_place_id=ChIJn-zFdmIpdTERry7Ai-_DeGc"
+  },
+  {
+    "_id": {
+      "$oid": "686f6018453f64991df3f66a"
+    },
+    "chain": "winmart+",
+    "store_id": "3534",
+    "address": "HCM 860/80/22 Xô Viết Nghệ Tĩnh, Phường 25, Quận Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.8113,
+    "lng": 106.718,
+    "name": "WIN HCM 860/80/22 Xô Viết Nghệ Tĩnh",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 25",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPntUpn3FyDET_cKCgkb4xgMi1-c-pG_IUD3srP=w426-h240-k-no",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%20232%20L%C3%AA%20V%C4%83n%20Th%E1%BB%8Bnh&query_place_id=ChIJWULO0QsldTERF9NhxXaCnpw"
+  },
+  {
+    "_id": {
+      "$oid": "686f6018453f64991df3f66b"
+    },
+    "store_id": "2AM6",
+    "chain": "winmart+",
+    "address": "1.01, Tầng 1, DA Khối căn hộ thuộc cụm công trình Cao ốc văn phòng kết hợp thương mại, dịch vụ và nhà ở, Số 152 Điện Biên Phủ, P. 25, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.800712,
+    "lng": 106.71725,
+    "name": "WM+ HCM 1.01, CC Park View Residenc",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 25",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=DBAcAuSrDrzb8uAoYOgiRg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=37.3533&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 3,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%201.01%2C%20Chung%20c%C6%B0%20Park%20View%20Residenc&query_place_id=ChIJ97oSvqUpdTERHLZOu0NnPwA"
+  },
+  {
+    "_id": {
+      "$oid": "686f6018453f64991df3f66c"
+    },
+    "store_id": "6256",
+    "chain": "winmart+",
+    "address": "24-26 Tân Cảng, P. 25, Q. Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.79962,
+    "lng": 106.72093,
+    "name": "WM+ HCM 24-26 Tân Cảng",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 25",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=npp5FIaQa6JFMgyc8i-XiQ&cb_client=search.gws-prod.gps&w=408&h=240&yaw=292.32843&pitch=0&thumbfov=100",
+    "totalScore": null,
+    "reviewsCount": 0,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2024-24B%20T%C3%B4n%20%C4%90%E1%BA%A3n&query_place_id=ChIJ2fBoXhcvdTERzFwu5jTKnpg"
+  },
+  {
+    "_id": {
+      "$oid": "686f6018453f64991df3f66d"
+    },
+    "chain": "winmart",
+    "store_id": "1596",
+    "address": "TTTM Vincom Plaza Sài Gòn Res Số, 188,Đường Nguyễn Xí,Phường 26, Quận Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.816425,
+    "lng": 106.707016,
+    "name": "WM VCP HCM Sài Gòn Res",
+    "phone": "+84 559 701 596",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 26",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqGLXz_HDppU1pPJ7x6REK-ntx4Ri4ve0OoaL6g8QUQqow5d610snKjZilRZTvp8oXCMk-0qRkS65lKgMsU0uGK7IlLinLbirCGRRZwt1Gcy3qwIE2aTAjOo2FbtZxLdHAKyfrP5g=w408-h306-k-no",
+    "totalScore": 4.6,
+    "reviewsCount": 20,
+    "url": "https://www.google.com/maps/search/?api=1&query=Winmart%20Vincom%20Saigonres&query_place_id=ChIJVdQmNwApdTER8jthvFOTF0U"
+  },
+  {
+    "_id": {
+      "$oid": "686f6018453f64991df3f66e"
+    },
+    "chain": "winmart+",
+    "store_id": "4393",
+    "address": "Số 57 Quốc Lộ 13, P. 26, Quận Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.81182,
+    "lng": 106.71185,
+    "name": "WM+ HCM CC Morning Star",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 26",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=dZrnJ26MaXsNaM89rqgk_w&cb_client=search.gws-prod.gps&w=408&h=240&yaw=274.60788&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 5,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20Morning%20Star&query_place_id=ChIJaZ9-2TApdTERYTO6kgzeTcQ"
+  },
+  {
+    "_id": {
+      "$oid": "686f6019453f64991df3f66f"
+    },
+    "chain": "winmart+",
+    "store_id": "3645",
+    "address": "1/54 Thanh Đa, Phường 27, Quận Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.8131,
+    "lng": 106.721,
+    "name": "WIN HCM 1/54 Thanh Đa",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 27",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=33AfTOKpcmL__0RuMJkNaw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=166.20671&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 5,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2017%2F41%20Thanh%20%C4%90a&query_place_id=ChIJw6e2fUApdTERIjag0fEJBSs"
+  },
+  {
+    "_id": {
+      "$oid": "686f6019453f64991df3f670"
+    },
+    "store_id": "3880",
+    "chain": "winmart+",
+    "address": "1E Thanh Đa, Phường 27, Quận Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.8143,
+    "lng": 106.721,
+    "name": "WIN HCM 1E Thanh Đa",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 27",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=33AfTOKpcmL__0RuMJkNaw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=166.20671&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 5,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2017%2F41%20Thanh%20%C4%90a&query_place_id=ChIJw6e2fUApdTERIjag0fEJBSs"
+  },
+  {
+    "_id": {
+      "$oid": "686f6019453f64991df3f671"
+    },
+    "store_id": "4147",
+    "chain": "winmart+",
+    "address": "17/41 Thanh Đa, Phường 27, Quận Bình Thạnh, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Bình Thạnh",
+    "lat": 10.8164,
+    "lng": 106.718,
+    "name": "WM+ HCM 17/41 Thanh Đa",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 27",
+    "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=33AfTOKpcmL__0RuMJkNaw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=166.20671&pitch=0&thumbfov=100",
+    "totalScore": 5,
+    "reviewsCount": 5,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2017%2F41%20Thanh%20%C4%90a&query_place_id=ChIJw6e2fUApdTERIjag0fEJBSs"
+  },
+  {
+    "_id": {
+      "$oid": "686f6019453f64991df3f672"
+    },
+    "chain": "winmart",
+    "store_id": "1549",
+    "address": "190 đường Quang Trung, P. 10, Q. Gò Vấp, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Gò Vấp",
+    "lat": 10.828793,
+    "lng": 106.67178,
+    "name": "WM VCP HCM Quang Trung",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 10",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noR6NQSb8ZdWOBGfrKk237qcVkSZj3K2UAHIyY_XTfnQuzrXyfX8GLDI9d3C-SKef8xZDhJxbM21Q1aGeZzZq1FxTSz4HRJ_gDogO5W946WrjNtuMgHpBUaqNhkM4yispg-2C9zsw=w408-h306-k-no",
+    "totalScore": 4.2,
+    "reviewsCount": 211,
+    "url": "https://www.google.com/maps/search/?api=1&query=WinMart%20Vincom%20Quang%20Trung&query_place_id=ChIJsd0xV30pdTERMMumg1cqfiI"
+  },
+  {
+    "_id": {
+      "$oid": "686f601a453f64991df3f673"
+    },
+    "chain": "winmart",
+    "store_id": "1527",
+    "address": "Chung cư Bàu Cát II - Đường Vườn Lan, P. 10, Quận Tân Bình, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Tân Bình",
+    "lat": 10.786134,
+    "lng": 106.64476,
+    "name": "WM HCM Bàu Cát",
+    "phone": "+84 559 701 527",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 10",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nreQ6Wa03rGjAlN55CHHh2yXyTdBzc840rz93DqYU3hpw8nUBNrL6JsEpTuqpDypLyOg08jMXnMWLCPJ2KZ8iJqECvRezM5d9Hh3LSFydwgfHwX9i3XIWymfgtpaWY8-2aRIhhUoYcgncVp=w426-h240-k-no",
+    "totalScore": 4.1,
+    "reviewsCount": 31,
+    "url": "https://www.google.com/maps/search/?api=1&query=Si%C3%AAu%20Th%E1%BB%8B%20WinMart%20B%C3%A0u%20C%C3%A1t&query_place_id=ChIJi7WPW8MvdTERTWRYnXgrK1w"
+  },
+  {
+    "_id": {
+      "$oid": "686f601a453f64991df3f674"
+    },
+    "chain": "winmart",
+    "store_id": "1631",
+    "address": "Số 10 Đường Phổ Quang, P. 2, Quận Tân Bình, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Tân Bình",
+    "lat": 10.801746,
+    "lng": 106.665665,
+    "name": "WM VC+ HCM Phổ Quang",
+    "phone": "+84 559 701 631",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 2",
+    "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOf0p2m6LyQL6BTbgq2x66dX3-Yb8RppHK8MYeg=w426-h240-k-no",
+    "totalScore": 3,
+    "reviewsCount": 1,
+    "url": "https://www.google.com/maps/search/?api=1&query=Si%C3%AAu%20th%E1%BB%8B%20WinMart%20Ph%E1%BB%95%20Quang&query_place_id=ChIJBxErtJkpdTERRvtl1oVgBq8"
+  },
+  {
+    "_id": {
+      "$oid": "686f601a453f64991df3f675"
+    },
+    "chain": "winmart",
+    "store_id": "1513",
+    "address": "15-17 Cộng Hòa, P.4 , Quận Tân Bình , TP. Hồ Chí Minh, Việt Nam",
+    "district": "Q. Tân Bình",
+    "lat": 10.80062,
+    "lng": 106.65606,
+    "name": "WM VCP HCM Cộng Hòa",
+    "phone": "+84 559 701 513",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. 4",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqERNYoKN8XPxzYCYtfbyGQ5aGNLXTpGLAUC8ZRG27RU6dABNXzM1S_yNUDzXH-7sDO0ys04-T21D-I4ExJuv01kn-p9WfKHvOIuQvTdV-rhZA4O_GywFuxvXNaGizUMYCLi7wHLg=w408-h544-k-no",
+    "totalScore": 3.4,
+    "reviewsCount": 5,
+    "url": "https://www.google.com/maps/search/?api=1&query=Si%C3%AAu%20th%E1%BB%8B%20WinMart%20C%E1%BB%99ng%20H%C3%B2a&query_place_id=ChIJJS9kccEpdTERicm_x45fs5Y"
+  },
+  {
+    "_id": {
+      "$oid": "686f601a453f64991df3f676"
+    },
+    "store_id": "3934",
+    "chain": "winmart+",
+    "address": "39A - 41 Đường Số 3, KP 6, Phường Trường Thọ, Quận Thủ Đức, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Thủ Đức",
+    "lat": 10.83394,
+    "lng": 106.76049,
+    "name": "WIN HCM 39A - 41 Đường Số 3",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Trường Thọ",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npuihIccc0-AMkoIPBvvJ_darQ58c8UtZrqqA1JHIBPVz7fBfWEDE0i_a26OJcJEW6pgVDiSwJmz1XMpegWO3wvQdW3zWzItO-api1TVipY99wbEz8Su_ZxQl0bjYj1Po3ae7AZ=w408-h307-k-no",
+    "totalScore": 3.7,
+    "reviewsCount": 3,
+    "url": "https://www.google.com/maps/search/?api=1&query=C%E1%BB%ADa%20h%C3%A0ng%20WIN%2039A%20-%2041%20%C4%90%C6%B0%E1%BB%9Dng%20S%E1%BB%91%203&query_place_id=ChIJh5dol-4ndTERDUnadgM6QLE"
+  },
+  {
+    "_id": {
+      "$oid": "686f601b453f64991df3f677"
+    },
+    "chain": "winmart+",
+    "store_id": "4821",
+    "address": "0.14 tầng 01 (trệt), Chung cư cao tầng Phường Trường Thọ, 17 Đường số 3, Khu phố 6, P. Trường Thọ Quận Thủ Đức, TP. Hồ Chí Minh Việt Nam",
+    "district": "Q. Thủ Đức",
+    "lat": 10.8339,
+    "lng": 106.762,
+    "name": "WIN HCM Lavita Garden",
+    "phone": "+84 24 7106 6866",
+    "province": "TP. Hồ Chí Minh",
+    "ward": "P. Trường Thọ",
+    "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nog_Zy4dF9WVlfzQ0ozx6kmQQqjAWGycUaPxwvBdkTnldWW8YpFnNQo5AgMt3T7TiRZgrVYILfC4CAO0Yi5fZKnxehE0KLmFbpQ3-KSZhimkq1V6lRIv5V6XwQbq8_uU9WBvebZ=w408-h544-k-no",
+    "totalScore": 5,
+    "reviewsCount": 7,
+    "url": "https://www.google.com/maps/search/?api=1&query=WIN%20HCM%20CC%20City%20Garden&query_place_id=ChIJV5-p2GYpdTERyl3-u8Nt2A8"
+  }
+]

@@ -1,3 +1,4 @@
+import hashlib
 import re
 from typing import List, Dict
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
@@ -14,60 +15,6 @@ tokenizer_vi2en = AutoTokenizer.from_pretrained(
     tgt_lang="en_XX"
 )
 model_vi2en = AutoModelForSeq2SeqLM.from_pretrained("vinai/vinai-translate-vi2en-v2")
-
-# ===== CATEGORIES MAPPING =====
-VALID_TITLES = {
-    # Thịt, cá, trứng
-    "Thịt heo", "Thịt bò", "Thịt gà, vịt, chim", "Thịt sơ chế", "Trứng gà, vịt, cút",
-    "Cá, hải sản, khô", "Cá hộp", "Lạp xưởng", "Xúc xích", "Heo, bò, pate hộp",
-    "Chả giò, chả ram", "Chả lụa, thịt nguội", "Xúc xích, lạp xưởng tươi",
-    "Cá viên, bò viên", "Thịt, cá đông lạnh",
-
-    # Rau, củ, quả, nấm
-    "Trái cây", "Rau lá", "Củ, quả", "Nấm các loại", "Rau, củ làm sẵn",
-    "Rau củ đông lạnh",
-
-    # Đồ ăn chay
-    "Đồ chay ăn liền", "Đậu hũ, đồ chay khác", "Đậu hũ, tàu hũ",
-
-    # Ngũ cốc, tinh bột
-    "Ngũ cốc", "Ngũ cốc, yến mạch", "Gạo các loại", "Bột các loại",
-    "Đậu, nấm, đồ khô",
-
-    # Mì, bún, phở, cháo
-    "Mì ăn liền", "Phở, bún ăn liền", "Hủ tiếu, miến", "Miến, hủ tiếu, phở khô",
-    "Mì Ý, mì trứng", "Cháo gói, cháo tươi", "Bún các loại", "Nui các loại",
-    "Bánh tráng các loại", "Bánh phồng, bánh đa", "Bánh gạo Hàn Quốc",
-
-    # Gia vị, phụ gia, dầu
-    "Nước mắm", "Nước tương", "Tương, chao các loại", "Tương ớt - đen, mayonnaise",
-    "Dầu ăn", "Dầu hào, giấm, bơ", "Gia vị nêm sẵn", "Muối",
-    "Hạt nêm, bột ngọt, bột canh", "Tiêu, sa tế, ớt bột", "Bột nghệ, tỏi, hồi, quế,...",
-    "Nước chấm, mắm", "Mật ong, bột nghệ",
-
-    # Sữa & các sản phẩm từ sữa
-    "Sữa tươi", "Sữa đặc", "Sữa pha sẵn", "Sữa hạt, sữa đậu", "Sữa ca cao, lúa mạch",
-    "Sữa trái cây, trà sữa", "Sữa chua ăn", "Sữa chua uống liền", "Bơ sữa, phô mai",
-
-    # Đồ uống
-    "Bia, nước có cồn", "Rượu", "Nước trà", "Nước ngọt", "Nước ép trái cây",
-    "Nước yến", "Nước tăng lực, bù khoáng", "Nước suối", "Cà phê hoà tan",
-    "Cà phê pha phin", "Cà phê lon", "Trà khô, túi lọc",
-
-    # Bánh kẹo, snack
-    "Bánh tươi, Sandwich", "Bánh bông lan", "Bánh quy", "Bánh snack, rong biển",
-    "Bánh Chocopie", "Bánh gạo", "Bánh quế", "Bánh que", "Bánh xốp",
-    "Kẹo cứng", "Kẹo dẻo, kẹo marshmallow", "Kẹo singum", "Socola",
-    "Trái cây sấy", "Hạt khô", "Rong biển các loại", "Rau câu, thạch dừa",
-    "Mứt trái cây", "Cơm cháy, bánh tráng",
-
-    # Món ăn chế biến sẵn, đông lạnh
-    "Làm sẵn, ăn liền", "Sơ chế, tẩm ướp", "Nước lẩu, viên thả lẩu",
-    "Kim chi, đồ chua", "Mandu, há cảo, sủi cảo", "Bánh bao, bánh mì, pizza",
-    "Kem cây, kem hộp", "Bánh flan, thạch, chè", "Trái cây hộp, siro",
-
-    "Cá mắm, dưa mắm", "Đường", "Nước cốt dừa lon", "Sữa chua uống", "Khô chế biến sẵn"
-}
 
 CATEGORIES_MAPPING = {
     # Thịt, cá, trứng
@@ -218,23 +165,14 @@ def translate_vi2en(vi_text: str) -> str:
         return ""
 
 def tokenize_by_whitespace(text: str) -> List[str]:
-    # """Tokenize text by whitespace, filter tokens >= 2 chars"""
-    if text is None:
-        return []
-    return [token for token in text.lower().split() if len(token) >= 2]
-
-def generate_ngrams(token: str, n: int) -> List[str]:
-    # """Generate n-grams from a single token"""
-    if token is None or len(token) < n:
-        return []
-    return [token[i:i+n] for i in range(len(token) - n + 1)]
+    if not text: return []
+    return [t for t in text.lower().split() if len(t)>=2]
 
 def generate_token_ngrams(text: str, n: int) -> List[str]:
-    # """Generate n-grams from all tokens in text"""
     tokens = tokenize_by_whitespace(text)
     ngrams = []
-    for token in tokens:
-        ngrams.extend(generate_ngrams(token, n))
+    for t in tokens:
+        ngrams += [t[i:i+n] for i in range(len(t)-n+1)]
     return ngrams
 
 def parse_store_line(s: str) -> Dict[str, str]:
@@ -321,18 +259,74 @@ def normalize_net_value(unit: str, net_value: float, name: str) -> tuple:
 
     return float(net_value) if net_value != 0 else 1, unit
 
-def extract_best_price(product: dict) -> dict:
-    """Extract best price information from product data"""
-    base_price_info = product.get("productPrices", [])
-    campaign_info = product.get("lstCampaingInfo", [])
+def process_unit_and_net_value(product: dict) -> dict:
+    """
+    Xử lý phần unit và netUnitValue từ dữ liệu product,
+    trả về dict gồm unit và netUnitValue đã chuẩn hóa.
+    """
     name = product.get("name", "")
     original_unit = product.get("unit", "").lower()
+    net_unit_value = product.get("netUnitValue", 0)
+    
+    nv, u = normalize_net_value(original_unit, net_unit_value, name)
+    
+    return {
+        "unit": u,
+        "netUnitValue": nv
+    }
 
-    def build_result(info: dict, unit: str, net_value: float):
+
+# def extract_best_price(product: dict) -> dict:
+#     """Extract best price information from product data"""
+#     base_price_info = product.get("productPrices", [])
+#     campaign_info = product.get("lstCampaingInfo", [])
+#     name = product.get("name", "")
+#     original_unit = product.get("unit", "").lower()
+
+#     def build_result(info: dict):
+#         nv = info.get("netUnitValue", 0)
+#         nv, u = normalize_net_value(original_unit, nv, name)
+#         return {
+#             "name": name,
+#             "unit": u, 
+#             "netUnitValue": nv,
+#             "price": info.get("price"),
+#             "sysPrice": info.get("sysPrice"),
+#             "discountPercent": info.get("discountPercent"),
+#             "date_begin": info.get("startTime") or info.get("poDate"),
+#             "date_end": info.get("dueTime") or info.get("poDate"),
+#         }
+    
+#     # Priority 1: Campaign pricing
+#     if campaign_info:
+#         return build_result(campaign_info[0].get("productPrice", {}))
+
+#     # Priority 2: Base pricing
+#     if base_price_info:
+#         return build_result(base_price_info[0])
+
+#     # Fallback: No pricing info
+#     return {
+#         "name": name,
+#         "unit": original_unit,
+#         "netUnitValue": 1,
+#         "price": None,
+#         "sysPrice": None,
+#         "discountPercent": None,
+#         "date_begin": None,
+#         "date_end": None,
+#     }
+
+def extract_best_price(product: dict) -> dict:
+    """
+    Chỉ lấy thông tin giá, khuyến mãi, ngày bắt đầu/kết thúc,
+    không xử lý unit hay netUnitValue ở đây.
+    """
+    base_price_info = product.get("productPrices", [])
+    campaign_info = product.get("lstCampaingInfo", [])
+    
+    def build_result(info: dict):
         return {
-            "name": name,
-            "unit": unit, 
-            "netUnitValue": net_value,
             "price": info.get("price"),
             "sysPrice": info.get("sysPrice"),
             "discountPercent": info.get("discountPercent"),
@@ -340,26 +334,16 @@ def extract_best_price(product: dict) -> dict:
             "date_end": info.get("dueTime") or info.get("poDate"),
         }
     
-    # Priority 1: Campaign pricing
+    # Ưu tiên giá khuyến mãi
     if campaign_info:
-        campaign = campaign_info[0]
-        campaign_price = campaign.get("productPrice", {})
-        net_value = campaign_price.get("netUnitValue", 0)
-        net_value, converted_unit = normalize_net_value(original_unit, net_value, name)
-        return build_result(campaign_price, converted_unit, net_value)
-
-    # Priority 2: Base pricing
+        return build_result(campaign_info[0].get("productPrice", {}))
+    
+    # Giá gốc
     if base_price_info:
-        price_info = base_price_info[0]
-        net_value = price_info.get("netUnitValue", 0)
-        net_value, converted_unit = normalize_net_value(original_unit, net_value, name)
-        return build_result(price_info, converted_unit, net_value)
-
-    # Fallback: No pricing info
+        return build_result(base_price_info[0])
+    
+    # Không có thông tin giá
     return {
-        "name": name,
-        "unit": original_unit,
-        "netUnitValue": 1,
         "price": None,
         "sysPrice": None,
         "discountPercent": None,
@@ -367,106 +351,93 @@ def extract_best_price(product: dict) -> dict:
         "date_end": None,
     }
 
-# ===== PRODUCT DATA PROCESSING =====
-def process_product_data(product: dict, category_name: str, store_id: int) -> dict:
-    """Process raw product data - SKIP if already exists in DB"""
-    from db import MongoDB
-    db = MongoDB.get_db()
-    
-    sku = product.get("id")
-    if not sku:
-        raise ValueError("Product missing SKU")
-    
-    # Check if product already exists for this store
-    coll_name = category_name.replace(" ", "_").lower()
-    existing = db[coll_name].find_one({"sku": sku, "store_id": store_id})
-    
-    if existing:
-        return None  # Skip toàn bộ processing
+
+def fingerprint(p: dict) -> str:
+    s = f"{p['sku']}|{p['price']}|{p['discountPercent']}"
+    return hashlib.md5(s.encode()).hexdigest()
+
+# async def process_product_data(raw: List[dict], category: str, store_id: int, db) -> List[UpdateOne]:
+#     coll = db[category.replace(" ","_").lower()]
+#     ops = []
+#     for prod in raw:
+#         sku = prod.get("id")
+#         if not sku: continue
+#         filt = {"sku":sku,"store_id":store_id}
+#         exist = await coll.find_one(filt, {"price":1,"hash":1})
+#         info = extract_best_price(prod)
+#         if exist:
+#             if exist.get("price")==info["price"]: continue
+#             upd = {
+#                 **info,
+#                 "crawled_at": datetime.utcnow().isoformat()
+#             }
+#         else:
+#             name_en = translate_vi2en(prod.get("name",""))
+#             ngram = generate_token_ngrams(name_en,2)
+#             upd = {
+#                 "sku":sku,
+#                 "name":prod.get("name",""),
+#                 "name_en":name_en,
+#                 "token_ngrams":ngram,
+#                 **info,
+#                 "category":category,
+#                 "store_id":store_id,
+#                 "url":f"https://www.bachhoaxanh.com{prod.get('url','')}",
+#                 "image":prod.get("avatar",""),
+#                 "promotion":prod.get("promotionText",""),
+#                 "crawled_at":datetime.utcnow().isoformat(),
+#             }
+#             upd["hash"] = fingerprint({**upd})
         
-    # Translate name (chỉ khi cần thiết)
-    english_name = translate_vi2en(product.get("name", ""))
-    if not english_name:
-        raise ValueError(f"Failed to translate name: {product.get('name', '')}")
-    
-    # Extract price information
-    price_info = extract_best_price(product)
-    
-    # Generate search tokens
-    token_ngrams = generate_token_ngrams(english_name, 2)
-    
-    # Build standardized product data
-    return {
-        "sku": sku,
-        "name": product["name"],
-        "name_en": english_name,
-        "unit": price_info["unit"].lower(),
-        "netUnitValue": price_info["netUnitValue"], 
-        "token_ngrams": token_ngrams,
-        "category": category_name, 
-        "store_id": store_id, 
-        "url": f"https://www.bachhoaxanh.com{product['url']}",
-        "image": product["avatar"],
-        "promotion": product.get("promotionText", ""),
-        "price": price_info["price"],
-        "sysPrice": price_info["sysPrice"],
-        "discountPercent": price_info["discountPercent"],
-        "date_begin": price_info["date_begin"],
-        "date_end": price_info["date_end"],
-        "crawled_at": datetime.utcnow().isoformat(),
-    }
+#         ops.append(UpdateOne(filt, {"$set":upd}, upsert=True))
+#     return ops
 
-# ===== DATABASE OPERATIONS =====
-async def upsert_product(product_data: dict, category_title: str, db):
-    """Upsert single product to MongoDB"""
-    coll_name = category_title.replace(" ", "_").lower()
-    product_db = db[coll_name]
-
-    sku = product_data.get("sku")
-    if not sku:
-        return
-
-    product_db.update_one(
-        {"sku": sku},
-        {"$set": product_data},
-        upsert=True
-    )
-    print(f"✓ Upserted product: {product_data.get('name', '')} "
-          f"(SKU: {sku}) into collection: {coll_name}")
-
-async def upsert_products_bulk(product_list: List[dict], category_title: str, db):
-    """Bulk upsert products to MongoDB"""
-    coll_name = category_title.replace(" ", "_").lower()
-    collection = db[coll_name]
+async def process_product_data(raw: List[dict], category: str, store_id: int, db) -> List[UpdateOne]:
+    coll = db[category.replace(" ","_").lower()]
     ops = []
-    
-    for p in product_list:
-        sku = p.get("sku")
+    for prod in raw:
+        sku = prod.get("id")
         if not sku:
             continue
-        ops.append(
-            UpdateOne(
-                {"sku": sku},
-                {"$set": p},
-                upsert=True
-            )
-        )
-    
-    if not ops:
-        return
-    
-    result = collection.bulk_write(ops, ordered=False)
-    print(f"✓ Bulk upserted {len(ops)} products into `{coll_name}` "
-          f"(upserted: {result.upserted_count}, modified: {result.modified_count})")
+        
+        filt = {"sku": sku, "store_id": store_id}
+        exist = await coll.find_one(filt, {"price": 1, "hash": 1})
+        
+        price_info = extract_best_price(prod)
+        
+        if exist:
+            if exist.get("price") == price_info["price"]:
+                continue
+            upd = {
+                **price_info,
+                "crawled_at": datetime.utcnow().isoformat()
+            }
+        else:
+            # Xử lý dịch tên, token ngram
+            name = prod.get("name", "")
+            name_en = translate_vi2en(name)
+            ngram = generate_token_ngrams(name_en, 2)
+            
+            # Xử lý unit và netUnitValue riêng
+            unit_info = process_unit_and_net_value(prod)
+            
+            upd = {
+                "sku": sku,
+                "name": name,
+                "name_en": name_en,
+                "token_ngrams": ngram,
+                **unit_info,
+                **price_info,
+                "category": category,
+                "store_id": store_id,
+                "url": f"https://www.bachhoaxanh.com{prod.get('url', '')}",
+                "image": prod.get("avatar", ""),
+                "promotion": prod.get("promotionText", ""),
+                "crawled_at": datetime.utcnow().isoformat(),
+            }
+            upd["hash"] = fingerprint({**upd})
+        
+        ops.append(UpdateOne(filt, {"$set": upd}, upsert=True))
+    return ops
 
-def reset_category_collections(db):
-    """Drop all category collections from database"""
-    try:
-        for cat_doc in db.categorys.find({}, {"name": 1}):
-            coll_name = cat_doc["name"].lower().replace(" ", "_")
-            if coll_name in db.list_collection_names():
-                print(f"Dropping collection: {coll_name}")
-                db.drop_collection(coll_name)
-    except Exception as e:
-        print(f"Error resetting collections: {e}")
-        return
+

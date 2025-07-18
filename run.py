@@ -5,5 +5,5 @@ from crawler.bhx.demo import run_sync
 import asyncio
 
 if __name__ == "__main__":
-    # asyncio.run(main())
-    main(run_sync())
+    asyncio.run(main())
+    # main(run_sync())
