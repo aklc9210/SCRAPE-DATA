@@ -128,13 +128,12 @@ class BHXDataFetcher:
                 pbar.set_postfix_str(f"Upserted: {chain['name']}")
 
 async def main():
-    fetcher = BHXDataFetcher(concurrency=10)
+    fetcher = BHXDataFetcher(concurrency=4)
     await fetcher.init()
     start = None
     end = None
     try:
         # 1. Categories from any sample store
-        
         prov, ward, store0 = 3, 4946, 2087
         categories = await fetcher.fetch_categories(prov, ward, store0)
 
@@ -153,29 +152,6 @@ async def main():
         start = time.time()
         await asyncio.gather(*[fetcher.sem_wrap(fetcher.crawl_store(s, categories, provinces[0]["id"], only_one_product=False))
                             for s in stores])
-
-        # first_cat = categories[0]
-        # first_link = first_cat["links"][0]
-        # # 2. Get stores in HCM
-        # full = await fetch_full_location_data(fetcher.token, fetcher.deviceid)
-        # provinces = [p for p in full.get("provinces",[]) if p["name"].strip() == "TP. Hồ Chí Minh"]
-        # if not provinces:
-        #     print("No provinces"); return
-        # stores = await fetch_stores_async(provinces[0]["id"],
-        #                                 fetcher.token, fetcher.deviceid)
-        # # test thử 1 store
-        # store = stores[191]
-        # # 3. Crawl đúng 1 product
-        # start = time.time()
-        # await fetcher.fetch_api_and_save(
-        #     store["storeId"],
-        #     store.get("wardId",0),
-        #     store.get("districtId",0),
-        #     provinces[0]["id"],
-        #     first_cat,
-        #     first_link,
-        #     only_one_product=True
-        # )
 
         end = time.time()
         print(f"Total time: {(end - start):.2f} minutes")

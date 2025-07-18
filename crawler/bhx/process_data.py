@@ -209,7 +209,7 @@ def extract_net_value_and_unit_from_name(name: str, fallback_unit: str) -> tuple
     tmp_name = name.lower()
     matches = re.findall(r"(\d+(?:\.\d+)?)\s*(g|ml|lít|kg|gói|l)\b", tmp_name)
     if matches:
-        value, unit = matches[-1]  # use the LAST match
+        value, unit = matches[-1]
         return float(value), unit
     return 1, fallback_unit
 
@@ -275,48 +275,6 @@ def process_unit_and_net_value(product: dict) -> dict:
         "netUnitValue": nv
     }
 
-
-# def extract_best_price(product: dict) -> dict:
-#     """Extract best price information from product data"""
-#     base_price_info = product.get("productPrices", [])
-#     campaign_info = product.get("lstCampaingInfo", [])
-#     name = product.get("name", "")
-#     original_unit = product.get("unit", "").lower()
-
-#     def build_result(info: dict):
-#         nv = info.get("netUnitValue", 0)
-#         nv, u = normalize_net_value(original_unit, nv, name)
-#         return {
-#             "name": name,
-#             "unit": u, 
-#             "netUnitValue": nv,
-#             "price": info.get("price"),
-#             "sysPrice": info.get("sysPrice"),
-#             "discountPercent": info.get("discountPercent"),
-#             "date_begin": info.get("startTime") or info.get("poDate"),
-#             "date_end": info.get("dueTime") or info.get("poDate"),
-#         }
-    
-#     # Priority 1: Campaign pricing
-#     if campaign_info:
-#         return build_result(campaign_info[0].get("productPrice", {}))
-
-#     # Priority 2: Base pricing
-#     if base_price_info:
-#         return build_result(base_price_info[0])
-
-#     # Fallback: No pricing info
-#     return {
-#         "name": name,
-#         "unit": original_unit,
-#         "netUnitValue": 1,
-#         "price": None,
-#         "sysPrice": None,
-#         "discountPercent": None,
-#         "date_begin": None,
-#         "date_end": None,
-#     }
-
 def extract_best_price(product: dict) -> dict:
     """
     Chỉ lấy thông tin giá, khuyến mãi, ngày bắt đầu/kết thúc,
@@ -355,42 +313,6 @@ def extract_best_price(product: dict) -> dict:
 def fingerprint(p: dict) -> str:
     s = f"{p['sku']}|{p['price']}|{p['discountPercent']}"
     return hashlib.md5(s.encode()).hexdigest()
-
-# async def process_product_data(raw: List[dict], category: str, store_id: int, db) -> List[UpdateOne]:
-#     coll = db[category.replace(" ","_").lower()]
-#     ops = []
-#     for prod in raw:
-#         sku = prod.get("id")
-#         if not sku: continue
-#         filt = {"sku":sku,"store_id":store_id}
-#         exist = await coll.find_one(filt, {"price":1,"hash":1})
-#         info = extract_best_price(prod)
-#         if exist:
-#             if exist.get("price")==info["price"]: continue
-#             upd = {
-#                 **info,
-#                 "crawled_at": datetime.utcnow().isoformat()
-#             }
-#         else:
-#             name_en = translate_vi2en(prod.get("name",""))
-#             ngram = generate_token_ngrams(name_en,2)
-#             upd = {
-#                 "sku":sku,
-#                 "name":prod.get("name",""),
-#                 "name_en":name_en,
-#                 "token_ngrams":ngram,
-#                 **info,
-#                 "category":category,
-#                 "store_id":store_id,
-#                 "url":f"https://www.bachhoaxanh.com{prod.get('url','')}",
-#                 "image":prod.get("avatar",""),
-#                 "promotion":prod.get("promotionText",""),
-#                 "crawled_at":datetime.utcnow().isoformat(),
-#             }
-#             upd["hash"] = fingerprint({**upd})
-        
-#         ops.append(UpdateOne(filt, {"$set":upd}, upsert=True))
-#     return ops
 
 async def process_product_data(raw: List[dict], category: str, store_id: int, db) -> List[UpdateOne]:
     coll = db[category.replace(" ","_").lower()]
