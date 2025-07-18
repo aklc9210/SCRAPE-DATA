@@ -30,7 +30,7 @@ for store in merged_data:
     collection.update_one(
         {"_id": _id, "chain": "BHX"},
         {"$set": update_fields},
-        upsert=True
+        upsert=False
     )
 
 print(f"Đã cập nhật {len(merged_data)} cửa hàng vào MongoDB.")
