@@ -4,8 +4,6 @@ from typing import List, Dict
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from datetime import datetime
 from pymongo import UpdateOne
-from tqdm import tqdm
-
 
 # ===== TRANSLATION SETUP =====
 tokenizer_vi2en = AutoTokenizer.from_pretrained(
@@ -272,22 +270,19 @@ def process_unit_and_net_value(product: dict) -> dict:
     
     return {
         "unit": u,
-        "netUnitValue": nv
+        "net_unit_value": nv
     }
 
 def extract_best_price(product: dict) -> dict:
-    """
-    Chỉ lấy thông tin giá, khuyến mãi, ngày bắt đầu/kết thúc,
-    không xử lý unit hay netUnitValue ở đây.
-    """
+    
     base_price_info = product.get("productPrices", [])
     campaign_info = product.get("lstCampaingInfo", [])
     
     def build_result(info: dict):
         return {
             "price": info.get("price"),
-            "sysPrice": info.get("sysPrice"),
-            "discountPercent": info.get("discountPercent"),
+            "sys_price": info.get("sysPrice"),
+            "discount_percent": info.get("discountPercent"),
             "date_begin": info.get("startTime") or info.get("poDate"),
             "date_end": info.get("dueTime") or info.get("poDate"),
         }
@@ -304,62 +299,67 @@ def extract_best_price(product: dict) -> dict:
     return {
         "price": None,
         "sysPrice": None,
-        "discountPercent": None,
+        "discount_percent": None,
         "date_begin": None,
         "date_end": None,
     }
 
-
-def fingerprint(p: dict) -> str:
-    s = f"{p['sku']}|{p['price']}|{p['discountPercent']}"
-    return hashlib.md5(s.encode()).hexdigest()
+from pymongo import UpdateOne
+from datetime import datetime
 
 async def process_product_data(raw: List[dict], category: str, store_id: int, db) -> List[UpdateOne]:
-    coll = db[category.replace(" ","_").lower()]
+    coll = db[category.replace(" ", "_").lower()]
     ops = []
+
     for prod in raw:
         sku = prod.get("id")
         if not sku:
             continue
-        
-        filt = {"sku": sku, "store_id": store_id}
-        exist = await coll.find_one(filt, {"price": 1, "hash": 1})
-        
+
+        name = prod.get("name", "")
+
+        # 1. Tìm doc bất kỳ có cùng 'name' để tái sử dụng name_en và token_ngrams
+        trans_doc = await coll.find_one(
+            {"name": name},
+            {"name_en": 1, "token_ngrams": 1}
+        )
+
         price_info = extract_best_price(prod)
-        
-        if exist:
-            if exist.get("price") == price_info["price"]:
-                continue
-            upd = {
-                **price_info,
-                "crawled_at": datetime.utcnow().isoformat()
-            }
+        unit_info  = process_unit_and_net_value(prod)
+
+        # 2. Khởi tạo document upsert
+        upd = {
+            "sku": sku,
+            "store_id": store_id,
+            "category": category,
+            "url": f"https://www.bachhoaxanh.com{prod.get('url', '')}",
+            "image": prod.get("avatar", ""),
+            "promotion": prod.get("promotionText", ""),
+            "crawled_at": datetime.utcnow().isoformat(),
+            "chain": "BHX",
+            **unit_info,
+            **price_info,
+        }
+
+        if trans_doc:
+            # Nếu có sản phẩm cùng name, giữ nguyên bản dịch và ngrams
+            upd.update({
+                "name":           name,
+                "name_en":        trans_doc["name_en"],
+                "token_ngrams":   trans_doc["token_ngrams"],
+            })
         else:
-            # Xử lý dịch tên, token ngram
-            name = prod.get("name", "")
+            # Chưa có → dịch mới rồi sinh ngrams
             name_en = translate_vi2en(name)
-            ngram = generate_token_ngrams(name_en, 2)
-            
-            # Xử lý unit và netUnitValue riêng
-            unit_info = process_unit_and_net_value(prod)
-            
-            upd = {
-                "sku": sku,
-                "name": name,
-                "name_en": name_en,
+            ngram   = generate_token_ngrams(name_en, 2)
+            upd.update({
+                "name":         name,
+                "name_en":      name_en,
                 "token_ngrams": ngram,
-                **unit_info,
-                **price_info,
-                "category": category,
-                "store_id": store_id,
-                "url": f"https://www.bachhoaxanh.com{prod.get('url', '')}",
-                "image": prod.get("avatar", ""),
-                "promotion": prod.get("promotionText", ""),
-                "crawled_at": datetime.utcnow().isoformat(),
-            }
-            upd["hash"] = fingerprint({**upd})
-        
+            })
+
+        # 3. Upsert theo (sku, store_id)
+        filt = {"sku": sku, "store_id": store_id}
         ops.append(UpdateOne(filt, {"$set": upd}, upsert=True))
+
     return ops
-
-

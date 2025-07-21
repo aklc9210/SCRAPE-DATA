@@ -1,16 +1,14 @@
-import requests
-from typing import List, Dict
+# fetch_category.py
 
-class WinMartCategoryFetcher: 
+import requests
+import aiohttp
+from typing import List, Dict
+from crawler.winmart.config import API_BASE_V1, HEADERS
+
+class WinMartCategoryFetcher:
     def __init__(self):
-        self.api_base = "https://api-crownx.winmart.vn/mt/api/web/v1"
-        self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-            'Accept': 'application/json',
-            'Accept-Language': 'vi-VN,vi;q=0.9,en;q=0.8'
-        }
-        
-        # Category mapping to standardized names
+        self.url = f"{API_BASE_V1}/category"
+        self.headers = HEADERS
         self.category_mapping = {
             # Milk & Dairy products
             "Sữa các loại": "Milk",
@@ -94,71 +92,30 @@ class WinMartCategoryFetcher:
             "Cá - Bò Viên": "Instant Foods",
             "Thực Phẩm Đông Lạnh Khác": "Instant Foods"
         }
-    
-    def fetch_categories(self) -> List[Dict]:
-        url = f"{self.api_base}/category"
-        
-        try:
-            response = requests.get(url, headers=self.headers, timeout=10)
-            
-            if response.status_code != 200:
-                raise Exception(f"API returned status {response.status_code}")
-            
-            data = response.json()
-            
-            if data.get('code') != 'S200':
-                raise Exception(f"API error: {data.get('message', 'Unknown error')}")
-            
-            categories = self._extract_categories(data.get('data', []))
-            print(f"Found {len(categories)} food categories")
-            
-            return categories
-            
-        except requests.RequestException as e:
-            raise Exception(f"Request failed: {e}")
-        except Exception as e:
-            raise Exception(f"Failed to fetch categories: {e}")
-    
-    def _extract_categories(self, data: List[Dict]) -> List[Dict]:
-        categories = []
-        
-        for category_item in data:
-            parent = category_item.get('parent', {})
-            children = category_item.get('lstChild', [])
-            
-            # Process main category
-            parent_name = parent.get('name', '')
-            if parent.get('seoName') and self._is_food_category(parent_name):
-                categories.append({
-                    'name': parent_name,
-                    'code': parent.get('code', ''),
-                    'slug': parent.get('seoName', ''),
-                    'level': parent.get('level', 1),
-                    'parent_name': parent_name,
-                    'mapped_category': self.category_mapping.get(parent_name, parent_name)
-                })
-            
-            # Process subcategories
-            for child in children:
-                child_parent = child.get('parent', {})
-                child_name = child_parent.get('name', '')
-                
-                if child_parent.get('seoName') and self._is_food_category(child_name):
-                    categories.append({
-                        'name': child_name,
-                        'code': child_parent.get('code', ''),
-                        'slug': child_parent.get('seoName', ''),
-                        'level': child_parent.get('level', 2),
-                        'parent_name': parent_name,
-                        'mapped_category': self.category_mapping.get(child_name, child_name)
-                    })
-        
-        return categories
-    
-    def _is_food_category(self, category_name: str) -> bool:
-        return category_name in self.category_mapping
-    
 
-def get_food_categories() -> List[Dict]:
-    fetcher = WinMartCategoryFetcher()
-    return fetcher.fetch_categories()
+    async def fetch_categories(self) -> List[Dict]:
+        async with aiohttp.ClientSession(headers=self.headers) as session:
+            async with session.get(self.url, timeout=10) as resp:
+                resp.raise_for_status()
+                data = await resp.json()
+
+                if data.get("code") != "S200":
+                    raise Exception(f"API error: {data.get('message')}")
+                return await self._extract(data.get("data", []))
+
+    async def _extract(self, data: List[Dict]) -> List[Dict]:
+        out = []
+        for cat in data:
+            parent = cat.get("parent", {})
+            children = cat.get("lstChild", [])
+            for node in [parent] + [c.get("parent", {}) for c in children]:
+                name = node.get("name", "")
+                slug = node.get("seoName", "")
+                if slug and name in self.category_mapping:
+                    out.append({
+                        "name": name,
+                        "code": node.get("code", ""),
+                        "slug": slug,
+                        "mapped_category": self.category_mapping[name]
+                    })
+        return out

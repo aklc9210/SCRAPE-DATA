@@ -1,129 +1,82 @@
+# fetch_product.py
+
 import requests
 import asyncio
-import aiohttp
-from typing import List, Dict, Optional
+import aiohttp  
+from typing import List, Dict
 from crawler.winmart.fetch_category import WinMartCategoryFetcher
+from crawler.winmart.config import API_BASE_V3, HEADERS
 
 class WinMartProductFetcher:
-    
     def __init__(self):
-        self.session = aiohttp.ClientSession()
-        self.api_base = "https://api-crownx.winmart.vn/it/api/web/v3"
-        self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-            'Accept': 'application/json',
-            'Accept-Language': 'vi-VN,vi;q=0.9,en;q=0.8'
-        }
-        self.category_fetcher = WinMartCategoryFetcher()
+        self.url = f"{API_BASE_V3}/item/category"
+        self.headers = HEADERS
+        self.categories = None
     
-    async def fetch_products_by_store(self, store_id: str, max_categories: int = None) -> List[Dict]:
-        categories = self.category_fetcher.fetch_categories()
-        if not categories:
-            return []
+    async def init(self):
+        self.categories = await WinMartCategoryFetcher().fetch_categories()
 
-        if max_categories:
-            categories = categories[:max_categories]
+    async def fetch_products_by_store(self, store_id: str) -> List[Dict]:
+        cats = self.categories
+        allp = []
+        for c in cats:
+            # 1️⃣ In trước khi gọi
+            print(f"▶ Fetching category {c['mapped_category']} (slug={c['slug']}) for store {store_id}")
+            items = await self._by_cat(store_id, c)
+            # 2️⃣ In sau khi có kết quả
+            print(f"   • Retrieved {len(items)} items from category {c['mapped_category']}")
+            allp += items
+            await asyncio.sleep(0.1)
+        return allp
 
-        all_products = []
 
-        for category in categories:
-            products = await self._fetch_products_by_category(store_id, category)
-            if products:
-                all_products.extend(products)
-            
-            await asyncio.sleep(0.1)  
-
-        return all_products
-
-    
-    async def _fetch_products_by_category(self, store_id: str, category: Dict) -> List[Dict]:
-        url = f"{self.api_base}/item/category"
-        
+    async def _by_cat(self, store_id: str, cat: Dict) -> List[Dict]:
         params = {
-            'pageNumber': 1,
-            'pageSize': 100,  
-            'slug': category['slug'],
-            'storeCode': store_id,
-            'storeGroupCode': '1998' 
+            "pageNumber": 1,
+            "pageSize": 100,
+            "slug": cat["slug"],
+            "storeCode": store_id,
+            "storeGroupCode": "1998"
         }
-        
-        try:
-            response = requests.get(url, headers=self.headers, params=params, timeout=15)
-            
-            if response.status_code != 200:
-                raise Exception(f"API returned status {response.status_code}")
-            
-            data = response.json()
-            return self._parse_products(data, category, store_id)
-            
-        except requests.RequestException as e:
-            raise Exception(f"Request failed: {e}")
-        except Exception as e:
-            raise Exception(f"Parse failed: {e}")
-    
-    def _parse_products(self, data: Dict, category: Dict, store_id: str) -> List[Dict]:
-        products = []
-        
-        # Extract items from the nested data structure
-        items = []
-        if isinstance(data, dict):
-            nested_data = data.get('data', {})
-            if isinstance(nested_data, dict):
-                items = nested_data.get('items', [])
-            else:
-                items = data.get('items', data.get('products', []))
-        elif isinstance(data, list):
-            items = data
-        
-        for item in items:
-            product = self._normalize_product_data(item, category, store_id)
-            if product:
-                products.append(product)
-        
-        return products
-    
-    def _normalize_product_data(self, item: Dict, category: Dict, store_id: str) -> Optional[Dict]:
-        product_id = item.get('id', '')
-        item_no = item.get('itemNo', '')
-        name = item.get('name', '')
-        description = item.get('description', '')
-        
-        if not product_id or not name:
+
+        async with aiohttp.ClientSession(headers=self.headers) as session:
+            async with session.get(self.url, params=params, timeout=15) as resp:
+                resp.raise_for_status()
+                jd = await resp.json()  
+
+        items = jd.get("data", {}).get("items", []) if isinstance(jd, dict) else jd
+
+        out = []
+        for it in items:
+            norm = self._normalize(it, cat, store_id)
+            if norm:
+                out.append(norm)
+        return out
+
+    def _normalize(self, it: Dict, cat: Dict, store_id: str) -> Dict:
+        product_id    = it.get("id", "")
+        sku           = it.get("sku", "")
+        if not product_id or not sku:
             return None
-        
-        price = item.get('price', 0)
-        sale_price = item.get('salePrice', 0)    
-        current_price = sale_price if sale_price and sale_price > 0 else price
-        brand_name = item.get('brandName', '')
-        uom = item.get('uom', '')
-        uom_name = item.get('uomName', '')
-        quantity_per_unit = item.get('quantityPerUnit', 1.0)
-        category_name = item.get('categoryName', '')
-        sku = item.get('sku', '')
-        media_url = item.get('mediaUrl', '')
+
+        name        = it.get("name", "").strip()
+        price       = float(it.get("price", 0))
+        sale_price  = float(it.get("salePrice", 0))
+        current     = sale_price if sale_price > 0 else price
 
         return {
-            'product_id': product_id,
-            'item_no': item_no,
-            'store_id': store_id,
-            'chain': 'winmart',
-            'name': name.strip(),
-            'description': description.strip(),
-            'brand_name': brand_name.strip() if brand_name else '',
-            'category_name': category_name or category['name'],
-            'mapped_category': category.get('mapped_category', category['name']),
-            'price': float(current_price) if current_price else 0.0,
-            'original_price': float(price) if price else 0.0,
-            'sale_price': float(sale_price) if sale_price else 0.0,
-            'has_discount': bool(sale_price and sale_price > 0 and sale_price < price),
-            'uom': uom,
-            'uom_name': uom_name,
-            'quantity_per_unit': float(quantity_per_unit) if quantity_per_unit else 1.0,
-            'sku': sku,
-            'media_url': media_url
+            "product_id": product_id,
+            "sku": sku,
+            "store_id": store_id,
+            "name": name,
+            "brand_name": it.get("brandName", "").strip(),
+            "mapped_category": cat["mapped_category"],
+            "price": current,
+            "original_price": price,
+            "sale_price": sale_price,
+            "has_discount": sale_price > 0 < price,
+            "uom": it.get("uom", ""),
+            "quantity_per_unit": float(it.get("quantityPerUnit", 1)),
+            "media_url": it.get("mediaUrl", ""),
+            "promotion_text": it.get("promotionText", ""),
         }
-
-async def fetch_products_for_store(store_id: str) -> List[Dict]:
-    fetcher = WinMartProductFetcher()
-    return await fetcher.fetch_products_by_store(store_id)
-
