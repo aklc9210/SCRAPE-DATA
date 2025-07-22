@@ -84,8 +84,18 @@ class BHXDataFetcher:
                     "accept": "application/json, text/plain, */*"
                 })
 
-                async with self.session.get(api, headers=h) as resp:
-                    js = await resp.json()
+                try:
+                    async with self.session.get(api, headers=h, timeout=aiohttp.ClientTimeout(total=15)) as resp:
+                        js = await resp.json()
+                except asyncio.TimeoutError:
+                    print(f"⏱️ Timeout at page {page} for store {store_id}")
+                    break
+                except aiohttp.ClientError as e:
+                    print(f"🌐 Network error for store {store_id}: {e}")
+                    break
+                except Exception as e:
+                    print(f"💥 Unexpected error while fetching store {store_id}: {e}")
+                    break
 
                 batch = js["data"].get("products", [])
                 total = js["data"].get("total", 0)
@@ -110,23 +120,15 @@ class BHXDataFetcher:
 
     async def sem_wrap(self, coro):
         async with self.sem:
-            return await coro
-    
-    def _init_chains(self):
-        """Initialize chain data in database"""
-        chain_coll = self.db.chains
-        chains = [
-            {"code": "BHX", "name": "Bách Hóa Xanh"},
-            {"code": "WM", "name": "Winmart"}
-        ]
-        with tqdm(chains, desc="Initializing chains") as pbar:
-            for chain in pbar:
-                chain_coll.update_one(
-                    {"code": chain["code"]},
-                    {"$set": chain},
-                    upsert=True
-                )
-                pbar.set_postfix_str(f"Upserted: {chain['name']}")
+            try:
+                return await coro
+            except asyncio.TimeoutError:
+                print("❌ TimeoutError while executing a task")
+            except aiohttp.ClientError as e:
+                print(f"❌ Network error: {e}")
+            except Exception as e:
+                print(f"❌ Unexpected error: {e}")
+        
 
 async def main():
     fetcher = BHXDataFetcher(concurrency=4)
