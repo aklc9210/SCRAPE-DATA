@@ -5,7 +5,7 @@ from crawler.bhx.token_interceptor import BHXTokenInterceptor, get_headers
 from crawler.bhx.fetch_store_by_province import fetch_stores_async
 from crawler.bhx.fetch_full_location import fetch_full_location_data
 from crawler.bhx.fetch_menus_for_store import fetch_menus_for_store
-from db.db_async import db
+from db.db_async import get_db
 from crawler.bhx.process_data import (
     CATEGORIES_MAPPING, 
     process_product_data,
@@ -20,6 +20,7 @@ class BHXDataFetcher:
         self.deviceid = None
         self.interceptor = None
         self.session = None
+        self.db = get_db()
 
         # semaphore để giới hạn số store chạy song song
         self.sem = Semaphore(concurrency)
@@ -32,6 +33,9 @@ class BHXDataFetcher:
         self.token, self.deviceid = await ti.init_and_get_token()
         await ti.close()
         self.session = aiohttp.ClientSession()
+
+    async def close(self):
+        await self.session.close()
 
     async def close(self):
         await self.session.close()
@@ -97,9 +101,9 @@ class BHXDataFetcher:
                 await asyncio.sleep(0.5)
 
         # build and write ops
-        ops = await process_product_data(allp, cat["name"], store_id, db)
+        ops = await process_product_data(allp, cat["name"], store_id, self.db)
         if ops:
-            coll = db[cat["name"].replace(" ","_").lower()]
+            coll = self.db[cat["name"].replace(" ","_").lower()]
             result = await coll.bulk_write(ops, ordered=False)
             print(f"Store {store_id}｜{cat['name']}: upserted {result.upserted_count}, "
                   f"mod {result.modified_count}")
@@ -110,7 +114,7 @@ class BHXDataFetcher:
     
     def _init_chains(self):
         """Initialize chain data in database"""
-        chain_coll = db.chains
+        chain_coll = self.db.chains
         chains = [
             {"code": "BHX", "name": "Bách Hóa Xanh"},
             {"code": "WM", "name": "Winmart"}
@@ -125,7 +129,7 @@ class BHXDataFetcher:
                 pbar.set_postfix_str(f"Upserted: {chain['name']}")
 
 async def main():
-    fetcher = BHXDataFetcher(concurrency=10)
+    fetcher = BHXDataFetcher(concurrency=4)
     await fetcher.init()
     start = None
     end = None
@@ -143,7 +147,7 @@ async def main():
                                         fetcher.token, fetcher.deviceid)
         
         # test thử 1 store
-        stores = stores[481:482]
+        stores = stores[450:500]
 
         # 3. Crawl product
         start = time.time()

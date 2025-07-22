@@ -1,6 +1,6 @@
 import hashlib
 import re
-from typing import List, Dict
+from typing import List, Dict, Tuple
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from datetime import datetime
 from pymongo import UpdateOne
@@ -211,8 +211,8 @@ def extract_net_value_and_unit_from_name(name: str, fallback_unit: str) -> tuple
         return float(value), unit
     return 1, fallback_unit
 
-def normalize_net_value(unit: str, net_value: float, name: str) -> tuple:
-    """Normalize net value based on unit and product name"""
+def normalize_net_value(unit: str, net_value: float, name: str) -> Tuple[float, str]:
+    """Normalize net value and unit based on product name"""
     unit = unit.lower()
     name_lower = name.lower()
 
@@ -222,9 +222,9 @@ def normalize_net_value(unit: str, net_value: float, name: str) -> tuple:
     elif unit == "lít":
         return float(net_value) * 1000, "ml"
     
-    # Extract kg from name if unit is not standard
+    # Check for kg in name if unit is not kg/g/ml/lít
     if unit not in ["kg", "g", "ml", "lít"]:
-        match_kg = re.search(r"(\d+(\.\d+)?)\s*kg", name_lower)
+        match_kg = re.search(r"(\d+(?:\.\d+)?)\s*kg", name_lower)
         if match_kg:
             value = float(match_kg.group(1))
             return value * 1000, unit
@@ -233,18 +233,18 @@ def normalize_net_value(unit: str, net_value: float, name: str) -> tuple:
     if unit == "túi 1kg":
         return float(net_value) * 1000, "túi"
     
-    # Túi with fruit - assume 0.7kg
+    # túi with fruits - assume 0.7kg
     if unit == "túi" and "trái" in name_lower:
         return 0.7 * 1000, unit
 
-    # Box/tray with eggs count
+    # hộp or vỉ with eggs count
     if unit in ["hộp", "vỉ"] and "quả" in name_lower:
         matches = re.findall(rf"{unit}\s*(\d+)", name_lower)
         if matches:
             return sum(map(int, matches)), unit
 
-    # Case/pack with multiple items
-    match_pack = re.search(r"(thùng|lốc)\s*(\d+).*?(\d+(\.\d+)?)\s*(g|ml)", name_lower)
+    # thùng/lốc X items of Y ml/g each
+    match_pack = re.search(r"(thùng|lốc)\s*(\d+).*?(\d+(?:\.\d+)?)\s*(g|ml)", name_lower)
     if match_pack:
         count = int(match_pack.group(2))
         per_item = float(match_pack.group(3))
@@ -255,7 +255,7 @@ def normalize_net_value(unit: str, net_value: float, name: str) -> tuple:
     if extracted_value > 0:
         return extracted_value, unit
 
-    return float(net_value) if net_value != 0 else 1, unit
+    return float(net_value) if net_value != 0 else 1.0, unit
 
 def process_unit_and_net_value(product: dict) -> dict:
     """
@@ -305,10 +305,22 @@ def extract_best_price(product: dict) -> dict:
     }
 
 from pymongo import UpdateOne
+from pymongo.errors import CollectionInvalid
 from datetime import datetime
 
 async def process_product_data(raw: List[dict], category: str, store_id: int, db) -> List[UpdateOne]:
-    coll = db[category.replace(" ", "_").lower()]
+
+    coll_name = category.replace(" ", "_").lower()
+    existing = await db.list_collection_names()
+
+    if coll_name not in existing:
+        try:
+            await db.create_collection(coll_name)
+            print(f"Created new collection: {coll_name}")
+        except CollectionInvalid:
+            pass
+    
+    coll = db[coll_name]
     ops = []
 
     for prod in raw:
