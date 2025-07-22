@@ -1,11 +1,9 @@
 import hashlib
 import re
-from typing import List, Dict
+from typing import List, Dict, Tuple
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from datetime import datetime
 from pymongo import UpdateOne
-from tqdm import tqdm
-
 
 # ===== TRANSLATION SETUP =====
 tokenizer_vi2en = AutoTokenizer.from_pretrained(
@@ -213,8 +211,8 @@ def extract_net_value_and_unit_from_name(name: str, fallback_unit: str) -> tuple
         return float(value), unit
     return 1, fallback_unit
 
-def normalize_net_value(unit: str, net_value: float, name: str) -> tuple:
-    """Normalize net value based on unit and product name"""
+def normalize_net_value(unit: str, net_value: float, name: str) -> Tuple[float, str]:
+    """Normalize net value and unit based on product name"""
     unit = unit.lower()
     name_lower = name.lower()
 
@@ -224,9 +222,9 @@ def normalize_net_value(unit: str, net_value: float, name: str) -> tuple:
     elif unit == "lít":
         return float(net_value) * 1000, "ml"
     
-    # Extract kg from name if unit is not standard
+    # Check for kg in name if unit is not kg/g/ml/lít
     if unit not in ["kg", "g", "ml", "lít"]:
-        match_kg = re.search(r"(\d+(\.\d+)?)\s*kg", name_lower)
+        match_kg = re.search(r"(\d+(?:\.\d+)?)\s*kg", name_lower)
         if match_kg:
             value = float(match_kg.group(1))
             return value * 1000, unit
@@ -235,18 +233,18 @@ def normalize_net_value(unit: str, net_value: float, name: str) -> tuple:
     if unit == "túi 1kg":
         return float(net_value) * 1000, "túi"
     
-    # Túi with fruit - assume 0.7kg
+    # túi with fruits - assume 0.7kg
     if unit == "túi" and "trái" in name_lower:
         return 0.7 * 1000, unit
 
-    # Box/tray with eggs count
+    # hộp or vỉ with eggs count
     if unit in ["hộp", "vỉ"] and "quả" in name_lower:
         matches = re.findall(rf"{unit}\s*(\d+)", name_lower)
         if matches:
             return sum(map(int, matches)), unit
 
-    # Case/pack with multiple items
-    match_pack = re.search(r"(thùng|lốc)\s*(\d+).*?(\d+(\.\d+)?)\s*(g|ml)", name_lower)
+    # thùng/lốc X items of Y ml/g each
+    match_pack = re.search(r"(thùng|lốc)\s*(\d+).*?(\d+(?:\.\d+)?)\s*(g|ml)", name_lower)
     if match_pack:
         count = int(match_pack.group(2))
         per_item = float(match_pack.group(3))
@@ -257,7 +255,7 @@ def normalize_net_value(unit: str, net_value: float, name: str) -> tuple:
     if extracted_value > 0:
         return extracted_value, unit
 
-    return float(net_value) if net_value != 0 else 1, unit
+    return float(net_value) if net_value != 0 else 1.0, unit
 
 def process_unit_and_net_value(product: dict) -> dict:
     """
@@ -272,22 +270,19 @@ def process_unit_and_net_value(product: dict) -> dict:
     
     return {
         "unit": u,
-        "netUnitValue": nv
+        "net_unit_value": nv
     }
 
 def extract_best_price(product: dict) -> dict:
-    """
-    Chỉ lấy thông tin giá, khuyến mãi, ngày bắt đầu/kết thúc,
-    không xử lý unit hay netUnitValue ở đây.
-    """
+    
     base_price_info = product.get("productPrices", [])
     campaign_info = product.get("lstCampaingInfo", [])
     
     def build_result(info: dict):
         return {
             "price": info.get("price"),
-            "sysPrice": info.get("sysPrice"),
-            "discountPercent": info.get("discountPercent"),
+            "sys_price": info.get("sysPrice"),
+            "discount_percent": info.get("discountPercent"),
             "date_begin": info.get("startTime") or info.get("poDate"),
             "date_end": info.get("dueTime") or info.get("poDate"),
         }
@@ -304,62 +299,79 @@ def extract_best_price(product: dict) -> dict:
     return {
         "price": None,
         "sysPrice": None,
-        "discountPercent": None,
+        "discount_percent": None,
         "date_begin": None,
         "date_end": None,
     }
 
-
-def fingerprint(p: dict) -> str:
-    s = f"{p['sku']}|{p['price']}|{p['discountPercent']}"
-    return hashlib.md5(s.encode()).hexdigest()
+from pymongo import UpdateOne
+from pymongo.errors import CollectionInvalid
+from datetime import datetime
 
 async def process_product_data(raw: List[dict], category: str, store_id: int, db) -> List[UpdateOne]:
-    coll = db[category.replace(" ","_").lower()]
+
+    coll_name = category.replace(" ", "_").lower()
+    existing = await db.list_collection_names()
+
+    if coll_name not in existing:
+        try:
+            await db.create_collection(coll_name)
+            print(f"Created new collection: {coll_name}")
+        except CollectionInvalid:
+            pass
+    
+    coll = db[coll_name]
     ops = []
+
     for prod in raw:
         sku = prod.get("id")
         if not sku:
             continue
-        
-        filt = {"sku": sku, "store_id": store_id}
-        exist = await coll.find_one(filt, {"price": 1, "hash": 1})
-        
+
+        name = prod.get("name", "")
+
+        # 1. Tìm doc bất kỳ có cùng 'name' để tái sử dụng name_en và token_ngrams
+        trans_doc = await coll.find_one(
+            {"name": name},
+            {"name_en": 1, "token_ngrams": 1}
+        )
+
         price_info = extract_best_price(prod)
-        
-        if exist:
-            if exist.get("price") == price_info["price"]:
-                continue
-            upd = {
-                **price_info,
-                "crawled_at": datetime.utcnow().isoformat()
-            }
+        unit_info  = process_unit_and_net_value(prod)
+
+        # 2. Khởi tạo document upsert
+        upd = {
+            "sku": sku,
+            "store_id": store_id,
+            "category": category,
+            "url": f"https://www.bachhoaxanh.com{prod.get('url', '')}",
+            "image": prod.get("avatar", ""),
+            "promotion": prod.get("promotionText", ""),
+            "crawled_at": datetime.utcnow().isoformat(),
+            "chain": "BHX",
+            **unit_info,
+            **price_info,
+        }
+
+        if trans_doc:
+            # Nếu có sản phẩm cùng name, giữ nguyên bản dịch và ngrams
+            upd.update({
+                "name":           name,
+                "name_en":        trans_doc["name_en"],
+                "token_ngrams":   trans_doc["token_ngrams"],
+            })
         else:
-            # Xử lý dịch tên, token ngram
-            name = prod.get("name", "")
+            # Chưa có → dịch mới rồi sinh ngrams
             name_en = translate_vi2en(name)
-            ngram = generate_token_ngrams(name_en, 2)
-            
-            # Xử lý unit và netUnitValue riêng
-            unit_info = process_unit_and_net_value(prod)
-            
-            upd = {
-                "sku": sku,
-                "name": name,
-                "name_en": name_en,
+            ngram   = generate_token_ngrams(name_en, 2)
+            upd.update({
+                "name":         name,
+                "name_en":      name_en,
                 "token_ngrams": ngram,
-                **unit_info,
-                **price_info,
-                "category": category,
-                "store_id": store_id,
-                "url": f"https://www.bachhoaxanh.com{prod.get('url', '')}",
-                "image": prod.get("avatar", ""),
-                "promotion": prod.get("promotionText", ""),
-                "crawled_at": datetime.utcnow().isoformat(),
-            }
-            upd["hash"] = fingerprint({**upd})
-        
+            })
+
+        # 3. Upsert theo (sku, store_id)
+        filt = {"sku": sku, "store_id": store_id}
         ops.append(UpdateOne(filt, {"$set": upd}, upsert=True))
+
     return ops
-
-
