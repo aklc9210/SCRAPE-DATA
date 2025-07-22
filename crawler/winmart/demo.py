@@ -23,7 +23,13 @@ class WinMartFetcher:
 
     async def sem_wrap(self, coro, *args):
         async with self.sem:
-            return await coro(*args)
+            try:
+                return await coro(*args)
+            except asyncio.TimeoutError:
+                print(f"❌ TimeoutError: {args[0] if args else 'Unknown'}")
+            except Exception as e:
+                print(f"❌ Exception while processing {args[0] if args else 'Unknown'}: {e}")
+
 
     async def crawl_store(self, store: dict):
         sid = store.get("code")
@@ -74,20 +80,18 @@ class WinMartFetcher:
         start_time = time.time()
         tasks = [self.sem_wrap(self.crawl_store, store) for store in self.branches]
 
-        for task in tqdm(
-            asyncio.as_completed(tasks),
-            total=len(tasks),
-            desc="Stores",
-            unit="store"
-        ):
-            await task
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+
+        for i, result in enumerate(results):
+            if isinstance(result, Exception):
+                print(f"⚠️ Store task {i} failed with: {result}")
 
         elapsed = time.time() - start_time
         print(f"Total time: {elapsed:.2f} seconds")
         print("✅ Done.")
 
 async def main():
-    fetcher = WinMartFetcher(concurrency=1)
+    fetcher = WinMartFetcher(concurrency=2)
     await fetcher.init()
     await fetcher.run()
 
