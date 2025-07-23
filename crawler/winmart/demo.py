@@ -89,7 +89,7 @@ class WinMartFetcher:
         start_time = time.time()
 
         # test 1 store
-        self.branches = self.branches[:3]
+        self.branches = self.branches[6:9]
 
         tasks = [self.sem_wrap(self.crawl_store, store) for store in self.branches]
 
@@ -103,7 +103,7 @@ class WinMartFetcher:
         logger.info(f"✅ Total time: {elapsed:.2f} seconds")
 
 async def main():
-    fetcher = WinMartFetcher(concurrency=1)
+    fetcher = WinMartFetcher(concurrency=3)
     await fetcher.init()
     await fetcher.run()
 

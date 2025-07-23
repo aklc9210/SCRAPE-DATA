@@ -255,7 +255,7 @@ async def translate_vi2en(vi_text: str) -> str:
         )
         return tokenizer_vi2en.decode(outputs[0], skip_special_tokens=True)
     except Exception as e:
-        print(f"Translation error for '{vi_text}': {e}")
+        # print(f"Translation error for '{vi_text}': {e}")
         return ""
 
 async def tokenize_by_whitespace(text: str) -> List[str]:
