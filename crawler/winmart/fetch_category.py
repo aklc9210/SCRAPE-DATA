@@ -1,7 +1,7 @@
 import aiohttp
 from typing import List, Dict
 from crawler.winmart.config import API_BASE_V1, HEADERS
-from crawler.winmart.data_processor import CATEGORIES_MAPPING
+from crawler.process_data.process import CATEGORIES_MAPPING_WINMART
 
 async def fetch_categories() -> List[Dict]:
     """
@@ -25,11 +25,11 @@ async def _extract(data: List[Dict]) -> List[Dict]:
         for node in [parent] + [c.get("parent", {}) for c in children]:
             name = node.get("name", "")
             slug = node.get("seoName", "")
-            if slug and name in CATEGORIES_MAPPING:
+            if slug and name in CATEGORIES_MAPPING_WINMART:
                 out.append({
                     "name": name,
                     "code": node.get("code", ""),
                     "slug": slug,
-                    "mapped_category": CATEGORIES_MAPPING[name]
+                    "mapped_category": CATEGORIES_MAPPING_WINMART[name]
                 })
     return out

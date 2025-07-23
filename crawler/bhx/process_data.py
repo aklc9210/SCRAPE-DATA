@@ -1,10 +1,8 @@
 from typing import List
 from datetime import datetime
 from pymongo import UpdateOne
-from crawler.process_data.process import *
+from crawler.process_data.process import process_unit_and_net_value, translate_vi2en, generate_token_ngrams
 
-
-# ===== PRICE & UNIT PROCESSING =====
 def extract_best_price(product: dict) -> dict:
     
     base_price_info = product.get("productPrices", [])
@@ -68,8 +66,8 @@ async def process_product_data(raw: List[dict], category: str, store_id: int, db
             {"name_en": 1, "token_ngrams": 1}
         )
 
-        price_info = extract_best_price(prod)
-        unit_info  = process_unit_and_net_value(prod)
+        price_info = await extract_best_price(prod)
+        unit_info  = await process_unit_and_net_value(prod)
 
         # 2. Khởi tạo document upsert
         upd = {

@@ -1,6 +1,8 @@
 import asyncio
+import sys
 import time
 import logging
+import json
 from pymongo import UpdateOne
 from tqdm.asyncio import tqdm
 from crawler.winmart.fetch_branches import fetch_branches
@@ -42,7 +44,6 @@ class WinMartFetcher:
 
     async def crawl_store(self, store: dict):
         sid = store.get("code")
-        # print(f"▶ Crawling store {sid}")
 
         # Fetch raw products for this store
         raws = await fetch_products_by_store(sid, self.categories)
@@ -53,7 +54,6 @@ class WinMartFetcher:
             logger.error(f"No valid records for store {sid}, skipping.")
             return
 
-        loop = asyncio.get_running_loop()
         # Build category groups
         category_groups = {}
         for rec in records:
@@ -81,12 +81,16 @@ class WinMartFetcher:
                 operations,
                 ordered=False
             )
-            print(f"[{coll_name}] upserted: {bulk_result.upserted_count}")
+            logger.info(f"[{coll_name}] upserted: {bulk_result.upserted_count}")
 
     async def run(self):
         await self.init()
 
         start_time = time.time()
+
+        # test 1 store
+        self.branches = self.branches[:3]
+
         tasks = [self.sem_wrap(self.crawl_store, store) for store in self.branches]
 
         results = await asyncio.gather(*tasks, return_exceptions=True)
@@ -99,9 +103,12 @@ class WinMartFetcher:
         logger.info(f"✅ Total time: {elapsed:.2f} seconds")
 
 async def main():
-    fetcher = WinMartFetcher(concurrency=2)
+    fetcher = WinMartFetcher(concurrency=1)
     await fetcher.init()
     await fetcher.run()
 
 def run_sync():
+    if sys.platform.startswith("win"):
+        asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+
     asyncio.run(main())

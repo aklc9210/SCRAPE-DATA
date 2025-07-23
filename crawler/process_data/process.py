@@ -2,7 +2,7 @@ import re
 from typing import List, Dict, Tuple
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
-CATEGORIES_MAPPING = {
+CATEGORIES_MAPPING_BHX = {
     # Thịt, cá, trứng
     "Thịt heo": "Fresh Meat",
     "Thịt bò": "Fresh Meat", 
@@ -133,6 +133,91 @@ CATEGORIES_MAPPING = {
     "Khô chế biến sẵn": "Instant Foods"
 }
 
+CATEGORIES_MAPPING_WINMART = {
+            # Milk & Dairy products
+            "Sữa các loại": "Milk",
+            "Sữa Tươi": "Milk",
+            "Sữa Hạt - Sữa Đậu": "Milk",
+            "Sữa Bột": "Milk",
+            "Bơ Sữa - Phô Mai": "Milk",
+            "Sữa đặc": "Milk",
+            "Sữa Chua - Váng Sữa": "Yogurt",
+            "Sữa Bột - Sữa Dinh Dưỡng": "Milk",
+            
+            # Vegetables & Fruits
+            "Rau - Củ - Trái Cây": "Vegetables",
+            "Rau Lá": "Vegetables",
+            "Củ, Quả": "Vegetables",
+            "Trái cây tươi": "Fresh Fruits",
+            
+            # Meat, Seafood, Eggs
+            "Thịt - Hải Sản Tươi": "Fresh Meat",
+            "Thịt": "Fresh Meat",
+            "Hải Sản": "Seafood & Fish Balls",
+            "Trứng - Đậu Hũ": "Fresh Meat",
+            "Trứng": "Fresh Meat",
+            "Đậu hũ": "Instant Foods",
+            "Thịt Đông Lạnh": "Instant Foods",
+            "Hải Sản Đông Lạnh": "Instant Foods",
+            
+            # Bakery & Confectionery
+            "Bánh Kẹo": "Cakes",
+            "Bánh Xốp - Bánh Quy": "Cakes",
+            "Kẹo - Chocolate": "Candies",
+            "Bánh Snack": "Snacks",
+            "Hạt - Trái Cây Sấy Khô": "Dried Fruits",
+            
+            # Beverages
+            "Đồ uống có cồn": "Alcoholic Beverages",
+            "Bia": "Alcoholic Beverages",
+            "Đồ Uống - Giải Khát": "Beverages",
+            "Cà Phê": "Beverages",
+            "Nước Suối": "Beverages",
+            "Nước Ngọt": "Beverages",
+            "Trà - Các Loại Khác": "Beverages",
+            
+            # Instant Foods
+            "Mì - Thực Phẩm Ăn Liền": "Instant Foods",
+            "Mì": "Instant Foods",
+            "Miến - Hủ Tíu - Bánh Canh": "Instant Foods",
+            "Cháo": "Instant Foods",
+            "Phở - Bún": "Instant Foods",
+            
+            # Dry Foods & Grains
+            "Thực Phẩm Khô": "Grains & Staples",
+            "Gạo - Nông Sản Khô": "Grains & Staples",
+            "Ngũ Cốc - Yến Mạch": "Cereals & Grains",
+            "Thực Phẩm Đóng Hộp": "Instant Foods",
+            "Rong Biển - Tảo Biển": "Snacks",
+            "Bột Các Loại": "Grains & Staples",
+            "Thực Phẩm Chay": "Instant Foods",
+            
+            # Processed Foods
+            "Thực Phẩm Chế Biến": "Instant Foods",
+            "Bánh mì": "Instant Foods",
+            "Xúc xích - Thịt Nguội": "Cold Cuts: Sausages & Ham",
+            "Bánh bao": "Instant Foods",
+            "Kim chi": "Instant Foods",
+            "Thực Phẩm Chế Biến Khác": "Instant Foods",
+            
+            # Seasonings
+            "Gia vị": "Seasonings",
+            "Dầu Ăn": "Seasonings",
+            "Nước Mắm - Nước Chấm": "Seasonings",
+            "Đường": "Seasonings",
+            "Nước Tương": "Seasonings",
+            "Hạt Nêm": "Seasonings",
+            "Tương Các Loại": "Seasonings",
+            "Gia Vị Khác": "Seasonings",
+            
+            # Frozen Foods
+            "Thực Phẩm Đông Lạnh": "Instant Foods",
+            "Chả Giò": "Instant Foods",
+            "Cá - Bò Viên": "Instant Foods",
+            "Thực Phẩm Đông Lạnh Khác": "Instant Foods"
+        }
+
+
 # list các unit cơ bản
 BASE_UNITS = ["g", "ml", "lít", "kg", "l"]
 
@@ -157,7 +242,7 @@ model_vi2en = AutoModelForSeq2SeqLM.from_pretrained("vinai/vinai-translate-vi2en
 
 
 # ===== TEXT PROCESSING FUNCTIONS =====
-def translate_vi2en(vi_text: str) -> str:
+async def translate_vi2en(vi_text: str) -> str:
     # """Translate Vietnamese text to English"""
     try:
         inputs = tokenizer_vi2en(vi_text, return_tensors="pt")
@@ -173,18 +258,18 @@ def translate_vi2en(vi_text: str) -> str:
         print(f"Translation error for '{vi_text}': {e}")
         return ""
 
-def tokenize_by_whitespace(text: str) -> List[str]:
+async def tokenize_by_whitespace(text: str) -> List[str]:
     if not text: return []
     return [t for t in text.lower().split() if len(t)>=2]
 
-def generate_token_ngrams(text: str, n: int) -> List[str]:
-    tokens = tokenize_by_whitespace(text)
+async def generate_token_ngrams(text: str, n: int) -> List[str]:
+    tokens = await tokenize_by_whitespace(text)
     ngrams = []
     for t in tokens:
         ngrams += [t[i:i+n] for i in range(len(t)-n+1)]
     return ngrams
 
-def parse_store_line(s: str) -> Dict[str, str]:
+async def parse_store_line(s: str) -> Dict[str, str]:
     # """Parse store location string into name and location"""
     name = s.split('(', 1)[0].strip()
 
@@ -214,7 +299,7 @@ def parse_store_line(s: str) -> Dict[str, str]:
 
 
 # ===== PRICE & UNIT PROCESSING =====
-def extract_net_value_and_unit_from_name(name: str, fallback_unit: str) -> tuple:
+async def extract_net_value_and_unit_from_name(name: str, fallback_unit: str) -> tuple:
     """Extract net value and unit from product name"""
     tmp_name = name.lower()
 
@@ -245,8 +330,7 @@ def extract_net_value_and_unit_from_name(name: str, fallback_unit: str) -> tuple
         return float(value), unit
     return 1, fallback_unit
 
-
-def normalize_net_value(unit: str, net_value: float, name: str) -> Tuple[float, str]:
+async def normalize_net_value(unit: str, net_value: float, name: str) -> Tuple[float, str]:
     """Normalize net value and unit based on product name"""
     unit = unit.lower()
     name_lower = name.lower()
@@ -307,41 +391,13 @@ def normalize_net_value(unit: str, net_value: float, name: str) -> Tuple[float, 
         return per_unit * count, unit_detected
 
     # Fallback: extract from name
-    extracted_value, extracted_unit = extract_net_value_and_unit_from_name(name, unit)
+    extracted_value, extracted_unit = await extract_net_value_and_unit_from_name(name, unit)
     if extracted_value > 0:
         return extracted_value, extracted_unit
 
     return float(net_value) if net_value != 0 else 1.0, unit
 
-def parse_store_line(s: str) -> Dict[str, str]:
-    # """Parse store location string into name and location"""
-    name = s.split('(', 1)[0].strip()
-
-    start = s.find('(')
-    if start == -1:
-        return {"store_name": name, "store_location": ""}
-    
-    level = 0
-    end = None
-    for i, ch in enumerate(s[start:], start):
-        if ch == '(':
-            level += 1
-        elif ch == ')':
-            level -= 1
-            if level == 0:
-                end = i
-                break
-    
-    content = s[start+1:end] if end else ""
-    location = re.sub(r'\([^)]*\)', '', content).strip()
-    location = location.strip(',').strip()
-
-    return {
-        "store_name": name,
-        "store_location": location
-    }
-
-def process_unit_and_net_value(product: dict) -> dict:
+async def process_unit_and_net_value(product: dict) -> dict:
     """
     Xử lý phần unit và netUnitValue từ dữ liệu product,
     trả về dict gồm unit và netUnitValue đã chuẩn hóa.
@@ -350,7 +406,7 @@ def process_unit_and_net_value(product: dict) -> dict:
     original_unit = product.get("unit", "").lower()
     net_unit_value = product.get("netUnitValue", 0)
     
-    nv, u = normalize_net_value(original_unit, net_unit_value, name)
+    nv, u = await normalize_net_value(original_unit, net_unit_value, name)
     
     return {
         "unit": u,

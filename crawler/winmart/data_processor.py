@@ -1,6 +1,6 @@
 from datetime import datetime
-from crawler.process_data.process import *
-
+import re
+from crawler.process_data.process import translate_vi2en, generate_token_ngrams, normalize_net_value
 
 async def process_product(product: dict, db) -> dict:
     """
