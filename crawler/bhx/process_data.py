@@ -1,9 +1,9 @@
 from typing import List
 from datetime import datetime
 from pymongo import UpdateOne
-from crawler.process_data.process import process_unit_and_net_value, translate_vi2en, generate_token_ngrams
+from crawler.process_data.process import *
 
-def extract_best_price(product: dict) -> dict:
+async def extract_best_price(product: dict) -> dict:
     
     base_price_info = product.get("productPrices", [])
     campaign_info = product.get("lstCampaingInfo", [])
@@ -34,25 +34,12 @@ def extract_best_price(product: dict) -> dict:
         "date_end": None,
     }
 
-from pymongo import UpdateOne
-from pymongo.errors import CollectionInvalid
-from datetime import datetime
-
 async def process_product_data(raw: List[dict], category: str, store_id: int, db) -> List[UpdateOne]:
 
     coll_name = category.replace(" ", "_").lower()
-    existing = await db.list_collection_names()
-
-    if coll_name not in existing:
-        try:
-            await db.create_collection(coll_name)
-            print(f"Created new collection: {coll_name}")
-        except CollectionInvalid:
-            pass
-    
     coll = db[coll_name]
     ops = []
-
+    
     for prod in raw:
         sku = prod.get("id")
         if not sku:
@@ -92,8 +79,8 @@ async def process_product_data(raw: List[dict], category: str, store_id: int, db
             })
         else:
             # Chưa có → dịch mới rồi sinh ngrams
-            name_en = translate_vi2en(name)
-            ngram   = generate_token_ngrams(name_en, 2)
+            name_en = await translate_vi2en(name)
+            ngram   = await generate_token_ngrams(name_en, 2)
             upd.update({
                 "name":         name,
                 "name_en":      name_en,

@@ -67,11 +67,14 @@ class BHXDataFetcher:
         ward_id  = store.get("wardId",0)
         dist_id  = store.get("districtId",0)
 
-        for cat in tqdm(categories, desc=f"Store {store_id}", leave=False):
+        bar = tqdm(categories, desc=f"Store {store_id}", leave=True)
+        for cat in categories:
             for url in cat["links"]:
-                await self.sem_wrap(
-                    self.fetch_api_and_save(store_id, ward_id, dist_id, province, cat, url)
-                )
+                await self.sem_wrap(self.fetch_api_and_save(
+                    store_id, ward_id, dist_id, province, cat, url
+                ))
+            bar.update(1)
+        bar.close()
 
     async def fetch_api_and_save(self, store_id, ward, dist, prov, cat, url):
         # fetch all pages
@@ -137,7 +140,7 @@ class BHXDataFetcher:
         
 
 async def main():
-    fetcher = BHXDataFetcher(concurrency=4)
+    fetcher = BHXDataFetcher(concurrency=1)
     await fetcher.init()
     start = None
     end = None
@@ -145,7 +148,7 @@ async def main():
         # 1. Categories from any sample store
         prov, ward, store0 = 3, 4946, 2087
         categories = await fetcher.fetch_categories(prov, ward, store0)
-
+    
         # 2. Get stores in HCM
         full = await fetch_full_location_data(fetcher.token, fetcher.deviceid)
         provinces = [p for p in full.get("provinces",[]) if p["name"].strip() == "TP. Hồ Chí Minh"]
@@ -157,12 +160,14 @@ async def main():
                                         fetcher.token, fetcher.deviceid)
         
         # test thử 1 store
-        stores = stores[50:100]
+        stores = stores[56:57]
 
-        # 3. Crawl product
+        # 3. Crawl productá
         start = time.time()
-        await asyncio.gather(*[fetcher.sem_wrap(fetcher.crawl_store(s, categories, provinces[0]["id"]))
-                            for s in stores])
+        await asyncio.gather(
+            *[ fetcher.crawl_store(s, categories, prov)
+            for s in stores ]
+        )
 
         end = time.time()
         logger.info(f"✅ Total time: {(end - start):.2f} minutes")
