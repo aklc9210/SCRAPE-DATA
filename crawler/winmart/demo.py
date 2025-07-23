@@ -1,6 +1,6 @@
 import asyncio
 import time
-import functools
+import logging
 from pymongo import UpdateOne
 from tqdm.asyncio import tqdm
 from crawler.winmart.fetch_branches import fetch_branches
@@ -8,6 +8,15 @@ from crawler.winmart.fetch_category import fetch_categories
 from crawler.winmart.fetch_product import fetch_products_by_store
 from crawler.winmart.data_processor import process_products_batch
 from db.db_async import get_db
+
+# Cấu hình logger
+logging.basicConfig(
+    filename='winmart_crawl.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+logger = logging.getLogger(__name__)
 
 class WinMartFetcher:
     def __init__(self, concurrency: int = 10):
@@ -26,14 +35,14 @@ class WinMartFetcher:
             try:
                 return await coro(*args)
             except asyncio.TimeoutError:
-                print(f"❌ TimeoutError: {args[0] if args else 'Unknown'}")
+                logger.error(f"TimeoutError: {args[0] if args else 'Unknown'}")
             except Exception as e:
-                print(f"❌ Exception while processing {args[0] if args else 'Unknown'}: {e}")
+                logger.error(f"Exception while processing {args[0] if args else 'Unknown'}: {e}")
 
 
     async def crawl_store(self, store: dict):
         sid = store.get("code")
-        print(f"▶ Crawling store {sid}")
+        # print(f"▶ Crawling store {sid}")
 
         # Fetch raw products for this store
         raws = await fetch_products_by_store(sid, self.categories)
@@ -41,7 +50,7 @@ class WinMartFetcher:
         # Process raw items into normalized records
         records = await process_products_batch(raws, self.db)
         if not records:
-            print(f"No valid records for store {sid}, skipping.")
+            logger.error(f"No valid records for store {sid}, skipping.")
             return
 
         loop = asyncio.get_running_loop()
@@ -84,11 +93,10 @@ class WinMartFetcher:
 
         for i, result in enumerate(results):
             if isinstance(result, Exception):
-                print(f"⚠️ Store task {i} failed with: {result}")
+                logger.warning(f"Store task {i} failed with: {result}")
 
         elapsed = time.time() - start_time
-        print(f"Total time: {elapsed:.2f} seconds")
-        print("✅ Done.")
+        logger.info(f"✅ Total time: {elapsed:.2f} seconds")
 
 async def main():
     fetcher = WinMartFetcher(concurrency=2)

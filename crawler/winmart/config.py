@@ -1,5 +1,3 @@
-# winmart_config.py
-
 API_BASE_V1 = "https://api-crownx.winmart.vn/mt/api/web/v1"
 API_BASE_V3 = "https://api-crownx.winmart.vn/it/api/web/v3"
 
