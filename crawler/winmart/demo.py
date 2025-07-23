@@ -1,51 +1,58 @@
-# orchestrator.py
-
 import asyncio
+import sys
+import time
+import logging
+import json
 from pymongo import UpdateOne
 from tqdm.asyncio import tqdm
-from crawler.winmart.fetch_branches import WinMartBranchFetcher
-from crawler.winmart.fetch_product import WinMartProductFetcher
-from crawler.winmart.data_processor import DataProcessor
-from db.db_async import db
+from crawler.winmart.fetch_branches import fetch_branches
+from crawler.winmart.fetch_category import fetch_categories
+from crawler.winmart.fetch_product import fetch_products_by_store
+from crawler.winmart.data_processor import process_products_batch
+from db.db_async import get_db
+
+# Cấu hình logger
+logging.basicConfig(
+    filename='winmart_crawl.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+logger = logging.getLogger(__name__)
 
 class WinMartFetcher:
-    def __init__(self, concurrency: int = 4):
+    def __init__(self, concurrency: int = 10):
         self.branches = None
-        self.fetcher = None
-        self.processor = None
+        self.categories = None
         self.db = None
-        self.sem = None
-        self.sem = asyncio.Semaphore(concurrency)   
+        self.sem = asyncio.Semaphore(concurrency)
 
     async def init(self):
-        self.branches = await WinMartBranchFetcher().fetch_branches()
-        self.fetcher = WinMartProductFetcher()
-        await self.fetcher.init()
-
-        self.processor = DataProcessor()
-        self.db = db
+        self.branches = await fetch_branches()
+        self.categories = await fetch_categories()
+        self.db = get_db()
 
     async def sem_wrap(self, coro, *args):
         async with self.sem:
-            return await coro(*args)
+            try:
+                return await coro(*args)
+            except asyncio.TimeoutError:
+                logger.error(f"TimeoutError: {args[0] if args else 'Unknown'}")
+            except Exception as e:
+                logger.error(f"Exception while processing {args[0] if args else 'Unknown'}: {e}")
+
 
     async def crawl_store(self, store: dict):
         sid = store.get("code")
-        print(f"▶ Crawling store {sid}")
 
         # Fetch raw products for this store
-        raws = await self.fetcher.fetch_products_by_store(sid)
-        print(f"Retrieved {len(raws)} raw items from store {sid}")
+        raws = await fetch_products_by_store(sid, self.categories)
 
         # Process raw items into normalized records
-        records = await self.processor.process_products_batch(raws)
+        records = await process_products_batch(raws, self.db)
         if not records:
-            print(f"No valid records for store {sid}, skipping.")
+            logger.error(f"No valid records for store {sid}, skipping.")
             return
-
-        loop = asyncio.get_running_loop()
-        total_upserted = 0
-        total_modified = 0
 
         # Build category groups
         category_groups = {}
@@ -54,7 +61,12 @@ class WinMartFetcher:
             category_groups.setdefault(coll, []).append(rec)
 
         # Bulk upsert per collection
-        for coll_name, recs in category_groups.items():
+        for coll_name, recs in tqdm(
+            category_groups.items(),
+            desc=f"  Store {sid}",
+            unit="category",
+            leave=False
+        ):
             operations = [
                 UpdateOne(
                     {"sku": r["sku"], "store_id": r["store_id"]},
@@ -65,35 +77,38 @@ class WinMartFetcher:
             if not operations:
                 continue
 
-            # Execute in threadpool
-            result = await loop.run_in_executor(
-                None,
-                lambda ops=operations, col=coll_name: self.db[col].bulk_write(ops, ordered=False)
+            bulk_result = await self.db[coll_name].bulk_write(
+                operations,
+                ordered=False
             )
-            up = result.upserted_count
-            md = result.modified_count
-            total_upserted += up
-            total_modified += md
-            print(f"   • {coll_name}: upserted {up}, modified {md}")
-
-        print(
-            f"   ✔ Store {sid} summary: total upserted={total_upserted}, total modified={total_modified}"
-        )
+            logger.info(f"[{coll_name}] upserted: {bulk_result.upserted_count}")
 
     async def run(self):
         await self.init()
-        self.branches = self.branches[106:107]
+
+        start_time = time.time()
+
+        # test 1 store
+        self.branches = self.branches[6:9]
 
         tasks = [self.sem_wrap(self.crawl_store, store) for store in self.branches]
 
-        for task in tqdm(
-            asyncio.as_completed(tasks),
-            total=len(tasks),
-            desc="Stores",
-            unit="store"
-        ):
-            await task
+        results = await asyncio.gather(*tasks, return_exceptions=True)
 
-        print("✅ Done.")
+        for i, result in enumerate(results):
+            if isinstance(result, Exception):
+                logger.warning(f"Store task {i} failed with: {result}")
 
+        elapsed = time.time() - start_time
+        logger.info(f"✅ Total time: {elapsed:.2f} seconds")
 
+async def main():
+    fetcher = WinMartFetcher(concurrency=3)
+    await fetcher.init()
+    await fetcher.run()
+
+def run_sync():
+    if sys.platform.startswith("win"):
+        asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+
+    asyncio.run(main())

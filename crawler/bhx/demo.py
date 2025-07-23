@@ -1,17 +1,27 @@
 import asyncio
 import time
 import aiohttp
+import sys
+import logging
 from crawler.bhx.token_interceptor import BHXTokenInterceptor, get_headers
 from crawler.bhx.fetch_store_by_province import fetch_stores_async
 from crawler.bhx.fetch_full_location import fetch_full_location_data
 from crawler.bhx.fetch_menus_for_store import fetch_menus_for_store
-from db.db_async import db
-from crawler.bhx.process_data import (
-    CATEGORIES_MAPPING, 
-    process_product_data,
-)
+from db.db_async import get_db
+
+from crawler.bhx.process_data import process_product_data
+from crawler.process_data.process import CATEGORIES_MAPPING_BHX
 from tqdm import tqdm
 from asyncio import Semaphore
+
+# Cấu hình logger
+logging.basicConfig(
+    filename='bhx_crawl.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+logger = logging.getLogger(__name__)
 
 
 class BHXDataFetcher:
@@ -20,12 +30,10 @@ class BHXDataFetcher:
         self.deviceid = None
         self.interceptor = None
         self.session = None
+        self.db = get_db()
 
         # semaphore để giới hạn số store chạy song song
         self.sem = Semaphore(concurrency)
-        
-        # Upsert chains to database
-        # self._init_chains()
     
     async def init(self):
         ti = BHXTokenInterceptor()
@@ -36,12 +44,15 @@ class BHXDataFetcher:
     async def close(self):
         await self.session.close()
 
+    async def close(self):
+        await self.session.close()
+
     async def fetch_categories(self, province, ward, store):
         raw = await fetch_menus_for_store(province, ward, store,self.token, self.deviceid)
         cats = []
         for m in raw:
             for c in m.get("childrens", []):
-                eng = CATEGORIES_MAPPING.get(c["name"])
+                eng = CATEGORIES_MAPPING_BHX.get(c["name"])
                 if eng:
                     cats.append({"name":eng, "link":c["url"]})
         # group by name
@@ -55,11 +66,14 @@ class BHXDataFetcher:
         ward_id  = store.get("wardId",0)
         dist_id  = store.get("districtId",0)
 
-        for cat in tqdm(categories, desc=f"Store {store_id}", leave=False):
+        bar = tqdm(categories, desc=f"Store {store_id}", leave=True)
+        for cat in categories:
             for url in cat["links"]:
-                await self.sem_wrap(
-                    self.fetch_api_and_save(store_id, ward_id, dist_id, province, cat, url)
-                )
+                await self.sem_wrap(self.fetch_api_and_save(
+                    store_id, ward_id, dist_id, province, cat, url
+                ))
+            bar.update(1)
+        bar.close()
 
     async def fetch_api_and_save(self, store_id, ward, dist, prov, cat, url):
         # fetch all pages
@@ -79,8 +93,18 @@ class BHXDataFetcher:
                     "accept": "application/json, text/plain, */*"
                 })
 
-                async with self.session.get(api, headers=h) as resp:
-                    js = await resp.json()
+                try:
+                    async with self.session.get(api, headers=h, timeout=aiohttp.ClientTimeout(total=15)) as resp:
+                        js = await resp.json()
+                except asyncio.TimeoutError:
+                    logger.warning(f"Timeout at page {page} for store {store_id}")
+                    break
+                except aiohttp.ClientError as e:
+                    logger.error(f"Network error for store {store_id}: {e}")
+                    break
+                except Exception as e:
+                    logger.error(f"Unexpected error while fetching store {store_id}: {e}")
+                    break
 
                 batch = js["data"].get("products", [])
                 total = js["data"].get("total", 0)
@@ -96,35 +120,26 @@ class BHXDataFetcher:
                 await asyncio.sleep(0.5)
 
         # build and write ops
-        ops = await process_product_data(allp, cat["name"], store_id, db)
+        ops = await process_product_data(allp, cat["name"], store_id, self.db)
         if ops:
-            coll = db[cat["name"].replace(" ","_").lower()]
+            coll = self.db[cat["name"].replace(" ","_").lower()]
             result = await coll.bulk_write(ops, ordered=False)
-            print(f"Store {store_id}｜{cat['name']}: upserted {result.upserted_count}, "
-                  f"mod {result.modified_count}")
+            logger.info(f"Store {store_id}｜{cat['name']}: upserted {result.upserted_count}, mod {result.modified_count}")
 
     async def sem_wrap(self, coro):
         async with self.sem:
-            return await coro
-    
-    def _init_chains(self):
-        """Initialize chain data in database"""
-        chain_coll = db.chains
-        chains = [
-            {"code": "BHX", "name": "Bách Hóa Xanh"},
-            {"code": "WM", "name": "Winmart"}
-        ]
-        with tqdm(chains, desc="Initializing chains") as pbar:
-            for chain in pbar:
-                chain_coll.update_one(
-                    {"code": chain["code"]},
-                    {"$set": chain},
-                    upsert=True
-                )
-                pbar.set_postfix_str(f"Upserted: {chain['name']}")
+            try:
+                return await coro
+            except asyncio.TimeoutError:
+                logger.warning("TimeoutError while executing a task")
+            except aiohttp.ClientError as e:
+                logger.error(f"Network error: {e}")
+            except Exception as e:
+                logger.error(f"Unexpected error: {e}")
+        
 
 async def main():
-    fetcher = BHXDataFetcher(concurrency=10)
+    fetcher = BHXDataFetcher(concurrency=1)
     await fetcher.init()
     start = None
     end = None
@@ -132,27 +147,34 @@ async def main():
         # 1. Categories from any sample store
         prov, ward, store0 = 3, 4946, 2087
         categories = await fetcher.fetch_categories(prov, ward, store0)
-
+    
         # 2. Get stores in HCM
         full = await fetch_full_location_data(fetcher.token, fetcher.deviceid)
         provinces = [p for p in full.get("provinces",[]) if p["name"].strip() == "TP. Hồ Chí Minh"]
         if not provinces:
-            print("No provinces"); return
+            logger.error("No provinces found for TP. Hồ Chí Minh")
+            return
+        
         stores = await fetch_stores_async(provinces[0]["id"],
                                         fetcher.token, fetcher.deviceid)
         
         # test thử 1 store
-        stores = stores[481:482]
+        stores = stores[56:57]
 
-        # 3. Crawl product
+        # 3. Crawl productá
         start = time.time()
-        await asyncio.gather(*[fetcher.sem_wrap(fetcher.crawl_store(s, categories, provinces[0]["id"]))
-                            for s in stores])
+        await asyncio.gather(
+            *[ fetcher.crawl_store(s, categories, prov)
+            for s in stores ]
+        )
 
         end = time.time()
-        print(f"Total time: {(end - start):.2f} minutes")
+        logger.info(f"✅ Total time: {(end - start):.2f} minutes")
     finally:
         await fetcher.close()
 
 def run_sync():
+    if sys.platform.startswith("win"):
+        asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+
     asyncio.run(main())
