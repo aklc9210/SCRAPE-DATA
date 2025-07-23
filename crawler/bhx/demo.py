@@ -9,10 +9,8 @@ from crawler.bhx.fetch_full_location import fetch_full_location_data
 from crawler.bhx.fetch_menus_for_store import fetch_menus_for_store
 from db.db_async import get_db
 
-from crawler.bhx.process_data import (
-    CATEGORIES_MAPPING, 
-    process_product_data,
-)
+from crawler.bhx.process_data import process_product_data
+from crawler.process_data.process import CATEGORIES_MAPPING_BHX
 from tqdm import tqdm
 from asyncio import Semaphore
 
@@ -55,7 +53,7 @@ class BHXDataFetcher:
         cats = []
         for m in raw:
             for c in m.get("childrens", []):
-                eng = CATEGORIES_MAPPING.get(c["name"])
+                eng = CATEGORIES_MAPPING_BHX.get(c["name"])
                 if eng:
                     cats.append({"name":eng, "link":c["url"]})
         # group by name

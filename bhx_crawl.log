@@ -4804,3 +4804,1818 @@ Traceback (most recent call last):
   File "C:\Program Files\Python310\lib\asyncio\base_events.py", line 493, in _make_subprocess_transport
     raise NotImplementedError
 NotImplementedError
+2025-07-23 09:01:58 - INFO - Store 3388\uff5cFresh Meat: upserted 9, mod 0
+2025-07-23 09:01:59 - INFO - Store 3743\uff5cFresh Meat: upserted 10, mod 0
+2025-07-23 09:02:04 - INFO - Store 3388\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 09:02:04 - INFO - Store 3743\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 09:02:07 - INFO - Store 3388\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:02:07 - INFO - Store 3388\uff5cFresh Meat: upserted 4, mod 0
+2025-07-23 09:02:09 - INFO - Store 3743\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:02:09 - INFO - Store 3743\uff5cFresh Meat: upserted 2, mod 0
+2025-07-23 09:02:11 - INFO - Store 3388\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:02:13 - INFO - Store 3743\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:02:16 - INFO - Store 3388\uff5cSeafood & Fish Balls: upserted 12, mod 36
+2025-07-23 09:02:19 - INFO - Store 3743\uff5cSeafood & Fish Balls: upserted 12, mod 48
+2025-07-23 09:02:21 - INFO - Store 3388\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 09:02:23 - INFO - Store 3743\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 09:02:24 - INFO - Store 3388\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:02:25 - INFO - Store 3743\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:02:27 - INFO - Store 3388\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:02:29 - INFO - Store 3743\uff5cVegetables: upserted 12, mod 36
+2025-07-23 09:02:30 - INFO - Store 3388\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:02:31 - INFO - Store 3743\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:02:35 - INFO - Store 3388\uff5cVegetables: upserted 12, mod 48
+2025-07-23 09:02:37 - INFO - Store 3743\uff5cVegetables: upserted 12, mod 48
+2025-07-23 09:02:47 - INFO - Store 3388\uff5cAlcoholic Beverages: upserted 12, mod 108
+2025-07-23 09:02:53 - INFO - Store 3743\uff5cAlcoholic Beverages: upserted 12, mod 132
+2025-07-23 09:02:53 - INFO - Store 3388\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:02:58 - INFO - Store 3388\uff5cBeverages: upserted 12, mod 24
+2025-07-23 09:02:59 - INFO - Store 3743\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:03:00 - INFO - Store 3388\uff5cBeverages: upserted 9, mod 0
+2025-07-23 09:03:00 - INFO - Store 3388\uff5cBeverages: upserted 6, mod 0
+2025-07-23 09:03:04 - INFO - Store 3743\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:03:06 - INFO - Store 3743\uff5cBeverages: upserted 12, mod 0
+2025-07-23 09:03:07 - INFO - Store 3388\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:03:07 - INFO - Store 3743\uff5cBeverages: upserted 8, mod 0
+2025-07-23 09:03:13 - INFO - Store 3743\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:03:17 - INFO - Store 3388\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:03:25 - INFO - Store 3743\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:03:30 - INFO - Store 3388\uff5cBeverages: upserted 12, mod 108
+2025-07-23 09:03:35 - INFO - Store 3388\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:03:45 - INFO - Store 3388\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:03:45 - INFO - Store 3743\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:03:51 - INFO - Store 3743\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:04:01 - INFO - Store 3743\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:04:01 - INFO - Store 3388\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:04:09 - INFO - Store 3388\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:04:12 - INFO - Store 3388\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:04:17 - INFO - Store 3388\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:04:17 - INFO - Store 3743\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:04:22 - INFO - Store 3388\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:04:26 - INFO - Store 3388\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:04:27 - INFO - Store 3743\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:04:29 - INFO - Store 3743\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:04:32 - INFO - Store 3388\uff5cMilk: upserted 12, mod 48
+2025-07-23 09:04:35 - INFO - Store 3743\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:04:38 - INFO - Store 3388\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:04:42 - INFO - Store 3743\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:04:44 - INFO - Store 3743\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:04:49 - INFO - Store 3743\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:04:58 - INFO - Store 3743\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:04:58 - INFO - Store 3388\uff5cMilk: upserted 12, mod 144
+2025-07-23 09:04:59 - INFO - Store 3388\uff5cSeasonings: upserted 8, mod 0
+2025-07-23 09:05:04 - INFO - Store 3388\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:05:04 - INFO - Store 3388\uff5cSeasonings: upserted 3, mod 0
+2025-07-23 09:05:12 - INFO - Store 3388\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:05:17 - INFO - Store 3388\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:05:17 - INFO - Store 3743\uff5cMilk: upserted 12, mod 144
+2025-07-23 09:05:18 - INFO - Store 3743\uff5cSeasonings: upserted 9, mod 0
+2025-07-23 09:05:20 - INFO - Store 3388\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:05:22 - INFO - Store 3388\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:05:24 - INFO - Store 3388\uff5cSeasonings: upserted 10, mod 0
+2025-07-23 09:05:25 - INFO - Store 3743\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:05:25 - INFO - Store 3743\uff5cSeasonings: upserted 4, mod 0
+2025-07-23 09:05:26 - INFO - Store 3388\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:05:29 - INFO - Store 3388\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:05:30 - INFO - Store 3388\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 09:05:31 - INFO - Store 3743\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:05:35 - INFO - Store 3743\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:05:38 - INFO - Store 3743\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:05:43 - INFO - Store 3743\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:05:44 - INFO - Store 3388\uff5cSeasonings: upserted 12, mod 96
+2025-07-23 09:05:45 - INFO - Store 3743\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:05:46 - INFO - Store 3743\uff5cSeasonings: upserted 11, mod 0
+2025-07-23 09:05:48 - INFO - Store 3743\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:05:49 - INFO - Store 3743\uff5cSeasonings: upserted 1, mod 0
+2025-07-23 09:05:50 - INFO - Store 3388\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:05:50 - INFO - Store 3388\uff5cSeasonings: upserted 4, mod 0
+2025-07-23 09:05:53 - INFO - Store 3388\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:05:59 - INFO - Store 3388\uff5cYogurt: upserted 12, mod 48
+2025-07-23 09:06:02 - INFO - Store 3743\uff5cSeasonings: upserted 12, mod 108
+2025-07-23 09:06:06 - INFO - Store 3388\uff5cYogurt: upserted 12, mod 72
+2025-07-23 09:06:09 - INFO - Store 3388\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:06:10 - INFO - Store 3388\uff5cCereals & Grains: upserted 9, mod 1
+2025-07-23 09:06:10 - INFO - Store 3743\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:06:11 - INFO - Store 3743\uff5cSeasonings: upserted 5, mod 0
+2025-07-23 09:06:12 - INFO - Store 3388\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:06:14 - INFO - Store 3743\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:06:15 - INFO - Store 3388\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 24
+2025-07-23 09:06:17 - INFO - Store 3388\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:06:17 - INFO - Store 3388\uff5cCold Cuts: Sausages & Ham: upserted 5, mod 0
+2025-07-23 09:06:20 - INFO - Store 3743\uff5cYogurt: upserted 12, mod 48
+2025-07-23 09:06:20 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:06:21 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:06:27 - INFO - Store 3743\uff5cYogurt: upserted 12, mod 60
+2025-07-23 09:06:27 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:06:29 - INFO - Store 3743\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:06:29 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:06:31 - INFO - Store 3743\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:06:32 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:06:33 - INFO - Store 3743\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:06:34 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:06:36 - INFO - Store 3743\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 24
+2025-07-23 09:06:37 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:06:38 - INFO - Store 3743\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:06:39 - INFO - Store 3743\uff5cCold Cuts: Sausages & Ham: upserted 6, mod 0
+2025-07-23 09:06:40 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:06:42 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:06:43 - INFO - Store 3388\uff5cInstant Foods: upserted 5, mod 0
+2025-07-23 09:06:44 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:06:44 - INFO - Store 3388\uff5cInstant Foods: upserted 8, mod 16
+2025-07-23 09:06:45 - INFO - Store 3388\uff5cInstant Foods: upserted 8, mod 1
+2025-07-23 09:06:47 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:06:49 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:06:50 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:06:52 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:06:55 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:06:55 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:06:56 - INFO - Store 3388\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:06:57 - INFO - Store 3388\uff5cInstant Foods: upserted 9, mod 0
+2025-07-23 09:06:58 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:06:58 - INFO - Store 3388\uff5cInstant Foods: upserted 11, mod 0
+2025-07-23 09:06:59 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:07:00 - INFO - Store 3388\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:07:01 - INFO - Store 3388\uff5cInstant Foods: upserted 4, mod 1
+2025-07-23 09:07:04 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:07:04 - INFO - Store 3743\uff5cInstant Foods: upserted 3, mod 0
+2025-07-23 09:07:06 - INFO - Store 3743\uff5cInstant Foods: upserted 6, mod 18
+2025-07-23 09:07:07 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:07:07 - INFO - Store 3743\uff5cInstant Foods: upserted 5, mod 1
+2025-07-23 09:07:08 - INFO - Store 3388\uff5cInstant Foods: upserted 3, mod 7
+2025-07-23 09:07:13 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:07:14 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 0
+2025-07-23 09:07:21 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:07:23 - INFO - Store 3743\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:07:24 - INFO - Store 3743\uff5cInstant Foods: upserted 5, mod 0
+2025-07-23 09:07:24 - INFO - Store 3743\uff5cInstant Foods: upserted 9, mod 0
+2025-07-23 09:07:26 - INFO - Store 3743\uff5cInstant Foods: upserted 10, mod 14
+2025-07-23 09:07:29 - INFO - Store 3743\uff5cInstant Foods: upserted 2, mod 0
+2025-07-23 09:07:33 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:07:34 - INFO - Store 3743\uff5cInstant Foods: upserted 2, mod 7
+2025-07-23 09:07:41 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 300
+2025-07-23 09:07:45 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:07:47 - INFO - Store 3388\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:07:50 - INFO - Store 3388\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 09:07:55 - INFO - Store 3388\uff5cGrains & Staples: upserted 12, mod 36
+2025-07-23 09:08:00 - INFO - Store 3388\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:08:03 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 312
+2025-07-23 09:08:06 - INFO - Store 3388\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:08:07 - INFO - Store 3388\uff5cCakes: upserted 11, mod 0
+2025-07-23 09:08:07 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:08:09 - INFO - Store 3388\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:08:10 - INFO - Store 3743\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:08:11 - INFO - Store 3388\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:08:12 - INFO - Store 3743\uff5cGrains & Staples: upserted 12, mod 12
+2025-07-23 09:08:16 - INFO - Store 3388\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:08:17 - INFO - Store 3388\uff5cCakes: upserted 4, mod 0
+2025-07-23 09:08:18 - INFO - Store 3743\uff5cGrains & Staples: upserted 12, mod 48
+2025-07-23 09:08:18 - INFO - Store 3388\uff5cCakes: upserted 11, mod 0
+2025-07-23 09:08:23 - INFO - Store 3743\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:08:26 - INFO - Store 3743\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:08:27 - INFO - Store 3743\uff5cCakes: upserted 12, mod 0
+2025-07-23 09:08:28 - INFO - Store 3388\uff5cCakes: upserted 12, mod 72
+2025-07-23 09:08:29 - INFO - Store 3388\uff5cCakes: upserted 9, mod 0
+2025-07-23 09:08:30 - INFO - Store 3743\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:08:30 - INFO - Store 3388\uff5cCandies: upserted 10, mod 0
+2025-07-23 09:08:31 - ERROR - Unexpected error: 'data'
+2025-07-23 09:08:37 - INFO - Store 3743\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:08:40 - INFO - Store 3388\uff5cCandies: upserted 12, mod 48
+2025-07-23 09:08:42 - INFO - Store 3743\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:08:43 - INFO - Store 3743\uff5cCakes: upserted 4, mod 0
+2025-07-23 09:08:44 - INFO - Store 3388\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 09:08:46 - INFO - Store 3743\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:08:47 - INFO - Store 3388\uff5cDried Fruits: upserted 12, mod 12
+2025-07-23 09:08:47 - INFO - Store 3388\uff5cFruit Jam: upserted 7, mod 0
+2025-07-23 09:08:49 - INFO - Store 3388\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:08:50 - INFO - Store 2436\uff5cFresh Meat: upserted 9, mod 0
+2025-07-23 09:08:53 - INFO - Store 2436\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 09:08:57 - INFO - Store 3743\uff5cCakes: upserted 12, mod 84
+2025-07-23 09:08:57 - INFO - Store 2436\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:08:57 - INFO - Store 2436\uff5cFresh Meat: upserted 2, mod 0
+2025-07-23 09:08:58 - INFO - Store 3743\uff5cCakes: upserted 8, mod 0
+2025-07-23 09:09:00 - INFO - Store 3743\uff5cCandies: upserted 12, mod 12
+2025-07-23 09:09:00 - ERROR - Unexpected error: 'data'
+2025-07-23 09:09:01 - INFO - Store 2436\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:09:05 - INFO - Store 2436\uff5cSeafood & Fish Balls: upserted 12, mod 36
+2025-07-23 09:09:08 - INFO - Store 3743\uff5cCandies: upserted 12, mod 60
+2025-07-23 09:09:09 - INFO - Store 2436\uff5cFresh Fruits: upserted 12, mod 24
+2025-07-23 09:09:11 - INFO - Store 3743\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 09:09:12 - INFO - Store 2436\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:09:13 - INFO - Store 3743\uff5cDried Fruits: upserted 12, mod 12
+2025-07-23 09:09:14 - INFO - Store 3743\uff5cFruit Jam: upserted 8, mod 0
+2025-07-23 09:09:16 - INFO - Store 2436\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:09:17 - INFO - Store 2436\uff5cVegetables: upserted 10, mod 0
+2025-07-23 09:09:17 - INFO - Store 3743\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:09:17 - INFO - Store 3647\uff5cFresh Meat: upserted 9, mod 0
+2025-07-23 09:09:19 - INFO - Store 3647\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 09:09:22 - INFO - Store 2436\uff5cVegetables: upserted 12, mod 36
+2025-07-23 09:09:23 - INFO - Store 3647\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:09:24 - INFO - Store 3647\uff5cFresh Meat: upserted 2, mod 0
+2025-07-23 09:09:27 - INFO - Store 3647\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:09:32 - INFO - Store 3647\uff5cSeafood & Fish Balls: upserted 12, mod 48
+2025-07-23 09:09:35 - INFO - Store 2436\uff5cAlcoholic Beverages: upserted 12, mod 120
+2025-07-23 09:09:36 - INFO - Store 3647\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 09:09:38 - INFO - Store 3647\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:09:40 - INFO - Store 2436\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:09:42 - INFO - Store 3647\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:09:46 - INFO - Store 3647\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:09:46 - INFO - Store 2436\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:09:49 - INFO - Store 2436\uff5cBeverages: upserted 12, mod 12
+2025-07-23 09:09:50 - INFO - Store 2436\uff5cBeverages: upserted 10, mod 0
+2025-07-23 09:09:52 - INFO - Store 3647\uff5cVegetables: upserted 12, mod 48
+2025-07-23 09:09:55 - INFO - Store 2436\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:10:05 - INFO - Store 3647\uff5cAlcoholic Beverages: upserted 12, mod 120
+2025-07-23 09:10:09 - INFO - Store 2436\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:10:10 - INFO - Store 3647\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:10:15 - INFO - Store 3647\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:10:17 - INFO - Store 3647\uff5cBeverages: upserted 12, mod 12
+2025-07-23 09:10:18 - INFO - Store 3647\uff5cBeverages: upserted 8, mod 0
+2025-07-23 09:10:25 - INFO - Store 2436\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:10:26 - INFO - Store 3647\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:10:31 - INFO - Store 2436\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:10:36 - INFO - Store 3647\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:10:39 - INFO - Store 2436\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:10:53 - INFO - Store 3647\uff5cBeverages: upserted 12, mod 108
+2025-07-23 09:10:58 - INFO - Store 2436\uff5cBeverages: upserted 12, mod 132
+2025-07-23 09:10:59 - INFO - Store 3647\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:11:08 - INFO - Store 3647\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:11:09 - INFO - Store 2436\uff5cBeverages: upserted 12, mod 72
+2025-07-23 09:11:11 - INFO - Store 2436\uff5cMilk: upserted 7, mod 0
+2025-07-23 09:11:15 - INFO - Store 2436\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:11:20 - INFO - Store 2436\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:11:24 - INFO - Store 2436\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:11:25 - INFO - Store 3647\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:11:31 - INFO - Store 2436\uff5cMilk: upserted 12, mod 48
+2025-07-23 09:11:34 - INFO - Store 3647\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:11:34 - INFO - Store 3647\uff5cMilk: upserted 10, mod 0
+2025-07-23 09:11:36 - INFO - Store 2436\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:11:38 - INFO - Store 3647\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:11:43 - INFO - Store 3647\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:11:45 - INFO - Store 3647\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:11:53 - INFO - Store 3647\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:11:54 - INFO - Store 2436\uff5cMilk: upserted 12, mod 144
+2025-07-23 09:11:55 - INFO - Store 2436\uff5cSeasonings: upserted 9, mod 0
+2025-07-23 09:11:58 - INFO - Store 3647\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:12:00 - INFO - Store 2436\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:12:01 - INFO - Store 2436\uff5cSeasonings: upserted 3, mod 0
+2025-07-23 09:12:08 - INFO - Store 2436\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:12:13 - INFO - Store 2436\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:12:17 - INFO - Store 2436\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:12:18 - INFO - Store 3647\uff5cMilk: upserted 12, mod 132
+2025-07-23 09:12:19 - INFO - Store 3647\uff5cSeasonings: upserted 8, mod 0
+2025-07-23 09:12:20 - INFO - Store 2436\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:12:22 - INFO - Store 2436\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:12:26 - INFO - Store 2436\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:12:26 - INFO - Store 3647\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:12:26 - INFO - Store 3647\uff5cSeasonings: upserted 3, mod 0
+2025-07-23 09:12:28 - INFO - Store 2436\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:12:28 - INFO - Store 2436\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 09:12:31 - INFO - Store 3647\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:12:37 - INFO - Store 3647\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:12:39 - INFO - Store 2436\uff5cSeasonings: upserted 12, mod 84
+2025-07-23 09:12:41 - INFO - Store 3647\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:12:45 - INFO - Store 2436\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:12:45 - INFO - Store 3647\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:12:45 - INFO - Store 2436\uff5cSeasonings: upserted 4, mod 0
+2025-07-23 09:12:47 - INFO - Store 3647\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:12:50 - INFO - Store 2436\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:12:50 - INFO - Store 3647\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:12:52 - INFO - Store 3647\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:12:53 - INFO - Store 3647\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 09:12:54 - INFO - Store 2436\uff5cYogurt: upserted 12, mod 36
+2025-07-23 09:13:03 - INFO - Store 2436\uff5cYogurt: upserted 12, mod 72
+2025-07-23 09:13:07 - INFO - Store 2436\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:13:08 - INFO - Store 3647\uff5cSeasonings: upserted 12, mod 108
+2025-07-23 09:13:10 - INFO - Store 2436\uff5cCereals & Grains: upserted 11, mod 13
+2025-07-23 09:13:12 - INFO - Store 2436\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:13:16 - INFO - Store 3647\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:13:16 - INFO - Store 3647\uff5cSeasonings: upserted 5, mod 0
+2025-07-23 09:13:20 - INFO - Store 2436\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:13:22 - INFO - Store 2436\uff5cCold Cuts: Sausages & Ham: upserted 11, mod 0
+2025-07-23 09:13:22 - INFO - Store 2436\uff5cCold Cuts: Sausages & Ham: upserted 5, mod 0
+2025-07-23 09:13:23 - INFO - Store 3647\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:13:24 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:13:26 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:13:29 - INFO - Store 3647\uff5cYogurt: upserted 12, mod 48
+2025-07-23 09:13:32 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:13:34 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:13:37 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:13:37 - INFO - Store 3647\uff5cYogurt: upserted 12, mod 60
+2025-07-23 09:13:39 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:13:40 - INFO - Store 3647\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:13:41 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:13:42 - INFO - Store 3647\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:13:45 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:13:48 - INFO - Store 3647\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 24
+2025-07-23 09:13:48 - INFO - Store 2436\uff5cInstant Foods: upserted 6, mod 0
+2025-07-23 09:13:50 - INFO - Store 2436\uff5cInstant Foods: upserted 8, mod 16
+2025-07-23 09:13:51 - INFO - Store 2436\uff5cInstant Foods: upserted 10, mod 2
+2025-07-23 09:13:52 - INFO - Store 3647\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 24
+2025-07-23 09:13:54 - INFO - Store 3647\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:13:54 - INFO - Store 3647\uff5cCold Cuts: Sausages & Ham: upserted 5, mod 0
+2025-07-23 09:13:55 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:13:57 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:13:58 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:00 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:02 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:14:04 - INFO - Store 2436\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:14:05 - INFO - Store 2436\uff5cInstant Foods: upserted 10, mod 0
+2025-07-23 09:14:07 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:09 - INFO - Store 2436\uff5cInstant Foods: upserted 10, mod 14
+2025-07-23 09:14:11 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:14:13 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:14:14 - INFO - Store 2436\uff5cInstant Foods: upserted 1, mod 7
+2025-07-23 09:14:14 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:16 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:19 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:21 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:26 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:14:28 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:30 - INFO - Store 3647\uff5cInstant Foods: upserted 8, mod 16
+2025-07-23 09:14:33 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:35 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:37 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:43 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:14:45 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 336
+2025-07-23 09:14:48 - INFO - Store 3647\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:14:49 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:14:50 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:51 - INFO - Store 2436\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:52 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:14:53 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 0
+2025-07-23 09:14:54 - INFO - Store 3647\uff5cInstant Foods: upserted 2, mod 2
+2025-07-23 09:14:55 - INFO - Store 2436\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 09:14:59 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:14:59 - INFO - Store 3647\uff5cInstant Foods: upserted 0, mod 6
+2025-07-23 09:15:00 - INFO - Store 2436\uff5cGrains & Staples: upserted 12, mod 36
+2025-07-23 09:15:05 - INFO - Store 2436\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:15:08 - INFO - Store 2436\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:15:09 - INFO - Store 2436\uff5cCakes: upserted 8, mod 0
+2025-07-23 09:15:12 - INFO - Store 2436\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:15:16 - INFO - Store 2436\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:15:22 - INFO - Store 2436\uff5cCakes: upserted 12, mod 48
+2025-07-23 09:15:23 - INFO - Store 2436\uff5cCakes: upserted 4, mod 0
+2025-07-23 09:15:25 - INFO - Store 2436\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:15:32 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 324
+2025-07-23 09:15:47 - INFO - Store 3647\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:15:50 - INFO - Store 3647\uff5cInstant Foods: upserted 11, mod 0
+2025-07-23 09:15:59 - INFO - Store 3647\uff5cGrains & Staples: upserted 12, mod 12
+2025-07-23 09:16:00 - INFO - Store 2436\uff5cCakes: upserted 12, mod 84
+2025-07-23 09:16:01 - INFO - Store 2436\uff5cCakes: upserted 5, mod 0
+2025-07-23 09:16:03 - INFO - Store 2436\uff5cCandies: upserted 12, mod 12
+2025-07-23 09:16:05 - INFO - Store 3647\uff5cGrains & Staples: upserted 12, mod 48
+2025-07-23 09:16:10 - INFO - Store 2436\uff5cCandies: upserted 12, mod 48
+2025-07-23 09:16:10 - INFO - Store 3647\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:16:13 - INFO - Store 3647\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:16:14 - INFO - Store 3647\uff5cCakes: upserted 12, mod 0
+2025-07-23 09:16:22 - INFO - Store 2436\uff5cCandies: upserted 12, mod 60
+2025-07-23 09:16:25 - INFO - Store 3647\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:16:36 - INFO - Store 2436\uff5cDried Fruits: upserted 12, mod 36
+2025-07-23 09:16:38 - INFO - Store 3647\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:16:40 - INFO - Store 2436\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 09:16:43 - INFO - Store 2436\uff5cFruit Jam: upserted 9, mod 0
+2025-07-23 09:16:44 - INFO - Store 3647\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:16:45 - INFO - Store 3647\uff5cCakes: upserted 4, mod 0
+2025-07-23 09:16:45 - INFO - Store 2436\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:16:46 - INFO - Store 2736\uff5cFresh Meat: upserted 9, mod 0
+2025-07-23 09:16:48 - INFO - Store 3647\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:16:48 - INFO - Store 2736\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 09:16:51 - INFO - Store 2736\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:16:52 - INFO - Store 2736\uff5cFresh Meat: upserted 4, mod 0
+2025-07-23 09:16:57 - INFO - Store 2736\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:16:59 - INFO - Store 3647\uff5cCakes: upserted 12, mod 84
+2025-07-23 09:17:00 - INFO - Store 3647\uff5cCakes: upserted 4, mod 0
+2025-07-23 09:17:02 - INFO - Store 3647\uff5cCandies: upserted 12, mod 12
+2025-07-23 09:17:04 - INFO - Store 2736\uff5cSeafood & Fish Balls: upserted 12, mod 60
+2025-07-23 09:17:09 - INFO - Store 3647\uff5cCandies: upserted 12, mod 48
+2025-07-23 09:17:09 - INFO - Store 2736\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 09:17:14 - INFO - Store 2736\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:17:18 - INFO - Store 2736\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:17:20 - INFO - Store 3647\uff5cCandies: upserted 12, mod 60
+2025-07-23 09:17:20 - INFO - Store 2736\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:17:23 - INFO - Store 3647\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 09:17:26 - INFO - Store 2736\uff5cVegetables: upserted 12, mod 48
+2025-07-23 09:17:26 - INFO - Store 3647\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 09:17:27 - INFO - Store 3647\uff5cFruit Jam: upserted 7, mod 0
+2025-07-23 09:17:29 - INFO - Store 3647\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:17:30 - INFO - Store 2337\uff5cFresh Meat: upserted 10, mod 0
+2025-07-23 09:17:31 - INFO - Store 2337\uff5cFresh Meat: upserted 9, mod 0
+2025-07-23 09:17:35 - INFO - Store 2337\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:17:35 - INFO - Store 2337\uff5cFresh Meat: upserted 2, mod 0
+2025-07-23 09:17:38 - INFO - Store 2736\uff5cAlcoholic Beverages: upserted 12, mod 108
+2025-07-23 09:17:40 - INFO - Store 2337\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:17:42 - INFO - Store 2736\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:17:45 - INFO - Store 2337\uff5cSeafood & Fish Balls: upserted 12, mod 36
+2025-07-23 09:17:47 - INFO - Store 2736\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:17:50 - INFO - Store 2337\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 09:17:51 - INFO - Store 2736\uff5cBeverages: upserted 12, mod 12
+2025-07-23 09:17:52 - INFO - Store 2337\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:17:52 - INFO - Store 2736\uff5cBeverages: upserted 10, mod 0
+2025-07-23 09:17:56 - INFO - Store 2337\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:17:59 - INFO - Store 2736\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:17:59 - INFO - Store 2337\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:18:04 - INFO - Store 2337\uff5cVegetables: upserted 12, mod 36
+2025-07-23 09:18:09 - INFO - Store 2736\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:18:15 - INFO - Store 2337\uff5cAlcoholic Beverages: upserted 12, mod 108
+2025-07-23 09:18:21 - INFO - Store 2337\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:18:22 - INFO - Store 2736\uff5cBeverages: upserted 12, mod 96
+2025-07-23 09:18:27 - INFO - Store 2337\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:18:27 - INFO - Store 2736\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:18:27 - INFO - Store 2337\uff5cBeverages: upserted 10, mod 0
+2025-07-23 09:18:28 - INFO - Store 2337\uff5cBeverages: upserted 10, mod 0
+2025-07-23 09:18:35 - INFO - Store 2337\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:18:35 - INFO - Store 2736\uff5cBeverages: upserted 12, mod 48
+2025-07-23 09:18:46 - INFO - Store 2337\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:18:50 - INFO - Store 2736\uff5cBeverages: upserted 12, mod 108
+2025-07-23 09:18:56 - INFO - Store 2736\uff5cBeverages: upserted 12, mod 48
+2025-07-23 09:19:00 - INFO - Store 2736\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:19:02 - INFO - Store 2337\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:19:03 - INFO - Store 2736\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:19:08 - INFO - Store 2337\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:19:09 - INFO - Store 2736\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:19:11 - INFO - Store 2736\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:19:25 - INFO - Store 2337\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:19:27 - INFO - Store 2736\uff5cMilk: upserted 12, mod 48
+2025-07-23 09:19:30 - INFO - Store 2736\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:19:40 - INFO - Store 2337\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:19:50 - INFO - Store 2736\uff5cMilk: upserted 12, mod 156
+2025-07-23 09:19:52 - INFO - Store 2736\uff5cSeasonings: upserted 9, mod 0
+2025-07-23 09:19:53 - INFO - Store 2337\uff5cBeverages: upserted 12, mod 72
+2025-07-23 09:19:53 - INFO - Store 2337\uff5cMilk: upserted 4, mod 0
+2025-07-23 09:19:59 - INFO - Store 2736\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:19:59 - INFO - Store 2337\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:19:59 - INFO - Store 2736\uff5cSeasonings: upserted 3, mod 0
+2025-07-23 09:20:05 - INFO - Store 2736\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:20:07 - INFO - Store 2337\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:20:10 - INFO - Store 2736\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:20:11 - INFO - Store 2337\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:20:14 - INFO - Store 2736\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:20:17 - INFO - Store 2337\uff5cMilk: upserted 12, mod 48
+2025-07-23 09:20:18 - INFO - Store 2736\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:20:20 - INFO - Store 2736\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:20:21 - INFO - Store 2337\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:20:23 - INFO - Store 2736\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:20:26 - INFO - Store 2736\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:20:26 - INFO - Store 2736\uff5cSeasonings: upserted 1, mod 0
+2025-07-23 09:20:38 - INFO - Store 2337\uff5cMilk: upserted 12, mod 156
+2025-07-23 09:20:40 - INFO - Store 2337\uff5cSeasonings: upserted 10, mod 0
+2025-07-23 09:20:41 - INFO - Store 2736\uff5cSeasonings: upserted 12, mod 108
+2025-07-23 09:20:46 - INFO - Store 2337\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:20:46 - INFO - Store 2337\uff5cSeasonings: upserted 3, mod 0
+2025-07-23 09:20:47 - INFO - Store 2736\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:20:47 - INFO - Store 2736\uff5cSeasonings: upserted 4, mod 0
+2025-07-23 09:20:51 - INFO - Store 2736\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:20:53 - INFO - Store 2337\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:20:58 - INFO - Store 2337\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:20:59 - INFO - Store 2736\uff5cYogurt: upserted 12, mod 60
+2025-07-23 09:21:01 - INFO - Store 2337\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:21:04 - INFO - Store 2337\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:21:06 - INFO - Store 2337\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:21:07 - INFO - Store 2736\uff5cYogurt: upserted 12, mod 72
+2025-07-23 09:21:08 - INFO - Store 2337\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:21:09 - INFO - Store 2736\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:21:11 - INFO - Store 2337\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:21:11 - INFO - Store 2337\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 09:21:12 - INFO - Store 2736\uff5cCereals & Grains: upserted 11, mod 13
+2025-07-23 09:21:15 - INFO - Store 2736\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 24
+2025-07-23 09:21:18 - INFO - Store 2736\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 24
+2025-07-23 09:21:21 - INFO - Store 2736\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:21:22 - INFO - Store 2736\uff5cCold Cuts: Sausages & Ham: upserted 4, mod 0
+2025-07-23 09:21:26 - INFO - Store 2337\uff5cSeasonings: upserted 12, mod 96
+2025-07-23 09:21:28 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:21:30 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:21:33 - INFO - Store 2337\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:21:34 - INFO - Store 2337\uff5cSeasonings: upserted 4, mod 0
+2025-07-23 09:21:40 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:21:41 - INFO - Store 2337\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:21:44 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:21:47 - INFO - Store 2337\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:21:47 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:21:49 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:21:53 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:21:58 - INFO - Store 2337\uff5cYogurt: upserted 12, mod 72
+2025-07-23 09:22:00 - INFO - Store 2337\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:22:00 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:22:01 - INFO - Store 2337\uff5cCereals & Grains: upserted 11, mod 1
+2025-07-23 09:22:02 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:22:04 - INFO - Store 2337\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:22:07 - INFO - Store 2736\uff5cInstant Foods: upserted 9, mod 27
+2025-07-23 09:22:07 - INFO - Store 2337\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:22:08 - INFO - Store 2337\uff5cCold Cuts: Sausages & Ham: upserted 8, mod 0
+2025-07-23 09:22:09 - INFO - Store 2337\uff5cCold Cuts: Sausages & Ham: upserted 5, mod 0
+2025-07-23 09:22:11 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:22:11 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:22:13 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:22:14 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:22:15 - INFO - Store 2736\uff5cInstant Foods: upserted 11, mod 0
+2025-07-23 09:22:21 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:22:25 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:22:26 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:22:28 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:22:29 - INFO - Store 2736\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:22:30 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:22:31 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 0
+2025-07-23 09:22:32 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:22:34 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:22:37 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:22:37 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:22:38 - INFO - Store 2736\uff5cInstant Foods: upserted 3, mod 3
+2025-07-23 09:22:38 - INFO - Store 2337\uff5cInstant Foods: upserted 4, mod 0
+2025-07-23 09:22:40 - INFO - Store 2337\uff5cInstant Foods: upserted 7, mod 3
+2025-07-23 09:22:40 - INFO - Store 2337\uff5cInstant Foods: upserted 6, mod 0
+2025-07-23 09:22:43 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:22:44 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 0
+2025-07-23 09:22:46 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:22:47 - INFO - Store 2736\uff5cInstant Foods: upserted 1, mod 7
+2025-07-23 09:22:53 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:22:58 - INFO - Store 2337\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:22:59 - INFO - Store 2337\uff5cInstant Foods: upserted 3, mod 1
+2025-07-23 09:23:00 - INFO - Store 2337\uff5cInstant Foods: upserted 10, mod 0
+2025-07-23 09:23:03 - INFO - Store 2337\uff5cInstant Foods: upserted 10, mod 14
+2025-07-23 09:23:03 - INFO - Store 2337\uff5cInstant Foods: upserted 1, mod 1
+2025-07-23 09:23:08 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:23:10 - INFO - Store 2337\uff5cInstant Foods: upserted 3, mod 7
+2025-07-23 09:23:28 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 324
+2025-07-23 09:23:33 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:23:37 - INFO - Store 2736\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:23:40 - INFO - Store 2736\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 09:23:48 - INFO - Store 2736\uff5cGrains & Staples: upserted 12, mod 48
+2025-07-23 09:23:51 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 324
+2025-07-23 09:23:55 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:23:56 - INFO - Store 2736\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:23:59 - INFO - Store 2337\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:24:00 - INFO - Store 2736\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:24:01 - INFO - Store 2736\uff5cCakes: upserted 11, mod 0
+2025-07-23 09:24:03 - INFO - Store 2337\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 09:24:04 - INFO - Store 2736\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:24:09 - INFO - Store 2736\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:24:10 - INFO - Store 2337\uff5cGrains & Staples: upserted 12, mod 48
+2025-07-23 09:24:16 - INFO - Store 2337\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:24:17 - INFO - Store 2736\uff5cCakes: upserted 12, mod 48
+2025-07-23 09:24:17 - INFO - Store 2736\uff5cCakes: upserted 4, mod 0
+2025-07-23 09:24:19 - INFO - Store 2337\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:24:20 - INFO - Store 2337\uff5cCakes: upserted 10, mod 0
+2025-07-23 09:24:21 - INFO - Store 2736\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:24:24 - INFO - Store 2337\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:24:29 - INFO - Store 2337\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:24:32 - INFO - Store 2736\uff5cCakes: upserted 12, mod 84
+2025-07-23 09:24:33 - INFO - Store 2736\uff5cCakes: upserted 7, mod 0
+2025-07-23 09:24:37 - INFO - Store 2736\uff5cCandies: upserted 12, mod 12
+2025-07-23 09:24:37 - INFO - Store 2337\uff5cCakes: upserted 12, mod 48
+2025-07-23 09:24:37 - INFO - Store 2337\uff5cCakes: upserted 3, mod 0
+2025-07-23 09:24:39 - INFO - Store 2337\uff5cCakes: upserted 12, mod 0
+2025-07-23 09:24:47 - INFO - Store 2736\uff5cCandies: upserted 12, mod 48
+2025-07-23 09:24:49 - INFO - Store 2337\uff5cCakes: upserted 12, mod 72
+2025-07-23 09:24:50 - INFO - Store 2337\uff5cCakes: upserted 8, mod 0
+2025-07-23 09:24:52 - INFO - Store 2337\uff5cCandies: upserted 12, mod 0
+2025-07-23 09:24:55 - INFO - Store 2736\uff5cCandies: upserted 12, mod 60
+2025-07-23 09:24:59 - INFO - Store 2337\uff5cCandies: upserted 12, mod 48
+2025-07-23 09:25:01 - INFO - Store 2736\uff5cDried Fruits: upserted 12, mod 36
+2025-07-23 09:25:03 - INFO - Store 2736\uff5cDried Fruits: upserted 12, mod 12
+2025-07-23 09:25:04 - INFO - Store 2736\uff5cFruit Jam: upserted 9, mod 0
+2025-07-23 09:25:08 - INFO - Store 2337\uff5cCandies: upserted 12, mod 60
+2025-07-23 09:25:08 - INFO - Store 2736\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:25:09 - INFO - Store 2882\uff5cFresh Meat: upserted 9, mod 0
+2025-07-23 09:25:11 - INFO - Store 2882\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 09:25:12 - INFO - Store 2337\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 09:25:14 - INFO - Store 2882\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:25:15 - INFO - Store 2882\uff5cFresh Meat: upserted 4, mod 0
+2025-07-23 09:25:16 - INFO - Store 2337\uff5cDried Fruits: upserted 12, mod 12
+2025-07-23 09:25:17 - INFO - Store 2337\uff5cFruit Jam: upserted 7, mod 0
+2025-07-23 09:25:19 - INFO - Store 2337\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:25:21 - INFO - Store 2882\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:25:21 - INFO - Store 2422\uff5cFresh Meat: upserted 9, mod 0
+2025-07-23 09:25:22 - INFO - Store 2422\uff5cFresh Meat: upserted 11, mod 0
+2025-07-23 09:25:25 - INFO - Store 2882\uff5cSeafood & Fish Balls: upserted 12, mod 24
+2025-07-23 09:25:26 - INFO - Store 2422\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:25:30 - INFO - Store 2422\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 09:25:32 - INFO - Store 2882\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 09:25:35 - INFO - Store 2422\uff5cSeafood & Fish Balls: upserted 12, mod 36
+2025-07-23 09:25:35 - INFO - Store 2882\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:25:39 - INFO - Store 2882\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:25:41 - INFO - Store 2422\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 09:25:42 - INFO - Store 2882\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:25:43 - INFO - Store 2422\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:25:47 - INFO - Store 2882\uff5cVegetables: upserted 12, mod 36
+2025-07-23 09:25:48 - INFO - Store 2422\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:25:50 - INFO - Store 2422\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:25:57 - INFO - Store 2422\uff5cVegetables: upserted 12, mod 48
+2025-07-23 09:25:59 - INFO - Store 2882\uff5cAlcoholic Beverages: upserted 12, mod 108
+2025-07-23 09:26:05 - INFO - Store 2882\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:26:11 - INFO - Store 2882\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:26:14 - INFO - Store 2422\uff5cAlcoholic Beverages: upserted 12, mod 120
+2025-07-23 09:26:14 - INFO - Store 2882\uff5cBeverages: upserted 11, mod 0
+2025-07-23 09:26:16 - INFO - Store 2882\uff5cBeverages: upserted 9, mod 0
+2025-07-23 09:26:20 - INFO - Store 2422\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:26:23 - INFO - Store 2882\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:26:26 - INFO - Store 2422\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:26:26 - INFO - Store 2422\uff5cBeverages: upserted 11, mod 0
+2025-07-23 09:26:27 - INFO - Store 2422\uff5cBeverages: upserted 8, mod 0
+2025-07-23 09:26:33 - INFO - Store 2422\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:26:36 - INFO - Store 2882\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:26:40 - INFO - Store 2422\uff5cBeverages: upserted 12, mod 48
+2025-07-23 09:26:47 - INFO - Store 2882\uff5cBeverages: upserted 12, mod 96
+2025-07-23 09:26:54 - INFO - Store 2422\uff5cBeverages: upserted 12, mod 96
+2025-07-23 09:26:55 - INFO - Store 2882\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:27:01 - INFO - Store 2422\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:27:04 - INFO - Store 2882\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:27:07 - INFO - Store 2422\uff5cBeverages: upserted 12, mod 48
+2025-07-23 09:27:18 - INFO - Store 2882\uff5cBeverages: upserted 12, mod 108
+2025-07-23 09:27:29 - INFO - Store 2422\uff5cBeverages: upserted 12, mod 108
+2025-07-23 09:27:34 - INFO - Store 2882\uff5cBeverages: upserted 12, mod 48
+2025-07-23 09:27:35 - INFO - Store 2882\uff5cMilk: upserted 10, mod 0
+2025-07-23 09:27:38 - INFO - Store 2422\uff5cBeverages: upserted 12, mod 48
+2025-07-23 09:27:39 - INFO - Store 2882\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:27:39 - INFO - Store 2422\uff5cMilk: upserted 4, mod 0
+2025-07-23 09:27:41 - INFO - Store 2422\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:27:46 - INFO - Store 2882\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:27:47 - INFO - Store 2882\uff5cMilk: upserted 11, mod 0
+2025-07-23 09:27:48 - INFO - Store 2422\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:27:50 - INFO - Store 2422\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:27:54 - INFO - Store 2882\uff5cMilk: upserted 12, mod 48
+2025-07-23 09:27:58 - INFO - Store 2422\uff5cMilk: upserted 12, mod 48
+2025-07-23 09:27:58 - INFO - Store 2882\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:28:03 - INFO - Store 2422\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:28:18 - INFO - Store 2882\uff5cMilk: upserted 12, mod 144
+2025-07-23 09:28:20 - INFO - Store 2882\uff5cSeasonings: upserted 11, mod 0
+2025-07-23 09:28:23 - INFO - Store 2422\uff5cMilk: upserted 12, mod 144
+2025-07-23 09:28:24 - INFO - Store 2422\uff5cSeasonings: upserted 7, mod 0
+2025-07-23 09:28:26 - INFO - Store 2882\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:28:27 - INFO - Store 2882\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 09:28:29 - INFO - Store 2422\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:28:30 - INFO - Store 2422\uff5cSeasonings: upserted 1, mod 0
+2025-07-23 09:28:33 - INFO - Store 2882\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:28:36 - INFO - Store 2422\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:28:37 - INFO - Store 2882\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:28:40 - INFO - Store 2422\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:28:41 - INFO - Store 2882\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:28:43 - INFO - Store 2882\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:28:44 - INFO - Store 2422\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:28:45 - INFO - Store 2882\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:28:47 - INFO - Store 2422\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:28:48 - INFO - Store 2882\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:28:49 - INFO - Store 2422\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:28:50 - INFO - Store 2882\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:28:50 - INFO - Store 2882\uff5cSeasonings: upserted 1, mod 0
+2025-07-23 09:28:52 - INFO - Store 2422\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:28:54 - INFO - Store 2422\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:28:55 - INFO - Store 2422\uff5cSeasonings: upserted 1, mod 0
+2025-07-23 09:29:02 - INFO - Store 2882\uff5cSeasonings: upserted 12, mod 96
+2025-07-23 09:29:06 - INFO - Store 2422\uff5cSeasonings: upserted 12, mod 84
+2025-07-23 09:29:08 - INFO - Store 2882\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:29:09 - INFO - Store 2882\uff5cSeasonings: upserted 5, mod 0
+2025-07-23 09:29:13 - INFO - Store 2882\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:29:13 - INFO - Store 2422\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:29:14 - INFO - Store 2422\uff5cSeasonings: upserted 4, mod 0
+2025-07-23 09:29:17 - INFO - Store 2422\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:29:18 - INFO - Store 2882\uff5cYogurt: upserted 12, mod 36
+2025-07-23 09:29:21 - INFO - Store 2422\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:29:25 - INFO - Store 2882\uff5cYogurt: upserted 12, mod 60
+2025-07-23 09:29:28 - INFO - Store 2422\uff5cYogurt: upserted 12, mod 60
+2025-07-23 09:29:29 - INFO - Store 2882\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:29:29 - INFO - Store 2882\uff5cCereals & Grains: upserted 10, mod 1
+2025-07-23 09:29:30 - INFO - Store 2422\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:29:32 - INFO - Store 2882\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:29:33 - INFO - Store 2422\uff5cCereals & Grains: upserted 11, mod 13
+2025-07-23 09:29:34 - INFO - Store 2882\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:29:34 - INFO - Store 2882\uff5cCold Cuts: Sausages & Ham: upserted 9, mod 0
+2025-07-23 09:29:35 - INFO - Store 2882\uff5cCold Cuts: Sausages & Ham: upserted 3, mod 0
+2025-07-23 09:29:36 - INFO - Store 2422\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:29:43 - INFO - Store 2882\uff5cInstant Foods: upserted 12, mod 0
+2025-07-23 09:29:43 - INFO - Store 2422\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:29:44 - INFO - Store 2882\uff5cInstant Foods: upserted 12, mod 0
+2025-07-23 09:29:44 - INFO - Store 2422\uff5cCold Cuts: Sausages & Ham: upserted 10, mod 0
+2025-07-23 09:29:45 - INFO - Store 2422\uff5cCold Cuts: Sausages & Ham: upserted 3, mod 0
+2025-07-23 09:29:47 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:29:48 - INFO - Store 2882\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:29:49 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:29:50 - INFO - Store 2882\uff5cInstant Foods: upserted 11, mod 0
+2025-07-23 09:29:52 - INFO - Store 2882\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:29:53 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:29:54 - INFO - Store 2882\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:29:55 - INFO - Store 2882\uff5cInstant Foods: upserted 12, mod 0
+2025-07-23 09:29:55 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:29:57 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:29:59 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:30:00 - INFO - Store 2882\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:30:01 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 0
+2025-07-23 09:30:01 - INFO - Store 2882\uff5cInstant Foods: upserted 5, mod 0
+2025-07-23 09:30:01 - INFO - Store 2882\uff5cInstant Foods: upserted 7, mod 1
+2025-07-23 09:30:02 - INFO - Store 2882\uff5cInstant Foods: upserted 9, mod 1
+2025-07-23 09:30:05 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:30:06 - INFO - Store 2422\uff5cInstant Foods: upserted 3, mod 0
+2025-07-23 09:30:06 - INFO - Store 2882\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:30:07 - INFO - Store 2882\uff5cInstant Foods: upserted 9, mod 0
+2025-07-23 09:30:08 - INFO - Store 2422\uff5cInstant Foods: upserted 10, mod 14
+2025-07-23 09:30:10 - INFO - Store 2422\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:30:12 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:30:13 - INFO - Store 2882\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:30:13 - INFO - Store 2422\uff5cInstant Foods: upserted 10, mod 0
+2025-07-23 09:30:15 - INFO - Store 2882\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:30:15 - INFO - Store 2882\uff5cInstant Foods: upserted 7, mod 1
+2025-07-23 09:30:16 - INFO - Store 2882\uff5cInstant Foods: upserted 11, mod 0
+2025-07-23 09:30:17 - INFO - Store 2882\uff5cInstant Foods: upserted 10, mod 2
+2025-07-23 09:30:17 - INFO - Store 2882\uff5cInstant Foods: upserted 0, mod 1
+2025-07-23 09:30:19 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:30:21 - INFO - Store 2422\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:30:22 - INFO - Store 2422\uff5cInstant Foods: upserted 5, mod 0
+2025-07-23 09:30:23 - INFO - Store 2882\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:30:23 - INFO - Store 2422\uff5cInstant Foods: upserted 6, mod 0
+2025-07-23 09:30:24 - INFO - Store 2882\uff5cInstant Foods: upserted 0, mod 7
+2025-07-23 09:30:24 - INFO - Store 2422\uff5cInstant Foods: upserted 9, mod 2
+2025-07-23 09:30:24 - INFO - Store 2422\uff5cInstant Foods: upserted 1, mod 1
+2025-07-23 09:30:29 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:30:30 - INFO - Store 2422\uff5cInstant Foods: upserted 0, mod 6
+2025-07-23 09:30:55 - INFO - Store 2882\uff5cInstant Foods: upserted 12, mod 300
+2025-07-23 09:30:58 - INFO - Store 2882\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:31:01 - INFO - Store 2882\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:31:04 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 312
+2025-07-23 09:31:07 - INFO - Store 2882\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 09:31:07 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:31:10 - INFO - Store 2422\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:31:12 - INFO - Store 2882\uff5cGrains & Staples: upserted 12, mod 36
+2025-07-23 09:31:13 - INFO - Store 2422\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 09:31:17 - INFO - Store 2882\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:31:19 - INFO - Store 2422\uff5cGrains & Staples: upserted 12, mod 36
+2025-07-23 09:31:21 - INFO - Store 2882\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:31:22 - INFO - Store 2882\uff5cCakes: upserted 12, mod 0
+2025-07-23 09:31:23 - INFO - Store 2422\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:31:24 - INFO - Store 2882\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:31:26 - INFO - Store 2422\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:31:27 - INFO - Store 2882\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:31:28 - INFO - Store 2422\uff5cCakes: upserted 10, mod 0
+2025-07-23 09:31:31 - INFO - Store 2422\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:31:33 - INFO - Store 2882\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:31:33 - INFO - Store 2882\uff5cCakes: upserted 3, mod 0
+2025-07-23 09:31:35 - INFO - Store 2882\uff5cCakes: upserted 12, mod 0
+2025-07-23 09:31:36 - INFO - Store 2422\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:31:42 - INFO - Store 2422\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:31:42 - INFO - Store 2422\uff5cCakes: upserted 3, mod 0
+2025-07-23 09:31:43 - INFO - Store 2882\uff5cCakes: upserted 12, mod 48
+2025-07-23 09:31:43 - INFO - Store 2422\uff5cCakes: upserted 11, mod 0
+2025-07-23 09:31:44 - INFO - Store 2882\uff5cCakes: upserted 10, mod 0
+2025-07-23 09:31:46 - INFO - Store 2882\uff5cCandies: upserted 12, mod 12
+2025-07-23 09:31:51 - INFO - Store 2882\uff5cCandies: upserted 12, mod 36
+2025-07-23 09:31:54 - INFO - Store 2422\uff5cCakes: upserted 12, mod 72
+2025-07-23 09:31:55 - INFO - Store 2422\uff5cCakes: upserted 7, mod 0
+2025-07-23 09:31:58 - INFO - Store 2882\uff5cCandies: upserted 12, mod 60
+2025-07-23 09:32:01 - INFO - Store 2882\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 09:32:03 - INFO - Store 2882\uff5cDried Fruits: upserted 12, mod 12
+2025-07-23 09:32:03 - INFO - Store 2882\uff5cFruit Jam: upserted 9, mod 0
+2025-07-23 09:32:05 - INFO - Store 2422\uff5cCandies: upserted 12, mod 12
+2025-07-23 09:32:06 - INFO - Store 2882\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:32:07 - INFO - Store 3600\uff5cFresh Meat: upserted 7, mod 0
+2025-07-23 09:32:08 - INFO - Store 3600\uff5cFresh Meat: upserted 9, mod 0
+2025-07-23 09:32:12 - INFO - Store 2422\uff5cCandies: upserted 12, mod 48
+2025-07-23 09:32:12 - INFO - Store 3600\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:32:13 - INFO - Store 3600\uff5cFresh Meat: upserted 4, mod 0
+2025-07-23 09:32:15 - INFO - Store 3600\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 09:32:20 - INFO - Store 2422\uff5cCandies: upserted 12, mod 48
+2025-07-23 09:32:20 - INFO - Store 3600\uff5cSeafood & Fish Balls: upserted 12, mod 36
+2025-07-23 09:32:24 - INFO - Store 2422\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 09:32:25 - INFO - Store 3600\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 09:32:26 - INFO - Store 2422\uff5cDried Fruits: upserted 12, mod 12
+2025-07-23 09:32:27 - INFO - Store 2422\uff5cFruit Jam: upserted 9, mod 0
+2025-07-23 09:32:28 - INFO - Store 3600\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:32:30 - INFO - Store 2422\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:32:32 - INFO - Store 3712\uff5cFresh Meat: upserted 7, mod 0
+2025-07-23 09:32:33 - INFO - Store 3600\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:32:34 - INFO - Store 3712\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 09:32:35 - INFO - Store 3600\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:32:37 - INFO - Store 3712\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:32:38 - INFO - Store 3712\uff5cFresh Meat: upserted 6, mod 0
+2025-07-23 09:32:41 - INFO - Store 3600\uff5cVegetables: upserted 12, mod 48
+2025-07-23 09:32:42 - INFO - Store 3712\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:32:48 - INFO - Store 3712\uff5cSeafood & Fish Balls: upserted 12, mod 48
+2025-07-23 09:32:53 - INFO - Store 3712\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 09:32:56 - INFO - Store 3600\uff5cAlcoholic Beverages: upserted 12, mod 120
+2025-07-23 09:32:57 - INFO - Store 3712\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:33:00 - INFO - Store 3712\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:33:01 - INFO - Store 3600\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:33:02 - INFO - Store 3712\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:33:06 - INFO - Store 3600\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:33:07 - INFO - Store 3600\uff5cBeverages: upserted 11, mod 0
+2025-07-23 09:33:09 - INFO - Store 3712\uff5cVegetables: upserted 12, mod 48
+2025-07-23 09:33:10 - INFO - Store 3600\uff5cBeverages: upserted 12, mod 12
+2025-07-23 09:33:15 - INFO - Store 3600\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:33:23 - INFO - Store 3712\uff5cAlcoholic Beverages: upserted 12, mod 132
+2025-07-23 09:33:27 - INFO - Store 3712\uff5cAlcoholic Beverages: upserted 12, mod 24
+2025-07-23 09:33:31 - INFO - Store 3600\uff5cBeverages: upserted 12, mod 96
+2025-07-23 09:33:32 - INFO - Store 3712\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:33:33 - INFO - Store 3712\uff5cBeverages: upserted 12, mod 0
+2025-07-23 09:33:34 - INFO - Store 3712\uff5cBeverages: upserted 7, mod 0
+2025-07-23 09:33:40 - INFO - Store 3712\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:33:47 - INFO - Store 3600\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:33:52 - INFO - Store 3712\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:33:53 - INFO - Store 3600\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:34:02 - INFO - Store 3600\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:34:10 - INFO - Store 3712\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:34:15 - INFO - Store 3712\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:34:20 - INFO - Store 3600\uff5cBeverages: upserted 12, mod 132
+2025-07-23 09:34:23 - INFO - Store 3712\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:34:30 - INFO - Store 3600\uff5cBeverages: upserted 12, mod 72
+2025-07-23 09:34:31 - INFO - Store 3600\uff5cMilk: upserted 4, mod 0
+2025-07-23 09:34:35 - INFO - Store 3600\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:34:41 - INFO - Store 3600\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:34:42 - INFO - Store 3712\uff5cBeverages: upserted 12, mod 132
+2025-07-23 09:34:44 - INFO - Store 3600\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:34:53 - INFO - Store 3600\uff5cMilk: upserted 12, mod 48
+2025-07-23 09:34:55 - INFO - Store 3712\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:34:57 - INFO - Store 3712\uff5cMilk: upserted 11, mod 0
+2025-07-23 09:35:01 - INFO - Store 3600\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:35:02 - INFO - Store 3712\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:35:07 - INFO - Store 3712\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:35:09 - INFO - Store 3712\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:35:17 - INFO - Store 3712\uff5cMilk: upserted 12, mod 48
+2025-07-23 09:35:21 - INFO - Store 3600\uff5cMilk: upserted 12, mod 144
+2025-07-23 09:35:23 - INFO - Store 3600\uff5cSeasonings: upserted 9, mod 0
+2025-07-23 09:35:23 - INFO - Store 3712\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:35:28 - INFO - Store 3600\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:35:28 - INFO - Store 3600\uff5cSeasonings: upserted 3, mod 0
+2025-07-23 09:35:35 - INFO - Store 3600\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:35:39 - INFO - Store 3600\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:35:43 - INFO - Store 3600\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:35:45 - INFO - Store 3712\uff5cMilk: upserted 12, mod 156
+2025-07-23 09:35:46 - INFO - Store 3712\uff5cSeasonings: upserted 9, mod 0
+2025-07-23 09:35:46 - INFO - Store 3600\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:35:48 - INFO - Store 3600\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:35:51 - INFO - Store 3712\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:35:51 - INFO - Store 3600\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:35:51 - INFO - Store 3712\uff5cSeasonings: upserted 3, mod 0
+2025-07-23 09:35:54 - INFO - Store 3600\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:35:54 - INFO - Store 3600\uff5cSeasonings: upserted 1, mod 0
+2025-07-23 09:35:57 - INFO - Store 3712\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:36:01 - INFO - Store 3712\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:36:06 - INFO - Store 3712\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:36:10 - INFO - Store 3712\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:36:10 - INFO - Store 3600\uff5cSeasonings: upserted 12, mod 96
+2025-07-23 09:36:13 - INFO - Store 3712\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:36:17 - INFO - Store 3600\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:36:17 - INFO - Store 3712\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:36:17 - INFO - Store 3600\uff5cSeasonings: upserted 5, mod 0
+2025-07-23 09:36:19 - INFO - Store 3712\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:36:20 - INFO - Store 3712\uff5cSeasonings: upserted 1, mod 0
+2025-07-23 09:36:21 - INFO - Store 3600\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:36:25 - INFO - Store 3600\uff5cYogurt: upserted 12, mod 36
+2025-07-23 09:36:34 - INFO - Store 3712\uff5cSeasonings: upserted 12, mod 108
+2025-07-23 09:36:34 - INFO - Store 3600\uff5cYogurt: upserted 12, mod 60
+2025-07-23 09:36:37 - INFO - Store 3600\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:36:39 - INFO - Store 3600\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:36:39 - INFO - Store 3712\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:36:40 - INFO - Store 3712\uff5cSeasonings: upserted 5, mod 0
+2025-07-23 09:36:40 - INFO - Store 3600\uff5cCold Cuts: Sausages & Ham: upserted 11, mod 0
+2025-07-23 09:36:43 - INFO - Store 3600\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:36:44 - INFO - Store 3600\uff5cCold Cuts: Sausages & Ham: upserted 8, mod 0
+2025-07-23 09:36:44 - INFO - Store 3712\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:36:44 - INFO - Store 3600\uff5cCold Cuts: Sausages & Ham: upserted 4, mod 0
+2025-07-23 09:36:46 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:36:49 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:36:49 - INFO - Store 3712\uff5cYogurt: upserted 12, mod 36
+2025-07-23 09:36:54 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:36:56 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:36:58 - INFO - Store 3712\uff5cYogurt: upserted 12, mod 60
+2025-07-23 09:36:58 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:00 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:01 - INFO - Store 3712\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:37:02 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:03 - INFO - Store 3712\uff5cCereals & Grains: upserted 11, mod 13
+2025-07-23 09:37:05 - INFO - Store 3712\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:37:07 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:37:08 - INFO - Store 3600\uff5cInstant Foods: upserted 4, mod 0
+2025-07-23 09:37:08 - INFO - Store 3600\uff5cInstant Foods: upserted 8, mod 4
+2025-07-23 09:37:09 - INFO - Store 3712\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 24
+2025-07-23 09:37:10 - INFO - Store 3600\uff5cInstant Foods: upserted 5, mod 0
+2025-07-23 09:37:11 - INFO - Store 3712\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:37:12 - INFO - Store 3712\uff5cCold Cuts: Sausages & Ham: upserted 6, mod 0
+2025-07-23 09:37:12 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:14 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:15 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:17 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:19 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:37:22 - INFO - Store 3600\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:37:22 - INFO - Store 3600\uff5cInstant Foods: upserted 4, mod 1
+2025-07-23 09:37:23 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:37:23 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 0
+2025-07-23 09:37:25 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:25 - INFO - Store 3600\uff5cInstant Foods: upserted 10, mod 14
+2025-07-23 09:37:26 - INFO - Store 3600\uff5cInstant Foods: upserted 2, mod 1
+2025-07-23 09:37:28 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:30 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:31 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:37:32 - INFO - Store 3600\uff5cInstant Foods: upserted 1, mod 7
+2025-07-23 09:37:32 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:37 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:37:38 - INFO - Store 3712\uff5cInstant Foods: upserted 7, mod 0
+2025-07-23 09:37:40 - INFO - Store 3712\uff5cInstant Foods: upserted 6, mod 18
+2025-07-23 09:37:40 - INFO - Store 3712\uff5cInstant Foods: upserted 11, mod 0
+2025-07-23 09:37:43 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:45 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:51 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:37:52 - INFO - Store 3712\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:37:53 - INFO - Store 3712\uff5cInstant Foods: upserted 10, mod 0
+2025-07-23 09:37:56 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:37:57 - INFO - Store 3712\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:37:58 - INFO - Store 3712\uff5cInstant Foods: upserted 3, mod 2
+2025-07-23 09:38:03 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:38:04 - INFO - Store 3712\uff5cInstant Foods: upserted 2, mod 7
+2025-07-23 09:38:08 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 336
+2025-07-23 09:38:11 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:38:13 - INFO - Store 3600\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:38:16 - INFO - Store 3600\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 09:38:22 - INFO - Store 3600\uff5cGrains & Staples: upserted 12, mod 48
+2025-07-23 09:38:29 - INFO - Store 3600\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:38:31 - INFO - Store 3600\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:38:32 - INFO - Store 3600\uff5cCakes: upserted 10, mod 0
+2025-07-23 09:38:36 - INFO - Store 3600\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:38:38 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 336
+2025-07-23 09:38:41 - INFO - Store 3600\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:38:42 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:38:43 - INFO - Store 3712\uff5cInstant Foods: upserted 12, mod 0
+2025-07-23 09:38:46 - INFO - Store 3712\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 09:38:48 - INFO - Store 3600\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:38:49 - INFO - Store 3600\uff5cCakes: upserted 3, mod 0
+2025-07-23 09:38:50 - INFO - Store 3600\uff5cCakes: upserted 11, mod 0
+2025-07-23 09:38:52 - INFO - Store 3712\uff5cGrains & Staples: upserted 12, mod 48
+2025-07-23 09:38:57 - INFO - Store 3712\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:39:01 - INFO - Store 3712\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:39:02 - INFO - Store 3600\uff5cCakes: upserted 12, mod 84
+2025-07-23 09:39:02 - INFO - Store 3712\uff5cCakes: upserted 11, mod 0
+2025-07-23 09:39:02 - INFO - Store 3600\uff5cCakes: upserted 5, mod 0
+2025-07-23 09:39:05 - INFO - Store 3600\uff5cCandies: upserted 12, mod 12
+2025-07-23 09:39:07 - INFO - Store 3712\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:39:09 - INFO - Store 3712\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:39:11 - INFO - Store 3600\uff5cCandies: upserted 12, mod 48
+2025-07-23 09:39:15 - INFO - Store 3712\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:39:15 - INFO - Store 3712\uff5cCakes: upserted 4, mod 0
+2025-07-23 09:39:19 - INFO - Store 3712\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:39:19 - INFO - Store 3600\uff5cCandies: upserted 12, mod 60
+2025-07-23 09:39:22 - INFO - Store 3600\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 09:39:24 - INFO - Store 3600\uff5cDried Fruits: upserted 12, mod 12
+2025-07-23 09:39:25 - INFO - Store 3600\uff5cFruit Jam: upserted 7, mod 0
+2025-07-23 09:39:29 - INFO - Store 3600\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:39:30 - INFO - Store 2713\uff5cFresh Meat: upserted 6, mod 0
+2025-07-23 09:39:30 - INFO - Store 3712\uff5cCakes: upserted 12, mod 84
+2025-07-23 09:39:31 - INFO - Store 3712\uff5cCakes: upserted 6, mod 0
+2025-07-23 09:39:32 - INFO - Store 2713\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 09:39:33 - INFO - Store 3712\uff5cCandies: upserted 12, mod 12
+2025-07-23 09:39:36 - INFO - Store 2713\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:39:37 - INFO - Store 2713\uff5cFresh Meat: upserted 6, mod 0
+2025-07-23 09:39:40 - INFO - Store 3712\uff5cCandies: upserted 12, mod 48
+2025-07-23 09:39:42 - INFO - Store 2713\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:39:47 - INFO - Store 3712\uff5cCandies: upserted 12, mod 60
+2025-07-23 09:39:47 - INFO - Store 2713\uff5cSeafood & Fish Balls: upserted 12, mod 36
+2025-07-23 09:39:51 - INFO - Store 2713\uff5cFresh Fruits: upserted 12, mod 24
+2025-07-23 09:39:52 - INFO - Store 2713\uff5cVegetables: upserted 12, mod 0
+2025-07-23 09:39:53 - INFO - Store 3712\uff5cDried Fruits: upserted 12, mod 36
+2025-07-23 09:39:55 - INFO - Store 3712\uff5cDried Fruits: upserted 12, mod 12
+2025-07-23 09:39:56 - INFO - Store 3712\uff5cFruit Jam: upserted 8, mod 0
+2025-07-23 09:39:56 - INFO - Store 2713\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:39:58 - INFO - Store 2713\uff5cVegetables: upserted 12, mod 0
+2025-07-23 09:39:58 - INFO - Store 3712\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:39:59 - INFO - Store 3669\uff5cFresh Meat: upserted 7, mod 0
+2025-07-23 09:40:00 - INFO - Store 3669\uff5cFresh Meat: upserted 12, mod 0
+2025-07-23 09:40:04 - INFO - Store 3669\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:40:04 - INFO - Store 2713\uff5cVegetables: upserted 12, mod 48
+2025-07-23 09:40:04 - INFO - Store 3669\uff5cFresh Meat: upserted 4, mod 0
+2025-07-23 09:40:07 - INFO - Store 3669\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:40:11 - INFO - Store 3669\uff5cSeafood & Fish Balls: upserted 12, mod 36
+2025-07-23 09:40:16 - INFO - Store 2713\uff5cAlcoholic Beverages: upserted 12, mod 108
+2025-07-23 09:40:18 - INFO - Store 3669\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 09:40:20 - INFO - Store 3669\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:40:22 - INFO - Store 2713\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:40:24 - INFO - Store 3669\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:40:27 - INFO - Store 3669\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:40:28 - INFO - Store 2713\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:40:29 - INFO - Store 2713\uff5cBeverages: upserted 11, mod 0
+2025-07-23 09:40:29 - INFO - Store 2713\uff5cBeverages: upserted 7, mod 0
+2025-07-23 09:40:33 - INFO - Store 3669\uff5cVegetables: upserted 12, mod 48
+2025-07-23 09:40:36 - INFO - Store 2713\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:40:47 - INFO - Store 2713\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:40:49 - INFO - Store 3669\uff5cAlcoholic Beverages: upserted 12, mod 132
+2025-07-23 09:40:54 - INFO - Store 3669\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:40:59 - INFO - Store 3669\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:41:04 - INFO - Store 3669\uff5cBeverages: upserted 12, mod 12
+2025-07-23 09:41:05 - INFO - Store 3669\uff5cBeverages: upserted 10, mod 0
+2025-07-23 09:41:05 - INFO - Store 2713\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:41:12 - INFO - Store 3669\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:41:12 - INFO - Store 2713\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:41:21 - INFO - Store 2713\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:41:25 - INFO - Store 3669\uff5cBeverages: upserted 12, mod 96
+2025-07-23 09:41:38 - INFO - Store 3669\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:41:42 - INFO - Store 2713\uff5cBeverages: upserted 12, mod 132
+2025-07-23 09:41:46 - INFO - Store 3669\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:41:52 - INFO - Store 2713\uff5cBeverages: upserted 12, mod 72
+2025-07-23 09:41:53 - INFO - Store 2713\uff5cMilk: upserted 10, mod 0
+2025-07-23 09:41:56 - INFO - Store 3669\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:41:57 - INFO - Store 2713\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:42:02 - INFO - Store 2713\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:42:06 - INFO - Store 2713\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:42:12 - INFO - Store 3669\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:42:14 - INFO - Store 2713\uff5cMilk: upserted 12, mod 48
+2025-07-23 09:42:18 - INFO - Store 2713\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:42:21 - INFO - Store 3669\uff5cBeverages: upserted 12, mod 72
+2025-07-23 09:42:23 - INFO - Store 3669\uff5cMilk: upserted 10, mod 0
+2025-07-23 09:42:26 - INFO - Store 3669\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:42:30 - INFO - Store 3669\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:42:33 - INFO - Store 3669\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:42:39 - INFO - Store 2713\uff5cMilk: upserted 12, mod 156
+2025-07-23 09:42:39 - INFO - Store 3669\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:42:40 - INFO - Store 2713\uff5cSeasonings: upserted 8, mod 0
+2025-07-23 09:42:44 - INFO - Store 3669\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:42:45 - INFO - Store 2713\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:42:45 - INFO - Store 2713\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 09:42:51 - INFO - Store 2713\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:42:54 - INFO - Store 2713\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:43:00 - INFO - Store 2713\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:43:01 - INFO - Store 3669\uff5cMilk: upserted 12, mod 144
+2025-07-23 09:43:02 - INFO - Store 3669\uff5cSeasonings: upserted 8, mod 0
+2025-07-23 09:43:03 - INFO - Store 2713\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:43:05 - INFO - Store 2713\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:43:08 - INFO - Store 3669\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:43:08 - INFO - Store 2713\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:43:09 - INFO - Store 3669\uff5cSeasonings: upserted 4, mod 0
+2025-07-23 09:43:11 - INFO - Store 2713\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:43:11 - INFO - Store 2713\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 09:43:14 - INFO - Store 3669\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:43:19 - INFO - Store 3669\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:43:23 - INFO - Store 2713\uff5cSeasonings: upserted 12, mod 96
+2025-07-23 09:43:24 - INFO - Store 3669\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:43:26 - INFO - Store 3669\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:43:29 - INFO - Store 2713\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:43:30 - INFO - Store 2713\uff5cSeasonings: upserted 4, mod 0
+2025-07-23 09:43:30 - INFO - Store 3669\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:43:32 - INFO - Store 3669\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:43:34 - INFO - Store 3669\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:43:35 - INFO - Store 3669\uff5cSeasonings: upserted 1, mod 0
+2025-07-23 09:43:35 - INFO - Store 2713\uff5cYogurt: upserted 12, mod 36
+2025-07-23 09:43:42 - INFO - Store 2713\uff5cYogurt: upserted 12, mod 48
+2025-07-23 09:43:48 - INFO - Store 3669\uff5cSeasonings: upserted 12, mod 96
+2025-07-23 09:43:50 - INFO - Store 2713\uff5cYogurt: upserted 12, mod 72
+2025-07-23 09:43:52 - INFO - Store 2713\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:43:55 - INFO - Store 2713\uff5cCereals & Grains: upserted 11, mod 13
+2025-07-23 09:43:55 - INFO - Store 3669\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:43:55 - INFO - Store 3669\uff5cSeasonings: upserted 4, mod 0
+2025-07-23 09:43:56 - INFO - Store 2713\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 0
+2025-07-23 09:43:58 - INFO - Store 2713\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:43:58 - INFO - Store 2713\uff5cCold Cuts: Sausages & Ham: upserted 4, mod 0
+2025-07-23 09:43:59 - INFO - Store 3669\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:43:59 - INFO - Store 2713\uff5cCold Cuts: Sausages & Ham: upserted 5, mod 0
+2025-07-23 09:44:01 - INFO - Store 2713\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:03 - INFO - Store 2713\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:04 - INFO - Store 3669\uff5cYogurt: upserted 12, mod 36
+2025-07-23 09:44:07 - INFO - Store 2713\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:44:09 - INFO - Store 2713\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:12 - INFO - Store 3669\uff5cYogurt: upserted 12, mod 60
+2025-07-23 09:44:12 - INFO - Store 2713\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:14 - INFO - Store 3669\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:44:14 - INFO - Store 2713\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:15 - INFO - Store 2713\uff5cInstant Foods: upserted 7, mod 0
+2025-07-23 09:44:15 - INFO - Store 3669\uff5cCereals & Grains: upserted 9, mod 1
+2025-07-23 09:44:17 - INFO - Store 3669\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:44:19 - INFO - Store 2713\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:44:20 - INFO - Store 2713\uff5cInstant Foods: upserted 6, mod 0
+2025-07-23 09:44:21 - INFO - Store 2713\uff5cInstant Foods: upserted 6, mod 2
+2025-07-23 09:44:21 - INFO - Store 3669\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 24
+2025-07-23 09:44:22 - INFO - Store 2713\uff5cInstant Foods: upserted 4, mod 1
+2025-07-23 09:44:23 - INFO - Store 3669\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:44:23 - INFO - Store 2713\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:24 - INFO - Store 3669\uff5cCold Cuts: Sausages & Ham: upserted 6, mod 0
+2025-07-23 09:44:25 - INFO - Store 2713\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:26 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:28 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:30 - INFO - Store 2713\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:44:33 - INFO - Store 2713\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:44:33 - INFO - Store 2713\uff5cInstant Foods: upserted 3, mod 1
+2025-07-23 09:44:34 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:44:34 - INFO - Store 2713\uff5cInstant Foods: upserted 9, mod 0
+2025-07-23 09:44:35 - INFO - Store 2713\uff5cInstant Foods: upserted 9, mod 2
+2025-07-23 09:44:36 - INFO - Store 2713\uff5cInstant Foods: upserted 2, mod 1
+2025-07-23 09:44:36 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:39 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:41 - INFO - Store 2713\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:44:41 - INFO - Store 2713\uff5cInstant Foods: upserted 0, mod 6
+2025-07-23 09:44:42 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:43 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:47 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:44:48 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 0
+2025-07-23 09:44:50 - INFO - Store 3669\uff5cInstant Foods: upserted 7, mod 17
+2025-07-23 09:44:51 - INFO - Store 3669\uff5cInstant Foods: upserted 9, mod 1
+2025-07-23 09:44:53 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:44:55 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:45:01 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:45:03 - INFO - Store 3669\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:45:04 - INFO - Store 3669\uff5cInstant Foods: upserted 8, mod 1
+2025-07-23 09:45:06 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:45:08 - INFO - Store 3669\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:45:09 - INFO - Store 3669\uff5cInstant Foods: upserted 4, mod 2
+2025-07-23 09:45:13 - INFO - Store 2713\uff5cInstant Foods: upserted 12, mod 312
+2025-07-23 09:45:16 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:45:17 - INFO - Store 3669\uff5cInstant Foods: upserted 0, mod 9
+2025-07-23 09:45:17 - INFO - Store 2713\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:45:18 - INFO - Store 2713\uff5cInstant Foods: upserted 9, mod 0
+2025-07-23 09:45:21 - INFO - Store 2713\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 09:45:26 - INFO - Store 2713\uff5cGrains & Staples: upserted 12, mod 48
+2025-07-23 09:45:31 - INFO - Store 2713\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:45:33 - INFO - Store 2713\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:45:34 - INFO - Store 2713\uff5cCakes: upserted 11, mod 0
+2025-07-23 09:45:36 - INFO - Store 2713\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:45:39 - INFO - Store 2713\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:45:44 - INFO - Store 2713\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:45:45 - INFO - Store 2713\uff5cCakes: upserted 3, mod 0
+2025-07-23 09:45:48 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 312
+2025-07-23 09:45:51 - INFO - Store 2713\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:45:52 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:45:54 - INFO - Store 3669\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:45:57 - INFO - Store 3669\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 09:46:00 - INFO - Store 2713\uff5cCakes: upserted 12, mod 72
+2025-07-23 09:46:01 - INFO - Store 2713\uff5cCakes: upserted 6, mod 0
+2025-07-23 09:46:03 - INFO - Store 2713\uff5cCandies: upserted 12, mod 0
+2025-07-23 09:46:04 - INFO - Store 3669\uff5cGrains & Staples: upserted 12, mod 48
+2025-07-23 09:46:08 - INFO - Store 2713\uff5cCandies: upserted 12, mod 36
+2025-07-23 09:46:09 - INFO - Store 3669\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:46:12 - INFO - Store 3669\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:46:12 - INFO - Store 3669\uff5cCakes: upserted 9, mod 0
+2025-07-23 09:46:15 - INFO - Store 2713\uff5cCandies: upserted 12, mod 60
+2025-07-23 09:46:16 - INFO - Store 3669\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:46:19 - INFO - Store 2713\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 09:46:21 - INFO - Store 2713\uff5cDried Fruits: upserted 12, mod 12
+2025-07-23 09:46:21 - INFO - Store 3669\uff5cCakes: upserted 12, mod 24
+2025-07-23 09:46:21 - INFO - Store 2713\uff5cFruit Jam: upserted 7, mod 0
+2025-07-23 09:46:23 - INFO - Store 2713\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:46:24 - INFO - Store 2425\uff5cFresh Meat: upserted 8, mod 0
+2025-07-23 09:46:26 - INFO - Store 3669\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:46:26 - INFO - Store 2425\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 09:46:27 - INFO - Store 3669\uff5cCakes: upserted 2, mod 0
+2025-07-23 09:46:29 - INFO - Store 3669\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:46:30 - INFO - Store 2425\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:46:31 - INFO - Store 2425\uff5cFresh Meat: upserted 4, mod 0
+2025-07-23 09:46:34 - INFO - Store 2425\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:46:39 - INFO - Store 3669\uff5cCakes: upserted 12, mod 84
+2025-07-23 09:46:40 - INFO - Store 2425\uff5cSeafood & Fish Balls: upserted 12, mod 48
+2025-07-23 09:46:41 - INFO - Store 3669\uff5cCakes: upserted 9, mod 0
+2025-07-23 09:46:44 - INFO - Store 3669\uff5cCandies: upserted 12, mod 12
+2025-07-23 09:46:45 - INFO - Store 2425\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 09:46:47 - INFO - Store 2425\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:46:51 - INFO - Store 3669\uff5cCandies: upserted 12, mod 48
+2025-07-23 09:46:52 - INFO - Store 2425\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:46:55 - INFO - Store 2425\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:46:58 - INFO - Store 3669\uff5cCandies: upserted 12, mod 60
+2025-07-23 09:47:01 - INFO - Store 2425\uff5cVegetables: upserted 12, mod 48
+2025-07-23 09:47:03 - INFO - Store 3669\uff5cDried Fruits: upserted 12, mod 36
+2025-07-23 09:47:05 - INFO - Store 3669\uff5cDried Fruits: upserted 12, mod 12
+2025-07-23 09:47:05 - INFO - Store 3669\uff5cFruit Jam: upserted 7, mod 0
+2025-07-23 09:47:08 - INFO - Store 3669\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:47:09 - INFO - Store 191\uff5cFresh Meat: upserted 8, mod 0
+2025-07-23 09:47:11 - INFO - Store 191\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 09:47:14 - INFO - Store 2425\uff5cAlcoholic Beverages: upserted 12, mod 120
+2025-07-23 09:47:16 - INFO - Store 191\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:47:16 - INFO - Store 191\uff5cFresh Meat: upserted 4, mod 0
+2025-07-23 09:47:18 - INFO - Store 2425\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:47:20 - INFO - Store 191\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:47:24 - INFO - Store 2425\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:47:26 - INFO - Store 191\uff5cSeafood & Fish Balls: upserted 12, mod 48
+2025-07-23 09:47:27 - INFO - Store 2425\uff5cBeverages: upserted 12, mod 12
+2025-07-23 09:47:28 - INFO - Store 2425\uff5cBeverages: upserted 9, mod 0
+2025-07-23 09:47:30 - INFO - Store 191\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 09:47:32 - INFO - Store 191\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:47:34 - INFO - Store 2425\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:47:35 - INFO - Store 191\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:47:38 - INFO - Store 191\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:47:44 - INFO - Store 2425\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:47:44 - INFO - Store 191\uff5cVegetables: upserted 12, mod 48
+2025-07-23 09:47:58 - INFO - Store 2425\uff5cBeverages: upserted 12, mod 108
+2025-07-23 09:47:59 - INFO - Store 191\uff5cAlcoholic Beverages: upserted 12, mod 120
+2025-07-23 09:48:03 - INFO - Store 2425\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:48:05 - INFO - Store 191\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:48:10 - INFO - Store 2425\uff5cBeverages: upserted 12, mod 48
+2025-07-23 09:48:11 - INFO - Store 191\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:48:12 - INFO - Store 191\uff5cBeverages: upserted 12, mod 0
+2025-07-23 09:48:13 - INFO - Store 191\uff5cBeverages: upserted 7, mod 0
+2025-07-23 09:48:22 - INFO - Store 191\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:48:39 - INFO - Store 2425\uff5cBeverages: upserted 12, mod 108
+2025-07-23 09:48:43 - INFO - Store 191\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:48:45 - INFO - Store 2425\uff5cBeverages: upserted 12, mod 48
+2025-07-23 09:48:47 - INFO - Store 2425\uff5cMilk: upserted 12, mod 0
+2025-07-23 09:48:50 - INFO - Store 2425\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:48:58 - INFO - Store 2425\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:48:58 - INFO - Store 191\uff5cBeverages: upserted 12, mod 108
+2025-07-23 09:49:01 - INFO - Store 2425\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:49:04 - INFO - Store 191\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:49:06 - INFO - Store 2425\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:49:12 - INFO - Store 191\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:49:12 - INFO - Store 2425\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:49:29 - INFO - Store 191\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:49:34 - INFO - Store 2425\uff5cMilk: upserted 12, mod 156
+2025-07-23 09:49:36 - INFO - Store 2425\uff5cSeasonings: upserted 7, mod 0
+2025-07-23 09:49:37 - INFO - Store 191\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:49:39 - INFO - Store 191\uff5cMilk: upserted 12, mod 0
+2025-07-23 09:49:43 - INFO - Store 2425\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:49:43 - INFO - Store 191\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:49:43 - INFO - Store 2425\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 09:49:49 - INFO - Store 191\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:49:50 - INFO - Store 2425\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:49:50 - INFO - Store 191\uff5cMilk: upserted 11, mod 0
+2025-07-23 09:49:56 - INFO - Store 2425\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:49:58 - INFO - Store 191\uff5cMilk: upserted 12, mod 48
+2025-07-23 09:50:01 - INFO - Store 2425\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:50:02 - INFO - Store 191\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:50:06 - INFO - Store 2425\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:50:08 - INFO - Store 2425\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:50:11 - INFO - Store 2425\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:50:13 - INFO - Store 2425\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:50:13 - INFO - Store 2425\uff5cSeasonings: upserted 1, mod 0
+2025-07-23 09:50:20 - INFO - Store 191\uff5cMilk: upserted 12, mod 144
+2025-07-23 09:50:21 - INFO - Store 191\uff5cSeasonings: upserted 8, mod 0
+2025-07-23 09:50:26 - INFO - Store 2425\uff5cSeasonings: upserted 12, mod 96
+2025-07-23 09:50:27 - INFO - Store 191\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:50:27 - INFO - Store 191\uff5cSeasonings: upserted 4, mod 0
+2025-07-23 09:50:33 - INFO - Store 2425\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:50:34 - INFO - Store 2425\uff5cSeasonings: upserted 5, mod 0
+2025-07-23 09:50:34 - INFO - Store 191\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:50:39 - INFO - Store 191\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:50:40 - INFO - Store 2425\uff5cYogurt: upserted 12, mod 36
+2025-07-23 09:50:43 - INFO - Store 191\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:50:45 - INFO - Store 191\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:50:47 - INFO - Store 2425\uff5cYogurt: upserted 12, mod 48
+2025-07-23 09:50:48 - INFO - Store 191\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:50:50 - INFO - Store 191\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:50:52 - INFO - Store 191\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:50:53 - INFO - Store 191\uff5cSeasonings: upserted 1, mod 0
+2025-07-23 09:50:54 - INFO - Store 2425\uff5cYogurt: upserted 12, mod 60
+2025-07-23 09:50:56 - INFO - Store 2425\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:50:58 - INFO - Store 2425\uff5cCereals & Grains: upserted 11, mod 13
+2025-07-23 09:51:00 - INFO - Store 2425\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:51:05 - INFO - Store 2425\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 24
+2025-07-23 09:51:05 - INFO - Store 191\uff5cSeasonings: upserted 12, mod 96
+2025-07-23 09:51:07 - INFO - Store 2425\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:51:07 - INFO - Store 2425\uff5cCold Cuts: Sausages & Ham: upserted 4, mod 0
+2025-07-23 09:51:10 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:51:12 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:51:12 - INFO - Store 191\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:51:12 - INFO - Store 191\uff5cSeasonings: upserted 5, mod 0
+2025-07-23 09:51:17 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:51:19 - INFO - Store 191\uff5cYogurt: upserted 12, mod 36
+2025-07-23 09:51:19 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:51:21 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:51:25 - INFO - Store 191\uff5cYogurt: upserted 12, mod 48
+2025-07-23 09:51:25 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:51:27 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:51:32 - INFO - Store 191\uff5cYogurt: upserted 12, mod 60
+2025-07-23 09:51:32 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:51:33 - INFO - Store 2425\uff5cInstant Foods: upserted 7, mod 0
+2025-07-23 09:51:35 - INFO - Store 191\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:51:35 - INFO - Store 2425\uff5cInstant Foods: upserted 5, mod 19
+2025-07-23 09:51:37 - INFO - Store 191\uff5cCereals & Grains: upserted 11, mod 13
+2025-07-23 09:51:39 - INFO - Store 2425\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:51:40 - INFO - Store 191\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:51:41 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:51:44 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:51:44 - INFO - Store 191\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 24
+2025-07-23 09:51:46 - INFO - Store 191\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:51:47 - INFO - Store 191\uff5cCold Cuts: Sausages & Ham: upserted 6, mod 0
+2025-07-23 09:51:49 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:51:50 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:51:51 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:51:52 - INFO - Store 2425\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:51:53 - INFO - Store 2425\uff5cInstant Foods: upserted 10, mod 1
+2025-07-23 09:51:55 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:51:56 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:51:57 - INFO - Store 2425\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:51:58 - INFO - Store 2425\uff5cInstant Foods: upserted 1, mod 1
+2025-07-23 09:52:01 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:52:03 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:52:05 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:52:05 - INFO - Store 2425\uff5cInstant Foods: upserted 1, mod 7
+2025-07-23 09:52:06 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:52:08 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:52:12 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:52:14 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:52:16 - INFO - Store 191\uff5cInstant Foods: upserted 7, mod 17
+2025-07-23 09:52:18 - INFO - Store 191\uff5cInstant Foods: upserted 10, mod 14
+2025-07-23 09:52:20 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:52:22 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:52:27 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:52:29 - INFO - Store 191\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:52:30 - INFO - Store 191\uff5cInstant Foods: upserted 11, mod 0
+2025-07-23 09:52:32 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:52:34 - INFO - Store 191\uff5cInstant Foods: upserted 10, mod 14
+2025-07-23 09:52:35 - INFO - Store 191\uff5cInstant Foods: upserted 2, mod 1
+2025-07-23 09:52:38 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 324
+2025-07-23 09:52:42 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:52:43 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:52:44 - INFO - Store 191\uff5cInstant Foods: upserted 2, mod 7
+2025-07-23 09:52:44 - INFO - Store 2425\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:52:46 - INFO - Store 2425\uff5cGrains & Staples: upserted 12, mod 12
+2025-07-23 09:52:52 - INFO - Store 2425\uff5cGrains & Staples: upserted 12, mod 48
+2025-07-23 09:52:58 - INFO - Store 2425\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:53:00 - INFO - Store 2425\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:53:03 - INFO - Store 2425\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:53:06 - INFO - Store 2425\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:53:09 - INFO - Store 2425\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:53:16 - INFO - Store 2425\uff5cCakes: upserted 12, mod 48
+2025-07-23 09:53:17 - INFO - Store 2425\uff5cCakes: upserted 4, mod 0
+2025-07-23 09:53:19 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 324
+2025-07-23 09:53:23 - INFO - Store 2425\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:53:24 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:53:26 - INFO - Store 191\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:53:29 - INFO - Store 191\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 09:53:35 - INFO - Store 2425\uff5cCakes: upserted 12, mod 84
+2025-07-23 09:53:36 - INFO - Store 191\uff5cGrains & Staples: upserted 12, mod 48
+2025-07-23 09:53:36 - INFO - Store 2425\uff5cCakes: upserted 8, mod 0
+2025-07-23 09:53:38 - INFO - Store 2425\uff5cCandies: upserted 12, mod 12
+2025-07-23 09:53:42 - INFO - Store 191\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:53:44 - INFO - Store 191\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:53:46 - INFO - Store 191\uff5cCakes: upserted 11, mod 0
+2025-07-23 09:53:47 - INFO - Store 2425\uff5cCandies: upserted 12, mod 48
+2025-07-23 09:53:49 - INFO - Store 191\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:53:51 - INFO - Store 191\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:53:54 - INFO - Store 2425\uff5cCandies: upserted 12, mod 60
+2025-07-23 09:53:59 - INFO - Store 191\uff5cCakes: upserted 12, mod 36
+2025-07-23 09:53:59 - INFO - Store 191\uff5cCakes: upserted 3, mod 0
+2025-07-23 09:54:00 - INFO - Store 2425\uff5cDried Fruits: upserted 12, mod 36
+2025-07-23 09:54:02 - INFO - Store 191\uff5cCakes: upserted 12, mod 12
+2025-07-23 09:54:03 - INFO - Store 2425\uff5cDried Fruits: upserted 12, mod 12
+2025-07-23 09:54:04 - INFO - Store 2425\uff5cFruit Jam: upserted 8, mod 0
+2025-07-23 09:54:06 - INFO - Store 2425\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:54:07 - INFO - Store 2214\uff5cFresh Meat: upserted 8, mod 0
+2025-07-23 09:54:09 - INFO - Store 2214\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 09:54:14 - INFO - Store 2214\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:54:15 - INFO - Store 2214\uff5cFresh Meat: upserted 6, mod 0
+2025-07-23 09:54:15 - INFO - Store 191\uff5cCakes: upserted 12, mod 84
+2025-07-23 09:54:17 - INFO - Store 191\uff5cCakes: upserted 9, mod 0
+2025-07-23 09:54:18 - INFO - Store 2214\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:54:19 - INFO - Store 191\uff5cCandies: upserted 12, mod 12
+2025-07-23 09:54:26 - INFO - Store 191\uff5cCandies: upserted 12, mod 48
+2025-07-23 09:54:26 - INFO - Store 2214\uff5cSeafood & Fish Balls: upserted 12, mod 60
+2025-07-23 09:54:30 - INFO - Store 2214\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 09:54:34 - INFO - Store 2214\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:54:34 - INFO - Store 191\uff5cCandies: upserted 12, mod 60
+2025-07-23 09:54:37 - INFO - Store 2214\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:54:38 - INFO - Store 191\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 09:54:39 - INFO - Store 2214\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:54:40 - INFO - Store 191\uff5cDried Fruits: upserted 12, mod 12
+2025-07-23 09:54:41 - INFO - Store 191\uff5cFruit Jam: upserted 7, mod 0
+2025-07-23 09:54:43 - INFO - Store 191\uff5cSnacks: upserted 12, mod 12
+2025-07-23 09:54:44 - INFO - Store 2423\uff5cFresh Meat: upserted 8, mod 0
+2025-07-23 09:54:45 - INFO - Store 2423\uff5cFresh Meat: upserted 9, mod 0
+2025-07-23 09:54:46 - INFO - Store 2214\uff5cVegetables: upserted 12, mod 48
+2025-07-23 09:54:48 - INFO - Store 2423\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:54:49 - INFO - Store 2423\uff5cFresh Meat: upserted 4, mod 0
+2025-07-23 09:54:52 - INFO - Store 2423\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 09:54:57 - INFO - Store 2423\uff5cSeafood & Fish Balls: upserted 12, mod 36
+2025-07-23 09:54:59 - INFO - Store 2214\uff5cAlcoholic Beverages: upserted 12, mod 120
+2025-07-23 09:55:01 - INFO - Store 2423\uff5cFresh Fruits: upserted 12, mod 24
+2025-07-23 09:55:03 - INFO - Store 2423\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:55:05 - INFO - Store 2214\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:55:07 - INFO - Store 2423\uff5cVegetables: upserted 12, mod 24
+2025-07-23 09:55:10 - INFO - Store 2423\uff5cVegetables: upserted 12, mod 12
+2025-07-23 09:55:11 - INFO - Store 2214\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:55:12 - INFO - Store 2214\uff5cBeverages: upserted 11, mod 0
+2025-07-23 09:55:13 - INFO - Store 2214\uff5cBeverages: upserted 9, mod 0
+2025-07-23 09:55:15 - INFO - Store 2423\uff5cVegetables: upserted 12, mod 36
+2025-07-23 09:55:19 - INFO - Store 2214\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:55:28 - INFO - Store 2423\uff5cAlcoholic Beverages: upserted 12, mod 120
+2025-07-23 09:55:30 - INFO - Store 2214\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:55:33 - INFO - Store 2423\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 09:55:38 - INFO - Store 2423\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:55:41 - INFO - Store 2423\uff5cBeverages: upserted 12, mod 12
+2025-07-23 09:55:44 - INFO - Store 2423\uff5cBeverages: upserted 12, mod 12
+2025-07-23 09:55:46 - INFO - Store 2214\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:55:50 - INFO - Store 2423\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:55:52 - INFO - Store 2214\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:56:00 - INFO - Store 2214\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:56:02 - INFO - Store 2423\uff5cBeverages: upserted 12, mod 84
+2025-07-23 09:56:17 - INFO - Store 2214\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:56:18 - INFO - Store 2423\uff5cBeverages: upserted 12, mod 108
+2025-07-23 09:56:24 - INFO - Store 2423\uff5cBeverages: upserted 12, mod 36
+2025-07-23 09:56:26 - INFO - Store 2214\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:56:27 - INFO - Store 2214\uff5cMilk: upserted 12, mod 0
+2025-07-23 09:56:31 - INFO - Store 2423\uff5cBeverages: upserted 12, mod 48
+2025-07-23 09:56:31 - INFO - Store 2214\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:56:37 - INFO - Store 2214\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:56:39 - INFO - Store 2214\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:56:47 - INFO - Store 2423\uff5cBeverages: upserted 12, mod 120
+2025-07-23 09:56:48 - INFO - Store 2214\uff5cMilk: upserted 12, mod 48
+2025-07-23 09:56:52 - INFO - Store 2214\uff5cMilk: upserted 12, mod 24
+2025-07-23 09:56:55 - INFO - Store 2423\uff5cBeverages: upserted 12, mod 60
+2025-07-23 09:56:56 - INFO - Store 2423\uff5cMilk: upserted 10, mod 0
+2025-07-23 09:56:58 - INFO - Store 2423\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:57:03 - INFO - Store 2423\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:57:06 - INFO - Store 2423\uff5cMilk: upserted 12, mod 12
+2025-07-23 09:57:11 - INFO - Store 2214\uff5cMilk: upserted 12, mod 156
+2025-07-23 09:57:13 - INFO - Store 2423\uff5cMilk: upserted 12, mod 48
+2025-07-23 09:57:13 - INFO - Store 2214\uff5cSeasonings: upserted 10, mod 0
+2025-07-23 09:57:20 - INFO - Store 2423\uff5cMilk: upserted 12, mod 36
+2025-07-23 09:57:20 - INFO - Store 2214\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:57:20 - INFO - Store 2214\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 09:57:25 - INFO - Store 2214\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:57:29 - INFO - Store 2214\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:57:32 - INFO - Store 2214\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:57:37 - INFO - Store 2214\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:57:39 - INFO - Store 2423\uff5cMilk: upserted 12, mod 156
+2025-07-23 09:57:40 - INFO - Store 2214\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:57:40 - INFO - Store 2423\uff5cSeasonings: upserted 10, mod 0
+2025-07-23 09:57:42 - INFO - Store 2214\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:57:44 - INFO - Store 2214\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:57:45 - INFO - Store 2214\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 09:57:46 - INFO - Store 2423\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:57:47 - INFO - Store 2423\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 09:57:54 - INFO - Store 2423\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:57:58 - INFO - Store 2214\uff5cSeasonings: upserted 12, mod 96
+2025-07-23 09:57:59 - INFO - Store 2423\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 09:58:04 - INFO - Store 2423\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:58:05 - INFO - Store 2214\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:58:06 - INFO - Store 2214\uff5cSeasonings: upserted 4, mod 0
+2025-07-23 09:58:08 - INFO - Store 2423\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 09:58:11 - INFO - Store 2214\uff5cYogurt: upserted 12, mod 36
+2025-07-23 09:58:11 - INFO - Store 2423\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:58:14 - INFO - Store 2423\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:58:17 - INFO - Store 2423\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 09:58:17 - INFO - Store 2423\uff5cSeasonings: upserted 1, mod 0
+2025-07-23 09:58:18 - INFO - Store 2214\uff5cYogurt: upserted 12, mod 60
+2025-07-23 09:58:27 - INFO - Store 2214\uff5cYogurt: upserted 12, mod 72
+2025-07-23 09:58:30 - INFO - Store 2214\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:58:30 - INFO - Store 2423\uff5cSeasonings: upserted 12, mod 96
+2025-07-23 09:58:32 - INFO - Store 2214\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:58:34 - INFO - Store 2214\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:58:37 - INFO - Store 2214\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 24
+2025-07-23 09:58:38 - INFO - Store 2423\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 09:58:38 - INFO - Store 2423\uff5cSeasonings: upserted 5, mod 0
+2025-07-23 09:58:39 - INFO - Store 2214\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:58:40 - INFO - Store 2214\uff5cCold Cuts: Sausages & Ham: upserted 5, mod 0
+2025-07-23 09:58:41 - INFO - Store 2423\uff5cYogurt: upserted 12, mod 24
+2025-07-23 09:58:42 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:58:44 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:58:47 - INFO - Store 2423\uff5cYogurt: upserted 12, mod 48
+2025-07-23 09:58:49 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:58:51 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:58:53 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:58:55 - INFO - Store 2423\uff5cYogurt: upserted 12, mod 72
+2025-07-23 09:58:56 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:58:57 - INFO - Store 2423\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 09:58:58 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:58:59 - INFO - Store 2423\uff5cCereals & Grains: upserted 11, mod 13
+2025-07-23 09:59:02 - INFO - Store 2423\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:59:03 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:59:04 - INFO - Store 2214\uff5cInstant Foods: upserted 8, mod 0
+2025-07-23 09:59:06 - INFO - Store 2423\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 24
+2025-07-23 09:59:06 - INFO - Store 2214\uff5cInstant Foods: upserted 9, mod 15
+2025-07-23 09:59:08 - INFO - Store 2423\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 09:59:08 - INFO - Store 2423\uff5cCold Cuts: Sausages & Ham: upserted 6, mod 0
+2025-07-23 09:59:09 - INFO - Store 2214\uff5cInstant Foods: upserted 10, mod 26
+2025-07-23 09:59:11 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:59:12 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:59:13 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:59:14 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:59:19 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:59:20 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:59:22 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:59:23 - INFO - Store 2214\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:59:23 - INFO - Store 2214\uff5cInstant Foods: upserted 11, mod 0
+2025-07-23 09:59:24 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:59:25 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:59:26 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:59:27 - INFO - Store 2214\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 09:59:28 - INFO - Store 2214\uff5cInstant Foods: upserted 3, mod 1
+2025-07-23 09:59:29 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:59:32 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:59:33 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:59:34 - INFO - Store 2214\uff5cInstant Foods: upserted 3, mod 7
+2025-07-23 09:59:34 - INFO - Store 2423\uff5cInstant Foods: upserted 3, mod 0
+2025-07-23 09:59:36 - INFO - Store 2423\uff5cInstant Foods: upserted 8, mod 16
+2025-07-23 09:59:37 - INFO - Store 2423\uff5cInstant Foods: upserted 9, mod 1
+2025-07-23 09:59:40 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 09:59:42 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 09:59:46 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 09:59:47 - INFO - Store 2423\uff5cInstant Foods: upserted 11, mod 1
+2025-07-23 09:59:47 - INFO - Store 2423\uff5cInstant Foods: upserted 4, mod 0
+2025-07-23 09:59:48 - INFO - Store 2423\uff5cInstant Foods: upserted 9, mod 0
+2025-07-23 09:59:49 - INFO - Store 2423\uff5cInstant Foods: upserted 11, mod 1
+2025-07-23 09:59:49 - INFO - Store 2423\uff5cInstant Foods: upserted 3, mod 1
+2025-07-23 09:59:54 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 09:59:54 - INFO - Store 2423\uff5cInstant Foods: upserted 0, mod 6
+2025-07-23 10:00:04 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 336
+2025-07-23 10:00:08 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 10:00:09 - INFO - Store 2214\uff5cInstant Foods: upserted 12, mod 0
+2025-07-23 10:00:13 - INFO - Store 2214\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 10:00:19 - INFO - Store 2214\uff5cGrains & Staples: upserted 12, mod 48
+2025-07-23 10:00:24 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 324
+2025-07-23 10:00:27 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 10:00:27 - INFO - Store 2214\uff5cCakes: upserted 12, mod 36
+2025-07-23 10:00:29 - INFO - Store 2423\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:00:31 - INFO - Store 2214\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:00:31 - INFO - Store 2423\uff5cGrains & Staples: upserted 12, mod 12
+2025-07-23 10:00:32 - INFO - Store 2214\uff5cCakes: upserted 10, mod 0
+2025-07-23 10:00:34 - INFO - Store 2214\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:00:37 - INFO - Store 2423\uff5cGrains & Staples: upserted 12, mod 48
+2025-07-23 10:00:38 - INFO - Store 2214\uff5cCakes: upserted 12, mod 24
+2025-07-23 10:00:43 - INFO - Store 2423\uff5cCakes: upserted 12, mod 36
+2025-07-23 10:00:46 - INFO - Store 2423\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:00:47 - INFO - Store 2214\uff5cCakes: upserted 12, mod 48
+2025-07-23 10:00:47 - INFO - Store 2214\uff5cCakes: upserted 3, mod 0
+2025-07-23 10:00:49 - INFO - Store 2423\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:00:50 - INFO - Store 2214\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:00:51 - INFO - Store 2423\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:00:56 - INFO - Store 2423\uff5cCakes: upserted 12, mod 24
+2025-07-23 10:01:00 - INFO - Store 2214\uff5cCakes: upserted 12, mod 84
+2025-07-23 10:01:02 - INFO - Store 2214\uff5cCakes: upserted 12, mod 0
+2025-07-23 10:01:02 - INFO - Store 2423\uff5cCakes: upserted 12, mod 36
+2025-07-23 10:01:04 - INFO - Store 2423\uff5cCakes: upserted 5, mod 0
+2025-07-23 10:01:06 - INFO - Store 2214\uff5cCandies: upserted 12, mod 12
+2025-07-23 10:01:07 - INFO - Store 2423\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:01:12 - INFO - Store 2214\uff5cCandies: upserted 12, mod 48
+2025-07-23 10:01:18 - INFO - Store 2423\uff5cCakes: upserted 12, mod 84
+2025-07-23 10:01:20 - INFO - Store 2214\uff5cCandies: upserted 12, mod 60
+2025-07-23 10:01:20 - INFO - Store 2423\uff5cCakes: upserted 8, mod 0
+2025-07-23 10:01:22 - INFO - Store 2423\uff5cCandies: upserted 12, mod 12
+2025-07-23 10:01:24 - INFO - Store 2214\uff5cDried Fruits: upserted 12, mod 36
+2025-07-23 10:01:28 - INFO - Store 2423\uff5cCandies: upserted 12, mod 48
+2025-07-23 10:01:28 - INFO - Store 2214\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 10:01:29 - INFO - Store 2214\uff5cFruit Jam: upserted 8, mod 0
+2025-07-23 10:01:31 - INFO - Store 2214\uff5cSnacks: upserted 12, mod 12
+2025-07-23 10:01:32 - INFO - Store 2477\uff5cFresh Meat: upserted 6, mod 0
+2025-07-23 10:01:33 - INFO - Store 2477\uff5cFresh Meat: upserted 9, mod 0
+2025-07-23 10:01:36 - INFO - Store 2477\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 10:01:36 - INFO - Store 2423\uff5cCandies: upserted 12, mod 60
+2025-07-23 10:01:36 - INFO - Store 2477\uff5cFresh Meat: upserted 1, mod 0
+2025-07-23 10:01:38 - INFO - Store 2477\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 10:01:40 - INFO - Store 2423\uff5cDried Fruits: upserted 12, mod 36
+2025-07-23 10:01:42 - INFO - Store 2477\uff5cSeafood & Fish Balls: upserted 12, mod 24
+2025-07-23 10:01:43 - INFO - Store 2423\uff5cDried Fruits: upserted 12, mod 12
+2025-07-23 10:01:44 - INFO - Store 2423\uff5cFruit Jam: upserted 10, mod 0
+2025-07-23 10:01:45 - INFO - Store 2477\uff5cFresh Fruits: upserted 12, mod 24
+2025-07-23 10:01:46 - INFO - Store 2477\uff5cVegetables: upserted 8, mod 0
+2025-07-23 10:01:46 - INFO - Store 2423\uff5cSnacks: upserted 12, mod 12
+2025-07-23 10:01:47 - INFO - Store 2103\uff5cFresh Meat: upserted 8, mod 0
+2025-07-23 10:01:48 - INFO - Store 2477\uff5cVegetables: upserted 12, mod 12
+2025-07-23 10:01:49 - INFO - Store 2103\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 10:01:49 - INFO - Store 2477\uff5cVegetables: upserted 11, mod 0
+2025-07-23 10:01:53 - INFO - Store 2103\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 10:01:54 - INFO - Store 2103\uff5cFresh Meat: upserted 5, mod 0
+2025-07-23 10:01:56 - INFO - Store 2477\uff5cVegetables: upserted 12, mod 36
+2025-07-23 10:01:58 - INFO - Store 2103\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 10:02:03 - INFO - Store 2103\uff5cSeafood & Fish Balls: upserted 12, mod 36
+2025-07-23 10:02:07 - INFO - Store 2103\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 10:02:09 - INFO - Store 2477\uff5cAlcoholic Beverages: upserted 12, mod 108
+2025-07-23 10:02:10 - INFO - Store 2103\uff5cVegetables: upserted 12, mod 12
+2025-07-23 10:02:14 - INFO - Store 2477\uff5cAlcoholic Beverages: upserted 12, mod 24
+2025-07-23 10:02:15 - INFO - Store 2103\uff5cVegetables: upserted 12, mod 24
+2025-07-23 10:02:18 - INFO - Store 2477\uff5cBeverages: upserted 12, mod 24
+2025-07-23 10:02:18 - INFO - Store 2103\uff5cVegetables: upserted 12, mod 12
+2025-07-23 10:02:21 - INFO - Store 2477\uff5cBeverages: upserted 12, mod 12
+2025-07-23 10:02:21 - INFO - Store 2477\uff5cBeverages: upserted 9, mod 0
+2025-07-23 10:02:24 - INFO - Store 2103\uff5cVegetables: upserted 12, mod 48
+2025-07-23 10:02:26 - INFO - Store 2477\uff5cBeverages: upserted 12, mod 24
+2025-07-23 10:02:36 - INFO - Store 2477\uff5cBeverages: upserted 12, mod 72
+2025-07-23 10:02:38 - INFO - Store 2103\uff5cAlcoholic Beverages: upserted 12, mod 120
+2025-07-23 10:02:43 - INFO - Store 2103\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 10:02:50 - INFO - Store 2103\uff5cBeverages: upserted 12, mod 36
+2025-07-23 10:02:50 - INFO - Store 2477\uff5cBeverages: upserted 12, mod 108
+2025-07-23 10:02:52 - INFO - Store 2103\uff5cBeverages: upserted 12, mod 0
+2025-07-23 10:02:53 - INFO - Store 2103\uff5cBeverages: upserted 8, mod 0
+2025-07-23 10:02:56 - INFO - Store 2477\uff5cBeverages: upserted 12, mod 36
+2025-07-23 10:02:59 - INFO - Store 2103\uff5cBeverages: upserted 12, mod 36
+2025-07-23 10:03:19 - INFO - Store 2477\uff5cBeverages: upserted 12, mod 24
+2025-07-23 10:03:23 - INFO - Store 2103\uff5cBeverages: upserted 12, mod 84
+2025-07-23 10:03:31 - INFO - Store 2477\uff5cBeverages: upserted 12, mod 108
+2025-07-23 10:03:40 - INFO - Store 2103\uff5cBeverages: upserted 12, mod 120
+2025-07-23 10:03:46 - INFO - Store 2477\uff5cBeverages: upserted 12, mod 48
+2025-07-23 10:03:47 - INFO - Store 2477\uff5cMilk: upserted 1, mod 0
+2025-07-23 10:03:48 - INFO - Store 2103\uff5cBeverages: upserted 12, mod 36
+2025-07-23 10:03:49 - INFO - Store 2477\uff5cMilk: upserted 12, mod 12
+2025-07-23 10:03:54 - INFO - Store 2477\uff5cMilk: upserted 12, mod 36
+2025-07-23 10:03:57 - INFO - Store 2477\uff5cMilk: upserted 12, mod 12
+2025-07-23 10:03:57 - INFO - Store 2103\uff5cBeverages: upserted 12, mod 60
+2025-07-23 10:04:02 - INFO - Store 2477\uff5cMilk: upserted 12, mod 36
+2025-07-23 10:04:06 - INFO - Store 2477\uff5cMilk: upserted 12, mod 24
+2025-07-23 10:04:12 - INFO - Store 2103\uff5cBeverages: upserted 12, mod 120
+2025-07-23 10:04:22 - INFO - Store 2103\uff5cBeverages: upserted 12, mod 72
+2025-07-23 10:04:23 - INFO - Store 2103\uff5cMilk: upserted 11, mod 0
+2025-07-23 10:04:26 - INFO - Store 2477\uff5cMilk: upserted 12, mod 144
+2025-07-23 10:04:28 - INFO - Store 2103\uff5cMilk: upserted 12, mod 24
+2025-07-23 10:04:28 - INFO - Store 2477\uff5cSeasonings: upserted 9, mod 0
+2025-07-23 10:04:33 - INFO - Store 2477\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 10:04:33 - INFO - Store 2477\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 10:04:34 - INFO - Store 2103\uff5cMilk: upserted 12, mod 36
+2025-07-23 10:04:37 - INFO - Store 2103\uff5cMilk: upserted 12, mod 12
+2025-07-23 10:04:40 - INFO - Store 2477\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 10:04:46 - INFO - Store 2103\uff5cMilk: upserted 12, mod 48
+2025-07-23 10:04:46 - INFO - Store 2477\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 10:04:51 - INFO - Store 2477\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 10:04:53 - INFO - Store 2103\uff5cMilk: upserted 12, mod 36
+2025-07-23 10:04:53 - INFO - Store 2477\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 10:04:56 - INFO - Store 2477\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 10:04:59 - INFO - Store 2477\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 10:05:02 - INFO - Store 2477\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 10:05:03 - INFO - Store 2477\uff5cSeasonings: upserted 1, mod 0
+2025-07-23 10:05:11 - INFO - Store 2103\uff5cMilk: upserted 12, mod 156
+2025-07-23 10:05:13 - INFO - Store 2103\uff5cSeasonings: upserted 9, mod 0
+2025-07-23 10:05:15 - INFO - Store 2477\uff5cSeasonings: upserted 12, mod 84
+2025-07-23 10:05:18 - INFO - Store 2103\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 10:05:20 - INFO - Store 2103\uff5cSeasonings: upserted 3, mod 0
+2025-07-23 10:05:20 - INFO - Store 2477\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 10:05:21 - INFO - Store 2477\uff5cSeasonings: upserted 5, mod 0
+2025-07-23 10:05:23 - INFO - Store 2477\uff5cYogurt: upserted 12, mod 12
+2025-07-23 10:05:27 - INFO - Store 2477\uff5cYogurt: upserted 12, mod 12
+2025-07-23 10:05:27 - INFO - Store 2103\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 10:05:32 - INFO - Store 2103\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 10:05:34 - INFO - Store 2477\uff5cYogurt: upserted 12, mod 60
+2025-07-23 10:05:36 - INFO - Store 2103\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 10:05:36 - INFO - Store 2477\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 10:05:37 - INFO - Store 2477\uff5cCereals & Grains: upserted 9, mod 1
+2025-07-23 10:05:38 - INFO - Store 2477\uff5cCold Cuts: Sausages & Ham: upserted 9, mod 0
+2025-07-23 10:05:38 - INFO - Store 2103\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 10:05:39 - INFO - Store 2477\uff5cCold Cuts: Sausages & Ham: upserted 9, mod 0
+2025-07-23 10:05:39 - INFO - Store 2477\uff5cCold Cuts: Sausages & Ham: upserted 5, mod 0
+2025-07-23 10:05:40 - INFO - Store 2477\uff5cCold Cuts: Sausages & Ham: upserted 3, mod 0
+2025-07-23 10:05:41 - INFO - Store 2103\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 10:05:43 - INFO - Store 2477\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:05:43 - INFO - Store 2103\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 10:05:45 - INFO - Store 2477\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:05:46 - INFO - Store 2103\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 10:05:46 - INFO - Store 2103\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 10:05:49 - INFO - Store 2477\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 10:05:50 - INFO - Store 2477\uff5cInstant Foods: upserted 11, mod 0
+2025-07-23 10:05:52 - INFO - Store 2477\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:05:54 - INFO - Store 2477\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:05:54 - INFO - Store 2477\uff5cInstant Foods: upserted 5, mod 0
+2025-07-23 10:06:00 - INFO - Store 2103\uff5cSeasonings: upserted 12, mod 108
+2025-07-23 10:06:00 - INFO - Store 2477\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 10:06:00 - INFO - Store 2477\uff5cInstant Foods: upserted 3, mod 0
+2025-07-23 10:06:01 - INFO - Store 2477\uff5cInstant Foods: upserted 6, mod 3
+2025-07-23 10:06:01 - INFO - Store 2477\uff5cInstant Foods: upserted 2, mod 0
+2025-07-23 10:06:04 - INFO - Store 2477\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 10:06:06 - INFO - Store 2477\uff5cInstant Foods: upserted 10, mod 0
+2025-07-23 10:06:07 - INFO - Store 2103\uff5cSeasonings: upserted 12, mod 48
+2025-07-23 10:06:07 - INFO - Store 2103\uff5cSeasonings: upserted 4, mod 0
+2025-07-23 10:06:11 - INFO - Store 2103\uff5cYogurt: upserted 12, mod 24
+2025-07-23 10:06:12 - INFO - Store 2477\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 10:06:15 - INFO - Store 2477\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:06:17 - INFO - Store 2477\uff5cInstant Foods: upserted 2, mod 1
+2025-07-23 10:06:20 - INFO - Store 2477\uff5cInstant Foods: upserted 6, mod 0
+2025-07-23 10:06:22 - INFO - Store 2477\uff5cInstant Foods: upserted 4, mod 1
+2025-07-23 10:06:23 - INFO - Store 2477\uff5cInstant Foods: upserted 1, mod 0
+2025-07-23 10:06:23 - INFO - Store 2103\uff5cYogurt: upserted 12, mod 36
+2025-07-23 10:06:27 - INFO - Store 2477\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 10:06:27 - INFO - Store 2477\uff5cInstant Foods: upserted 0, mod 1
+2025-07-23 10:06:31 - INFO - Store 2103\uff5cYogurt: upserted 12, mod 72
+2025-07-23 10:06:33 - INFO - Store 2103\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 10:06:35 - INFO - Store 2103\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 10:06:37 - INFO - Store 2103\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 10:06:40 - INFO - Store 2103\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 24
+2025-07-23 10:06:42 - INFO - Store 2103\uff5cCold Cuts: Sausages & Ham: upserted 12, mod 12
+2025-07-23 10:06:42 - INFO - Store 2103\uff5cCold Cuts: Sausages & Ham: upserted 6, mod 0
+2025-07-23 10:06:44 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:06:46 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:06:51 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 10:06:58 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 10:07:01 - INFO - Store 2477\uff5cInstant Foods: upserted 12, mod 312
+2025-07-23 10:07:03 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:07:04 - INFO - Store 2477\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 10:07:05 - INFO - Store 2477\uff5cInstant Foods: upserted 8, mod 0
+2025-07-23 10:07:05 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:07:07 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:07:09 - INFO - Store 2477\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 10:07:11 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 10:07:12 - INFO - Store 2103\uff5cInstant Foods: upserted 9, mod 0
+2025-07-23 10:07:14 - INFO - Store 2477\uff5cGrains & Staples: upserted 12, mod 36
+2025-07-23 10:07:14 - INFO - Store 2103\uff5cInstant Foods: upserted 6, mod 18
+2025-07-23 10:07:15 - INFO - Store 2103\uff5cInstant Foods: upserted 11, mod 0
+2025-07-23 10:07:17 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:07:20 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:07:20 - INFO - Store 2477\uff5cCakes: upserted 12, mod 36
+2025-07-23 10:07:23 - INFO - Store 2477\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:07:23 - INFO - Store 2477\uff5cCakes: upserted 9, mod 0
+2025-07-23 10:07:26 - INFO - Store 2477\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:07:28 - INFO - Store 2477\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:07:29 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 48
+2025-07-23 10:07:31 - INFO - Store 2103\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 10:07:33 - INFO - Store 2103\uff5cInstant Foods: upserted 10, mod 0
+2025-07-23 10:07:34 - INFO - Store 2477\uff5cCakes: upserted 12, mod 36
+2025-07-23 10:07:34 - INFO - Store 2477\uff5cCakes: upserted 2, mod 0
+2025-07-23 10:07:35 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:07:36 - INFO - Store 2477\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:07:37 - INFO - Store 2103\uff5cInstant Foods: upserted 11, mod 13
+2025-07-23 10:07:37 - INFO - Store 2103\uff5cInstant Foods: upserted 1, mod 2
+2025-07-23 10:07:41 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 10:07:42 - INFO - Store 2103\uff5cInstant Foods: upserted 3, mod 7
+2025-07-23 10:07:46 - INFO - Store 2477\uff5cCakes: upserted 12, mod 72
+2025-07-23 10:07:46 - INFO - Store 2477\uff5cCakes: upserted 3, mod 0
+2025-07-23 10:07:48 - INFO - Store 2477\uff5cCandies: upserted 12, mod 12
+2025-07-23 10:07:54 - INFO - Store 2477\uff5cCandies: upserted 12, mod 48
+2025-07-23 10:08:09 - INFO - Store 2477\uff5cCandies: upserted 12, mod 60
+2025-07-23 10:08:13 - INFO - Store 2477\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 10:08:16 - INFO - Store 2477\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 10:08:16 - INFO - Store 2477\uff5cFruit Jam: upserted 7, mod 0
+2025-07-23 10:08:19 - INFO - Store 2477\uff5cSnacks: upserted 12, mod 12
+2025-07-23 10:08:20 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 336
+2025-07-23 10:08:23 - INFO - Store 2113\uff5cFresh Meat: upserted 8, mod 0
+2025-07-23 10:08:23 - INFO - Store 2113\uff5cFresh Meat: upserted 9, mod 0
+2025-07-23 10:08:24 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 24
+2025-07-23 10:08:27 - INFO - Store 2103\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:08:28 - INFO - Store 2113\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 10:08:28 - INFO - Store 2113\uff5cFresh Meat: upserted 3, mod 0
+2025-07-23 10:08:31 - INFO - Store 2103\uff5cGrains & Staples: upserted 12, mod 24
+2025-07-23 10:08:32 - INFO - Store 2113\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 10:08:36 - INFO - Store 2113\uff5cSeafood & Fish Balls: upserted 12, mod 24
+2025-07-23 10:08:38 - INFO - Store 2103\uff5cGrains & Staples: upserted 12, mod 48
+2025-07-23 10:08:40 - INFO - Store 2113\uff5cFresh Fruits: upserted 12, mod 36
+2025-07-23 10:08:41 - INFO - Store 2113\uff5cVegetables: upserted 7, mod 0
+2025-07-23 10:08:43 - INFO - Store 2103\uff5cCakes: upserted 12, mod 36
+2025-07-23 10:08:45 - INFO - Store 2113\uff5cVegetables: upserted 12, mod 24
+2025-07-23 10:08:46 - INFO - Store 2103\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:08:46 - INFO - Store 2113\uff5cVegetables: upserted 11, mod 0
+2025-07-23 10:08:46 - INFO - Store 2103\uff5cCakes: upserted 12, mod 0
+2025-07-23 10:08:50 - INFO - Store 2113\uff5cVegetables: upserted 12, mod 36
+2025-07-23 10:08:51 - INFO - Store 2103\uff5cCakes: upserted 12, mod 24
+2025-07-23 10:08:54 - INFO - Store 2103\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:08:59 - INFO - Store 2103\uff5cCakes: upserted 12, mod 36
+2025-07-23 10:08:59 - INFO - Store 2103\uff5cCakes: upserted 1, mod 0
+2025-07-23 10:09:02 - INFO - Store 2103\uff5cCakes: upserted 12, mod 12
+2025-07-23 10:09:04 - INFO - Store 2113\uff5cAlcoholic Beverages: upserted 12, mod 120
+2025-07-23 10:09:08 - INFO - Store 2113\uff5cAlcoholic Beverages: upserted 12, mod 24
+2025-07-23 10:09:13 - INFO - Store 2113\uff5cBeverages: upserted 12, mod 24
+2025-07-23 10:09:13 - INFO - Store 2103\uff5cCakes: upserted 12, mod 84
+2025-07-23 10:09:15 - INFO - Store 2103\uff5cCakes: upserted 7, mod 0
+2025-07-23 10:09:15 - INFO - Store 2113\uff5cBeverages: upserted 11, mod 0
+2025-07-23 10:09:16 - INFO - Store 2113\uff5cBeverages: upserted 9, mod 0
+2025-07-23 10:09:17 - INFO - Store 2103\uff5cCandies: upserted 12, mod 12
+2025-07-23 10:09:21 - INFO - Store 2113\uff5cBeverages: upserted 12, mod 36
+2025-07-23 10:09:23 - INFO - Store 2103\uff5cCandies: upserted 12, mod 48
+2025-07-23 10:09:30 - INFO - Store 2103\uff5cCandies: upserted 12, mod 60
+2025-07-23 10:09:33 - INFO - Store 2113\uff5cBeverages: upserted 12, mod 84
+2025-07-23 10:09:34 - INFO - Store 2103\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 10:09:37 - INFO - Store 2103\uff5cDried Fruits: upserted 12, mod 24
+2025-07-23 10:09:38 - INFO - Store 2103\uff5cFruit Jam: upserted 8, mod 0
+2025-07-23 10:09:40 - INFO - Store 2103\uff5cSnacks: upserted 12, mod 12
+2025-07-23 10:09:40 - INFO - Store 2714\uff5cFresh Meat: upserted 6, mod 0
+2025-07-23 10:09:41 - INFO - Store 2714\uff5cFresh Meat: upserted 8, mod 0
+2025-07-23 10:09:43 - INFO - Store 2714\uff5cFresh Meat: upserted 12, mod 12
+2025-07-23 10:09:44 - INFO - Store 2714\uff5cFresh Meat: upserted 5, mod 0
+2025-07-23 10:09:48 - INFO - Store 2714\uff5cFresh Meat: upserted 12, mod 24
+2025-07-23 10:09:49 - INFO - Store 2113\uff5cBeverages: upserted 12, mod 120
+2025-07-23 10:09:52 - INFO - Store 2714\uff5cSeafood & Fish Balls: upserted 12, mod 36
+2025-07-23 10:09:54 - INFO - Store 2113\uff5cBeverages: upserted 12, mod 24
+2025-07-23 10:09:55 - INFO - Store 2714\uff5cFresh Fruits: upserted 12, mod 24
+2025-07-23 10:09:57 - INFO - Store 2714\uff5cVegetables: upserted 12, mod 12
+2025-07-23 10:10:02 - INFO - Store 2714\uff5cVegetables: upserted 12, mod 24
+2025-07-23 10:10:02 - INFO - Store 2113\uff5cBeverages: upserted 12, mod 60
+2025-07-23 10:10:04 - INFO - Store 2714\uff5cVegetables: upserted 12, mod 12
+2025-07-23 10:10:09 - INFO - Store 2714\uff5cVegetables: upserted 12, mod 36
+2025-07-23 10:10:16 - INFO - Store 2113\uff5cBeverages: upserted 12, mod 120
+2025-07-23 10:10:20 - INFO - Store 2714\uff5cAlcoholic Beverages: upserted 12, mod 108
+2025-07-23 10:10:26 - INFO - Store 2714\uff5cAlcoholic Beverages: upserted 12, mod 36
+2025-07-23 10:10:26 - INFO - Store 2113\uff5cBeverages: upserted 12, mod 60
+2025-07-23 10:10:27 - INFO - Store 2113\uff5cMilk: upserted 1, mod 0
+2025-07-23 10:10:31 - INFO - Store 2113\uff5cMilk: upserted 12, mod 24
+2025-07-23 10:10:32 - INFO - Store 2714\uff5cBeverages: upserted 12, mod 36
+2025-07-23 10:10:33 - INFO - Store 2714\uff5cBeverages: upserted 9, mod 0
+2025-07-23 10:10:34 - INFO - Store 2714\uff5cBeverages: upserted 10, mod 0
+2025-07-23 10:10:35 - INFO - Store 2113\uff5cMilk: upserted 12, mod 24
+2025-07-23 10:10:41 - INFO - Store 2113\uff5cMilk: upserted 12, mod 12
+2025-07-23 10:10:41 - INFO - Store 2714\uff5cBeverages: upserted 12, mod 48
+2025-07-23 10:10:46 - INFO - Store 2113\uff5cMilk: upserted 12, mod 36
+2025-07-23 10:10:50 - INFO - Store 2113\uff5cMilk: upserted 12, mod 24
+2025-07-23 10:10:53 - INFO - Store 2714\uff5cBeverages: upserted 12, mod 96
+2025-07-23 10:11:06 - INFO - Store 2113\uff5cMilk: upserted 12, mod 144
+2025-07-23 10:11:09 - INFO - Store 2113\uff5cSeasonings: upserted 9, mod 0
+2025-07-23 10:11:11 - INFO - Store 2714\uff5cBeverages: upserted 12, mod 120
+2025-07-23 10:11:14 - INFO - Store 2113\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 10:11:14 - INFO - Store 2113\uff5cSeasonings: upserted 2, mod 0
+2025-07-23 10:11:16 - INFO - Store 2714\uff5cBeverages: upserted 12, mod 36
+2025-07-23 10:11:20 - INFO - Store 2113\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 10:11:25 - INFO - Store 2113\uff5cSeasonings: upserted 12, mod 24
+2025-07-23 10:11:25 - INFO - Store 2714\uff5cBeverages: upserted 12, mod 60
+2025-07-23 10:11:27 - INFO - Store 2113\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 10:11:30 - INFO - Store 2113\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 10:11:31 - INFO - Store 2113\uff5cSeasonings: upserted 11, mod 0
+2025-07-23 10:11:33 - INFO - Store 2113\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 10:11:35 - INFO - Store 2113\uff5cSeasonings: upserted 12, mod 12
+2025-07-23 10:11:36 - INFO - Store 2113\uff5cSeasonings: upserted 1, mod 0
+2025-07-23 10:11:42 - INFO - Store 2714\uff5cBeverages: upserted 12, mod 132
+2025-07-23 10:11:46 - INFO - Store 2113\uff5cSeasonings: upserted 12, mod 84
+2025-07-23 10:11:50 - INFO - Store 2714\uff5cBeverages: upserted 12, mod 72
+2025-07-23 10:11:51 - INFO - Store 2714\uff5cMilk: upserted 8, mod 0
+2025-07-23 10:11:52 - INFO - Store 2113\uff5cSeasonings: upserted 12, mod 36
+2025-07-23 10:11:52 - INFO - Store 2113\uff5cSeasonings: upserted 4, mod 0
+2025-07-23 10:11:53 - INFO - Store 2113\uff5cYogurt: upserted 12, mod 0
+2025-07-23 10:11:56 - INFO - Store 2113\uff5cYogurt: upserted 9, mod 0
+2025-07-23 10:11:58 - INFO - Store 2714\uff5cMilk: upserted 12, mod 24
+2025-07-23 10:12:02 - INFO - Store 2113\uff5cYogurt: upserted 12, mod 48
+2025-07-23 10:12:04 - INFO - Store 2714\uff5cMilk: upserted 12, mod 36
+2025-07-23 10:12:04 - INFO - Store 2113\uff5cCereals & Grains: upserted 12, mod 12
+2025-07-23 10:12:05 - INFO - Store 2113\uff5cCereals & Grains: upserted 5, mod 1
+2025-07-23 10:12:06 - INFO - Store 2113\uff5cCold Cuts: Sausages & Ham: upserted 8, mod 0
+2025-07-23 10:12:06 - INFO - Store 2714\uff5cMilk: upserted 12, mod 12
+2025-07-23 10:12:07 - INFO - Store 2113\uff5cCold Cuts: Sausages & Ham: upserted 7, mod 0
+2025-07-23 10:12:07 - INFO - Store 2113\uff5cCold Cuts: Sausages & Ham: upserted 7, mod 0
+2025-07-23 10:12:08 - INFO - Store 2113\uff5cCold Cuts: Sausages & Ham: upserted 4, mod 0
+2025-07-23 10:12:10 - INFO - Store 2113\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:12:13 - INFO - Store 2113\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:12:13 - INFO - Store 2714\uff5cMilk: upserted 12, mod 48
+2025-07-23 10:12:17 - INFO - Store 2714\uff5cMilk: upserted 12, mod 24
+2025-07-23 10:12:18 - INFO - Store 2113\uff5cInstant Foods: upserted 12, mod 36
+2025-07-23 10:12:18 - INFO - Store 2113\uff5cInstant Foods: upserted 11, mod 0
+2025-07-23 10:12:20 - INFO - Store 2113\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:12:22 - INFO - Store 2113\uff5cInstant Foods: upserted 12, mod 12
+2025-07-23 10:12:22 - INFO - Store 2113\uff5cInstant Foods: upserted 5, mod 0
