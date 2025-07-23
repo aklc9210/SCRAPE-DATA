@@ -50,7 +50,7 @@ class WinMartFetcher:
         # Build category groups
         category_groups = {}
         for rec in records:
-            coll = rec.get("category", "general").replace(" ", "_").lower()
+            coll = rec.get("category").replace(" ", "_").lower()
             category_groups.setdefault(coll, []).append(rec)
 
         # Bulk upsert per collection
@@ -82,7 +82,7 @@ class WinMartFetcher:
 
     async def run(self):
         await self.init()
-        self.branches = self.branches[104:105]
+        self.branches = self.branches[106:107]
 
         tasks = [self.sem_wrap(self.crawl_store, store) for store in self.branches]
 

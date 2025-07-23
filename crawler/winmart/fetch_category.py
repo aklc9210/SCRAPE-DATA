@@ -1,5 +1,3 @@
-# fetch_category.py
-
 import requests
 import aiohttp
 from typing import List, Dict

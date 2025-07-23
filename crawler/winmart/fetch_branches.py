@@ -1,5 +1,3 @@
-# fetch_branches.py
-
 import aiohttp
 from typing import List, Dict
 from crawler.winmart.config import API_BASE_V1, HEADERS
