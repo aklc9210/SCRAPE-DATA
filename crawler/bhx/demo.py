@@ -1,17 +1,29 @@
 import asyncio
 import time
 import aiohttp
+import sys
+import logging
 from crawler.bhx.token_interceptor import BHXTokenInterceptor, get_headers
 from crawler.bhx.fetch_store_by_province import fetch_stores_async
 from crawler.bhx.fetch_full_location import fetch_full_location_data
 from crawler.bhx.fetch_menus_for_store import fetch_menus_for_store
 from db.db_async import get_db
+
 from crawler.bhx.process_data import (
     CATEGORIES_MAPPING, 
     process_product_data,
 )
 from tqdm import tqdm
 from asyncio import Semaphore
+
+# Cấu hình logger
+logging.basicConfig(
+    filename='bhx_crawl.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+logger = logging.getLogger(__name__)
 
 
 class BHXDataFetcher:
@@ -24,9 +36,6 @@ class BHXDataFetcher:
 
         # semaphore để giới hạn số store chạy song song
         self.sem = Semaphore(concurrency)
-        
-        # Upsert chains to database
-        # self._init_chains()
     
     async def init(self):
         ti = BHXTokenInterceptor()
@@ -88,13 +97,13 @@ class BHXDataFetcher:
                     async with self.session.get(api, headers=h, timeout=aiohttp.ClientTimeout(total=15)) as resp:
                         js = await resp.json()
                 except asyncio.TimeoutError:
-                    print(f"⏱️ Timeout at page {page} for store {store_id}")
+                    logger.warning(f"Timeout at page {page} for store {store_id}")
                     break
                 except aiohttp.ClientError as e:
-                    print(f"🌐 Network error for store {store_id}: {e}")
+                    logger.error(f"Network error for store {store_id}: {e}")
                     break
                 except Exception as e:
-                    print(f"💥 Unexpected error while fetching store {store_id}: {e}")
+                    logger.error(f"Unexpected error while fetching store {store_id}: {e}")
                     break
 
                 batch = js["data"].get("products", [])
@@ -115,19 +124,18 @@ class BHXDataFetcher:
         if ops:
             coll = self.db[cat["name"].replace(" ","_").lower()]
             result = await coll.bulk_write(ops, ordered=False)
-            print(f"Store {store_id}｜{cat['name']}: upserted {result.upserted_count}, "
-                  f"mod {result.modified_count}")
+            logger.info(f"Store {store_id}｜{cat['name']}: upserted {result.upserted_count}, mod {result.modified_count}")
 
     async def sem_wrap(self, coro):
         async with self.sem:
             try:
                 return await coro
             except asyncio.TimeoutError:
-                print("❌ TimeoutError while executing a task")
+                logger.warning("TimeoutError while executing a task")
             except aiohttp.ClientError as e:
-                print(f"❌ Network error: {e}")
+                logger.error(f"Network error: {e}")
             except Exception as e:
-                print(f"❌ Unexpected error: {e}")
+                logger.error(f"Unexpected error: {e}")
         
 
 async def main():
@@ -144,12 +152,14 @@ async def main():
         full = await fetch_full_location_data(fetcher.token, fetcher.deviceid)
         provinces = [p for p in full.get("provinces",[]) if p["name"].strip() == "TP. Hồ Chí Minh"]
         if not provinces:
-            print("No provinces"); return
+            logger.error("No provinces found for TP. Hồ Chí Minh")
+            return
+        
         stores = await fetch_stores_async(provinces[0]["id"],
                                         fetcher.token, fetcher.deviceid)
         
         # test thử 1 store
-        stores = stores[450:500]
+        stores = stores[50:100]
 
         # 3. Crawl product
         start = time.time()
@@ -157,9 +167,12 @@ async def main():
                             for s in stores])
 
         end = time.time()
-        print(f"Total time: {(end - start):.2f} minutes")
+        logger.info(f"✅ Total time: {(end - start):.2f} minutes")
     finally:
         await fetcher.close()
 
 def run_sync():
+    if sys.platform.startswith("win"):
+        asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+
     asyncio.run(main())
