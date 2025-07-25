@@ -138,8 +138,8 @@ class BHXDataFetcher:
                 logger.error(f"Unexpected error: {e}")
         
 
-async def main():
-    fetcher = BHXDataFetcher(concurrency=1)
+async def main(concurrency: int = 4):
+    fetcher = BHXDataFetcher(concurrency=concurrency)
     await fetcher.init()
     start = None
     end = None
@@ -159,7 +159,7 @@ async def main():
                                         fetcher.token, fetcher.deviceid)
         
         # test thử 1 store
-        stores = stores[490:500]
+        stores = stores[77:100]
 
         # 3. Crawl product
         start = time.time()
@@ -173,8 +173,8 @@ async def main():
     finally:
         await fetcher.close()
 
-def run_sync():
+def run_sync(concurrency: int = 4):
     if sys.platform.startswith("win"):
         asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
-    asyncio.run(main())
+    asyncio.run(main(concurrency))

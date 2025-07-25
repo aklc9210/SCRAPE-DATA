@@ -102,13 +102,13 @@ class WinMartFetcher:
         elapsed = time.time() - start_time
         logger.info(f"✅ Total time: {elapsed:.2f} seconds")
 
-async def main():
-    fetcher = WinMartFetcher(concurrency=3)
+async def main(concurrency: int = 3):
+    fetcher = WinMartFetcher(concurrency)
     await fetcher.init()
     await fetcher.run()
 
-def run_sync():
+def run_sync(concurrency: int = 3):
     if sys.platform.startswith("win"):
         asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
-    asyncio.run(main())
+    asyncio.run(main(concurrency))
