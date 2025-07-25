@@ -14,5 +14,5 @@ def get_db():
     if _client is None:
         _client = AsyncIOMotorClient(uri)
         print("Connected to MongoDB successfully.")
-    return _client.marketdation
+    return _client.test
 
