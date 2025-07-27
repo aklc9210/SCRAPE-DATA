@@ -57,7 +57,7 @@ class WinMartFetcher:
         # Build category groups
         category_groups = {}
         for rec in records:
-            coll = rec.get("category", "general").replace(" ", "_").lower()
+            coll = rec.get("category").replace(" ", "_").lower()
             category_groups.setdefault(coll, []).append(rec)
 
         # Bulk upsert per collection

@@ -38,4 +38,5 @@ coverage.xml
 # Environment variables file
 .env
 env
+bhx_crawl.log
 

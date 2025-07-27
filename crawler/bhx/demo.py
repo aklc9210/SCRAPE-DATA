@@ -48,8 +48,7 @@ class BHXDataFetcher:
         await self.session.close()
 
     async def fetch_categories(self, province, ward, store):
-        raw = await fetch_menus_for_store(province, ward, store,
-                                          self.token, self.deviceid)
+        raw = await fetch_menus_for_store(province, ward, store,self.token, self.deviceid)
         cats = []
         for m in raw:
             for c in m.get("childrens", []):
@@ -162,7 +161,7 @@ async def main(concurrency: int = 4):
         # test thử 1 store
         stores = stores[77:100]
 
-        # 3. Crawl productá
+        # 3. Crawl product
         start = time.time()
         await asyncio.gather(
             *[ fetcher.crawl_store(s, categories, prov)
