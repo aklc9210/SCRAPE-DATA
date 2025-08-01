@@ -8,6 +8,7 @@ from crawler.bhx.fetch_store_by_province import fetch_stores_async
 from crawler.bhx.fetch_full_location import fetch_full_location_data
 from crawler.bhx.fetch_menus_for_store import fetch_menus_for_store
 from db.db_async import get_db
+import json
 
 from crawler.bhx.process_data import process_product_data
 from crawler.process_data.process import CATEGORIES_MAPPING_BHX
@@ -121,6 +122,7 @@ class BHXDataFetcher:
 
         # build and write ops
         ops = await process_product_data(allp, cat["name"], store_id, self.db)
+
         if ops:
             coll = self.db[cat["name"].replace(" ","_").lower()]
             result = await coll.bulk_write(ops, ordered=False)
@@ -138,8 +140,8 @@ class BHXDataFetcher:
                 logger.error(f"Unexpected error: {e}")
         
 
-async def main(concurrency: int = 4):
-    fetcher = BHXDataFetcher(concurrency=concurrency)
+async def main(concurrency):
+    fetcher = BHXDataFetcher(concurrency)
     await fetcher.init()
     start = None
     end = None
@@ -159,7 +161,7 @@ async def main(concurrency: int = 4):
                                         fetcher.token, fetcher.deviceid)
         
         # test thử 1 store
-        stores = stores[77:100]
+        # stores = stores[:]
 
         # 3. Crawl product
         start = time.time()
@@ -173,7 +175,7 @@ async def main(concurrency: int = 4):
     finally:
         await fetcher.close()
 
-def run_sync(concurrency: int = 4):
+def run_sync(concurrency):
     if sys.platform.startswith("win"):
         asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 

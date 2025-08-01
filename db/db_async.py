@@ -13,6 +13,6 @@ def get_db():
     global _client
     if _client is None:
         _client = AsyncIOMotorClient(uri)
-        print("Connected to MongoDB successfully.")
-    return _client.test
+        print(f"Connected to MongoDB successfully. URI: {uri}")
+    return _client.markendation
 
