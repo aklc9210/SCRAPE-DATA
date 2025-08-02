@@ -138,6 +138,7 @@ class BHXDataFetcher:
                 logger.error(f"Network error: {e}")
             except Exception as e:
                 logger.error(f"Unexpected error: {e}")
+                print(e)
         
 
 async def main(concurrency):
@@ -161,7 +162,7 @@ async def main(concurrency):
                                         fetcher.token, fetcher.deviceid)
         
         # test thử 1 store
-        # stores = stores[:]
+        stores = stores[0:1]
 
         # 3. Crawl product
         start = time.time()
