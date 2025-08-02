@@ -3,6 +3,7 @@ import logging
 from datetime import datetime
 from celery import Celery
 from celery.schedules import crontab
+from pymongo import UpdateOne
 
 # Import các fetcher
 from crawler.bhx.demo import run_sync as crawl_bhx_all, BHXDataFetcher
