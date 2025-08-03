@@ -38,8 +38,9 @@ coverage.xml
 # Environment variables file
 .env
 env
-*.log
+bhx_crawl.log
+winmart_crawl.log
 
 .pytest_cache/
 
-winmart_crawl.log
+backup
