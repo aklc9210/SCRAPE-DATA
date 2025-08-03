@@ -144,3 +144,4 @@
 2025-07-23 11:51:41 - INFO - [cold_cuts:_sausages_&_ham] upserted: 1
 2025-07-23 11:51:45 - INFO - [seasonings] upserted: 0
 2025-07-23 11:51:45 - INFO - \u2705 Total time: 236.33 seconds
+2025-08-02 20:36:31 - ERROR - TimeoutError: {'code': '1545', 'name': 'WM VCC HCM \u0110\u1ed3ng Kh\u1edfi', 'address': 'Vincom Center \u0110\u1ed3ng Kh\u1edfi, 72, Lê Thánh Tôn, Qu\u1eadn 1, TP. H\u1ed3 Chí Minh Vi\u1ec7t Nam', 'provinceCode': 'HCM'}

@@ -39,6 +39,8 @@ coverage.xml
 .env
 env
 bhx_crawl.log
+winmart_crawl.log
 
 .pytest_cache/
 
+backup
