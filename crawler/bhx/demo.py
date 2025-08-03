@@ -162,7 +162,7 @@ async def main(concurrency):
                                         fetcher.token, fetcher.deviceid)
         
         # test thử 1 store
-        stores = stores[0:1]
+        stores = stores[300:]
 
         # 3. Crawl product
         start = time.time()

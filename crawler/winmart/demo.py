@@ -4,7 +4,7 @@ import time
 import logging
 import json
 from pymongo import UpdateOne
-from tqdm.asyncio import tqdm
+from tqdm import tqdm
 from crawler.winmart.fetch_branches import fetch_branches
 from crawler.winmart.fetch_category import fetch_categories
 from crawler.winmart.fetch_product import fetch_products_by_store
@@ -44,6 +44,8 @@ class WinMartFetcher:
 
     async def crawl_store(self, store: dict):
         sid = store.get("code")
+
+        print(f"→ Crawling store {store['code']} …")
 
         # Fetch raw products for this store
         raws = await fetch_products_by_store(sid, self.categories)
@@ -86,10 +88,12 @@ class WinMartFetcher:
     async def run(self):
         await self.init()
 
+        print(f"→ Got {len(self.branches)} branches, {len(self.categories)} categories")
+
         start_time = time.time()
 
         # test 1 store
-        self.branches = self.branches[6:9]
+        # self.branches = self.branches[6:9]
 
         tasks = [self.sem_wrap(self.crawl_store, store) for store in self.branches]
 
@@ -104,7 +108,7 @@ class WinMartFetcher:
 
 async def main(concurrency):
     fetcher = WinMartFetcher(concurrency)
-    await fetcher.init()
+    # await fetcher.init()
     await fetcher.run()
 
 def run_sync(concurrency):
