@@ -39,8 +39,11 @@ coverage.xml
 .env
 env
 bhx_crawl.log
-winmart_crawl.log
+*.log
 
 .pytest_cache/
 
 backup
+temp
+
+celerybeat-schedule.*
