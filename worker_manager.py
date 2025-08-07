@@ -40,7 +40,7 @@ class CeleryWorkerManager:
     def status(self):
         """Check worker status"""
         alive = sum(1 for p in self.processes if p.poll() is None)
-        print(f"📊 Status: {alive}/{self.num_workers} workers running")
+        # print(f"📊 Status: {alive}/{self.num_workers} workers running")
         return alive
         
     def monitor(self):
@@ -55,7 +55,7 @@ class CeleryWorkerManager:
             self.stop_workers()
 
 if __name__ == "__main__":
-    manager = CeleryWorkerManager(num_workers=3)
+    manager = CeleryWorkerManager(num_workers=2)
     
     try:
         manager.start_workers()

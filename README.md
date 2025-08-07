@@ -43,6 +43,12 @@ python worker_manager.py
 python crawling_service.py
 ```
 
+**Mở terminal 2 chạy Celery beat:**
+
+```bash
+celery -A crawling_tasks beat --loglevel=info
+```
+
 ## Kiến trúc
 
 - **Main Service**: Nhận requests từ API
