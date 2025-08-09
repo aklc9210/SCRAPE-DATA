@@ -188,7 +188,7 @@ def check_and_execute_schedules(self):
                 last_run_key = f"last_run_{schedule_id}"
                 current_minute = current_time.strftime("%Y%m%d%H%M")
                 
-                last_run = db.schedule_states.find_one({'_id': last_run_key})
+                last_run = db.schedule_configs.find_one({'_id': last_run_key})
                 if last_run and last_run.get('last_minute') == current_minute:
                     continue
                 
@@ -198,7 +198,7 @@ def check_and_execute_schedules(self):
                 executed_count += 1
                 
                 # Update state
-                db.schedule_states.update_one(
+                db.schedule_configs.update_one(
                     {'_id': last_run_key},
                     {'$set': {'last_minute': current_minute, 'last_run': current_time}},
                     upsert=True
